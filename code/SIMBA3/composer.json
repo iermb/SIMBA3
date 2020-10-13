@@ -27,12 +27,12 @@
     },
     "autoload": {
         "psr-4": {
-            "App\\": "src/"
+            "SIMBA3\\": "src/"
         }
     },
     "autoload-dev": {
         "psr-4": {
-            "App\\Tests\\": "tests/"
+            "SIMBA3\\Tests\\": "tests/"
         }
     },
     "replace": {

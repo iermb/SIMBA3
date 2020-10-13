@@ -1,0 +1,22 @@
+<doctrine-mapping xmlns="http://doctrine-project.org/schemas/orm/doctrine-mapping"
+                  xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+                  xsi:schemaLocation="http://doctrine-project.org/schemas/orm/doctrine-mapping
+                          https://www.doctrine-project.org/schemas/orm/doctrine-mapping.xsd">
+
+    <entity name="SIMBA3\Component\Domain\Indicator\Entity\Indicator" table="indicator">
+        <id name="id" type="integer" column="id"></id>
+
+        <field name="name" column="name" type="string" length="100" nullable="false" unique="true" />
+        <field name="description" column="description" type="string" length="5000" nullable="true" />
+        <field name="units" column="units" type="string" length="100" nullable="true" />
+        <field name="note" column="note" type="string" length="100" nullable="true" />
+        <field name="font" column="font" type="string" length="100" nullable="true" />
+        <field name="methodology" column="methodology" type="string" length="5000" nullable="true" />
+        <field name="decimals" column="decimals" type="integer" />
+        <field name="typeIndicator" column="type_indicator" type="integer" />
+
+    </entity>
+
+
+
+</doctrine-mapping>
