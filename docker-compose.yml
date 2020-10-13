@@ -23,7 +23,7 @@ services:
         restart: 'no'
         image: composer:latest
         volumes: 
-            - ./code:/app
+            - ./code/SIMBA3:/app
         command:
             - "update"
             - "install"
