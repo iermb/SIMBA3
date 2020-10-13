@@ -29,4 +29,4 @@ RUN apt-get update -q \
       zip \
       sockets
 
-WORKDIR /code/AppAdminSIMBA
+WORKDIR /code/SIMBA3
