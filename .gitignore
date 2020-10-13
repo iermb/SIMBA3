@@ -1,0 +1,4 @@
+#environment values
+infrastructure/environments/
+.idea/
+data/

@@ -1,0 +1,45 @@
+version: '3'
+services: 
+    web:
+        image: nginx:latest
+        ports:
+            - "8080:80"
+        env_file:
+            ./infrastructure/environments/development.env
+        volumes:
+            - ./code:/code
+            - ./infrastructure/site.conf:/etc/nginx/conf.d/default.conf
+        links:
+            - php
+    php:
+        build:
+            context: "./infrastructure/docker"
+            dockerfile: "Dockerfile_php-fpm"
+        env_file:
+            ./infrastructure/environments/development.env
+        volumes:
+            - ./code:/code
+    composer:
+        restart: 'no'
+        image: composer:latest
+        volumes: 
+            - ./code:/app
+        command:
+            - "update"
+            - "install"
+
+    db:
+        image: postgres:latest
+        restart: always
+        env_file:
+            ./infrastructure/environments/development.env
+        ports:
+            - 5432:5432
+        volumes:
+            - ./data:/var/lib/postgresql/data
+
+    adminer:
+        image: adminer:latest
+        restart: always
+        ports:
+            - 8081:8080
