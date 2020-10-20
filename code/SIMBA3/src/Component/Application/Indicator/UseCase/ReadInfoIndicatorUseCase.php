@@ -1,0 +1,24 @@
+<?php
+
+
+namespace SIMBA3\Component\Application\Indicator\UseCase;
+
+
+use SIMBA3\Component\Application\Indicator\Request\ReadInfoIndicatorRequest;
+use SIMBA3\Component\Application\Indicator\Response\ReadInfoIndicatorResponse;
+use SIMBA3\Component\Domain\Indicator\Repository\IndicatorRepository;
+
+class ReadInfoIndicatorUseCase
+{
+    private IndicatorRepository $indicatorRepository;
+
+    public function __construct(IndicatorRepository $indicatorRepository)
+    {
+        $this->indicatorRepository = $indicatorRepository;
+    }
+
+    public function execute(ReadInfoIndicatorRequest $request): ReadInfoIndicatorResponse
+    {
+        return new ReadInfoIndicatorResponse($this->indicatorRepository->getIndicator($request->getIdIndicator()));
+    }
+}
