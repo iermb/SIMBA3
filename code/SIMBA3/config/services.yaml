@@ -24,3 +24,24 @@ services:
 
     # add more service definitions when explicit configuration is needed
     # please note that last definitions always *replace* previous ones
+
+    SIMBA3\Api\Controller\Indicator\ReadIndicatorController:
+        tags: [controller.service_arguments]
+        arguments:
+            - "@simba3.useCase.readInfoIndicator"
+
+    simba3.useCase.readInfoIndicator:
+        class: SIMBA3\Component\Application\Indicator\UseCase\ReadInfoIndicatorUseCase
+        arguments:
+            - "@simba3.repository.doctrine.indicator"
+
+    simba3.repository.doctrine.indicator:
+        class: SIMBA3\Api\Persistence\Repository\DoctrineIndicatorrepository
+        arguments:
+            - "@doctrine.orm.entity_manager"
+            - "@simba3.repository.metadata.indicator"
+
+    simba3.repository.metadata.indicator:
+        class: Doctrine\ORM\Mapping\ClassMetadata
+        arguments:
+            - SIMBA3\Component\Domain\Indicator\Entity\Indicator

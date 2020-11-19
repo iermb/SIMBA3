@@ -28,7 +28,7 @@ class Indicator
 
     public function getDescription(): string
     {
-        return $this->getDescription;
+        return $this->description;
     }
 
     public function getUnits(): string
@@ -48,6 +48,9 @@ class Indicator
 
     public function getMethodology(): string
     {
+        if (!isset($this->methodology)) {
+            return "";
+        }
         return $this->methodology;
     }
 }
