@@ -16,6 +16,26 @@ class Indicator
     private int $decimals;
     private int $typeIndicator;
 
+    public function __construct(
+        string $name,
+        string $description,
+        string $units,
+        string $note,
+        string $font,
+        string $methodology,
+        int $decimals,
+        int $typeIndicator
+    ) {
+        $this->name = $name;
+        $this->description = $description;
+        $this->units = $units;
+        $this->note = $note;
+        $this->font = $font;
+        $this->methodology = $methodology;
+        $this->decimals = $decimals;
+        $this->typeIndicator = $typeIndicator;
+    }
+
     public function getId(): int
     {
         return $this->id;
