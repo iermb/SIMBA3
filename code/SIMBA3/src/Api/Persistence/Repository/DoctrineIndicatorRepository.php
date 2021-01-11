@@ -12,8 +12,8 @@ class DoctrineIndicatorRepository extends EntityRepository implements IndicatorR
 {
     private const ID_FIELD = "id";
 
-    public function getIndicator(int $idIndicator): Indicator
+    public function getIndicator(int $indicatorId): ?Indicator
     {
-        return $this->findOneBy([self::ID_FIELD => $idIndicator]);
+        return $this->findOneBy([self::ID_FIELD => $indicatorId]);
     }
 }

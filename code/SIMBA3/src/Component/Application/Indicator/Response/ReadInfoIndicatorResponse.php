@@ -30,7 +30,7 @@ class ReadInfoIndicatorResponse
             self::NAME_FIELD => $this->indicator->getName(),
             self::DESCRIPTION_FIELD => $this->indicator->getDescription(),
             self::UNITS_FIELD => $this->indicator->getUnits(),
-            self::NOTE_FIELD => $this->indicator->getFont(),
+            self::NOTE_FIELD => $this->indicator->getNote(),
             self::FONT_FIELD => $this->indicator->getFont(),
             self::METHODOLOGY_FIELD => $this->indicator->getMethodology()
         ];

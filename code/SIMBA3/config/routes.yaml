@@ -3,8 +3,8 @@
 #    controller: App\Controller\DefaultController::index
 
 api_read_indicator:
-  path: /indicator/{idIndicator}/
+  path: /indicator/{indicatorId}/
   controller: SIMBA3\Api\Controller\Indicator\ReadIndicatorController::execute
   methods: GET
   requirements:
-    idIndicator: '\d+'
+    indicatorId: '\d+'

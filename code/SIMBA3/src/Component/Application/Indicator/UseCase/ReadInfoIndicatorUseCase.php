@@ -19,6 +19,10 @@ class ReadInfoIndicatorUseCase
 
     public function execute(ReadInfoIndicatorRequest $request): ReadInfoIndicatorResponse
     {
-        return new ReadInfoIndicatorResponse($this->indicatorRepository->getIndicator($request->getIdIndicator()));
+        $indicator = $this->indicatorRepository->getIndicator($request->getIndicatorId());
+        if (!$indicator) {
+            throw new \InvalidArgumentException("Indicator not exists");
+        }
+        return new ReadInfoIndicatorResponse($indicator);
     }
 }

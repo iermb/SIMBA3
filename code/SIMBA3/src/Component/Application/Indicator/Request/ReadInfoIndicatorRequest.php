@@ -6,15 +6,15 @@ namespace SIMBA3\Component\Application\Indicator\Request;
 
 class ReadInfoIndicatorRequest
 {
-    private int $idIndicator;
+    private int $indicatorId;
 
-    public function __construct(int $idIndicator)
+    public function __construct(int $indicatorId)
     {
-        $this->idIndicator = $idIndicator;
+        $this->indicatorId = $indicatorId;
     }
 
-    public function getIdIndicator(): int
+    public function getIndicatorId(): int
     {
-        return $this->idIndicator;
+        return $this->indicatorId;
     }
 }
