@@ -46,6 +46,7 @@ class ReadInfoIndicatorResponseTest extends TestCase
         $this->typeIndicator->method("getHasYear")->willReturn(false);
         $this->typeIndicator->method("getHasMonth")->willReturn(false);
         $this->typeIndicator->method("getNumIndependentVars")->willReturn(3);
+        $this->typeIndicator->method("getObjectType")->willReturn("AREA_YEAR_VALUE");
     }
 
     public function thenReadInfoIndicatorResponseReturnIndicatorAsArray(): void
@@ -62,7 +63,8 @@ class ReadInfoIndicatorResponseTest extends TestCase
                 "hasArea" => true,
                 "hasYear" => false,
                 "hasMonth" => false,
-                "numIndependentVars" => 3
+                "numIndependentVars" => 3,
+                "objectType" => "AREA_YEAR_VALUE"
             ],
             $this->readInfoIndicatorResponse->getIndicatorAsArray()
         );

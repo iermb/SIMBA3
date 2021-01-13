@@ -10,6 +10,7 @@
         <field name="hasYear" column="has_year" type="boolean" nullable="false" />
         <field name="hasMonth" column="has_month" type="boolean" nullable="false" />
         <field name="numIndependentVars" column="num_independent_vars" type="integer" nullable="false" />
+        <field name="objectType" column="object_type" type="string" length="50" nullable="false" />
     </entity>
 
 </doctrine-mapping>

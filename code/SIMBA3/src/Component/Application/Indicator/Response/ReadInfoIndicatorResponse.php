@@ -18,7 +18,8 @@ class ReadInfoIndicatorResponse
     private const HAS_AREA_INDICATOR_FIELD = "hasArea";
     private const HAS_YEAR_INDICATOR_FIELD = "hasYear";
     private const HAS_MONTH_INDICATOR_FIELD = "hasMonth";
-    private const NUM_INDEPENDENT_VARS_FIELD = "numIndependentVars";
+    private const NUM_INDEPENDENT_VARS_INDICATOR_FIELD = "numIndependentVars";
+    private const OBJECT_TYPE_INDICATOR_FIELD = "objectType";
 
     private Indicator $indicator;
 
@@ -40,7 +41,8 @@ class ReadInfoIndicatorResponse
             self::HAS_AREA_INDICATOR_FIELD => $this->indicator->getTypeIndicator()->getHasArea(),
             self::HAS_YEAR_INDICATOR_FIELD => $this->indicator->getTypeIndicator()->getHasYear(),
             self::HAS_MONTH_INDICATOR_FIELD => $this->indicator->getTypeIndicator()->getHasMonth(),
-            self::NUM_INDEPENDENT_VARS_FIELD => $this->indicator->getTypeIndicator()->getNumIndependentVars()
+            self::NUM_INDEPENDENT_VARS_INDICATOR_FIELD => $this->indicator->getTypeIndicator()->getNumIndependentVars(),
+            self::OBJECT_TYPE_INDICATOR_FIELD => $this->indicator->getTypeIndicator()->getObjectType()
         ];
     }
 }
