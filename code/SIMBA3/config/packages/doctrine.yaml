@@ -24,3 +24,11 @@ doctrine:
                 dir: '%kernel.project_dir%/src/Api/Persistence/Migrations/Indicator'
                 prefix: 'SIMBA3\Component\Domain\Indicator'
                 alias: Indicator
+
+            Value:
+                is_bundle: false
+                type: xml
+                dir: '%kernel.project_dir%/src/Api/Persistence/Migrations/Value'
+                prefix: 'SIMBA3\Component\Domain\Value'
+                alias: Value
+
