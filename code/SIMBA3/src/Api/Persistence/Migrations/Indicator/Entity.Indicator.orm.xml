@@ -13,8 +13,9 @@
         <field name="font" column="font" type="string" length="100" nullable="true" />
         <field name="methodology" column="methodology" type="string" length="5000" nullable="true" />
         <field name="decimals" column="decimals" type="integer" />
-        <field name="typeIndicator" column="type_indicator" type="integer" />
-
+        <many-to-one field="typeIndicator" target-entity="SIMBA3\Component\Domain\Indicator\Entity\TypeIndicator">
+            <join-column name="type_id" referenced-column-name="id" />
+        </many-to-one>
     </entity>
 
 
