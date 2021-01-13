@@ -44,5 +44,6 @@ class IndicatorTest extends TestCase
         $this->assertEquals("note", $this->indicator->getNote());
         $this->assertEquals("font", $this->indicator->getFont());
         $this->assertEquals("Test methodology", $this->indicator->getMethodology());
+        $this->assertSame($this->typeIndicator, $this->indicator->getTypeIndicator());
     }
 }

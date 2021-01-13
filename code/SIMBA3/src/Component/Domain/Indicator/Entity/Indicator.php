@@ -73,4 +73,9 @@ class Indicator
         }
         return $this->methodology;
     }
+
+    public function getTypeIndicator(): TypeIndicator
+    {
+        return $this->typeIndicator;
+    }
 }

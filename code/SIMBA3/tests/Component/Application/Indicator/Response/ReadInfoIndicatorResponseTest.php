@@ -4,16 +4,19 @@ namespace SIMBA3\Component\Application\Indicator\Response;
 
 use PHPUnit\Framework\TestCase;
 use SIMBA3\Component\Domain\Indicator\Entity\Indicator;
+use SIMBA3\Component\Domain\Indicator\Entity\TypeIndicator;
 
 class ReadInfoIndicatorResponseTest extends TestCase
 {
     private ReadInfoIndicatorResponse $readInfoIndicatorResponse;
     private Indicator $indicator;
+    private TypeIndicator $typeIndicator;
 
     protected function setUp(): void
     {
         parent::setUp();
         $this->indicator = $this->createMock(Indicator::class);
+        $this->typeIndicator = $this->createMock(TypeIndicator::class);
     }
 
     /** @test */
@@ -38,6 +41,11 @@ class ReadInfoIndicatorResponseTest extends TestCase
         $this->indicator->method("getNote")->willReturn("Note test");
         $this->indicator->method("getFont")->willReturn("Font test");
         $this->indicator->method("getMethodology")->willReturn("Methodology test");
+        $this->indicator->method("getTypeIndicator")->willReturn($this->typeIndicator);
+        $this->typeIndicator->method("getHasArea")->willReturn(true);
+        $this->typeIndicator->method("getHasYear")->willReturn(false);
+        $this->typeIndicator->method("getHasMonth")->willReturn(false);
+        $this->typeIndicator->method("getNumIndependentVars")->willReturn(3);
     }
 
     public function thenReadInfoIndicatorResponseReturnIndicatorAsArray(): void
@@ -50,7 +58,11 @@ class ReadInfoIndicatorResponseTest extends TestCase
                 "units" => "Units test",
                 "note" => "Note test",
                 "font" => "Font test",
-                "methodology" => "Methodology test"
+                "methodology" => "Methodology test",
+                "hasArea" => true,
+                "hasYear" => false,
+                "hasMonth" => false,
+                "numIndependentVars" => 3
             ],
             $this->readInfoIndicatorResponse->getIndicatorAsArray()
         );
