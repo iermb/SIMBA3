@@ -7,24 +7,24 @@ namespace SIMBA3\Component\Domain\Indicator\Entity;
 class TypeIndicator
 {
     private int $id;
-    private bool $area;
-    private bool $year;
-    private bool $month;
+    private bool $hasArea;
+    private bool $hasYear;
+    private bool $hasMonth;
     private int $numIndependentVars;
 
     public function getHasArea(): bool
     {
-        return $this->area;
+        return $this->hasArea;
     }
 
     public function getHasYear(): bool
     {
-        return $this->year;
+        return $this->hasYear;
     }
 
     public function getHasMonth(): bool
     {
-        return $this->month;
+        return $this->hasMonth;
     }
 
     public function getNumIndependentVars(): int

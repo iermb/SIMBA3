@@ -6,9 +6,9 @@
     <entity name="SIMBA3\Component\Domain\Indicator\Entity\TypeIndicator" table="type_indicator">
         <id name="id" type="integer" column="id" />
 
-        <field name="area" column="area" type="boolean" nullable="false" />
-        <field name="year" column="year" type="boolean" nullable="false" />
-        <field name="month" column="month" type="boolean" nullable="false" />
+        <field name="hasArea" column="has_area" type="boolean" nullable="false" />
+        <field name="hasYear" column="has_year" type="boolean" nullable="false" />
+        <field name="hasMonth" column="has_month" type="boolean" nullable="false" />
         <field name="numIndependentVars" column="num_independent_vars" type="integer" nullable="false" />
     </entity>
 
