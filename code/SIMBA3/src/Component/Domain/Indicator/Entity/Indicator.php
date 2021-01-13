@@ -14,7 +14,7 @@ class Indicator
     private string $font;
     private string $methodology;
     private int $decimals;
-    private int $typeIndicator;
+    private TypeIndicator $typeIndicator;
 
     public function __construct(
         string $name,
@@ -24,7 +24,7 @@ class Indicator
         string $font,
         string $methodology,
         int $decimals,
-        int $typeIndicator
+        TypeIndicator $typeIndicator
     ) {
         $this->name = $name;
         $this->description = $description;
@@ -72,5 +72,10 @@ class Indicator
             return "";
         }
         return $this->methodology;
+    }
+
+    public function getTypeIndicator(): TypeIndicator
+    {
+        return $this->typeIndicator;
     }
 }

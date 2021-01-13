@@ -1,0 +1,15 @@
+<doctrine-mapping xmlns="http://doctrine-project.org/schemas/orm/doctrine-mapping"
+                  xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+                  xsi:schemaLocation="http://doctrine-project.org/schemas/orm/doctrine-mapping
+                          https://www.doctrine-project.org/schemas/orm/doctrine-mapping.xsd">
+
+    <entity name="SIMBA3\Component\Domain\Indicator\Entity\TypeIndicator" table="type_indicator">
+        <id name="id" type="integer" column="id" />
+
+        <field name="hasArea" column="has_area" type="boolean" nullable="false" />
+        <field name="hasYear" column="has_year" type="boolean" nullable="false" />
+        <field name="hasMonth" column="has_month" type="boolean" nullable="false" />
+        <field name="numIndependentVars" column="num_independent_vars" type="integer" nullable="false" />
+    </entity>
+
+</doctrine-mapping>

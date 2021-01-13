@@ -15,6 +15,10 @@ class ReadInfoIndicatorResponse
     private const NOTE_FIELD = "note";
     private const FONT_FIELD = "font";
     private const METHODOLOGY_FIELD = "methodology";
+    private const HAS_AREA_INDICATOR_FIELD = "hasArea";
+    private const HAS_YEAR_INDICATOR_FIELD = "hasYear";
+    private const HAS_MONTH_INDICATOR_FIELD = "hasMonth";
+    private const NUM_INDEPENDENT_VARS_FIELD = "numIndependentVars";
 
     private Indicator $indicator;
 
@@ -32,7 +36,11 @@ class ReadInfoIndicatorResponse
             self::UNITS_FIELD => $this->indicator->getUnits(),
             self::NOTE_FIELD => $this->indicator->getNote(),
             self::FONT_FIELD => $this->indicator->getFont(),
-            self::METHODOLOGY_FIELD => $this->indicator->getMethodology()
+            self::METHODOLOGY_FIELD => $this->indicator->getMethodology(),
+            self::HAS_AREA_INDICATOR_FIELD => $this->indicator->getTypeIndicator()->getHasArea(),
+            self::HAS_YEAR_INDICATOR_FIELD => $this->indicator->getTypeIndicator()->getHasYear(),
+            self::HAS_MONTH_INDICATOR_FIELD => $this->indicator->getTypeIndicator()->getHasMonth(),
+            self::NUM_INDEPENDENT_VARS_FIELD => $this->indicator->getTypeIndicator()->getNumIndependentVars()
         ];
     }
 }
