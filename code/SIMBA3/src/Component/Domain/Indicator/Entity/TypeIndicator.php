@@ -31,4 +31,9 @@ class TypeIndicator
     {
         return $this->numIndependentVars;
     }
+
+    public function getIdType(): string
+    {
+        return "AREA_YEAR_TYPE";
+    }
 }

@@ -1,7 +1,7 @@
 <?php
 
 
-namespace SIMBA3\Api\Persistence\Repository;
+namespace SIMBA3\Api\Persistence\Repository\Indicator;
 
 
 use Doctrine\ORM\EntityRepository;

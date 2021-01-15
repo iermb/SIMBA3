@@ -8,3 +8,7 @@ api_read_indicator:
   methods: GET
   requirements:
     indicatorId: '\d+'
+
+
+api_read_values_indicator:
+  path: /indicator/{indicatorId}/values/

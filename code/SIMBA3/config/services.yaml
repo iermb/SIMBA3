@@ -35,13 +35,35 @@ services:
         arguments:
             - "@simba3.repository.doctrine.indicator"
 
+    simba3.useCase.readValuesIndicator:
+        class: SIMBA3\Component\Application\Value\UseCase\ReadValueIndicatorUseCase
+        arguments:
+            - "@simba3.repository.doctrine.indicator"
+            - "@simba3.factory.typeValue"
+
+    simba3.factory.typeValue:
+        class: SIMBA3\Component\Domain\Value\Service\FactoryTypeValue
+        arguments:
+            - "@simba3.repository.doctrine.areaYearValue"
+
     simba3.repository.doctrine.indicator:
-        class: SIMBA3\Api\Persistence\Repository\DoctrineIndicatorrepository
+        class: SIMBA3\Api\Persistence\Repository\Value\DoctrineIndicatorRepository
         arguments:
             - "@doctrine.orm.entity_manager"
             - "@simba3.repository.metadata.indicator"
+
+    simba3.repository.doctrine.areaYearValue:
+        class: SIMBA3\Api\Persistence\Repository\Value\DoctrineAreaYearValueRepository
+        arguments:
+            - "@doctrine.orm.entity_manager"
+            - "@simba3.repository.metadata.areaYearValue"
 
     simba3.repository.metadata.indicator:
         class: Doctrine\ORM\Mapping\ClassMetadata
         arguments:
             - SIMBA3\Component\Domain\Indicator\Entity\Indicator
+
+    simba3.repository.metadata.areaYearValue:
+        class: Doctrine\ORM\Mapping\ClassMetadata
+        arguments:
+            - SIMBA3\Component\Domain\Value\Entity\AreaYearValue

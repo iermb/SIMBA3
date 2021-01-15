@@ -1,8 +1,9 @@
 <?php
 
-namespace SIMBA3\Component\Domain\Value\Entity;
+namespace SIMBA3\Component\Domain\Value\Service;
 
 use PHPUnit\Framework\TestCase;
+use SIMBA3\Component\Domain\Value\Entity\AreaYearValue;
 
 class AreaYearTypeValueArrayTest extends TestCase
 {

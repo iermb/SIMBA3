@@ -4,7 +4,7 @@
 namespace SIMBA3\Component\Domain\Value\Repository;
 
 
-interface ValueRepository
+interface AreaYearValueRepository
 {
     public function getValues(array $filter): array;
 }

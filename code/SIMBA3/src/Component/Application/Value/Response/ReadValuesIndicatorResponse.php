@@ -4,7 +4,7 @@
 namespace SIMBA3\Component\Application\Value\Response;
 
 
-use SIMBA3\Component\Domain\Value\Entity\TypeValueArray;
+use SIMBA3\Component\Domain\Value\Service\TypeValueArray;
 
 class ReadValuesIndicatorResponse
 {

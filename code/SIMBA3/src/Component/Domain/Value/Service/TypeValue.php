@@ -1,7 +1,7 @@
 <?php
 
 
-namespace SIMBA3\Component\Domain\Value\Entity;
+namespace SIMBA3\Component\Domain\Value\Service;
 
 
 interface TypeValue
