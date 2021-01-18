@@ -30,7 +30,7 @@ services:
         arguments:
             - "@simba3.useCase.readInfoIndicator"
 
-    SIMBA3\Api\Controller\Indicator\ReadValuesIndicatorController:
+    SIMBA3\Api\Controller\Value\ReadValuesIndicatorController:
         tags: [controller.service_arguments]
         arguments:
             - "@simba3.useCase.readValuesIndicator"
@@ -41,7 +41,7 @@ services:
             - "@simba3.repository.doctrine.indicator"
 
     simba3.useCase.readValuesIndicator:
-        class: SIMBA3\Component\Application\Value\UseCase\ReadValueIndicatorUseCase
+        class: SIMBA3\Component\Application\Value\UseCase\ReadValuesIndicatorUseCase
         arguments:
             - "@simba3.repository.doctrine.indicator"
             - "@simba3.factory.typeValue"
