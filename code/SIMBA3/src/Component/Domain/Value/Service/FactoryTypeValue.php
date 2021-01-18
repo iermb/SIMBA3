@@ -14,7 +14,7 @@ class FactoryTypeValue
 
     public function __construct(
         AreaYearValueRepository $areaYearValueRepository,
-        YearValueRepository $yearValueRepository,
+        YearValueRepository $yearValueRepository
     ) {
         $this->areaYearValueRepository = $areaYearValueRepository;
         $this->yearValueRepository = $yearValueRepository;
