@@ -47,7 +47,7 @@ services:
             - "@simba3.repository.doctrine.areaYearValue"
 
     simba3.repository.doctrine.indicator:
-        class: SIMBA3\Api\Persistence\Repository\Value\DoctrineIndicatorRepository
+        class: SIMBA3\Api\Persistence\Repository\Indicator\DoctrineIndicatorRepository
         arguments:
             - "@doctrine.orm.entity_manager"
             - "@simba3.repository.metadata.indicator"
