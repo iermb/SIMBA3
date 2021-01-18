@@ -5,12 +5,18 @@
 
     <entity name="SIMBA3\Component\Domain\Value\Entity\AreaYearValue" table="area_year_value">
         <id name="indicatorId" column="indicator_id" type="integer" nullable="false" />
-        <id name="areaTypeId" column="area_type_id" type="smallint" nullable="false" />
-        <id name="areaId" column="area_id" type="integer" nullable="false" />
         <id name="year" column="year" type="smallint" nullable="false" />
         <field name="value" column="value" type="decimal" scale="4" precision="10" nullable="true" />
         <field name="isPublic" column="is_public" type="boolean" />
         <field name="noteValue" column="note_value" type="string" length="10" nullable="true" />
+
+        <many-to-one field="typeArea" target-entity="SIMBA3\Component\Domain\Area\Entity\TypeArea">
+            <join-column name="type_area_id" referenced-column-name="id" />
+        </many-to-one>
+         <many-to-one field="area" target-entity="SIMBA3\Component\Domain\Area\Entity\Area">
+            <join-column name="area_id" referenced-column-name="id" />
+        </many-to-one>
+
     </entity>
 
 </doctrine-mapping>
