@@ -12,3 +12,7 @@ api_read_indicator:
 
 api_read_values_indicator:
   path: /indicator/{indicatorId}/values/
+  controller: SIMBA3\Api\Controller\Value\ReadValuesIndicatorController::execute
+  methods: GET
+  requirements:
+    indicatorId: '\d+'

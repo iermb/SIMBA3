@@ -20,9 +20,14 @@ class ReadValuesIndicatorController
 
     public function execute(int $indicatorId): Response
     {
-        return new JsonResponse(
-            $this->readValuesIndicatorUseCase->execute(new ReadValuesIndicatorRequest($indicatorId)), Response::HTTP_OK
-        );
-    }
+        try {
 
+            $valueIndicatorResponse = $this->readValuesIndicatorUseCase->execute(new ReadValuesIndicatorRequest($indicatorId));
+            return new JsonResponse($valueIndicatorResponse->getValuesAsArray(), Response::HTTP_OK);
+
+        } catch (\InvalidArgumentException $exception) {
+
+            return new Response("", Response::HTTP_NOT_FOUND);
+        }
+    }
 }
