@@ -34,6 +34,6 @@ class TypeIndicator
 
     public function getIdType(): string
     {
-        return "AREA_YEAR_TYPE";
+        return "AREA_YEAR_VALUE";
     }
 }
