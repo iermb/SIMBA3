@@ -30,6 +30,8 @@ class AreaYearTypeValueTest extends TestCase
 
     public function thenReturnTypeValueArray(): void
     {
-        $this->assertInstanceOf(TypeValueArray::class, $this->areaYearTypeValue->getTypeValueArray());
+        $typeIndicatorId = 1;
+        
+        $this->assertInstanceOf(TypeValueArray::class, $this->areaYearTypeValue->getTypeValueArray($typeIndicatorId));
     }
 }
