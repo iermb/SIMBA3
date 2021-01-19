@@ -24,8 +24,8 @@ class AreaYearTypeValueArray implements TypeValueArray
     {
         return [
             $areaYearValue->getIndicatorId(),
-            $areaYearValue->getTypeArea()->getId(),
-            $areaYearValue->getArea()->getId(),
+            $areaYearValue->getTypeAreaId(),
+            $areaYearValue->getAreaId(),
             $areaYearValue->getYear(),
             $areaYearValue->getValue()
         ];
