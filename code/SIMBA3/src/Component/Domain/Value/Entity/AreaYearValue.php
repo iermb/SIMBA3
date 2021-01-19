@@ -7,7 +7,7 @@ namespace SIMBA3\Component\Domain\Value\Entity;
 class AreaYearValue
 {
     private int $indicatorId;
-    private int $areaTypeId;
+    private int $typeAreaId;
     private int $areaId;
     private int $year;
     private float $value;
@@ -19,9 +19,9 @@ class AreaYearValue
         return $this->indicatorId;
     }
 
-    public function getAreaTypeId(): int
+    public function getTypeAreaId(): int
     {
-        return $this->areaTypeId;
+        return $this->typeAreaId;
     }
 
     public function getAreaId(): int
