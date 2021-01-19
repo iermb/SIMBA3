@@ -18,15 +18,15 @@ api_read_values_indicator:
     indicatorId: '\d+'
 
 
-api_read_area_types:
-  path: /area-type/
+api_read_all_type_area:
+  path: /type-area/
   controller: SIMBA3\Api\Controller\Area\ReadAllTypeAreaController::execute
   methods: GET
 
 
-api_read_area_:
-  path: /area-type/{areaTypeId}/area/
-  controller: SIMBA3\Api\Controller\Area\ReadAreaTypeAreaController::execute
+api_read_area:
+  path: /type-area/{areaTypeId}/area/
+  controller: SIMBA3\Api\Controller\Area\ReadAllAreaTypeAreaController::execute
   methods: GET
   requirements:
     indicatorId: '\d+'

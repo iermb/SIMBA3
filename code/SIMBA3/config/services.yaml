@@ -62,7 +62,7 @@ services:
             - "@simba3.repository.doctrine.typeArea"
 
     simba3.useCase.ReadAllAreaTypeArea:
-        class: SIMBA3\Component\Application\Area\UseCase\ReadAllTypeAreaUseCase
+        class: SIMBA3\Component\Application\Area\UseCase\ReadAllAreaTypeAreaUseCase
         arguments:
             - "@simba3.repository.doctrine.typeArea"
             - "@simba3.repository.doctrine.area"

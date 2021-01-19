@@ -20,7 +20,15 @@ class ReadAllAreaTypeAreaController
 
     public function execute(int $areaTypeId): Response
     {
-        $areaTypeAreaResponse = $this->readAreaTypeAreaUseCase->execute(new ReadAllAreaTypeAreaRequest($areaTypeId));
-        return new JsonResponse($areaTypeAreaResponse->getAllTypeArea(), Response::HTTP_OK);
+        try {
+
+            $areaTypeAreaResponse = $this->readAreaTypeAreaUseCase->execute(new ReadAllAreaTypeAreaRequest($areaTypeId));
+            return new JsonResponse($areaTypeAreaResponse->getAllTypeArea(), Response::HTTP_OK);
+
+        } catch (\InvalidArgumentException $exception) {
+
+            return new Response("", Response::HTTP_NOT_FOUND);
+        }
+        
     }
 }

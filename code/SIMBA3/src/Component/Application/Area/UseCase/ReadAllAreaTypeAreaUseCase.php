@@ -16,7 +16,7 @@ class ReadAllAreaTypeAreaUseCase
 
     public function __construct(
         TypeAreaRepository $typeAreaRepository,
-        AreaRepository $areaRepository,
+        AreaRepository $areaRepository
     ){
         $this->typeAreaRepository = $typeAreaRepository;
         $this->areaRepository = $areaRepository;

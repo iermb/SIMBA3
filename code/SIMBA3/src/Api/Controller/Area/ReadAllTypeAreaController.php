@@ -20,6 +20,6 @@ class ReadAllTypeAreaController
     public function execute(): Response
     {
         $indicatorResponse = $this->readAllTypeAreaUseCase->execute();
-        return new JsonResponse($indicatorResponse->getIndicatorAsArray(), Response::HTTP_OK);
+        return new JsonResponse($indicatorResponse->getAllTypeArea(), Response::HTTP_OK);
     }
 }

@@ -8,7 +8,7 @@ use Doctrine\ORM\EntityRepository;
 use SIMBA3\Component\Domain\Area\Entity\TypeArea;
 use SIMBA3\Component\Domain\Area\Repository\TypeAreaRepository;
 
-class DoctrineIndicatorRepository extends EntityRepository implements TypeAreaRepository
+class DoctrineTypeAreaRepository extends EntityRepository implements TypeAreaRepository
 {
     private const ID_FIELD = "id";
 

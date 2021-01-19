@@ -4,7 +4,7 @@
 namespace SIMBA3\Component\Application\Area\UseCase;
 
 
-use SIMBA3\Component\Application\Area\Response\ReadAllTypeArearesponse;
+use SIMBA3\Component\Application\Area\Response\ReadAllTypeAreaResponse;
 use SIMBA3\Component\Domain\Area\Repository\TypeAreaRepository;
 
 class ReadAllTypeAreaUseCase
@@ -16,7 +16,7 @@ class ReadAllTypeAreaUseCase
         $this->typeAreaRepository = $typeAreaRepository;
     }
 
-    public function execute(): ReadInfoIndicatorResponse
+    public function execute(): ReadAllTypeAreaResponse
     {
         return new ReadAllTypeArearesponse($this->typeAreaRepository->getAllTypeArea());
     }

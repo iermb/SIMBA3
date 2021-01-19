@@ -11,7 +11,7 @@ use SIMBA3\Component\Domain\Area\Repository\AreaRepository;
 class DoctrineAreaRepository extends EntityRepository implements AreaRepository
 {
     private const ID_FIELD = "id";
-    private const TYPE_AREA_FIELD = "type_id";
+    private const TYPE_AREA_FIELD = "typeArea";
 
     public function getArea(int $areaId): ?Area
     {
