@@ -12,6 +12,11 @@ class TypeIndicator
     private bool $hasMonth;
     private int $numIndependentVars;
 
+    public function getId(): int
+    {
+        return $this->id;
+    }
+
     public function getHasArea(): bool
     {
         return $this->hasArea;

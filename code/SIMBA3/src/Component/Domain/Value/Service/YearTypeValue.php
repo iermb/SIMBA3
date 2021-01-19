@@ -3,7 +3,6 @@
 
 namespace SIMBA3\Component\Domain\Value\Service;
 
-use SIMBA3\Component\Domain\Indicator\Entity\TypeIndicator;
 use SIMBA3\Component\Domain\Value\Repository\YearValueRepository;
 
 class YearTypeValue implements TypeValue
@@ -15,12 +14,8 @@ class YearTypeValue implements TypeValue
         $this->yearValueRepository = $yearValueRepository;
     }
 
-    public function getTypeValueArray(TypeIndicator $typeIndicator): TypeValueArray
-    {
-        $yearValues = $this->yearValueRepository->getValues([
-            'indicatorId' => $typeIndicator
-        ]);
-        
-        return new YearTypeValueArray($yearValues);
+    public function getTypeValueArray(int $typeIndicatorId): TypeValueArray
+    {        
+        return new YearTypeValueArray($this->yearValueRepository->getValues($typeIndicatorId));
     }
 }

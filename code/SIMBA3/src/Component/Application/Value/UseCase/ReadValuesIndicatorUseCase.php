@@ -31,6 +31,6 @@ class ReadValuesIndicatorUseCase
 
         $typeValue = $this->factoryTypeValue->getObjectTypeValue($typeIndicator->getIdType());
 
-        return new ReadValuesIndicatorResponse($typeValue->getTypeValueArray($typeIndicator));
+        return new ReadValuesIndicatorResponse($typeValue->getTypeValueArray($typeIndicator->getId()));
     }
 }

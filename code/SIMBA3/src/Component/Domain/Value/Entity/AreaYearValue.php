@@ -8,8 +8,8 @@ use SIMBA3\Component\Domain\Area\Entity\Area;
 class AreaYearValue
 {
     private int $indicatorId;
-    private TypeArea $typeArea;
-    private Area $area;
+    private int $typeArea;
+    private int $area;
     private int $year;
     private float $value;
     private bool $isPublic;
@@ -20,12 +20,12 @@ class AreaYearValue
         return $this->indicatorId;
     }
 
-    public function getTypeArea(): TypeArea
+    public function getTypeAreaId(): int
     {
         return $this->typeArea;
     }
 
-    public function getArea(): Area
+    public function getAreaId(): int
     {
         return $this->area;
     }
