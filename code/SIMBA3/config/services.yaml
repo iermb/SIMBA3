@@ -35,6 +35,16 @@ services:
         arguments:
             - "@simba3.useCase.readValuesIndicator"
 
+    SIMBA3\Api\Controller\Area\ReadAllTypeAreaController:
+        tags: [controller.service_arguments]
+        arguments:
+            - "@simba3.useCase.ReadAllTypeArea"
+
+    SIMBA3\Api\Controller\Area\ReadAllAreaTypeAreaController:
+        tags: [controller.service_arguments]
+        arguments:
+            - "@simba3.useCase.ReadAllAreaTypeArea"
+
     simba3.useCase.readInfoIndicator:
         class: SIMBA3\Component\Application\Indicator\UseCase\ReadInfoIndicatorUseCase
         arguments:
@@ -45,6 +55,17 @@ services:
         arguments:
             - "@simba3.repository.doctrine.indicator"
             - "@simba3.factory.typeValue"
+
+    simba3.useCase.ReadAllTypeArea:
+        class: SIMBA3\Component\Application\Area\UseCase\ReadAllTypeAreaUseCase
+        arguments:
+            - "@simba3.repository.doctrine.typeArea"
+
+    simba3.useCase.ReadAllAreaTypeArea:
+        class: SIMBA3\Component\Application\Area\UseCase\ReadAllTypeAreaUseCase
+        arguments:
+            - "@simba3.repository.doctrine.typeArea"
+            - "@simba3.repository.doctrine.area"
 
     simba3.factory.typeValue:
         class: SIMBA3\Component\Domain\Value\Service\FactoryTypeValue
@@ -70,6 +91,18 @@ services:
             - "@doctrine.orm.entity_manager"
             - "@simba3.repository.metadata.yearValue"
 
+    simba3.repository.doctrine.typeArea:
+        class: SIMBA3\Api\Persistence\Repository\Area\DoctrineTypeAreaRepository
+        arguments:
+            - "@doctrine.orm.entity_manager"
+            - "@simba3.repository.metadata.typeArea"
+
+    simba3.repository.doctrine.area:
+        class: SIMBA3\Api\Persistence\Repository\Area\DoctrineAreaRepository
+        arguments:
+            - "@doctrine.orm.entity_manager"
+            - "@simba3.repository.metadata.area"
+
     simba3.repository.metadata.indicator:
         class: Doctrine\ORM\Mapping\ClassMetadata
         arguments:
@@ -84,3 +117,13 @@ services:
         class: Doctrine\ORM\Mapping\ClassMetadata
         arguments:
             - SIMBA3\Component\Domain\Value\Entity\YearValue
+
+    simba3.repository.metadata.typeArea:
+        class: Doctrine\ORM\Mapping\ClassMetadata
+        arguments:
+            - SIMBA3\Component\Domain\Area\Entity\TypeArea
+
+    simba3.repository.metadata.area:
+        class: Doctrine\ORM\Mapping\ClassMetadata
+        arguments:
+            - SIMBA3\Component\Domain\Area\Entity\Area

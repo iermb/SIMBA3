@@ -4,7 +4,7 @@
 namespace SIMBA3\Component\Domain\Value\Service;
 
 
-use SIMBA3\Component\Domain\Value\Repository\AreaValueRepository;
+use SIMBA3\Component\Domain\Value\Repository\YearValueRepository;
 
 class YearTypeValue implements TypeValue
 {
