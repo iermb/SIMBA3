@@ -27,7 +27,11 @@ class ReadValuesIndicatorUseCase
         if (!$indicator) {
             throw new InvalidArgumentException("Indicator not exists");
         }
-        $typeValue = $this->factoryTypeValue->getObjectTypeValue($indicator->getTypeIndicator()->getIdType());
-        return new ReadValuesIndicatorResponse($typeValue->getTypeValueArray());
+
+        $typeIndicator = $indicator->getTypeIndicator();
+
+        $typeValue = $this->factoryTypeValue->getObjectTypeValue($typeIndicator->getIdType());
+
+        return new ReadValuesIndicatorResponse($typeValue->getTypeValueArray($typeIndicator->getId()));
     }
 }

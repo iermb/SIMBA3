@@ -32,5 +32,4 @@ class ReadValuesIndicatorController
             return new Response($exception->getMessage(), Response::HTTP_NOT_FOUND);
         }
     }
-
 }

@@ -13,6 +13,11 @@ class TypeIndicator
     private int $numIndependentVars;
     private string $valueType;
 
+    public function getId(): int
+    {
+        return $this->id;
+    }
+
     public function getHasArea(): bool
     {
         return $this->hasArea;
