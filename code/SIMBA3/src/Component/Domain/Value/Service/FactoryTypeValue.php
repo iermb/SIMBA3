@@ -30,7 +30,7 @@ class FactoryTypeValue
                 return new YearTypeValue($this->yearValueRepository);
 
             default:
-                throw new \InvalidArgumentException("Not exists the type value");
+                throw new \InvalidArgumentException("Not exists the type value:" . $objectType);
         }
     }
 }
