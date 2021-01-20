@@ -12,6 +12,11 @@ class TypeIndicator
     private bool $hasMonth;
     private int $numIndependentVars;
 
+    public function getId(): int
+    {
+        return $this->id;
+    }
+
     public function getHasArea(): bool
     {
         return $this->hasArea;
@@ -34,6 +39,6 @@ class TypeIndicator
 
     public function getIdType(): string
     {
-        return "AREA_YEAR_TYPE";
+        return "AREA_YEAR_VALUE";
     }
 }

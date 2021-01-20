@@ -32,3 +32,10 @@ doctrine:
                 prefix: 'SIMBA3\Component\Domain\Value'
                 alias: Value
 
+            Area:
+                is_bundle: false
+                type: xml
+                dir: '%kernel.project_dir%/src/Api/Persistence/Migrations/Area'
+                prefix: 'SIMBA3\Component\Domain\Area'
+                alias: Area
+

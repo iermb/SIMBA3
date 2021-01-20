@@ -60,7 +60,7 @@ class AreaYearTypeValueArrayTest extends TestCase
     private function givenAnAreaYearValue1(): void
     {
         $this->areaYearValue1->method("getIndicatorId")->willReturn(1001);
-        $this->areaYearValue1->method("getAreaTypeId")->willReturn(102);
+        $this->areaYearValue1->method("getTypeAreaId")->willReturn(102);
         $this->areaYearValue1->method("getAreaId")->willReturn(9);
         $this->areaYearValue1->method("getYear")->willReturn(2009);
         $this->areaYearValue1->method("getValue")->willReturn(34.5);
@@ -69,7 +69,7 @@ class AreaYearTypeValueArrayTest extends TestCase
     private function givenAnAreaYearValue2(): void
     {
         $this->areaYearValue2->method("getIndicatorId")->willReturn(1005);
-        $this->areaYearValue2->method("getAreaTypeId")->willReturn(105);
+        $this->areaYearValue2->method("getTypeAreaId")->willReturn(105);
         $this->areaYearValue2->method("getAreaId")->willReturn(8019);
         $this->areaYearValue2->method("getYear")->willReturn(2005);
         $this->areaYearValue2->method("getValue")->willReturn(3432.55);
