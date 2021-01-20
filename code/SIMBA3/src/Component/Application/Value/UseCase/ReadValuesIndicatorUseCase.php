@@ -4,6 +4,7 @@
 namespace SIMBA3\Component\Application\Value\UseCase;
 
 
+use InvalidArgumentException;
 use SIMBA3\Component\Application\Value\Request\ReadValuesIndicatorRequest;
 use SIMBA3\Component\Application\Value\Response\ReadValuesIndicatorResponse;
 use SIMBA3\Component\Domain\Indicator\Repository\IndicatorRepository;
@@ -24,7 +25,7 @@ class ReadValuesIndicatorUseCase
     {
         $indicator = $this->indicatorRepository->getIndicator($request->getIndicatorId());
         if (!$indicator) {
-            throw new \InvalidArgumentException("Indicator not exists");
+            throw new InvalidArgumentException("Indicator not exists");
         }
 
         $typeIndicator = $indicator->getTypeIndicator();

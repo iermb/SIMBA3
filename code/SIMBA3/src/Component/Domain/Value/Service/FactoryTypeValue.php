@@ -4,6 +4,7 @@
 namespace SIMBA3\Component\Domain\Value\Service;
 
 
+use InvalidArgumentException;
 use SIMBA3\Component\Domain\Value\Repository\AreaYearValueRepository;
 use SIMBA3\Component\Domain\Value\Repository\YearValueRepository;
 
@@ -22,7 +23,7 @@ class FactoryTypeValue
 
     public function getObjectTypeValue(string $objectType): TypeValue
     {
-       switch ($objectType) {
+        switch ($objectType) {
             case "AREA_YEAR_VALUE":
                 return new AreaYearTypeValue($this->areaYearValueRepository);
 

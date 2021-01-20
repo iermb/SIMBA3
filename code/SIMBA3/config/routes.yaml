@@ -29,4 +29,4 @@ api_read_area:
   controller: SIMBA3\Api\Controller\Area\ReadAllAreaTypeAreaController::execute
   methods: GET
   requirements:
-    indicatorId: '\d+'
+    areaTypeId: '\d+'
