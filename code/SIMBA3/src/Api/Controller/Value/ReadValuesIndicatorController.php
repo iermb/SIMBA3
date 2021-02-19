@@ -8,23 +8,30 @@ use InvalidArgumentException;
 use SIMBA3\Component\Application\Value\Request\ReadValuesIndicatorRequest;
 use SIMBA3\Component\Application\Value\UseCase\ReadValuesIndicatorUseCase;
 use Symfony\Component\HttpFoundation\JsonResponse;
+use Symfony\Component\HttpFoundation\Request;
 use Symfony\Component\HttpFoundation\Response;
 
 class ReadValuesIndicatorController
 {
+    private const FILTER = "filter";
     private ReadValuesIndicatorUseCase $readValuesIndicatorUseCase;
 
-    public function __construct(ReadValuesIndicatorUseCase $readValuesIndicatorUseCase)
-    {
+    public function __construct(
+        ReadValuesIndicatorUseCase $readValuesIndicatorUseCase
+    ) {
         $this->readValuesIndicatorUseCase = $readValuesIndicatorUseCase;
     }
 
-    public function execute(int $indicatorId): Response
+    public function execute(int $indicatorId, Request $request): Response
     {
         try {
+            $filters = json_decode($request->get(self::FILTER), true);
+            if (!$filters) {
+                $filters = array();
+            }
             return new JsonResponse(
                 $this->readValuesIndicatorUseCase->execute(
-                    new ReadValuesIndicatorRequest($indicatorId)
+                    new ReadValuesIndicatorRequest($indicatorId, $filters)
                 )->getValuesAsArray(),
                 Response::HTTP_OK
             );

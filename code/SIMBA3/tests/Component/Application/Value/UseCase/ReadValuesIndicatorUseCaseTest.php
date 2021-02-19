@@ -2,6 +2,7 @@
 
 namespace SIMBA3\Component\Application\Value\UseCase;
 
+use InvalidArgumentException;
 use PHPUnit\Framework\TestCase;
 use SIMBA3\Component\Application\Value\Request\ReadValuesIndicatorRequest;
 use SIMBA3\Component\Application\Value\Response\ReadValuesIndicatorResponse;
@@ -82,7 +83,7 @@ class ReadValuesIndicatorUseCaseTest extends TestCase
 
     private function thenExpectsInvalidArgumentException(): void
     {
-        $this->expectException(\InvalidArgumentException::class);
+        $this->expectException(InvalidArgumentException::class);
     }
 
     private function whenExecuteReadValuesIndicatorUseCase(): void

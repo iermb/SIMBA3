@@ -3,16 +3,14 @@
 
 namespace SIMBA3\Component\Domain\Value\Entity;
 
-use SIMBA3\Component\Domain\Area\Entity\TypeArea;
-use SIMBA3\Component\Domain\Area\Entity\Area;
 class AreaYearValue
 {
-    private int $indicatorId;
-    private int $typeAreaId;
-    private int $areaId;
-    private int $year;
-    private float $value;
-    private bool $isPublic;
+    private int    $indicatorId;
+    private int    $typeAreaId;
+    private int    $areaId;
+    private int    $year;
+    private float  $value;
+    private bool   $isPublic;
     private string $noteValue;
 
     public function getIndicatorId(): int
