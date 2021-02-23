@@ -13,7 +13,7 @@ use SIMBA3\Component\Domain\Value\Service\FactoryTypeValue;
 class ReadValuesIndicatorUseCase
 {
     private IndicatorRepository $indicatorRepository;
-    private FactoryTypeValue $factoryTypeValue;
+    private FactoryTypeValue    $factoryTypeValue;
 
     public function __construct(IndicatorRepository $indicatorRepository, FactoryTypeValue $factoryTypeValue)
     {
@@ -30,8 +30,9 @@ class ReadValuesIndicatorUseCase
 
         $typeIndicator = $indicator->getTypeIndicator();
 
-        $typeValue = $this->factoryTypeValue->getObjectTypeValue($typeIndicator->getIdType());
+        $typeValue = $this->factoryTypeValue->getObjectTypeValue($typeIndicator->getIdType(), $indicator->getId(),
+            $request->getFilters());
 
-        return new ReadValuesIndicatorResponse($typeValue->getTypeValueArray($typeIndicator->getId()));
+        return new ReadValuesIndicatorResponse($typeValue->getTypeValueArray());
     }
 }
