@@ -1,13 +1,13 @@
 <?php
 
 
-namespace SIMBA3\Component\Application\Area\UseCase;
+namespace SIMBA3\Component\Application\Variable\UseCase;
 
 
-use SIMBA3\Component\Application\Area\Request\ReadAllAreaTypeAreaRequest;
-use SIMBA3\Component\Application\Area\Response\ReadAllAreaTypeAreaResponse;
-use SIMBA3\Component\Domain\Area\Repository\TypeAreaRepository;
-use SIMBA3\Component\Domain\Area\Repository\AreaRepository;
+use SIMBA3\Component\Application\Variable\Request\ReadAllAreaTypeAreaRequest;
+use SIMBA3\Component\Application\Variable\Response\ReadAllAreaTypeAreaResponse;
+use SIMBA3\Component\Domain\Variable\Repository\TypeAreaRepository;
+use SIMBA3\Component\Domain\Variable\Repository\AreaRepository;
 
 class ReadAllAreaTypeAreaUseCase
 {

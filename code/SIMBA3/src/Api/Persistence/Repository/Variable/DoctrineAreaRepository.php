@@ -1,12 +1,12 @@
 <?php
 
 
-namespace SIMBA3\Api\Persistence\Repository\Area;
+namespace SIMBA3\Api\Persistence\Repository\Variable;
 
 
 use Doctrine\ORM\EntityRepository;
-use SIMBA3\Component\Domain\Area\Entity\Area;
-use SIMBA3\Component\Domain\Area\Repository\AreaRepository;
+use SIMBA3\Component\Domain\Variable\Entity\Area;
+use SIMBA3\Component\Domain\Variable\Repository\AreaRepository;
 
 class DoctrineAreaRepository extends EntityRepository implements AreaRepository
 {

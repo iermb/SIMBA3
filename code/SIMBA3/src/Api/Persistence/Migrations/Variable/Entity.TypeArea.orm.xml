@@ -3,7 +3,7 @@
                   xsi:schemaLocation="http://doctrine-project.org/schemas/orm/doctrine-mapping
                           https://www.doctrine-project.org/schemas/orm/doctrine-mapping.xsd">
 
-    <entity name="SIMBA3\Component\Domain\Area\Entity\TypeArea" table="type_area">
+    <entity name="SIMBA3\Component\Domain\Variable\Entity\TypeArea" table="type_area">
         <id name="id" type="integer" column="id" />
 
         <field name="name" column="name" type="string" length="100" nullable="false" unique="true" />

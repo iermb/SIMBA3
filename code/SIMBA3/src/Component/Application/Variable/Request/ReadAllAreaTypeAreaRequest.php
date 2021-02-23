@@ -1,7 +1,7 @@
 <?php
 
 
-namespace SIMBA3\Component\Application\Area\Request;
+namespace SIMBA3\Component\Application\Variable\Request;
 
 
 class ReadAllAreaTypeAreaRequest

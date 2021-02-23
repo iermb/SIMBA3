@@ -32,10 +32,10 @@ doctrine:
                 prefix: 'SIMBA3\Component\Domain\Value'
                 alias: Value
 
-            Area:
+            Variable:
                 is_bundle: false
                 type: xml
-                dir: '%kernel.project_dir%/src/Api/Persistence/Migrations/Area'
-                prefix: 'SIMBA3\Component\Domain\Area'
-                alias: Area
+                dir: '%kernel.project_dir%/src/Api/Persistence/Migrations/Variable'
+                prefix: 'SIMBA3\Component\Domain\Variable'
+                alias: Variable
 

@@ -1,10 +1,10 @@
 <?php
 
 
-namespace SIMBA3\Component\Domain\Area\Repository;
+namespace SIMBA3\Component\Domain\Variable\Repository;
 
 
-use SIMBA3\Component\Domain\Area\Entity\TypeArea;
+use SIMBA3\Component\Domain\Variable\Entity\TypeArea;
 
 interface TypeAreaRepository
 {

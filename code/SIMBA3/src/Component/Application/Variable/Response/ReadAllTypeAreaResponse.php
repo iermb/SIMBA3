@@ -1,12 +1,12 @@
 <?php
 
 
-namespace SIMBA3\Component\Application\Area\Response;
+namespace SIMBA3\Component\Application\Variable\Response;
 
 
-use SIMBA3\Component\Domain\Area\Entity\TypeArea;
+use SIMBA3\Component\Domain\Variable\Entity\TypeArea;
 
-class ReadAllAreaTypeAreaResponse
+class ReadAllTypeAreaResponse
 {
     private const ID_FIELD = "id";
     private const NAME_FIELD = "name";
