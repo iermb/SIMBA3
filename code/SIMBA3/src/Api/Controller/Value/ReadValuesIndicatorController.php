@@ -29,10 +29,11 @@ class ReadValuesIndicatorController
             if (!$filters) {
                 $filters = array();
             }
+            $response = $this->readValuesIndicatorUseCase->execute(
+                new ReadValuesIndicatorRequest($indicatorId, $filters)
+            );
             return new JsonResponse(
-                $this->readValuesIndicatorUseCase->execute(
-                    new ReadValuesIndicatorRequest($indicatorId, $filters)
-                )->getValuesAsArray(),
+                [$response->getDictionaries(), $response->getValuesAsArray()],
                 Response::HTTP_OK
             );
         } catch (InvalidArgumentException $exception) {

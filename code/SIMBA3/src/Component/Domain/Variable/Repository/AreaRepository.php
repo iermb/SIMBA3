@@ -14,4 +14,6 @@ interface AreaRepository
     //ó
     //public function getAllAreaByTypeArea(TypeArea $typeArea): array;
     public function getAllAreaByTypeArea(int $typeAreaId): array;
+
+    public function getAreaByFilter(array $areaIds): array;
 }
