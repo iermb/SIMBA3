@@ -15,6 +15,11 @@ class AreaYearTypeValueArray implements TypeValueArray
         $this->listAreaYearValue = $listAreaYearValue;
     }
 
+    public function getValues(): array
+    {
+        return $this->listAreaYearValue;
+    }
+
     public function getValuesAsArray(): array
     {
         return array_map(array($this, "getAreaYearTypeValueAsArray"), $this->listAreaYearValue);

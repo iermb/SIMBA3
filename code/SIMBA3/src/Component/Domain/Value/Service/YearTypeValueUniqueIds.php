@@ -17,7 +17,7 @@ class YearTypeValueUniqueIds
 
     public function getYearUniqueIds(): array
     {
-        return array_unique(array_map(array($this, "getYearId"), $this->typeValueArray->getValuesAsArray()));
+        return array_unique(array_map(array($this, "getYearId"), $this->typeValueArray->getValues()));
     }
 
     private function getYearId(YearValue $value): int

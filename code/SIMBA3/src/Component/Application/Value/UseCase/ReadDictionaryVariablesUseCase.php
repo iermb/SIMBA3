@@ -6,7 +6,10 @@ namespace SIMBA3\Component\Application\Value\UseCase;
 
 use InvalidArgumentException;
 use SIMBA3\Component\Application\Value\Request\ReadDictionaryVariablesRequest;
+use SIMBA3\Component\Domain\Value\Service\AreaDictionary;
 use SIMBA3\Component\Domain\Value\Service\AreaYearTypeValueUniqueIds;
+use SIMBA3\Component\Domain\Value\Service\FactoryTypeValue;
+use SIMBA3\Component\Domain\Value\Service\YearDictionary;
 use SIMBA3\Component\Domain\Value\Service\YearTypeValueUniqueIds;
 use SIMBA3\Component\Domain\Variable\Repository\AreaRepository;
 
@@ -22,15 +25,15 @@ class ReadDictionaryVariablesUseCase
     public function execute(ReadDictionaryVariablesRequest $request): array
     {
         switch ($request->getType()) {
-            case "areaYearType":
+            case FactoryTypeValue::AREA_YEAR_VALUE_TYPE:
                 $areaYearTypeValueUniqueIds = new AreaYearTypeValueUniqueIds($request->getTypeValueArray());
                 return [
-                    $this->areaRepository->getAreaByFilter($areaYearTypeValueUniqueIds->getAreaUniqueIds()),
-                    $areaYearTypeValueUniqueIds->getYearUniqueIds()
+                    new AreaDictionary($this->areaRepository->getAreasByFilter($areaYearTypeValueUniqueIds->getAreaUniqueIds())),
+                    new YearDictionary($areaYearTypeValueUniqueIds->getYearUniqueIds())
                 ];
-            case "year":
+            case FactoryTypeValue::YEAR_VALUE_TYPE:
                 $yearTypeValueUniqueIds = new YearTypeValueUniqueIds($request->getTypeValueArray());
-                return [$yearTypeValueUniqueIds->getYearUniqueIds()];
+                return [new YearDictionary($yearTypeValueUniqueIds->getYearUniqueIds())];
             default:
                 throw new InvalidArgumentException();
         }

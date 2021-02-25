@@ -4,12 +4,13 @@
 namespace SIMBA3\Component\Application\Value\Response;
 
 
+use SIMBA3\Component\Domain\Value\Service\TypeDictionary;
 use SIMBA3\Component\Domain\Value\Service\TypeValueArray;
 
 class ReadValuesIndicatorResponse
 {
     private TypeValueArray $responseTypeValue;
-    private array $dictionaries;
+    private array          $dictionaries;
 
     public function __construct(array $dictionaries, TypeValueArray $responseTypeValue)
     {
@@ -22,8 +23,10 @@ class ReadValuesIndicatorResponse
         return $this->responseTypeValue->getValuesAsArray();
     }
 
-    public function getDictionaries(): array
+    public function getDictionariesAsArray(): array
     {
-        return $this->dictionaries;
+        return array_map(function (TypeDictionary $typeDictionary) {
+            return $typeDictionary->getDictionaryValuesAsArray();
+        }, $this->dictionaries);
     }
 }

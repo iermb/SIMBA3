@@ -19,7 +19,8 @@ class AreaYearTypeValueUniqueIds
 
     public function getAreaUniqueIds(): array
     {
-        return array_unique(array_map(array($this, "getAreasId"), $this->typeValueArray->getValuesAsArray()));
+        $listOfIds = array_map(array($this, "getAreasId"), $this->typeValueArray->getValues());
+        return array_map("unserialize", array_unique(array_map("serialize", $listOfIds)));
     }
 
     private function getAreasId(AreaYearValue $value): array
@@ -29,7 +30,7 @@ class AreaYearTypeValueUniqueIds
 
     public function getYearUniqueIds(): array
     {
-        return array_unique(array_map(array($this, "getYearId"), $this->typeValueArray->getValuesAsArray()));
+        return array_unique(array_map(array($this, "getYearId"), $this->typeValueArray->getValues()));
     }
 
     private function getYearId(AreaYearValue $value): int

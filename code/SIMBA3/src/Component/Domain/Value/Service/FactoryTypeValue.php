@@ -13,6 +13,9 @@ use SIMBA3\Component\Domain\Value\Repository\YearValueRepository;
 
 class FactoryTypeValue
 {
+    public const AREA_YEAR_VALUE_TYPE = "AREA_YEAR_VALUE";
+    public const YEAR_VALUE_TYPE = "YEAR_VALUE";
+
     private AreaYearValueRepository $areaYearValueRepository;
     private YearValueRepository     $yearValueRepository;
 
@@ -33,13 +36,12 @@ class FactoryTypeValue
         $createAreasFilter = new CreateAreasFilter($filters);
         $createYearsFilter = new CreateYearsFilter($filters);
         switch ($objectType) {
-            case "AREA_YEAR_VALUE":
+            case self::AREA_YEAR_VALUE_TYPE:
                 return new AreaYearTypeValue($this->areaYearValueRepository, $createIndicatorFilter->getFilter(),
                     $createAreasFilter->getFilter(), $createYearsFilter->getFilter());
-            case "YEAR_VALUE":
+            case self::YEAR_VALUE_TYPE:
                 return new YearTypeValue($this->yearValueRepository, $createIndicatorFilter->getFilter(),
                     $createYearsFilter->getFilter());
-
             default :
                 throw new InvalidArgumentException("Not exists the type value:" . $objectType);
         }

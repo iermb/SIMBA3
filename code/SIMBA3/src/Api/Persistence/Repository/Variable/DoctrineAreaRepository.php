@@ -22,4 +22,14 @@ class DoctrineAreaRepository extends EntityRepository implements AreaRepository
     {
         return $this->findBy([self::TYPE_AREA_FIELD => $typeAreaId]);
     }
+
+    public function getAreasByFilter(array $areaUniqueIds): array
+    {
+        $dql = 'SELECT a FROM SIMBA3\Component\Domain\Variable\Entity\Area a ';
+        $dql .= ' WHERE ' . implode(' OR ', array_map(function($area) {
+                return '(a.typeArea = ' . $area['typeAreaId'] . " AND a.id = " . $area["areaId"] . ")";
+            }, $areaUniqueIds));
+        $query = $this->getEntityManager()->createQuery($dql);
+        return $query->getResult();
+    }
 }
