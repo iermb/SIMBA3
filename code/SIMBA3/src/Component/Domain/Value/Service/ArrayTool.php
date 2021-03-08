@@ -1,8 +1,8 @@
 <?php
 
-namespace SIMBA3\Component\Domain\Array\Service;
+namespace SIMBA3\Component\Domain\Value\Service;
 
-class Usefull
+class ArrayTool
 {
     public static function uniqueAssociativeArray(array $input): array
     {

@@ -4,7 +4,7 @@
 namespace SIMBA3\Component\Domain\Value\Service;
 
 
-use SIMBA3\Component\Domain\Array\Service\Usefull;
+use SIMBA3\Component\Domain\Value\Service\ArrayTool;
 use SIMBA3\Component\Domain\Value\Entity\AreaYearValue;
 use SIMBA3\Component\Domain\Variable\Entity\Area;
 use SIMBA3\Component\Domain\Variable\Entity\TypeArea;
@@ -21,7 +21,7 @@ class AreaYearTypeValueUniqueIds
 
     public function getAreaUniqueIds(): array
     {
-        return Usefull::uniqueAssociativeArray(array_map(array($this, "getAreasId"), $this->typeValueArray->getValues()));
+        return ArrayTool::uniqueAssociativeArray(array_map(array($this, "getAreasId"), $this->typeValueArray->getValues()));
     }
 
     private function getAreasId(AreaYearValue $value): array
@@ -31,7 +31,7 @@ class AreaYearTypeValueUniqueIds
 
     public function getYearUniqueIds(): array
     {
-        return Usefull::uniqueAssociativeArray(array_map(array($this, "getYearId"), $this->typeValueArray->getValues()));
+        return ArrayTool::uniqueAssociativeArray(array_map(array($this, "getYearId"), $this->typeValueArray->getValues()));
     }
 
     private function getYearId(AreaYearValue $value): array
