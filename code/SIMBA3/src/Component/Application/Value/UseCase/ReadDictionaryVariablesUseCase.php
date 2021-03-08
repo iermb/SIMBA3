@@ -12,14 +12,17 @@ use SIMBA3\Component\Domain\Value\Service\FactoryTypeValue;
 use SIMBA3\Component\Domain\Value\Service\YearDictionary;
 use SIMBA3\Component\Domain\Value\Service\YearTypeValueUniqueIds;
 use SIMBA3\Component\Domain\Variable\Repository\AreaRepository;
+use SIMBA3\Component\Domain\Variable\Repository\YearRepository;
 
 class ReadDictionaryVariablesUseCase
 {
     private AreaRepository $areaRepository;
+    private YearRepository $yearRepository;
 
-    public function __construct(AreaRepository $areaRepository)
+    public function __construct(AreaRepository $areaRepository, YearRepository $yearRepository)
     {
         $this->areaRepository = $areaRepository;
+        $this->yearRepository = $yearRepository;
     }
 
     public function execute(ReadDictionaryVariablesRequest $request): array
@@ -29,11 +32,11 @@ class ReadDictionaryVariablesUseCase
                 $areaYearTypeValueUniqueIds = new AreaYearTypeValueUniqueIds($request->getTypeValueArray());
                 return [
                     new AreaDictionary($this->areaRepository->getAreasByFilter($areaYearTypeValueUniqueIds->getAreaUniqueIds())),
-                    new YearDictionary($areaYearTypeValueUniqueIds->getYearUniqueIds())
+                    new YearDictionary($this->yearRepository->getYearsByFilter($areaYearTypeValueUniqueIds->getYearUniqueIds()))
                 ];
             case FactoryTypeValue::YEAR_VALUE_TYPE:
                 $yearTypeValueUniqueIds = new YearTypeValueUniqueIds($request->getTypeValueArray());
-                return [new YearDictionary($yearTypeValueUniqueIds->getYearUniqueIds())];
+                return [new YearDictionary($this->yearRepository->getYearsByFilter($yearTypeValueUniqueIds->getYearUniqueIds()))];
             default:
                 throw new InvalidArgumentException();
         }

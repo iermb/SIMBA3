@@ -4,7 +4,9 @@
 namespace SIMBA3\Component\Domain\Value\Service;
 
 
+use SIMBA3\Component\Domain\Array\Service\Usefull;
 use SIMBA3\Component\Domain\Value\Entity\YearValue;
+use SIMBA3\Component\Domain\Variable\Entity\Year;
 
 class YearTypeValueUniqueIds
 {
@@ -17,11 +19,11 @@ class YearTypeValueUniqueIds
 
     public function getYearUniqueIds(): array
     {
-        return array_unique(array_map(array($this, "getYearId"), $this->typeValueArray->getValues()));
+        return Usefull::uniqueAssociativeArray(array_map(array($this, "getYearId"), $this->typeValueArray->getValues()));
     }
 
-    private function getYearId(YearValue $value): int
+    private function getYearId(YearValue $value): array
     {
-        return $value->getYear();
+        return [Year::YEAR_ID_FIELD => $value->getYear()];
     }
 }

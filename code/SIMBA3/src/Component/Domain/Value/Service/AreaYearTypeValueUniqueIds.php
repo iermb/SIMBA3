@@ -4,9 +4,11 @@
 namespace SIMBA3\Component\Domain\Value\Service;
 
 
+use SIMBA3\Component\Domain\Array\Service\Usefull;
 use SIMBA3\Component\Domain\Value\Entity\AreaYearValue;
 use SIMBA3\Component\Domain\Variable\Entity\Area;
 use SIMBA3\Component\Domain\Variable\Entity\TypeArea;
+use SIMBA3\Component\Domain\Variable\Entity\Year;
 
 class AreaYearTypeValueUniqueIds
 {
@@ -19,8 +21,7 @@ class AreaYearTypeValueUniqueIds
 
     public function getAreaUniqueIds(): array
     {
-        $listOfIds = array_map(array($this, "getAreasId"), $this->typeValueArray->getValues());
-        return array_map("unserialize", array_unique(array_map("serialize", $listOfIds)));
+        return Usefull::uniqueAssociativeArray(array_map(array($this, "getAreasId"), $this->typeValueArray->getValues()));
     }
 
     private function getAreasId(AreaYearValue $value): array
@@ -30,11 +31,11 @@ class AreaYearTypeValueUniqueIds
 
     public function getYearUniqueIds(): array
     {
-        return array_unique(array_map(array($this, "getYearId"), $this->typeValueArray->getValues()));
+        return Usefull::uniqueAssociativeArray(array_map(array($this, "getYearId"), $this->typeValueArray->getValues()));
     }
 
-    private function getYearId(AreaYearValue $value): int
+    private function getYearId(AreaYearValue $value): array
     {
-        return $value->getYear();
+        return [Year::YEAR_ID_FIELD => $value->getYear()];
     }
 }

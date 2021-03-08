@@ -4,6 +4,8 @@
 namespace SIMBA3\Component\Domain\Value\Service;
 
 
+use SIMBA3\Component\Domain\Variable\Entity\Year;
+
 class YearDictionary implements TypeDictionary
 {
     private const YEAR_ID_FIELD = "yearId";
@@ -22,11 +24,11 @@ class YearDictionary implements TypeDictionary
         return array_map(array($this, "getYearAsArray"), $this->years);
     }
 
-    private function getYearAsArray(int $year): array
+    private function getYearAsArray(Year $year): array
     {
         return [
-            self::YEAR_ID_FIELD => $year,
-            self::YEAR_NAME_FIELD => $year
+            self::YEAR_ID_FIELD => $year->getId(),
+            self::YEAR_NAME_FIELD => $year->getYear()
         ];
     }
 }

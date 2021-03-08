@@ -33,19 +33,26 @@ class YearTypeValueUniqueIdsTest extends TestCase
 
     private function givenAnYearTypeValueUniqueIds(): void
     {
-        $this->yearTypeValueUniqueIds = new YearTypeValueUniqueIds($this->typeValueArray);
         $this->yearValue1->method("getYear")->willReturn(2018);
         $this->yearValue2->method("getYear")->willReturn(2019);
         $this->yearValue3->method("getYear")->willReturn(2018);
+
         $this->typeValueArray->method("getValues")->willReturn([
             $this->yearValue1,
             $this->yearValue2,
             $this->yearValue3
         ]);
+
+        $this->yearTypeValueUniqueIds = new YearTypeValueUniqueIds($this->typeValueArray);
     }
 
     private function thenReturnArrayWithUniqueYearsIds(): void
     {
-        $this->assertEquals([2018, 2019], $this->yearTypeValueUniqueIds->getYearUniqueIds());
+        $this->assertEquals(
+            array_values([
+                ["yearId" => 2018],
+                ["yearId" => 2019]
+            ]),
+            array_values($this->yearTypeValueUniqueIds->getYearUniqueIds()));
     }
 }

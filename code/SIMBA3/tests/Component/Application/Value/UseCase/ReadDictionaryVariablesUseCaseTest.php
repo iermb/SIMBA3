@@ -14,11 +14,13 @@ use SIMBA3\Component\Domain\Value\Service\YearDictionary;
 use SIMBA3\Component\Domain\Variable\Entity\Area;
 use SIMBA3\Component\Domain\Variable\Entity\TypeArea;
 use SIMBA3\Component\Domain\Variable\Repository\AreaRepository;
+use SIMBA3\Component\Domain\Variable\Repository\YearRepository;
 
 class ReadDictionaryVariablesUseCaseTest extends TestCase
 {
     private ReadDictionaryVariablesUseCase $readDictionaryVariablesUseCase;
     private AreaRepository                 $areaRepository;
+    private YearRepository                 $yearRepository;
     private ReadDictionaryVariablesRequest $readDictionaryVariablesRequest;
     private TypeValueArray                 $typeValueArray;
     private AreaYearValue $areaYearValue1;
@@ -44,7 +46,7 @@ class ReadDictionaryVariablesUseCaseTest extends TestCase
     public function shouldReadDictionaryVariableUseCaseWhenTypeIsYearValueReturnOneDictionary(): void
     {
         $this->givenAReadDictionaryVariablesUseCase();
-        $this->whenReadDictionaryVariablesRequestIaYearValueType();
+        $this->whenReadDictionaryVariablesRequestIsYearValueType();
         $this->thenReturnYearDictionary();
     }
 
@@ -62,6 +64,7 @@ class ReadDictionaryVariablesUseCaseTest extends TestCase
     {
         parent::setUp();
         $this->areaRepository = $this->createMock(AreaRepository::class);
+        $this->yearRepository = $this->createMock(YearRepository::class);
         $this->readDictionaryVariablesRequest = $this->createMock(ReadDictionaryVariablesRequest::class);
         $this->typeValueArray = $this->createMock(TypeValueArray::class);
         $this->areaYearValue1 = $this->createMock(AreaYearValue::class);
@@ -77,7 +80,7 @@ class ReadDictionaryVariablesUseCaseTest extends TestCase
 
     private function givenAReadDictionaryVariablesUseCase(): void
     {
-        $this->readDictionaryVariablesUseCase = new ReadDictionaryVariablesUseCase($this->areaRepository);
+        $this->readDictionaryVariablesUseCase = new ReadDictionaryVariablesUseCase($this->areaRepository, $this->yearRepository);
     }
 
     private function whenReadDictionaryVariablesRequestIsAreaYearValueType(): void
@@ -100,15 +103,17 @@ class ReadDictionaryVariablesUseCaseTest extends TestCase
         $this->areaYearValue3->method("getYear")->willReturn(2020);
     }
 
-    private function whenReadDictionaryVariablesRequestIaYearValueType(): void
+    private function whenReadDictionaryVariablesRequestIsYearValueType(): void
     {
         $this->readDictionaryVariablesRequest->method("getType")->willReturn("YEAR_VALUE");
         $this->readDictionaryVariablesRequest->method("getTypeValueArray")->willReturn($this->typeValueArray);
+
         $this->typeValueArray->method("getValuesAsArray")->willReturn([
             $this->yearValue1,
             $this->yearValue2,
             $this->yearValue3
         ]);
+
         $this->yearValue1->method("getYear")->willReturn(2019);
         $this->yearValue2->method("getYear")->willReturn(2019);
         $this->yearValue3->method("getYear")->willReturn(2020);
