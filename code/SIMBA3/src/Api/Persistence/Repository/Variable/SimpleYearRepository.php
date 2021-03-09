@@ -14,7 +14,7 @@ class SimpleYearRepository implements YearRepository
 
     public function getYearsByFilter(array $years): array
     {
-        array_map(function(array $year): Year {
+        return array_map(function(array $year): Year {
             return new Year($year[Year::YEAR_ID_FIELD]);
         }, $years);
     }
