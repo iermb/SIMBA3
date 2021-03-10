@@ -8,10 +8,10 @@ class AreaIndependentVariable2YearValue
     private int    $indicatorId;
     private int    $typeAreaId;
     private int    $areaId;
-    private int    $typeIndependentVariable1;
-    private int    $independentVariable1;
-    private int    $typeIndependentVariable2;
-    private int    $independentVariable2;
+    private int    $typeIndependentVariable1Id;
+    private int    $independentVariable1Id;
+    private int    $typeIndependentVariable2Id;
+    private int    $independentVariable2Id;
     private int    $year;
     private float  $value;
     private bool   $isPublic;
@@ -32,24 +32,24 @@ class AreaIndependentVariable2YearValue
         return $this->areaId;
     }
 
-    public function getTypeIndependentVariable1id(): int
+    public function getTypeIndependentVariable1Id(): int
     {
-        return $this->typeIndependentVariable1;
+        return $this->typeIndependentVariable1Id;
     }
 
     public function getIndependentVariable1Id(): int
     {
-       return $this->independentVariable1;
+       return $this->independentVariable1Id;
     }
 
-    public function getTypeIndependentVariable2id(): int
+    public function getTypeIndependentVariable2Id(): int
     {
-        return $this->typeIndependentVariable2;
+        return $this->typeIndependentVariable2Id;
     }
 
     public function getIndependentVariable2Id(): int
     {
-        return $this->independentVariable2;
+        return $this->independentVariable2Id;
     }
 
     public function getYear(): int

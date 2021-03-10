@@ -101,6 +101,7 @@ services:
         arguments:
             - "@simba3.repository.doctrine.areaYearValue"
             - "@simba3.repository.doctrine.areaIndependentVariable1Value"
+            - "@simba3.repository.doctrine.areaIndependentVariable2Value"
             - "@simba3.repository.doctrine.yearValue"
 
     simba3.repository.doctrine.indicator:
@@ -120,6 +121,12 @@ services:
         arguments:
             - "@doctrine.orm.entity_manager"
             - "@simba3.repository.metadata.areaIndependentVariable1YearValue"
+
+    simba3.repository.doctrine.areaIndependentVariable2Value:
+        class: SIMBA3\Api\Persistence\Repository\Value\DoctrineAreaIndependentVariable2YearValueRepository
+        arguments:
+            - "@doctrine.orm.entity_manager"
+            - "@simba3.repository.metadata.areaIndependentVariable2YearValue"
 
     simba3.repository.doctrine.yearValue:
         class: SIMBA3\Api\Persistence\Repository\Value\DoctrineYearValueRepository
@@ -169,6 +176,11 @@ services:
         class: Doctrine\ORM\Mapping\ClassMetadata
         arguments:
             - SIMBA3\Component\Domain\Value\Entity\AreaIndependentVariable1YearValue
+
+    simba3.repository.metadata.areaIndependentVariable2YearValue:
+        class: Doctrine\ORM\Mapping\ClassMetadata
+        arguments:
+            - SIMBA3\Component\Domain\Value\Entity\AreaIndependentVariable2YearValue
 
     simba3.repository.metadata.yearValue:
         class: Doctrine\ORM\Mapping\ClassMetadata

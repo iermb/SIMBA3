@@ -9,6 +9,7 @@ use SIMBA3\Component\Application\Value\Request\ReadDictionaryVariablesRequest;
 use SIMBA3\Component\Domain\Value\Service\AreaDictionary;
 use SIMBA3\Component\Domain\Value\Service\IndependentVariableDictionary;
 use SIMBA3\Component\Domain\Value\Service\AreaIndependentVariable1YearTypeValueUniqueIds;
+use SIMBA3\Component\Domain\Value\Service\AreaIndependentVariable2YearTypeValueUniqueIds;
 use SIMBA3\Component\Domain\Value\Service\AreaYearTypeValueUniqueIds;
 use SIMBA3\Component\Domain\Value\Service\FactoryTypeValue;
 use SIMBA3\Component\Domain\Value\Service\YearDictionary;
@@ -51,12 +52,21 @@ class ReadDictionaryVariablesUseCase
                     new YearDictionary($this->yearRepository->getYearsByFilter($areaIndependentVariable1YearTypeValueUniqueIds->getYearUniqueIds())),
                 ];
 
+            case FactoryTypeValue::AREA_INDEPENDENT_VARIABLE_2_YEAR_VALUE_TYPE:
+                $areaIndependentVariable2YearTypeValueUniqueIds = new AreaIndependentVariable2YearTypeValueUniqueIds($request->getTypeValueArray());
+                return [
+                    new AreaDictionary($this->areaRepository->getAreasByFilter($areaIndependentVariable2YearTypeValueUniqueIds->getAreaUniqueIds())),
+                    new IndependentVariableDictionary($this->independentVariableRepository->getIndependentVariablesByFilter($areaIndependentVariable2YearTypeValueUniqueIds->getIndependentVariable1Ids())),
+                    new IndependentVariableDictionary($this->independentVariableRepository->getIndependentVariablesByFilter($areaIndependentVariable2YearTypeValueUniqueIds->getIndependentVariable2Ids())),
+                    new YearDictionary($this->yearRepository->getYearsByFilter($areaIndependentVariable2YearTypeValueUniqueIds->getYearUniqueIds())),
+                ];
+
             case FactoryTypeValue::YEAR_VALUE_TYPE:
                 $yearTypeValueUniqueIds = new YearTypeValueUniqueIds($request->getTypeValueArray());
                 return [new YearDictionary($this->yearRepository->getYearsByFilter($yearTypeValueUniqueIds->getYearUniqueIds()))];
 
             default:
-                throw new InvalidArgumentException();
+                throw new InvalidArgumentException(sprintf('There is not Dictionary defined for type: %s',$request->getType()));
         }
     }
 

@@ -20,4 +20,11 @@ class IndependentVariablesFilter implements FilterValues
             return $independentVariableFilter->getFilterAsArray();
         }, $this->independentVariableFilter)];
     }
+
+    public function getValuesAsArraySuffixed(string $suffix): array
+    {
+        return [self::INDEPENDENT_VARIABLE_FIELD . $suffix => array_map(function (IndependentVariableFilter $independentVariableFilter) {
+            return $independentVariableFilter->getFilterAsArray();
+        }, $this->independentVariableFilter)];
+    }
 }

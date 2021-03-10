@@ -36,12 +36,19 @@ class ReadValuesIndicatorUseCase
 
         $typeIndicator = $indicator->getTypeIndicator();
 
-        $typeValue = $this->factoryTypeValue->getObjectTypeValue($typeIndicator->getIdType(), $indicator->getId(),
-            $request->getFilters());
+        $typeValue = $this->factoryTypeValue->getObjectTypeValue(
+            $typeIndicator->getIdType(),
+            $indicator->getId(),
+            $request->getFilters()
+        );
 
         $typeValueArray = $typeValue->getTypeValueArray();
-        $dictionaries = $this->readDictionaryVariablesUseCase->execute(new ReadDictionaryVariablesRequest($typeIndicator->getIdType(),
-            $typeValueArray));
+
+        $dictionaries = $this->readDictionaryVariablesUseCase->execute(new ReadDictionaryVariablesRequest(
+            $typeIndicator->getIdType(),
+            $typeValueArray)
+        );
+
         return new ReadValuesIndicatorResponse($dictionaries, $typeValueArray);
     }
 }
