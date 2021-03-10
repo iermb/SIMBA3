@@ -23,7 +23,7 @@ class ReadAllAreaTypeAreaController
         try {
 
             $areaTypeAreaResponse = $this->readAreaTypeAreaUseCase->execute(new ReadAllAreaTypeAreaRequest($typeAreaId));
-            return new JsonResponse($areaTypeAreaResponse->getAllTypeArea(), Response::HTTP_OK);
+            return new JsonResponse($areaTypeAreaResponse->getAllArea(), Response::HTTP_OK);
 
         } catch (\InvalidArgumentException $exception) {
 

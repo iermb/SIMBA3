@@ -45,6 +45,16 @@ services:
         arguments:
             - "@simba3.useCase.ReadAllAreaTypeArea"
 
+    SIMBA3\Api\Controller\Variable\ReadAllTypeIndependentVariableController:
+        tags: [controller.service_arguments]
+        arguments:
+            - "@simba3.useCase.ReadAllTypeIndependentVariable"
+
+    SIMBA3\Api\Controller\Variable\ReadAllIndependentVariableTypeIndependentVariableController:
+        tags: [controller.service_arguments]
+        arguments:
+            - "@simba3.useCase.ReadAllIndependentVariableTypeIndependentVariable"
+
     simba3.useCase.readInfoIndicator:
         class: SIMBA3\Component\Application\Indicator\UseCase\ReadInfoIndicatorUseCase
         arguments:
@@ -61,6 +71,8 @@ services:
         class: SIMBA3\Component\Application\Value\UseCase\ReadDictionaryVariablesUseCase
         arguments:
             - "@simba3.repository.doctrine.area"
+            - "@simba3.repository.doctrine.independentVariable"
+            - "@simba3.repository.simple.year"
 
     simba3.useCase.ReadAllTypeArea:
         class: SIMBA3\Component\Application\Variable\UseCase\ReadAllTypeAreaUseCase
@@ -73,10 +85,22 @@ services:
             - "@simba3.repository.doctrine.typeArea"
             - "@simba3.repository.doctrine.area"
 
+    simba3.useCase.ReadAllTypeIndependentVariable:
+        class: SIMBA3\Component\Application\Variable\UseCase\ReadAllTypeIndependentVariableUseCase
+        arguments:
+            - "@simba3.repository.doctrine.typeIndependentVariable"
+
+    simba3.useCase.ReadAllIndependentVariableTypeIndependentVariable:
+        class: SIMBA3\Component\Application\Variable\UseCase\ReadAllIndependentVariableTypeIndependentVariableUseCase
+        arguments:
+            - "@simba3.repository.doctrine.typeIndependentVariable"
+            - "@simba3.repository.doctrine.independentVariable"
+
     simba3.factory.typeValue:
         class: SIMBA3\Component\Domain\Value\Service\FactoryTypeValue
         arguments:
             - "@simba3.repository.doctrine.areaYearValue"
+            - "@simba3.repository.doctrine.areaIndependentVariable1Value"
             - "@simba3.repository.doctrine.yearValue"
 
     simba3.repository.doctrine.indicator:
@@ -90,6 +114,12 @@ services:
         arguments:
             - "@doctrine.orm.entity_manager"
             - "@simba3.repository.metadata.areaYearValue"
+
+    simba3.repository.doctrine.areaIndependentVariable1Value:
+        class: SIMBA3\Api\Persistence\Repository\Value\DoctrineAreaIndependentVariable1YearValueRepository
+        arguments:
+            - "@doctrine.orm.entity_manager"
+            - "@simba3.repository.metadata.areaIndependentVariable1YearValue"
 
     simba3.repository.doctrine.yearValue:
         class: SIMBA3\Api\Persistence\Repository\Value\DoctrineYearValueRepository
@@ -109,6 +139,22 @@ services:
             - "@doctrine.orm.entity_manager"
             - "@simba3.repository.metadata.area"
 
+    simba3.repository.doctrine.typeIndependentVariable:
+        class: SIMBA3\Api\Persistence\Repository\Variable\DoctrineTypeIndependentVariableRepository
+        arguments:
+            - "@doctrine.orm.entity_manager"
+            - "@simba3.repository.metadata.typeIndependentVariable"
+
+    simba3.repository.doctrine.independentVariable:
+        class: SIMBA3\Api\Persistence\Repository\Variable\DoctrineIndependentVariableRepository
+        arguments:
+            - "@doctrine.orm.entity_manager"
+            - "@simba3.repository.metadata.independentVariable"
+
+
+    simba3.repository.simple.year:
+        class: SIMBA3\Api\Persistence\Repository\Variable\SimpleYearRepository
+
     simba3.repository.metadata.indicator:
         class: Doctrine\ORM\Mapping\ClassMetadata
         arguments:
@@ -118,6 +164,11 @@ services:
         class: Doctrine\ORM\Mapping\ClassMetadata
         arguments:
             - SIMBA3\Component\Domain\Value\Entity\AreaYearValue
+
+    simba3.repository.metadata.areaIndependentVariable1YearValue:
+        class: Doctrine\ORM\Mapping\ClassMetadata
+        arguments:
+            - SIMBA3\Component\Domain\Value\Entity\AreaIndependentVariable1YearValue
 
     simba3.repository.metadata.yearValue:
         class: Doctrine\ORM\Mapping\ClassMetadata
@@ -133,3 +184,13 @@ services:
         class: Doctrine\ORM\Mapping\ClassMetadata
         arguments:
             - SIMBA3\Component\Domain\Variable\Entity\Area
+
+    simba3.repository.metadata.typeIndependentVariable:
+        class: Doctrine\ORM\Mapping\ClassMetadata
+        arguments:
+            - SIMBA3\Component\Domain\Variable\Entity\TypeIndependentVariable
+
+    simba3.repository.metadata.independentVariable:
+        class: Doctrine\ORM\Mapping\ClassMetadata
+        arguments:
+            - SIMBA3\Component\Domain\Variable\Entity\IndependentVariable
