@@ -41,8 +41,8 @@ class AreaIndependentVariable2YearTypeValue implements TypeValue
         $filter = array_merge(
             $this->indicatorFilter->getFilterAsArray(),
             $this->areasFilter->getFilterAsArray(),
-            $this->independentVariable1sFilter->getValuesAsArraySuffixed(1),
-            $this->independentVariable2sFilter->getValuesAsArraySuffixed(2),
+            $this->independentVariable1sFilter->getFilterAsArray(),
+            $this->independentVariable2sFilter->getFilterAsArray(),
             $this->yearsFilter->getFilterAsArray()
         );
         return new AreaIndependentVariable1YearTypeValueArray($this->areaIndependentVariable2YearValueRepository->getValues($filter));

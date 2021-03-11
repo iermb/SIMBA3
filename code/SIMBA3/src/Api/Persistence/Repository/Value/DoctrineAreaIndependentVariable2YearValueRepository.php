@@ -21,8 +21,8 @@ class DoctrineAreaIndependentVariable2YearValueRepository extends EntityReposito
                     return "(v.typeAreaId = " . $area["typeAreaId"] . " AND v.areaId = " . $area["areaId"] . ")";
                 }, $filter["areas"])) . ")";
         }
-        $dql .= self::getDQLIndependentVariable(1, $filter["independentVariables1"]);
-        $dql .= self::getDQLIndependentVariable(1, $filter["independentVariables2"]);
+        $dql .= self::getDQLIndependentVariable(1, $filter["independentVariable1s"]);
+        $dql .= self::getDQLIndependentVariable(1, $filter["independentVariable2s"]);
 
         $query = $this->getEntityManager()->createQuery($dql)->setParameter('indicatorId', $filter["indicatorId"]);
         return $query->getResult();

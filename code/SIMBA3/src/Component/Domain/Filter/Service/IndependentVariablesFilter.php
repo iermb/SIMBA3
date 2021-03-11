@@ -6,24 +6,18 @@ namespace SIMBA3\Component\Domain\Filter\Service;
 
 class IndependentVariablesFilter implements FilterValues
 {
-    private const INDEPENDENT_VARIABLE_FIELD = "independentVariables";
     private array $independentVariableFilter;
+    private string $idFilter;
 
-    public function __construct(array $independentVariableFilter)
+    public function __construct(array $independentVariableFilter, string $idFilter)
     {
         $this->independentVariableFilter = $independentVariableFilter;
+        $this->idFilter = $idFilter;
     }
 
     public function getFilterAsArray(): array
     {
-        return [self::INDEPENDENT_VARIABLE_FIELD => array_map(function (IndependentVariableFilter $independentVariableFilter) {
-            return $independentVariableFilter->getFilterAsArray();
-        }, $this->independentVariableFilter)];
-    }
-
-    public function getValuesAsArraySuffixed(string $suffix): array
-    {
-        return [self::INDEPENDENT_VARIABLE_FIELD . $suffix => array_map(function (IndependentVariableFilter $independentVariableFilter) {
+        return [$this->idFilter => array_map(function (IndependentVariableFilter $independentVariableFilter) {
             return $independentVariableFilter->getFilterAsArray();
         }, $this->independentVariableFilter)];
     }

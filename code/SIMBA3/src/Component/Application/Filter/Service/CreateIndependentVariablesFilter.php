@@ -8,22 +8,24 @@ use InvalidArgumentException;
 use SIMBA3\Component\Domain\Filter\Service\IndependentVariableFilter;
 use SIMBA3\Component\Domain\Filter\Service\IndependentVariablesFilter;
 
-class CreateIndependentVariable2sFilter implements CreateFilterValues
+class CreateIndependentVariablesFilter implements CreateFilterValues
 {
-    private const INDEPENDENT_VARIABLE_FILTER = "independentVariable2s";
     private array $rawFilter;
+    private string $idFilter;
 
-    public function __construct(array $rawFilter)
+    public function __construct(array $rawFilter, string $idFilter)
     {
         $this->rawFilter = $rawFilter;
+        $this->idFilter = $idFilter;
     }
 
     public function getFilter(): IndependentVariablesFilter
     {
-        if (!isset($this->rawFilter[self::INDEPENDENT_VARIABLE_FILTER])) {
-            return new IndependentVariablesFilter([]);
+        if (!isset($this->rawFilter[$this->idFilter])) {
+            return new IndependentVariablesFilter([], $this->idFilter);
         }
-        return new IndependentVariablesFilter(array_map(array($this, "createIndependentVariableFilter"), $this->rawFilter[self::INDEPENDENT_VARIABLE_FILTER]));
+
+        return new IndependentVariablesFilter(array_map(array($this, "createIndependentVariableFilter"), $this->rawFilter[$this->idFilter]), $this->idFilter);
     }
 
     private function createIndependentVariableFilter(array $independentVariableFilter): IndependentVariableFilter

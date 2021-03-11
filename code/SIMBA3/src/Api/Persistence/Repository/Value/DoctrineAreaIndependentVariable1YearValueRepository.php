@@ -24,10 +24,10 @@ class DoctrineAreaIndependentVariable1YearValueRepository extends EntityReposito
                     return "(v.typeAreaId = " . $area["typeAreaId"] . " AND v.areaId = " . $area["areaId"] . ")";
                 }, $filter["areas"])) . ")";
         }
-        if (isset($filter["independentVariables"]) && count($filter["independentVariables"]) > 0) {
+        if (isset($filter["independentVariable1s"]) && count($filter["independentVariable1s"]) > 0) {
             $dql .= " AND (" . implode(" OR ", array_map(function($independentVariable) {
                     return "(v.typeIndependentVariableId = " . $independentVariable["typeIndependentVariableId"] . " AND v.independentVariableId = " . $independentVariable["independentVariableId"] . ")";
-                }, $filter["independentVariables"])) . ")";
+                }, $filter["independentVariable1s"])) . ")";
         }
         $query = $this->getEntityManager()->createQuery($dql)->setParameter('indicatorId', $filter["indicatorId"]);
         return $query->getResult();

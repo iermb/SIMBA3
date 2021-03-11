@@ -6,8 +6,7 @@ namespace SIMBA3\Component\Domain\Value\Service;
 
 use InvalidArgumentException;
 use SIMBA3\Component\Application\Filter\Service\CreateAreasFilter;
-use SIMBA3\Component\Application\Filter\Service\CreateIndependentVariable1sFilter;
-use SIMBA3\Component\Application\Filter\Service\CreateIndependentVariable2sFilter;
+use SIMBA3\Component\Application\Filter\Service\CreateIndependentVariablesFilter;
 use SIMBA3\Component\Application\Filter\Service\CreateIndicatorFilter;
 use SIMBA3\Component\Application\Filter\Service\CreateYearsFilter;
 use SIMBA3\Component\Domain\Value\Repository\AreaIndependentVariable1YearValueRepository;
@@ -21,6 +20,9 @@ class FactoryTypeValue
     public const AREA_INDEPENDENT_VARIABLE_1_YEAR_VALUE_TYPE = "AREA_INDEPENDENT_VARIABLE_1_YEAR_VALUE";
     public const AREA_INDEPENDENT_VARIABLE_2_YEAR_VALUE_TYPE = "AREA_INDEPENDENT_VARIABLE_2_YEAR_VALUE";
     public const YEAR_VALUE_TYPE = "YEAR_VALUE";
+
+    private const INDEPENDENT_VARIABLES_1_FILTER = 'independentVariable1s';
+    private const INDEPENDENT_VARIABLES_2_FILTER = 'independentVariable2s';
 
     private AreaYearValueRepository $areaYearValueRepository;
     private AreaIndependentVariable1YearValueRepository $areaIndependentVariable1YearValueRepository;
@@ -47,8 +49,8 @@ class FactoryTypeValue
 
         $createIndicatorFilter = new CreateIndicatorFilter($indicatorId);
         $createAreasFilter = new CreateAreasFilter($filters);
-        $createIndependentVariable1sFilter = new CreateIndependentVariable1sFilter($filters);
-        $createIndependentVariable2sFilter = new CreateIndependentVariable2sFilter($filters);
+        $createIndependentVariable1sFilter = new CreateIndependentVariablesFilter($filters, self::INDEPENDENT_VARIABLES_1_FILTER);
+        $createIndependentVariable2sFilter = new CreateIndependentVariablesFilter($filters, self::INDEPENDENT_VARIABLES_2_FILTER);
         $createYearsFilter = new CreateYearsFilter($filters);
 
         switch ($objectType) {
