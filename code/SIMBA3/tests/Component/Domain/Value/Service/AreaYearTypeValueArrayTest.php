@@ -78,11 +78,13 @@ class AreaYearTypeValueArrayTest extends TestCase
     private function thenReturnAnEmptyArray(): void
     {
         $this->assertEquals([], $this->areaYearTypeValueArray->getValuesAsArray());
+        $this->assertEquals([], $this->areaYearTypeValueArray->getValues());
     }
 
     private function thenReturnAnArrayWithOneElement(): void
     {
         $this->assertEquals([[1001, 102, 9, 2009, 34.5]], $this->areaYearTypeValueArray->getValuesAsArray());
+        $this->assertEquals(array($this->areaYearValue1), $this->areaYearTypeValueArray->getValues());
     }
 
     private function thenReturnAnArrayWithTwoElements(): void
@@ -91,6 +93,7 @@ class AreaYearTypeValueArrayTest extends TestCase
             [[1001, 102, 9, 2009, 34.5], [1005, 105, 8019, 2005, 3432.55]],
             $this->areaYearTypeValueArray->getValuesAsArray()
         );
+        $this->assertEquals(array($this->areaYearValue1, $this->areaYearValue2), $this->areaYearTypeValueArray->getValues());
     }
 
 }

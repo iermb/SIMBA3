@@ -23,10 +23,10 @@ class ReadAllIndependentVariableTypeIndependentVariableUseCase
     }
 
     public function execute(
-        ReadAllIndependentVariableTypeIndependentVariableRequest $independentVariableTypeindependentVariableRequest
+        ReadAllIndependentVariableTypeIndependentVariableRequest $independentVariableTypeIndependentVariableRequest
     ): ReadAllIndependentVariableTypeIndependentVariableResponse
     {
-        $typeIndependentVariable = $this->typeIndependentVariableRepository->getTypeIndependentVariable($independentVariableTypeindependentVariableRequest->getTypeIndependentVariableId());
+        $typeIndependentVariable = $this->typeIndependentVariableRepository->getTypeIndependentVariable($independentVariableTypeIndependentVariableRequest->getTypeIndependentVariableId());
         if (!$typeIndependentVariable) {
             throw new \InvalidArgumentException("typeIndependentVariable not exists");
         }

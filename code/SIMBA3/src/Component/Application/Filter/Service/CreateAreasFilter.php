@@ -23,14 +23,30 @@ class CreateAreasFilter implements CreateFilterValues
         if (!isset($this->rawFilter[self::AREA_FILTER])) {
             return new AreasFilter([]);
         }
+
+        if (!is_array($this->rawFilter[self::AREA_FILTER])) {
+            return new AreasFilter([]);
+        }
+
+        $this->rawFilter[self::AREA_FILTER] = array_filter($this->rawFilter[self::AREA_FILTER], function($element){
+            if (!is_array($element)) {
+                return false;
+            }
+            if(count($element) != 2) {
+                return false;
+            }
+            if( !is_int($element[0]) || !is_int($element[1])) {
+                return false;
+            }
+
+            return true;
+        });
+
         return new AreasFilter(array_map(array($this, "createAreaFilter"), $this->rawFilter[self::AREA_FILTER]));
     }
 
     private function createAreaFilter(array $areaFilter): AreaFilter
     {
-        if (count($areaFilter) != 2) {
-            throw new InvalidArgumentException("Format Area filter is not correct");
-        }
         return new AreaFilter($areaFilter[0], $areaFilter[1]);
     }
 }

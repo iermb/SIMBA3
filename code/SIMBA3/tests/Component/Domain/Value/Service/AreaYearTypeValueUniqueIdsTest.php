@@ -44,22 +44,18 @@ class AreaYearTypeValueUniqueIdsTest extends TestCase
     private function thenReturnArraysWithUniqueIds(): void
     {
         $this->assertEquals(
-            array_values(
-                [
-                    ["typeAreaId" => 101, "areaId" => 2],
-                    ["typeAreaId" => 102, "areaId" => 2],
-                ]
-            ),
-            array_values($this->areaYearTypeValueUniqueIds->getAreaUniqueIds())
+            [
+                ["typeAreaId" => 101, "areaId" => 2],
+                ["typeAreaId" => 102, "areaId" => 2],
+            ],
+            $this->areaYearTypeValueUniqueIds->getAreaUniqueIds()
         );
         $this->assertEquals(
-            array_values(
-                [
-                    ["yearId" => 2020],
-                    ["yearId" => 2019],
-                ]
-            ),
-            array_values($this->areaYearTypeValueUniqueIds->getYearUniqueIds())
+            [
+                ["yearId" => 2020],
+                ["yearId" => 2019],
+            ],
+            $this->areaYearTypeValueUniqueIds->getYearUniqueIds()
         );
     }
 

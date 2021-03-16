@@ -25,14 +25,29 @@ class CreateIndependentVariablesFilter implements CreateFilterValues
             return new IndependentVariablesFilter([], $this->idFilter);
         }
 
+        if (!is_array($this->rawFilter[$this->idFilter])) {
+            return new IndependentVariablesFilter([], $this->idFilter);
+        }
+
+        $this->rawFilter[$this->idFilter] = array_filter($this->rawFilter[$this->idFilter], function($element){
+            if (!is_array($element)) {
+                return false;
+            }
+            if(count($element) != 2) {
+                return false;
+            }
+            if( !is_int($element[0]) || !is_int($element[1])) {
+                return false;
+            }
+
+            return true;
+        });
+
         return new IndependentVariablesFilter(array_map(array($this, "createIndependentVariableFilter"), $this->rawFilter[$this->idFilter]), $this->idFilter);
     }
 
     private function createIndependentVariableFilter(array $independentVariableFilter): IndependentVariableFilter
     {
-        if (count($independentVariableFilter) != 2) {
-            throw new InvalidArgumentException("Format IndependentVariable filter is not correct");
-        }
         return new IndependentVariableFilter($independentVariableFilter[0], $independentVariableFilter[1]);
     }
 }

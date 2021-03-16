@@ -23,32 +23,30 @@ class CreateAreasFilterTest extends TestCase
         $this->createAreasFilter = new CreateAreasFilter(["no_filter_information" => 32]);
     }
 
-    public function thenCreateAreasFilterReturnAreasFilterWithEmtpyValues(): void
+    private function thenCreateAreasFilterReturnAreasFilterWithEmtpyValues(): void
     {
         $this->assertEquals(["areas" => []], $this->createAreasFilter->getFilter()->getFilterAsArray());
     }
 
-    /** @test */
-    public function shouldCreateAreasFilterWhenRawFilterFormatIsNotCorrectReturnException(): void
+    /**
+     * @dataProvider providerAreasFilterProvider
+     * @test
+     */
+    public function shouldCreateAreasFilterWhenRawFilterFormatIsNotCorrectReturnAnEmptyAreasFilterTest(CreateAreasFilter $createAreasFilter): void
     {
-        $this->givenACreateAreasFilterWithAreasInformationWithWrongFormat();
-        $this->thenExpectsInvalidArgumentException();
-        $this->whenCallGetFilter();
+        $this->assertEquals(["areas" => []], $createAreasFilter->getFilter()->getFilterAsArray());
     }
 
-    private function givenACreateAreasFilterWithAreasInformationWithWrongFormat(): void
+    public function providerAreasFilterProvider(): array
     {
-        $this->createAreasFilter = new CreateAreasFilter(["areas" => [[23], [34], [22], [23]]]);
-    }
-
-    private function thenExpectsInvalidArgumentException(): void
-    {
-        $this->expectException(InvalidArgumentException::class);
-    }
-
-    private function whenCallGetFilter(): void
-    {
-        $this->createAreasFilter->getFilter();
+        return [
+            [new CreateAreasFilter(["areas" => 23])],
+            [new CreateAreasFilter(["areas" => [23]])],
+            [new CreateAreasFilter(["areas" => ['a' => 23]])],
+            [new CreateAreasFilter(["areas" => [23,24,25]])],
+            [new CreateAreasFilter(["areas" => ['23','24']])],
+            [new CreateAreasFilter(["areas" => [[[23]]]])],
+        ];
     }
 
     /** @test */

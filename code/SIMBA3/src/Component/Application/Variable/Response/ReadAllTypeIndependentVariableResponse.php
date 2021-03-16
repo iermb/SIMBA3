@@ -5,6 +5,7 @@ namespace SIMBA3\Component\Application\Variable\Response;
 
 
 use SIMBA3\Component\Domain\Variable\Entity\TypeArea;
+use SIMBA3\Component\Domain\Variable\Entity\TypeIndependentVariable;
 
 class ReadAllTypeIndependentVariableResponse
 {
@@ -21,7 +22,7 @@ class ReadAllTypeIndependentVariableResponse
     public function getAllTypeIndependentVariable(): array
     {
         return array_map(
-            function($typeIndependentVariable) {
+            function(TypeIndependentVariable $typeIndependentVariable) {
                 return [
                     self::ID_FIELD => $typeIndependentVariable->getId(),
                     self::NAME_FIELD => $typeIndependentVariable->getName(),

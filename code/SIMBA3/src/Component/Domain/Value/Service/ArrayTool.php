@@ -6,6 +6,6 @@ class ArrayTool
 {
     public static function uniqueAssociativeArray(array $input): array
     {
-        return array_map("unserialize", array_unique(array_map("serialize", $input)));
+        return array_merge(array_map("unserialize", array_unique(array_map("serialize", $input))),[]);
     }
 }

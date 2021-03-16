@@ -27,6 +27,8 @@ class YearTypeValueArrayTest extends TestCase
     private function thenReturnAnEmptyArray(): void
     {
         $this->assertEquals([], $this->yearTypeValueArray->getValuesAsArray());
+        $this->assertEquals([], $this->yearTypeValueArray->getValues());
+
     }
 
     /** @test */
@@ -52,6 +54,7 @@ class YearTypeValueArrayTest extends TestCase
     private function thenReturnOneElement(): void
     {
         $this->assertEquals([[1001, 2020, 34.5]], $this->yearTypeValueArray->getValuesAsArray());
+        $this->assertEquals([$this->yearValue1], $this->yearTypeValueArray->getValues());
     }
 
     /** @test */
@@ -78,6 +81,7 @@ class YearTypeValueArrayTest extends TestCase
     private function thenReturnTwoElements(): void
     {
         $this->assertEquals([[1001, 2020, 34.5], [1001, 2019, 453.21]], $this->yearTypeValueArray->getValuesAsArray());
+        $this->assertEquals([$this->yearValue1, $this->yearValue2], $this->yearTypeValueArray->getValues());
     }
 
     protected function setUp(): void
