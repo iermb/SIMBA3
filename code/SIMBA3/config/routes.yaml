@@ -25,8 +25,20 @@ api_read_all_type_area:
 
 
 api_read_area:
-  path: /type-area/{TypeAreaId}/area/
+  path: /type-area/{typeAreaId}/area/
   controller: SIMBA3\Api\Controller\Variable\ReadAllAreaTypeAreaController::execute
   methods: GET
   requirements:
-    TypeAreaId: '\d+'
+    typeAreaId: '\d+'
+
+api_read_all_type_independent_variable:
+  path: /type-independent-variable/
+  controller: SIMBA3\Api\Controller\Variable\ReadAllTypeIndependentVariableController::execute
+  methods: GET
+
+api_read_independent_variable:
+  path: /type-independent-variable/{typeIndependentVariableId}/independent-variable/
+  controller: SIMBA3\Api\Controller\Variable\ReadAllIndependentVariableTypeIndependentVariableController::execute
+  methods: GET
+  requirements:
+    typeIndependentVariableId: '\d+'

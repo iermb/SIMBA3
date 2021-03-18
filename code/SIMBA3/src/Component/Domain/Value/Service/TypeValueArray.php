@@ -9,4 +9,5 @@ interface TypeValueArray
     public function getValuesAsArray(): array;
 
     public function getValues(): array;
+
 }

@@ -1,0 +1,21 @@
+<doctrine-mapping xmlns="http://doctrine-project.org/schemas/orm/doctrine-mapping"
+                  xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+                  xsi:schemaLocation="http://doctrine-project.org/schemas/orm/doctrine-mapping
+                          https://www.doctrine-project.org/schemas/orm/doctrine-mapping.xsd">
+
+    <entity name="SIMBA3\Component\Domain\Value\Entity\AreaIndependentVariable2YearValue" table="area_independent_variable_2_year_value">
+        <id name="indicatorId" column="indicator_id" type="integer" nullable="false" />
+        <id name="typeAreaId" column="type_area_id" type="smallint" nullable="false" />
+        <id name="areaId" column="area_id" type="integer" nullable="false" />
+        <id name="typeIndependentVariable1Id" column="type_independent_variable_1_id" type="smallint" nullable="false" />
+        <id name="independentVariable1Id" column="independent_variable_1_id" type="integer" nullable="false" />
+        <id name="typeIndependentVariable2Id" column="type_independent_variable_2_id" type="smallint" nullable="false" />
+        <id name="independentVariable2Id" column="independent_variable_2_id" type="integer" nullable="false" />
+
+        <id name="year" column="year" type="smallint" nullable="false" />
+        <field name="value" column="value" type="decimal" scale="4" precision="10" nullable="true" />
+        <field name="isPublic" column="is_public" type="boolean" />
+        <field name="noteValue" column="note_value" type="string" length="10" nullable="true" />
+    </entity>
+
+</doctrine-mapping>

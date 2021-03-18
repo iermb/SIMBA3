@@ -20,6 +20,7 @@ class AreaYearTypeValueTest extends TestCase
     public function shouldAreaYearTypeValueReturnTypeValueArray(): void
     {
         $this->givenAnAreaYearTypeValue();
+        $this->thenExpectsGetValuesFromRepository();
         $this->thenReturnTypeValueArray();
     }
 
@@ -29,7 +30,12 @@ class AreaYearTypeValueTest extends TestCase
             $this->areasFilter, $this->yearsFilter);
     }
 
-    public function thenReturnTypeValueArray(): void
+    private function thenExpectsGetValuesFromRepository(): void
+    {
+        $this->areaYearValueRepository->expects($this->once())->method("getValues");
+    }
+
+    private function thenReturnTypeValueArray(): void
     {
             $this->assertInstanceOf(TypeValueArray::class, $this->areaYearTypeValue->getTypeValueArray());
     }
