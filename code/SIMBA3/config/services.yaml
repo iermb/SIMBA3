@@ -55,6 +55,12 @@ services:
         arguments:
             - "@simba3.repository.doctrine.indicator"
             - "@simba3.factory.typeValue"
+            - "@simba3.useCase.readDictionaryVariables"
+
+    simba3.useCase.readDictionaryVariables:
+        class: SIMBA3\Component\Application\Value\UseCase\ReadDictionaryVariablesUseCase
+        arguments:
+            - "@simba3.repository.doctrine.area"
 
     simba3.useCase.ReadAllTypeArea:
         class: SIMBA3\Component\Application\Variable\UseCase\ReadAllTypeAreaUseCase

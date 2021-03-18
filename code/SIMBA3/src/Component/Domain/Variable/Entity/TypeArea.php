@@ -6,6 +6,8 @@ namespace SIMBA3\Component\Domain\Variable\Entity;
 
 class TypeArea
 {
+    public const TYPE_AREA_ID_FIELD = "typeAreaId";
+
     private int $id;
     private string $name;
     private string $language;

@@ -5,7 +5,6 @@ namespace SIMBA3\Component\Domain\Variable\Repository;
 
 
 use SIMBA3\Component\Domain\Variable\Entity\Area;
-use SIMBA3\Component\Domain\Variable\Entity\TypeArea;
 
 interface AreaRepository
 {
@@ -14,4 +13,6 @@ interface AreaRepository
     //ó
     //public function getAllAreaByTypeArea(TypeArea $typeArea): array;
     public function getAllAreaByTypeArea(int $typeAreaId): array;
+
+    public function getAreasByFilter(array $areaUniqueIds): array;
 }

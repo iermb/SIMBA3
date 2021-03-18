@@ -15,6 +15,11 @@ class YearTypeValueArray implements TypeValueArray
         $this->listYearValue = $listYearValue;
     }
 
+    public function getValues(): array
+    {
+        return $this->listYearValue;
+    }
+
     public function getValuesAsArray(): array
     {
         return array_map(array($this, "getYearTypeValueAsArray"), $this->listYearValue);
