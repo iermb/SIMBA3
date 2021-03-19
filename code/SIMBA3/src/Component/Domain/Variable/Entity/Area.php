@@ -4,6 +4,8 @@
 namespace SIMBA3\Component\Domain\Variable\Entity;
 
 
+use SIMBA3\Component\Domain\Locale\Entity\Locale;
+
 class Area
 {
     public const AREA_ID_FIELD = "areaId";
@@ -11,16 +13,16 @@ class Area
     private int $id;
     private TypeArea $typeArea;
     private string $name;
-    private string $language;
+    private Locale $locale;
 
     public function __construct(
         TypeArea $typeArea,
         string $name,
-        string $language
+        Locale $locale
     ) {
         $this->typeArea = $typeArea;
         $this->name = $name;
-        $this->language = $language;
+        $this->locale = $locale;
     }
 
     public function getId(): int
@@ -38,8 +40,8 @@ class Area
         return $this->name;
     }
 
-    public function getLanguage(): string
+    public function getLocale(): Locale
     {
-        return $this->language;
+        return $this->locale;
     }
 }

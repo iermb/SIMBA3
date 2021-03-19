@@ -5,9 +5,11 @@
 
     <entity name="SIMBA3\Component\Domain\Variable\Entity\TypeArea" table="type_area">
         <id name="id" type="integer" column="id" />
-
+        <id name="locale" association-key="true" />
         <field name="name" column="name" type="string" length="100" nullable="false" unique="true" />
-        <field name="language" column="language" type="string" length="2" nullable="false" />
+        <many-to-one field="locale" target-entity="SIMBA3\Component\Domain\Locale\Entity\Locale">
+            <join-column name="locale_id" referenced-column-name="id" />
+        </many-to-one>
     </entity>
 
 

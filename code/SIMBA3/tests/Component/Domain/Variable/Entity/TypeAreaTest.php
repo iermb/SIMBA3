@@ -26,6 +26,6 @@ class TypeAreaTest extends TestCase
     private function thenReturnValidArea()
     {
         $this->assertEquals('name', $this->typeArea->getName());
-        $this->assertEquals('en', $this->typeArea->getLanguage());
+        $this->assertEquals('en', $this->typeArea->getLocale());
     }
 }
