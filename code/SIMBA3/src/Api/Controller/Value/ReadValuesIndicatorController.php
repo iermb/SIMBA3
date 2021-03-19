@@ -32,12 +32,13 @@ class ReadValuesIndicatorController
             $response = $this->readValuesIndicatorUseCase->execute(
                 new ReadValuesIndicatorRequest($indicatorId, $filters)
             );
+            $response = [
+                $response->getMetadataIndicatorAsArray(),
+                $response->getDictionariesAsArray(),
+                $response->getValuesAsArray()
+            ];
             return new JsonResponse(
-                [
-                    $response->getMetadataIndicatorAsArray(),
-                    $response->getDictionariesAsArray(),
-                    $response->getValuesAsArray()
-                ],
+                $response,
                 Response::HTTP_OK
             );
         } catch (InvalidArgumentException $exception) {

@@ -13,17 +13,17 @@ class IndependentVariableDictionary implements TypeDictionary
     private const TYPE_INDEPENDENT_VARIABLE_NAME_FIELD = "typeIndependentVariableName";
     private const INDEPENDENT_VARIABLE_NAME_FIELD = "independentVariableName";
 
-    private array $independentVariable;
+    private array $independentVariables;
 
-    public function __construct(array $independentVariable)
+    public function __construct(array $independentVariables)
     {
-        $this->independentVariable = $independentVariable;
+        $this->independentVariables = $independentVariables;
     }
 
 
     public function getDictionaryValuesAsArray(): array
     {
-        return array_map(array($this, "getIndependentVariableAsArray"), $this->independentVariable);
+        return array_map(array($this, "getIndependentVariableAsArray"), $this->independentVariables);
     }
 
     private function getIndependentVariableAsArray(IndependentVariable $independentVariable): array
