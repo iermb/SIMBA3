@@ -28,9 +28,7 @@ class ReadAllTypeAreaController
 
     public function execute(Request $request): Response
     {
-        $readLocaleResponse = $this->readLocaleUseCase->execute(new ReadLocaleRequest($request->getLocale()));
-
-        $indicatorResponse = $this->readAllTypeAreaUseCase->execute(new ReadAllTypeAreaRequest($readLocaleResponse->getLocale()));
+        $indicatorResponse = $this->readAllTypeAreaUseCase->execute(new ReadAllTypeAreaRequest($request->getLocale()));
 
         return new JsonResponse($indicatorResponse->getAllTypeArea(), Response::HTTP_OK);
     }

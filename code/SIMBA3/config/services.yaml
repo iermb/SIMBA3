@@ -39,13 +39,11 @@ services:
     SIMBA3\Api\Controller\Variable\ReadAllTypeAreaController:
         tags: [controller.service_arguments]
         arguments:
-            - "@simba3.useCase.ReadLocale"
             - "@simba3.useCase.ReadAllTypeArea"
 
     SIMBA3\Api\Controller\Variable\ReadAllAreaTypeAreaController:
         tags: [controller.service_arguments]
         arguments:
-            - "@simba3.useCase.ReadLocale"
             - "@simba3.useCase.ReadAllAreaTypeArea"
 
     SIMBA3\Api\Controller\Variable\ReadAllTypeIndependentVariableController:
@@ -81,11 +79,6 @@ services:
         class: SIMBA3\Component\Application\Variable\UseCase\ReadAllTypeAreaUseCase
         arguments:
             - "@simba3.repository.doctrine.typeArea"
-
-    simba3.useCase.ReadLocale:
-        class: SIMBA3\Component\Application\Locale\UseCase\ReadLocaleUseCase
-        arguments:
-            - "@simba3.repository.doctrine.Locale"
 
     simba3.useCase.ReadAllAreaTypeArea:
         class: SIMBA3\Component\Application\Variable\UseCase\ReadAllAreaTypeAreaUseCase
@@ -165,12 +158,6 @@ services:
         arguments:
             - "@doctrine.orm.entity_manager"
             - "@simba3.repository.metadata.independentVariable"
-            -
-    simba3.repository.doctrine.Locale:
-        class: SIMBA3\Api\Persistence\Repository\Locale\DoctrineLocaleRepository
-        arguments:
-            - "@doctrine.orm.entity_manager"
-            - "@simba3.repository.metadata.Locale"
 
     simba3.repository.simple.year:
         class: SIMBA3\Api\Persistence\Repository\Variable\SimpleYearRepository
@@ -219,8 +206,3 @@ services:
         class: Doctrine\ORM\Mapping\ClassMetadata
         arguments:
             - SIMBA3\Component\Domain\Variable\Entity\IndependentVariable
-
-    simba3.repository.metadata.Locale:
-        class: Doctrine\ORM\Mapping\ClassMetadata
-        arguments:
-            - SIMBA3\Component\Domain\Locale\Entity\Locale

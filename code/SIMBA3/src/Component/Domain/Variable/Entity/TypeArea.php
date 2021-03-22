@@ -11,13 +11,16 @@ class TypeArea
     public const TYPE_AREA_ID_FIELD = "typeAreaId";
 
     private int $id;
+    private int $typeAreaId;
+    private string $locale;
     private string $name;
-    private Locale $locale;
 
     public function __construct(
+        int $typeAreaId,
         string $name,
-        Locale $locale
+        string $locale
     ) {
+        $this->typeAreaId = $typeAreaId;
         $this->name = $name;
         $this->locale = $locale;
     }
@@ -27,12 +30,17 @@ class TypeArea
         return $this->id;
     }
 
+    public function getTypeAreaId(): int
+    {
+        return $this->typeAreaId;
+    }
+
     public function getName(): string
     {
         return $this->name;
     }
 
-    public function getLocale(): Locale
+    public function getLocale(): string
     {
         return $this->locale;
     }

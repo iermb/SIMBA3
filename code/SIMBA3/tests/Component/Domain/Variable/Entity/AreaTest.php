@@ -26,8 +26,7 @@ class AreaTest extends TestCase
     {
         $this->area = new Area(
             $this->typeArea,
-            'name',
-            'en'
+            'name'
         );
     }
 
@@ -35,6 +34,5 @@ class AreaTest extends TestCase
     {
         $this->assertEquals($this->typeArea, $this->area->getType());
         $this->assertEquals('name', $this->area->getName());
-        $this->assertEquals('en', $this->area->getLanguage());
     }
 }

@@ -2,18 +2,16 @@
 
 namespace SIMBA3\Component\Application\Locale\Response;
 
-use SIMBA3\Component\Domain\Locale\Entity\Locale;
-
 class ReadLocaleResponse
 {
-    private Locale $locale;
+    private string $locale;
 
-    public function __construct(Locale $locale)
+    public function __construct(string $locale)
     {
         $this->locale = $locale;
     }
 
-    public function getLocale(): Locale
+    public function getLocale(): string
     {
         return $this->locale;
     }

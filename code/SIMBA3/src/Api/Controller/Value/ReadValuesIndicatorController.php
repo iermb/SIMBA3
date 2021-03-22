@@ -30,7 +30,7 @@ class ReadValuesIndicatorController
                 $filters = array();
             }
             $response = $this->readValuesIndicatorUseCase->execute(
-                new ReadValuesIndicatorRequest($indicatorId, $filters)
+                new ReadValuesIndicatorRequest($request->getLocale(), $indicatorId, $filters)
             );
             return new JsonResponse(
                 [

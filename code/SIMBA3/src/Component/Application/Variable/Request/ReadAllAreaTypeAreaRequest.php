@@ -4,14 +4,12 @@
 namespace SIMBA3\Component\Application\Variable\Request;
 
 
-use SIMBA3\Component\Domain\Locale\Entity\Locale;
-
 class ReadAllAreaTypeAreaRequest
 {
-    private Locale $locale;
+    private string $locale;
     private int $typeAreaId;
 
-    public function __construct(Locale $locale, int $typeAreaId)
+    public function __construct(string $locale, int $typeAreaId)
     {
         $this->locale = $locale;
         $this->typeAreaId = $typeAreaId;
@@ -22,7 +20,7 @@ class ReadAllAreaTypeAreaRequest
         return $this->typeAreaId;
     }
 
-    public function getLocale(): Locale
+    public function getLocale(): string
     {
         return $this->locale;
     }

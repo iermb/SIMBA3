@@ -4,12 +4,23 @@
                           https://www.doctrine-project.org/schemas/orm/doctrine-mapping.xsd">
 
     <entity name="SIMBA3\Component\Domain\Variable\Entity\TypeArea" table="type_area">
-        <id name="id" type="integer" column="id" />
-        <id name="locale" association-key="true" />
-        <field name="name" column="name" type="string" length="100" nullable="false" unique="true" />
-        <many-to-one field="locale" target-entity="SIMBA3\Component\Domain\Locale\Entity\Locale">
-            <join-column name="locale_id" referenced-column-name="id" />
-        </many-to-one>
+        <id name="id" type="integer">
+            <generator strategy="AUTO" />
+        </id>
+
+        <field name="typeAreaId" column="type_area_id" type="integer" />
+        <field name="locale" column="locale" type="string" length="2" nullable="false" />
+        <field name="name" column="name" type="string" length="100" nullable="false" />
+
+        <!-- <indexes>
+            <index>
+                <option name="unique" value="true" />
+                <key name="typeAreaId" order="asc" />
+                <key name="locale" order="asc" />
+            </index>
+        </indexes>
+        -->
+
     </entity>
 
 

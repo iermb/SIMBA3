@@ -35,7 +35,7 @@ class ReadValuesIndicatorUseCase
             throw new InvalidArgumentException("Indicator not exists");
         }
 
-        $metadaIndicator = new MetadataIndicator($indicator);
+        $metadataIndicator = new MetadataIndicator($indicator);
 
         $typeIndicator = $indicator->getTypeIndicator();
 
@@ -48,10 +48,11 @@ class ReadValuesIndicatorUseCase
         $typeValueArray = $typeValue->getTypeValueArray();
 
         $dictionaries = $this->readDictionaryVariablesUseCase->execute(new ReadDictionaryVariablesRequest(
+            $request->getLocale(),
             $typeIndicator->getIdType(),
             $typeValueArray)
         );
 
-        return new ReadValuesIndicatorResponse($metadaIndicator, $dictionaries, $typeValueArray);
+        return new ReadValuesIndicatorResponse($metadataIndicator, $dictionaries, $typeValueArray);
     }
 }
