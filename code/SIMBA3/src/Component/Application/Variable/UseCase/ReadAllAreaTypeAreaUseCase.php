@@ -4,6 +4,7 @@
 namespace SIMBA3\Component\Application\Variable\UseCase;
 
 
+use InvalidArgumentException;
 use SIMBA3\Component\Application\Variable\Request\ReadAllAreaTypeAreaRequest;
 use SIMBA3\Component\Application\Variable\Response\ReadAllAreaTypeAreaResponse;
 use SIMBA3\Component\Domain\Variable\Repository\TypeAreaRepository;
@@ -26,7 +27,7 @@ class ReadAllAreaTypeAreaUseCase
     {
         $typeArea = $this->typeAreaRepository->getTypeArea($areaTypeAreaRequest->getLocale(), $areaTypeAreaRequest->getTypeAreaId());
         if (!$typeArea) {
-            throw new \InvalidArgumentException("typeArea not exists");
+            throw new InvalidArgumentException("typeArea not exists");
         }
 
         $areas = $this->areaRepository->getAllAreaByTypeArea($areaTypeAreaRequest->getLocale(), $typeArea->getTypeAreaId());

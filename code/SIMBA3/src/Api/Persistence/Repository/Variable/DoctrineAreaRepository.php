@@ -5,20 +5,15 @@ namespace SIMBA3\Api\Persistence\Repository\Variable;
 
 
 use Doctrine\ORM\EntityRepository;
-use SIMBA3\Component\Domain\Locale\Entity\Locale;
-use SIMBA3\Component\Domain\Variable\Entity\Area;
 use SIMBA3\Component\Domain\Variable\Repository\AreaRepository;
 
 class DoctrineAreaRepository extends EntityRepository implements AreaRepository
 {
-    private const TYPE_AREA_FIELD = "typeArea";
-    private const LOCALE_ID_FIELD = "locale";
-
     public function getAllAreaByTypeArea_old(string $locale, int $typeAreaId): array
     {
         $dql = 'SELECT a FROM SIMBA3\Component\Domain\Variable\Entity\Area a ';
         $dql .= ' INNER JOIN SIMBA3\Component\Domain\Variable\Entity\TypeArea t ON t.id=a.type_id';
-        $dql .= ' WHERE t.locale = "' . $locale.'" AND t.type_area_id = '.$typeAreaId;
+        $dql .= ' WHERE t.locale = "' . $locale . '" AND t.type_area_id = ' . $typeAreaId;
         $query = $this->getEntityManager()->createQuery($dql);
         return $query->getResult();
     }
@@ -55,13 +50,13 @@ class DoctrineAreaRepository extends EntityRepository implements AreaRepository
           */
 
 
-            /*
-            $dql = 'SELECT a FROM SIMBA3\Component\Domain\Variable\Entity\Area a ';
-            $dql .= ' INNER JOIN SIMBA3\Component\Domain\Variable\Entity\TypeArea t ON t.id=a.type_id';
-            $dql .= ' WHERE t.locale = "' . $locale.'" AND t.type_area_id = '.$typeAreaId;
-            $query = $this->getEntityManager()->createQuery($dql);
-            return $query->getResult();
-            */
+        /*
+        $dql = 'SELECT a FROM SIMBA3\Component\Domain\Variable\Entity\Area a ';
+        $dql .= ' INNER JOIN SIMBA3\Component\Domain\Variable\Entity\TypeArea t ON t.id=a.type_id';
+        $dql .= ' WHERE t.locale = "' . $locale.'" AND t.type_area_id = '.$typeAreaId;
+        $query = $this->getEntityManager()->createQuery($dql);
+        return $query->getResult();
+        */
 
         /*
         $em = $this->getEntityManager();
@@ -82,7 +77,7 @@ class DoctrineAreaRepository extends EntityRepository implements AreaRepository
     {
         $dql = 'SELECT a FROM SIMBA3\Component\Domain\Variable\Entity\Area a ';
         $dql .= ' WHERE a.locale = ' . $locale;
-        $dql .= ' AND ' . implode(' OR ', array_map(function($area) {
+        $dql .= ' AND ' . implode(' OR ', array_map(function ($area) {
                 return '(a.typeArea = ' . $area['typeAreaId'] . " AND a.id = " . $area["areaId"] . ")";
             }, $areaUniqueIds));
         $query = $this->getEntityManager()->createQuery($dql);
