@@ -30,13 +30,14 @@ class ReadValuesIndicatorController
                 $filters = array();
             }
             $response = $this->readValuesIndicatorUseCase->execute(
-                new ReadValuesIndicatorRequest($indicatorId, $filters)
+                new ReadValuesIndicatorRequest($request->getLocale(), $indicatorId, $filters)
             );
             $response = [
                 $response->getMetadataIndicatorAsArray(),
                 $response->getDictionariesAsArray(),
                 $response->getValuesAsArray()
             ];
+            print_r('.'); //Fix Bug JsonResponse Bad Gateway
             return new JsonResponse(
                 $response,
                 Response::HTTP_OK

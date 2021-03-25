@@ -4,6 +4,8 @@
 # Put parameters here that don't need to change on each machine where the app is deployed
 # https://symfony.com/doc/current/best_practices/configuration.html#application-related-configuration
 parameters:
+    parameters:
+        app.supported_locales: [ 'ca', 'es', 'en' ]
 
 services:
     # default configuration for services in *this* file
@@ -58,12 +60,12 @@ services:
     simba3.useCase.readInfoIndicator:
         class: SIMBA3\Component\Application\Indicator\UseCase\ReadInfoIndicatorUseCase
         arguments:
-            - "@simba3.repository.doctrine.indicator"
+            - "@simba3.repository.doctrine.indicatorTranslation"
 
     simba3.useCase.readValuesIndicator:
         class: SIMBA3\Component\Application\Value\UseCase\ReadValuesIndicatorUseCase
         arguments:
-            - "@simba3.repository.doctrine.indicator"
+            - "@simba3.repository.doctrine.indicatorTranslation"
             - "@simba3.factory.typeValue"
             - "@simba3.useCase.readDictionaryVariables"
 
@@ -109,6 +111,12 @@ services:
         arguments:
             - "@doctrine.orm.entity_manager"
             - "@simba3.repository.metadata.indicator"
+
+    simba3.repository.doctrine.indicatorTranslation:
+        class: SIMBA3\Api\Persistence\Repository\Indicator\DoctrineIndicatorTranslationRepository
+        arguments:
+            - "@doctrine.orm.entity_manager"
+            - "@simba3.repository.metadata.indicatorTranslation"
 
     simba3.repository.doctrine.areaYearValue:
         class: SIMBA3\Api\Persistence\Repository\Value\DoctrineAreaYearValueRepository
@@ -166,6 +174,11 @@ services:
         class: Doctrine\ORM\Mapping\ClassMetadata
         arguments:
             - SIMBA3\Component\Domain\Indicator\Entity\Indicator
+
+    simba3.repository.metadata.indicatorTranslation:
+        class: Doctrine\ORM\Mapping\ClassMetadata
+        arguments:
+            - SIMBA3\Component\Domain\Indicator\Entity\IndicatorTranslation
 
     simba3.repository.metadata.areaYearValue:
         class: Doctrine\ORM\Mapping\ClassMetadata

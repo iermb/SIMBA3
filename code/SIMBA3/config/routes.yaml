@@ -3,7 +3,7 @@
 #    controller: App\Controller\DefaultController::index
 
 api_read_indicator:
-  path: /indicator/{indicatorId}/
+  path: /{_locale}/indicator/{indicatorId}/
   controller: SIMBA3\Api\Controller\Indicator\ReadIndicatorController::execute
   methods: GET
   requirements:
@@ -11,7 +11,7 @@ api_read_indicator:
 
 
 api_read_values_indicator:
-  path: /indicator/{indicatorId}/values/
+  path: /{_locale}/indicator/{indicatorId}/values/
   controller: SIMBA3\Api\Controller\Value\ReadValuesIndicatorController::execute
   methods: GET
   requirements:
