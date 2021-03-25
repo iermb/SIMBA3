@@ -45,6 +45,6 @@ class AreaIndependentVariable2YearTypeValue implements TypeValue
             $this->independentVariable2sFilter->getFilterAsArray(),
             $this->yearsFilter->getFilterAsArray()
         );
-        return new AreaIndependentVariable1YearTypeValueArray($this->areaIndependentVariable2YearValueRepository->getValues($filter));
+        return new AreaIndependentVariable2YearTypeValueArray($this->areaIndependentVariable2YearValueRepository->getValues($filter));
     }
 }
