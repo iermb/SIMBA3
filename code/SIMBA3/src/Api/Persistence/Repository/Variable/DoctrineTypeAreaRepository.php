@@ -13,11 +13,11 @@ class DoctrineTypeAreaRepository extends EntityRepository implements TypeAreaRep
     private const ID_FIELD = "typeAreaId";
     private const LOCALE_ID_FIELD = "locale";
 
-    public function getTypeArea(string $locale, int $TypeAreaId): ?TypeArea
+    public function getTypeArea(string $locale, int $typeAreaId): ?TypeArea
     {
         return $this->findOneBy([
-            self::ID_FIELD => $TypeAreaId,
-            self::LOCALE_ID_FIELD => $locale,
+            self::ID_FIELD => $typeAreaId,
+            self::LOCALE_ID_FIELD => $locale
         ]);
     }
 

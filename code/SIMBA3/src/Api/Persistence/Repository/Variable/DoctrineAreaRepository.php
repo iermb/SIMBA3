@@ -71,8 +71,8 @@ class DoctrineAreaRepository extends EntityRepository implements AreaRepository
             ->setParameter('locale', $locale)->setParameter('typeAreaId', $typeAreaId)->getResult();
         */
 
-        $dql = 'SELECT a FROM SIMBA3\Component\Domain\Variable\Entity\Area a ';
-        $dql .= ' WHERE a.typeArea.locale = "' . $locale.'" AND a.typeArea.type_area_id = '.$typeAreaId;
+        $dql = "SELECT a FROM SIMBA3\Component\Domain\Variable\Entity\Area a JOIN a.typeArea t";
+        $dql .= " WHERE t.locale = '" . $locale . "' AND t.typeAreaId = " . $typeAreaId;
         $query = $this->getEntityManager()->createQuery($dql);
         return $query->getResult();
     }

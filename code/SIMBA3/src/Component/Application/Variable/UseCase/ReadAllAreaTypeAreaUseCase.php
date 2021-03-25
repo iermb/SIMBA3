@@ -29,7 +29,7 @@ class ReadAllAreaTypeAreaUseCase
             throw new \InvalidArgumentException("typeArea not exists");
         }
 
-        $areas = $this->areaRepository->getAllAreaByTypeArea($areaTypeAreaRequest->getLocale(), $typeArea->getId());
+        $areas = $this->areaRepository->getAllAreaByTypeArea($areaTypeAreaRequest->getLocale(), $typeArea->getTypeAreaId());
         return new ReadAllAreaTypeAreaResponse($areas);
     }
 }

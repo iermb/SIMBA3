@@ -5,6 +5,7 @@
 
     <entity name="SIMBA3\Component\Domain\Variable\Entity\Area" table="area">
         <id name="id" type="integer" column="id" />
+        <id name="typeArea" association-key="true" />
         <field name="name" column="name" type="string" length="100" nullable="false" />
         <many-to-one field="typeArea" target-entity="SIMBA3\Component\Domain\Variable\Entity\TypeArea">
             <join-column name="type_id" referenced-column-name="id" />
