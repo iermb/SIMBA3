@@ -16,14 +16,11 @@ use Symfony\Component\HttpFoundation\Response;
 class ReadAllTypeAreaController
 {
     private ReadAllTypeAreaUseCase $readAllTypeAreaUseCase;
-    private ReadLocaleUseCase $readLocaleUseCase;
 
     public function __construct(
-        ReadLocaleUseCase $readLocaleUseCase,
         ReadAllTypeAreaUseCase $readAllTypeAreaUseCase
     ) {
         $this->readAllTypeAreaUseCase = $readAllTypeAreaUseCase;
-        $this->readLocaleUseCase = $readLocaleUseCase;
     }
 
     public function execute(Request $request): Response
