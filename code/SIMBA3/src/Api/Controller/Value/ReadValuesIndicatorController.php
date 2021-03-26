@@ -29,18 +29,22 @@ class ReadValuesIndicatorController
             if (!$filters) {
                 $filters = array();
             }
+
             $response = $this->readValuesIndicatorUseCase->execute(
-                new ReadValuesIndicatorRequest($indicatorId, $filters)
+                new ReadValuesIndicatorRequest($request->getLocale(), $indicatorId, $filters)
             );
+
             $response = [
                 $response->getMetadataIndicatorAsArray(),
                 $response->getDictionariesAsArray(),
                 $response->getValuesAsArray()
             ];
+
             return new JsonResponse(
                 $response,
                 Response::HTTP_OK
             );
+
         } catch (InvalidArgumentException $exception) {
             return new Response($exception->getMessage(), Response::HTTP_NOT_FOUND);
         }

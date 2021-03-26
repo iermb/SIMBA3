@@ -48,7 +48,7 @@ class ReadDictionaryVariablesUseCase
                 $areaIndependentVariable1YearTypeValueUniqueIds = new AreaIndependentVariable1YearTypeValueUniqueIds($request->getTypeValueArray());
                 return [
                     new AreaDictionary($this->areaRepository->getAreasByFilter($areaIndependentVariable1YearTypeValueUniqueIds->getAreaUniqueIds())),
-                    new IndependentVariableDictionary($this->independentVariableRepository->getIndependentVariablesByFilter($areaIndependentVariable1YearTypeValueUniqueIds->getIndependentVariable1Ids())),
+                    new IndependentVariableDictionary($this->independentVariableRepository->getIndependentVariablesByFilter($request->getLocale(), $areaIndependentVariable1YearTypeValueUniqueIds->getIndependentVariable1Ids())),
                     new YearDictionary($this->yearRepository->getYearsByFilter($areaIndependentVariable1YearTypeValueUniqueIds->getYearUniqueIds())),
                 ];
 
@@ -56,8 +56,8 @@ class ReadDictionaryVariablesUseCase
                 $areaIndependentVariable2YearTypeValueUniqueIds = new AreaIndependentVariable2YearTypeValueUniqueIds($request->getTypeValueArray());
                 return [
                     new AreaDictionary($this->areaRepository->getAreasByFilter($areaIndependentVariable2YearTypeValueUniqueIds->getAreaUniqueIds())),
-                    new IndependentVariableDictionary($this->independentVariableRepository->getIndependentVariablesByFilter($areaIndependentVariable2YearTypeValueUniqueIds->getIndependentVariable1Ids())),
-                    new IndependentVariableDictionary($this->independentVariableRepository->getIndependentVariablesByFilter($areaIndependentVariable2YearTypeValueUniqueIds->getIndependentVariable2Ids())),
+                    new IndependentVariableDictionary($this->independentVariableRepository->getIndependentVariablesByFilter($request->getLocale(), $areaIndependentVariable2YearTypeValueUniqueIds->getIndependentVariable1Ids())),
+                    new IndependentVariableDictionary($this->independentVariableRepository->getIndependentVariablesByFilter($request->getLocale(), $areaIndependentVariable2YearTypeValueUniqueIds->getIndependentVariable2Ids())),
                     new YearDictionary($this->yearRepository->getYearsByFilter($areaIndependentVariable2YearTypeValueUniqueIds->getYearUniqueIds())),
                 ];
 

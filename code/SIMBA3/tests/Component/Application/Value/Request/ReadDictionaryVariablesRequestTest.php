@@ -22,16 +22,17 @@ class ReadDictionaryVariablesRequestTest extends TestCase
     public function shouldReadDictionaryVariableRequestReturnTypeAndTypeValueArray(): void
     {
         $this->givenAReadDictionaryVariableRequest();
-        $this->thenReturnTypeAndTypeValueArray();
+        $this->thenReturnLocaleTypeAndTypeValueArray();
     }
 
     private function givenAReadDictionaryVariableRequest(): void
     {
-        $this->readDictionaryVariableRequest = new ReadDictionaryVariablesRequest("type", $this->typeValueArray);
+        $this->readDictionaryVariableRequest = new ReadDictionaryVariablesRequest('pt', "type", $this->typeValueArray);
     }
 
-    private function thenReturnTypeAndTypeValueArray(): void
+    private function thenReturnLocaleTypeAndTypeValueArray(): void
     {
+        $this->assertEquals("pt", $this->readDictionaryVariableRequest->getLocale());
         $this->assertEquals("type", $this->readDictionaryVariableRequest->getType());
         $this->assertSame($this->typeValueArray, $this->readDictionaryVariableRequest->getTypeValueArray());
     }
