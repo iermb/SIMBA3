@@ -19,7 +19,7 @@ class ReadValuesIndicatorRequestTest extends TestCase
     public function shouldReadValuesIndicatorRequestReturnIndicatorId(): void
     {
         $this->givenAReadValuesIndicatorRequest();
-        $this->thenReturnIndicatorId();
+        $this->thenReturnIndicatorLocaleFiltersAndId();
     }
 
     private function givenAReadValuesIndicatorRequest(): void
@@ -27,7 +27,7 @@ class ReadValuesIndicatorRequestTest extends TestCase
         $this->readValuesIndicatorRequest = new ReadValuesIndicatorRequest('en',34, $this->filters);
     }
 
-    private function thenReturnIndicatorId(): void
+    private function thenReturnIndicatorLocaleFiltersAndId(): void
     {
         $this->assertEquals('en', $this->readValuesIndicatorRequest->getLocale());
         $this->assertEquals(34, $this->readValuesIndicatorRequest->getIndicatorId());

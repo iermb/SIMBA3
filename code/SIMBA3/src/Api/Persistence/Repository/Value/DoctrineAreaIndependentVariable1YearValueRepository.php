@@ -6,7 +6,6 @@ namespace SIMBA3\Api\Persistence\Repository\Value;
 
 use Doctrine\ORM\EntityRepository;
 use SIMBA3\Component\Domain\Value\Repository\AreaIndependentVariable1YearValueRepository;
-use SIMBA3\Component\Domain\Value\Repository\AreaYearValueRepository;
 
 class DoctrineAreaIndependentVariable1YearValueRepository extends EntityRepository implements AreaIndependentVariable1YearValueRepository
 {
@@ -29,6 +28,7 @@ class DoctrineAreaIndependentVariable1YearValueRepository extends EntityReposito
                     return "(v.typeIndependentVariableId = " . $independentVariable["typeIndependentVariableId"] . " AND v.independentVariableId = " . $independentVariable["independentVariableId"] . ")";
                 }, $filter["independentVariable1s"])) . ")";
         }
+
         $query = $this->getEntityManager()->createQuery($dql)->setParameter('indicatorId', $filter["indicatorId"]);
         return $query->getResult();
     }

@@ -9,8 +9,9 @@ use SIMBA3\Component\Application\Value\Response\ReadValuesIndicatorResponse;
 use SIMBA3\Component\Application\Value\UseCase\ReadDictionaryVariablesUseCase;
 use SIMBA3\Component\Application\Value\UseCase\ReadValuesIndicatorUseCase;
 use SIMBA3\Component\Domain\Indicator\Entity\Indicator;
+use SIMBA3\Component\Domain\Indicator\Entity\IndicatorTranslation;
 use SIMBA3\Component\Domain\Indicator\Entity\TypeIndicator;
-use SIMBA3\Component\Domain\Indicator\Repository\IndicatorRepository;
+use SIMBA3\Component\Domain\Indicator\Repository\IndicatorTranslationRepository;
 use SIMBA3\Component\Domain\Value\Service\FactoryTypeValue;
 use SIMBA3\Component\Domain\Value\Service\TypeValue;
 use SIMBA3\Component\Domain\Value\Service\TypeValueArray;
@@ -18,9 +19,10 @@ use SIMBA3\Component\Domain\Value\Service\TypeValueArray;
 class ReadValuesIndicatorUseCaseTest extends TestCase
 {
     private ReadValuesIndicatorUseCase $readValuesIndicatorUseCase;
-    private IndicatorRepository $indicatorRepository;
+    private IndicatorTranslationRepository $indicatorTranslationRepository;
     private ReadValuesIndicatorRequest $readValuesIndicatorRequest;
     private FactoryTypeValue $factoryTypeValue;
+    private IndicatorTranslation $indicatorTranslation;
     private Indicator $indicator;
     private TypeIndicator $typeIndicator;
     private TypeValue $typeValue;
@@ -30,9 +32,10 @@ class ReadValuesIndicatorUseCaseTest extends TestCase
     protected function setUp(): void
     {
         parent::setUp();
-        $this->indicatorRepository = $this->createMock(IndicatorRepository::class);
+        $this->indicatorTranslationRepository = $this->createMock(IndicatorTranslationRepository::class);
         $this->readValuesIndicatorRequest = $this->createMock(ReadValuesIndicatorRequest::class);
         $this->factoryTypeValue = $this->createMock(FactoryTypeValue::class);
+        $this->indicatorTranslation = $this->createMock(IndicatorTranslation::class);
         $this->indicator = $this->createMock(Indicator::class);
         $this->typeIndicator = $this->createMock(TypeIndicator::class);
         $this->typeValue = $this->createMock(TypeValue::class);
@@ -61,7 +64,7 @@ class ReadValuesIndicatorUseCaseTest extends TestCase
     private function givenAReadValuesIndicatorUseCase(): void
     {
         $this->readValuesIndicatorUseCase = new ReadValuesIndicatorUseCase(
-            $this->indicatorRepository,
+            $this->indicatorTranslationRepository,
             $this->factoryTypeValue,
             $this->readDictionaryVariablesUseCase
         );
@@ -69,12 +72,13 @@ class ReadValuesIndicatorUseCaseTest extends TestCase
 
     private function whenIndicatorNotExists(): void
     {
-        $this->indicatorRepository->method("getIndicator")->willReturn(null);
+        $this->indicatorTranslationRepository->method("getIndicatorTranslation")->willReturn(null);
     }
 
     private function whenIndicatorExists(): void
     {
-        $this->indicatorRepository->method("getIndicator")->willReturn($this->indicator);
+        $this->indicatorTranslationRepository->method("getIndicatorTranslation")->willReturn($this->indicatorTranslation);
+        $this->indicatorTranslation->method("getIndicator")->willReturn($this->indicator);
         $this->indicator->method("getTypeIndicator")->willReturn($this->typeIndicator);
         $this->typeIndicator->method("getIdType")->willReturn("Test");
     }

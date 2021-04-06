@@ -12,16 +12,17 @@ class ReadInfoIndicatorRequestTest extends TestCase
     public function shouldReadInfoIndicatorRequestReturnIndicatorId(): void
     {
         $this->givenAReadInfoIndicatorRequest();
-        $this->thenReadInfoIndicatorRequestReturnIndicatorId();
+        $this->thenReadInfoIndicatorRequestReturnIndicatorLocaleAndId();
     }
 
     private function givenAReadInfoIndicatorRequest(): void
     {
-        $this->readInfoIndicatorRequest = new ReadInfoIndicatorRequest(34);
+        $this->readInfoIndicatorRequest = new ReadInfoIndicatorRequest('es',34);
     }
 
-    private function thenReadInfoIndicatorRequestReturnIndicatorId(): void
+    private function thenReadInfoIndicatorRequestReturnIndicatorLocaleAndId(): void
     {
+        $this->assertEquals('es', $this->readInfoIndicatorRequest->getLocale());
         $this->assertEquals(34, $this->readInfoIndicatorRequest->getIndicatorId());
     }
 }

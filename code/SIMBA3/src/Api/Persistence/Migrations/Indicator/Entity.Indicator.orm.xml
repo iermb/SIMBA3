@@ -5,19 +5,10 @@
 
     <entity name="SIMBA3\Component\Domain\Indicator\Entity\Indicator" table="indicator">
         <id name="id" type="integer" column="id" />
-
-        <field name="name" column="name" type="string" length="100" nullable="false" unique="true" />
-        <field name="description" column="description" type="string" length="5000" nullable="true" />
-        <field name="units" column="units" type="string" length="100" nullable="true" />
-        <field name="note" column="note" type="string" length="100" nullable="true" />
-        <field name="font" column="font" type="string" length="100" nullable="true" />
-        <field name="methodology" column="methodology" type="string" length="5000" nullable="true" />
         <field name="decimals" column="decimals" type="integer" />
         <many-to-one field="typeIndicator" target-entity="SIMBA3\Component\Domain\Indicator\Entity\TypeIndicator">
             <join-column name="type_id" referenced-column-name="id" />
         </many-to-one>
     </entity>
-
-
 
 </doctrine-mapping>

@@ -8,7 +8,6 @@ use SIMBA3\Component\Domain\Filter\Service\IndependentVariablesFilter;
 use SIMBA3\Component\Domain\Filter\Service\IndicatorFilter;
 use SIMBA3\Component\Domain\Filter\Service\YearsFilter;
 use SIMBA3\Component\Domain\Value\Repository\AreaIndependentVariable1YearValueRepository;
-use SIMBA3\Component\Domain\Variable\Entity\IndependentVariable;
 
 class AreaIndependentVariable1YearTypeValue implements TypeValue
 {
@@ -40,6 +39,7 @@ class AreaIndependentVariable1YearTypeValue implements TypeValue
             $this->independentVariable1sFilter->getFilterAsArray(),
             $this->yearsFilter->getFilterAsArray()
         );
+
         return new AreaIndependentVariable1YearTypeValueArray($this->areaIndependentVariable1YearValueRepository->getValues($filter));
     }
 }

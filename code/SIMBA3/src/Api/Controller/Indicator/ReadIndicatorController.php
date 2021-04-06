@@ -7,6 +7,7 @@ namespace SIMBA3\Api\Controller\Indicator;
 use SIMBA3\Component\Application\Indicator\Request\ReadInfoIndicatorRequest;
 use SIMBA3\Component\Application\Indicator\UseCase\ReadInfoIndicatorUseCase;
 use Symfony\Component\HttpFoundation\JsonResponse;
+use Symfony\Component\HttpFoundation\Request;
 use Symfony\Component\HttpFoundation\Response;
 
 class ReadIndicatorController
@@ -18,10 +19,10 @@ class ReadIndicatorController
         $this->readInfoIndicatorUseCase = $readInfoIndicatorUseCase;
     }
 
-    public function execute(int $indicatorId): Response
+    public function execute(Request $request, int $indicatorId): Response
     {
         try {
-            $indicatorResponse = $this->readInfoIndicatorUseCase->execute(new ReadInfoIndicatorRequest($indicatorId));
+            $indicatorResponse = $this->readInfoIndicatorUseCase->execute(new ReadInfoIndicatorRequest($request->getLocale(), $indicatorId));
             return new JsonResponse($indicatorResponse->getIndicatorAsArray(), Response::HTTP_OK);
         } catch (\InvalidArgumentException $exception) {
             return new Response("", Response::HTTP_NOT_FOUND);
