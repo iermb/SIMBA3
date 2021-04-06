@@ -31,10 +31,4 @@ class ReadValuesIndicatorRequest
     {
         return $this->filters;
     }
-
-    public function getLocale(): string
-    {
-        return $this->locale;
-    }
-
 }
