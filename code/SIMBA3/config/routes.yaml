@@ -19,13 +19,13 @@ api_read_values_indicator:
 
 
 api_read_all_type_area:
-  path: /type-area/
+  path: /{_locale}/type-area/
   controller: SIMBA3\Api\Controller\Variable\ReadAllTypeAreaController::execute
   methods: GET
 
 
 api_read_area:
-  path: /type-area/{typeAreaId}/area/
+  path: /{_locale}/type-area/{typeAreaId}/area/
   controller: SIMBA3\Api\Controller\Variable\ReadAllAreaTypeAreaController::execute
   methods: GET
   requirements:

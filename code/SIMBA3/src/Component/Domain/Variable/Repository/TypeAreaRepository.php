@@ -8,7 +8,7 @@ use SIMBA3\Component\Domain\Variable\Entity\TypeArea;
 
 interface TypeAreaRepository
 {
-    public function getTypeArea(int $TypeAreaId): ?TypeArea;
+    public function getTypeArea(string $locale, int $TypeAreaId): ?TypeArea;
 
-    public function getAllTypeArea(): array;
+    public function getAllTypeArea(string $locale): array;
 }
