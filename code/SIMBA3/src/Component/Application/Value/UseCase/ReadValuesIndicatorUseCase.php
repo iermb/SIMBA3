@@ -8,35 +8,36 @@ use InvalidArgumentException;
 use SIMBA3\Component\Application\Value\Request\ReadDictionaryVariablesRequest;
 use SIMBA3\Component\Application\Value\Request\ReadValuesIndicatorRequest;
 use SIMBA3\Component\Application\Value\Response\ReadValuesIndicatorResponse;
-use SIMBA3\Component\Domain\Indicator\Repository\IndicatorRepository;
+use SIMBA3\Component\Domain\Indicator\Repository\IndicatorTranslationRepository;
 use SIMBA3\Component\Domain\Indicator\Service\MetadataIndicator;
 use SIMBA3\Component\Domain\Value\Service\FactoryTypeValue;
 
 class ReadValuesIndicatorUseCase
 {
-    private IndicatorRepository            $indicatorRepository;
-    private FactoryTypeValue               $factoryTypeValue;
-    private ReadDictionaryVariablesUseCase $readDictionaryVariablesUseCase;
+    private IndicatorTranslationRepository  $indicatorTranslationRepository;
+    private FactoryTypeValue                $factoryTypeValue;
+    private ReadDictionaryVariablesUseCase  $readDictionaryVariablesUseCase;
 
     public function __construct(
-        IndicatorRepository $indicatorRepository,
+        IndicatorTranslationRepository $indicatorTranslationRepository,
         FactoryTypeValue $factoryTypeValue,
         ReadDictionaryVariablesUseCase $readDictionaryVariablesUseCase
     ) {
-        $this->indicatorRepository = $indicatorRepository;
+        $this->indicatorTranslationRepository = $indicatorTranslationRepository;
         $this->factoryTypeValue = $factoryTypeValue;
         $this->readDictionaryVariablesUseCase = $readDictionaryVariablesUseCase;
     }
 
     public function execute(ReadValuesIndicatorRequest $request): ReadValuesIndicatorResponse
     {
-        $indicator = $this->indicatorRepository->getIndicator($request->getIndicatorId());
-        if (!$indicator) {
+        $indicatorTranslation = $this->indicatorTranslationRepository->getIndicatorTranslation($request->getLocale(), $request->getIndicatorId());
+        if (!$indicatorTranslation) {
             throw new InvalidArgumentException("Indicator not exists");
         }
 
-        $metadataIndicator = new MetadataIndicator($indicator);
+        $metadataIndicator = new MetadataIndicator($indicatorTranslation);
 
+        $indicator = $indicatorTranslation->getIndicator();
         $typeIndicator = $indicator->getTypeIndicator();
 
         $typeValue = $this->factoryTypeValue->getObjectTypeValue(

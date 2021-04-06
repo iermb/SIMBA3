@@ -4,7 +4,9 @@
 namespace SIMBA3\Component\Application\Variable\UseCase;
 
 
+use SIMBA3\Component\Application\Variable\Request\ReadAllTypeAreaRequest;
 use SIMBA3\Component\Application\Variable\Response\ReadAllTypeAreaResponse;
+use SIMBA3\Component\Domain\Locale\Entity\Locale;
 use SIMBA3\Component\Domain\Variable\Repository\TypeAreaRepository;
 
 class ReadAllTypeAreaUseCase
@@ -16,8 +18,8 @@ class ReadAllTypeAreaUseCase
         $this->typeAreaRepository = $typeAreaRepository;
     }
 
-    public function execute(): ReadAllTypeAreaResponse
+    public function execute(ReadAllTypeAreaRequest $readAllTypeAreaRequest): ReadAllTypeAreaResponse
     {
-        return new ReadAllTypeArearesponse($this->typeAreaRepository->getAllTypeArea());
+        return new ReadAllTypeArearesponse($this->typeAreaRepository->getAllTypeArea($readAllTypeAreaRequest->getLocale()));
     }
 }

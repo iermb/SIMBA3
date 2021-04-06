@@ -40,6 +40,8 @@ class ReadValuesIndicatorController
                 $response->getValuesAsArray()
             ];
 
+            //print_r('.'); //Fix Bug JsonResponse Bad Gateway
+
             return new JsonResponse(
                 $response,
                 Response::HTTP_OK

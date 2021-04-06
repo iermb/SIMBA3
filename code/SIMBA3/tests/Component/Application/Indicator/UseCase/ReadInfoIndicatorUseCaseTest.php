@@ -5,22 +5,22 @@ namespace SIMBA3\Component\Application\Indicator\UseCase;
 use PHPUnit\Framework\TestCase;
 use SIMBA3\Component\Application\Indicator\Request\ReadInfoIndicatorRequest;
 use SIMBA3\Component\Application\Indicator\Response\ReadInfoIndicatorResponse;
-use SIMBA3\Component\Domain\Indicator\Entity\Indicator;
-use SIMBA3\Component\Domain\Indicator\Repository\IndicatorRepository;
+use SIMBA3\Component\Domain\Indicator\Entity\IndicatorTranslation;
+use SIMBA3\Component\Domain\Indicator\Repository\IndicatorTranslationRepository;
 
 class ReadInfoIndicatorUseCaseTest extends TestCase
 {
     private ReadInfoIndicatorUseCase $readInfoIndicatorUseCase;
-    private IndicatorRepository $indicatorRepository;
+    private IndicatorTranslationRepository $indicatorTranslationRepository;
     private ReadInfoIndicatorRequest $readInfoIndicatorRequest;
-    private Indicator $indicator;
+    private IndicatorTranslation $indicatorTranslation;
 
     protected function setUp(): void
     {
         parent::setUp();
-        $this->indicatorRepository = $this->createMock(IndicatorRepository::class);
+        $this->indicatorTranslationRepository = $this->createMock(IndicatorTranslationRepository::class);
         $this->readInfoIndicatorRequest = $this->createMock(ReadInfoIndicatorRequest::class);
-        $this->indicator = $this->createMock(Indicator::class);
+        $this->indicatorTranslation = $this->createMock(IndicatorTranslation::class);
     }
 
     /** @test */
@@ -41,17 +41,17 @@ class ReadInfoIndicatorUseCaseTest extends TestCase
 
     private function givenAnReadInfoIndicatorUseCase(): void
     {
-        $this->readInfoIndicatorUseCase = new ReadInfoIndicatorUseCase($this->indicatorRepository);
+        $this->readInfoIndicatorUseCase = new ReadInfoIndicatorUseCase($this->indicatorTranslationRepository);
     }
 
     private function whenNotExistsIndicator(): void
     {
-        $this->indicatorRepository->method("getIndicator")->willReturn(null);
+        $this->indicatorTranslationRepository->method("getIndicatorTranslation")->willReturn(null);
     }
 
     private function whenExistsIndicator(): void
     {
-        $this->indicatorRepository->method("getIndicator")->willReturn($this->indicator);
+        $this->indicatorTranslationRepository->method("getIndicatorTranslation")->willReturn($this->indicatorTranslation);
     }
 
     private function whenIndicatorExecuteReadInfoIndicatorUseCaseThenReturnException(): void

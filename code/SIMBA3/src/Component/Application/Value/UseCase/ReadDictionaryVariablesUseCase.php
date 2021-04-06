@@ -40,7 +40,7 @@ class ReadDictionaryVariablesUseCase
             case FactoryTypeValue::AREA_YEAR_VALUE_TYPE:
                 $areaYearTypeValueUniqueIds = new AreaYearTypeValueUniqueIds($request->getTypeValueArray());
                 return [
-                    new AreaDictionary($this->areaRepository->getAreasByFilter($areaYearTypeValueUniqueIds->getAreaUniqueIds())),
+                    new AreaDictionary($this->areaRepository->getAreasByFilter($request->getLocale(), $areaYearTypeValueUniqueIds->getAreaUniqueIds())),
                     new YearDictionary($this->yearRepository->getYearsByFilter($areaYearTypeValueUniqueIds->getYearUniqueIds()))
                 ];
 

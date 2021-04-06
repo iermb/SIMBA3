@@ -6,23 +6,24 @@ namespace SIMBA3\Component\Application\Indicator\UseCase;
 
 use SIMBA3\Component\Application\Indicator\Request\ReadInfoIndicatorRequest;
 use SIMBA3\Component\Application\Indicator\Response\ReadInfoIndicatorResponse;
-use SIMBA3\Component\Domain\Indicator\Repository\IndicatorRepository;
+use SIMBA3\Component\Domain\Indicator\Repository\IndicatorTranslationRepository;
 
 class ReadInfoIndicatorUseCase
 {
-    private IndicatorRepository $indicatorRepository;
+    private IndicatorTranslationRepository $indicatorTranslationRepository;
 
-    public function __construct(IndicatorRepository $indicatorRepository)
+    public function __construct(IndicatorTranslationRepository $indicatorTranslationRepository)
     {
-        $this->indicatorRepository = $indicatorRepository;
+        $this->indicatorTranslationRepository = $indicatorTranslationRepository;
     }
 
     public function execute(ReadInfoIndicatorRequest $request): ReadInfoIndicatorResponse
     {
-        $indicator = $this->indicatorRepository->getIndicator($request->getIndicatorId());
-        if (!$indicator) {
+        $indicatorTranslate = $this->indicatorTranslationRepository->getIndicatorTranslation($request->getLocale(), $request->getIndicatorId());
+
+        if (!$indicatorTranslate) {
             throw new \InvalidArgumentException("Indicator not exists");
         }
-        return new ReadInfoIndicatorResponse($indicator);
+        return new ReadInfoIndicatorResponse($indicatorTranslate);
     }
 }

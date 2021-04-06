@@ -27,12 +27,12 @@ class ReadDictionaryVariablesRequestTest extends TestCase
 
     private function givenAReadDictionaryVariableRequest(): void
     {
-        $this->readDictionaryVariableRequest = new ReadDictionaryVariablesRequest('pt', "type", $this->typeValueArray);
+        $this->readDictionaryVariableRequest = new ReadDictionaryVariablesRequest('it',"type", $this->typeValueArray);
     }
 
     private function thenReturnLocaleTypeAndTypeValueArray(): void
     {
-        $this->assertEquals("pt", $this->readDictionaryVariableRequest->getLocale());
+        $this->assertEquals("it", $this->readDictionaryVariableRequest->getLocale());
         $this->assertEquals("type", $this->readDictionaryVariableRequest->getType());
         $this->assertSame($this->typeValueArray, $this->readDictionaryVariableRequest->getTypeValueArray());
     }
