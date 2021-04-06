@@ -49,6 +49,7 @@ class ReadValuesIndicatorUseCase
         $typeValueArray = $typeValue->getTypeValueArray();
 
         $dictionaries = $this->readDictionaryVariablesUseCase->execute(new ReadDictionaryVariablesRequest(
+            $request->getLocale(),
             $typeIndicator->getIdType(),
             $typeValueArray)
         );

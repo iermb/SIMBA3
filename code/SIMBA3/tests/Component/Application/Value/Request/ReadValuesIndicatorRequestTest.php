@@ -24,12 +24,12 @@ class ReadValuesIndicatorRequestTest extends TestCase
 
     private function givenAReadValuesIndicatorRequest(): void
     {
-        $this->readValuesIndicatorRequest = new ReadValuesIndicatorRequest('ge',34, $this->filters);
+        $this->readValuesIndicatorRequest = new ReadValuesIndicatorRequest('en',34, $this->filters);
     }
 
     private function thenReturnIndicatorLocaleFiltersAndId(): void
     {
-        $this->assertEquals('ge', $this->readValuesIndicatorRequest->getLocale());
+        $this->assertEquals('en', $this->readValuesIndicatorRequest->getLocale());
         $this->assertEquals(34, $this->readValuesIndicatorRequest->getIndicatorId());
         $this->assertSame($this->filters, $this->readValuesIndicatorRequest->getFilters());
     }

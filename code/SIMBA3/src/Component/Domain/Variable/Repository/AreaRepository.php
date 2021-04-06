@@ -8,11 +8,9 @@ use SIMBA3\Component\Domain\Variable\Entity\Area;
 
 interface AreaRepository
 {
-    public function getArea(int $areaId): ?Area;
-
     //ó
     //public function getAllAreaByTypeArea(TypeArea $typeArea): array;
-    public function getAllAreaByTypeArea(int $typeAreaId): array;
+    public function getAllAreaByTypeArea(string $locale, int $typeAreaId): array;
 
-    public function getAreasByFilter(array $areaUniqueIds): array;
+    public function getAreasByFilter(string $locale, array $areaUniqueIds): array;
 }

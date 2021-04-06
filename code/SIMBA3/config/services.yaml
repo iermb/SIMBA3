@@ -4,8 +4,7 @@
 # Put parameters here that don't need to change on each machine where the app is deployed
 # https://symfony.com/doc/current/best_practices/configuration.html#application-related-configuration
 parameters:
-    parameters:
-        app.supported_locales: [ 'ca', 'es', 'en' ]
+    app.supported_locales: ['ca', 'es', 'en']
 
 services:
     # default configuration for services in *this* file
@@ -165,7 +164,6 @@ services:
         arguments:
             - "@doctrine.orm.entity_manager"
             - "@simba3.repository.metadata.independentVariable"
-
 
     simba3.repository.simple.year:
         class: SIMBA3\Api\Persistence\Repository\Variable\SimpleYearRepository

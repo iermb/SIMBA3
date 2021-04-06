@@ -17,6 +17,11 @@ class ReadValuesIndicatorRequest
         $this->filters = $filters;
     }
 
+    public function getLocale(): string
+    {
+        return $this->locale;
+    }
+
     public function getIndicatorId(): int
     {
         return $this->indicatorId;
