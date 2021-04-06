@@ -14,16 +14,20 @@ class ReadAllIndependentVariableTypeIndependentVariableRequestTest extends TestC
     public function shouldReadAllIndependentVariableTypeIndependentVariableRequestReturnTypeIndependentVariableId(): void
     {
         $this->givenReadAllIndependentVariableTypeIndependentVariableRequest();
-        $this->thenReturnTypeIndependentVariableId();
+        $this->thenReturnLocaleAndTypeIndependentVariableId();
     }
 
     private function givenReadAllIndependentVariableTypeIndependentVariableRequest(): void
     {
-        $this->readAllIndependentVariableTypeIndependentVariableRequest = new ReadAllIndependentVariableTypeIndependentVariableRequest(567);
+        $this->readAllIndependentVariableTypeIndependentVariableRequest = new ReadAllIndependentVariableTypeIndependentVariableRequest('ca',567);
     }
 
-    private function thenReturnTypeIndependentVariableId(): void
+    private function thenReturnLocaleAndTypeIndependentVariableId(): void
     {
+        $this->assertEquals(
+            'ca',
+            $this->readAllIndependentVariableTypeIndependentVariableRequest->getLocale()
+        );
         $this->assertEquals(
             567,
             $this->readAllIndependentVariableTypeIndependentVariableRequest->getTypeIndependentVariableId()

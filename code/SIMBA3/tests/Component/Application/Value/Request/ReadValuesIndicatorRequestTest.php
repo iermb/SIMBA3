@@ -19,7 +19,7 @@ class ReadValuesIndicatorRequestTest extends TestCase
     public function shouldReadValuesIndicatorRequestReturnIndicatorId(): void
     {
         $this->givenAReadValuesIndicatorRequest();
-        $this->thenReturnIndicatorLocaleFiltersAndId();
+        $this->thenReturnLocaleIndicatorIdAndFilters();
     }
 
     private function givenAReadValuesIndicatorRequest(): void

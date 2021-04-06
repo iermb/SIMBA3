@@ -6,6 +6,7 @@
 parameters:
     app.supported_locales: ['ca', 'es', 'en']
 
+
 services:
     # default configuration for services in *this* file
     _defaults:

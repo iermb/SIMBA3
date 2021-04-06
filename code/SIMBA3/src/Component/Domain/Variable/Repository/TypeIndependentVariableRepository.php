@@ -8,7 +8,7 @@ use SIMBA3\Component\Domain\Variable\Entity\TypeIndependentVariable;
 
 interface TypeIndependentVariableRepository
 {
-    public function getTypeIndependentVariable(int $typeIndependentVariableId): ?TypeIndependentVariable;
+    public function getTypeIndependentVariable(string $locale, int $typeIndependentVariableId): ?TypeIndependentVariable;
 
-    public function getAllTypeIndependentVariable(): array;
+    public function getAllTypeIndependentVariable(string $locale): array;
 }

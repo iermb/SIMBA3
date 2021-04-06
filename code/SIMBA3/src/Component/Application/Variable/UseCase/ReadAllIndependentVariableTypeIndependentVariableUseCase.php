@@ -26,12 +26,18 @@ class ReadAllIndependentVariableTypeIndependentVariableUseCase
         ReadAllIndependentVariableTypeIndependentVariableRequest $independentVariableTypeIndependentVariableRequest
     ): ReadAllIndependentVariableTypeIndependentVariableResponse
     {
-        $typeIndependentVariable = $this->typeIndependentVariableRepository->getTypeIndependentVariable($independentVariableTypeIndependentVariableRequest->getTypeIndependentVariableId());
+        $typeIndependentVariable = $this->typeIndependentVariableRepository->getTypeIndependentVariable(
+            $independentVariableTypeIndependentVariableRequest->getLocale(),
+            $independentVariableTypeIndependentVariableRequest->getTypeIndependentVariableId()
+        );
         if (!$typeIndependentVariable) {
             throw new \InvalidArgumentException("typeIndependentVariable not exists");
         }
 
-        $areas = $this->independentVariableRepository->getAllIndependentVariableByTypeIndependentVariable($typeIndependentVariable->getId());
+        $areas = $this->independentVariableRepository->getAllIndependentVariableByTypeIndependentVariable(
+            $independentVariableTypeIndependentVariableRequest->getLocale(),
+            $typeIndependentVariable->getId()
+        );
         return new ReadAllIndependentVariableTypeIndependentVariableResponse($areas);
     }
 }
