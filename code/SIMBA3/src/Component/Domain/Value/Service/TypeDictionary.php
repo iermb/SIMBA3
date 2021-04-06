@@ -9,4 +9,6 @@ interface TypeDictionary
     
     public function getDictionaryValuesAsArray(): array;
 
+    //public function getDictionaryValuesAsGroupedArray(): array;
+
 }

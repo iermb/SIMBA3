@@ -85,9 +85,13 @@ class AreaDictionaryTest extends TestCase
         $this->assertEquals([
             [
                 "typeAreaId" => 101,
-                "areaId" => 2,
                 "typeAreaName" => "Type Area Name",
-                "areaName" => "Area Name"
+                "areas" => [
+                    [
+                        "areaId" => 2,
+                        "areaName" => "Area Name"
+                    ]
+                ]
             ]
         ], $this->areaDictionary->getDictionaryValuesAsArray());
     }
@@ -97,14 +101,23 @@ class AreaDictionaryTest extends TestCase
         $this->assertEquals([
             [
                 "typeAreaId" => 101,
-                "areaId" => 2,
                 "typeAreaName" => "Type Area Name",
-                "areaName" => "Area Name"
-            ], [
+                "areas" => [
+                    [
+                        "areaId" => 2,
+                        "areaName" => "Area Name"
+                    ]
+                ]
+            ],
+            [
                 "typeAreaId" => 102,
-                "areaId" => 5,
                 "typeAreaName" => "Type Area Name 2",
-                "areaName" => "Area Name 2"
+                "areas" => [
+                    [
+                        "areaId" => 5,
+                        "areaName" => "Area Name 2"
+                    ]
+                ]
             ]
         ], $this->areaDictionary->getDictionaryValuesAsArray());
     }
