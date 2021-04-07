@@ -28,6 +28,6 @@ class TypeAreaTest extends TestCase
     {
         $this->assertEquals(200, $this->typeArea->getTypeAreaId());
         $this->assertEquals('City', $this->typeArea->getName());
-        $this->assertEquals('en', $this->typeArea->getLocale());
+        $this->assertEquals('en', $this->typeArea->getLanguage());
     }
 }

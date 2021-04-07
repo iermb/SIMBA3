@@ -11,20 +11,20 @@ use SIMBA3\Component\Domain\Variable\Repository\TypeAreaRepository;
 class DoctrineTypeAreaRepository extends EntityRepository implements TypeAreaRepository
 {
     private const ID_FIELD = "typeAreaId";
-    private const LOCALE_ID_FIELD = "locale";
+    private const LANGUAGE_ID_FIELD = "language";
 
     public function getTypeArea(string $locale, int $typeAreaId): ?TypeArea
     {
         return $this->findOneBy([
             self::ID_FIELD => $typeAreaId,
-            self::LOCALE_ID_FIELD => $locale
+            self::LANGUAGE_ID_FIELD => $locale
         ]);
     }
 
     public function getAllTypeArea(string $locale): array
     {
         return $this->findBy([
-            self::LOCALE_ID_FIELD => $locale,
+            self::LANGUAGE_ID_FIELD => $locale,
         ]);
     }
 }

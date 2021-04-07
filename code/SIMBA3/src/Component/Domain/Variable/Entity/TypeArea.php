@@ -12,7 +12,7 @@ class TypeArea
 
     private int $id;
     private int $typeAreaId;
-    private string $locale;
+    private string $language;
     private string $name;
 
     public function __construct(
@@ -22,7 +22,7 @@ class TypeArea
     ) {
         $this->typeAreaId = $typeAreaId;
         $this->name = $name;
-        $this->locale = $locale;
+        $this->language = $locale;
     }
 
     public function getId(): int
@@ -40,8 +40,8 @@ class TypeArea
         return $this->name;
     }
 
-    public function getLocale(): string
+    public function getLanguage(): string
     {
-        return $this->locale;
+        return $this->language;
     }
 }

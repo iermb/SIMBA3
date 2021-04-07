@@ -9,20 +9,9 @@
         </id>
 
         <field name="typeAreaId" column="type_area_id" type="integer" />
-        <field name="locale" column="locale" type="string" length="2" nullable="false" />
+        <field name="language" column="language" type="string" length="2" nullable="false" />
         <field name="name" column="name" type="string" length="100" nullable="false" />
 
-        <!-- <indexes>
-            <index>
-                <option name="unique" value="true" />
-                <key name="typeAreaId" order="asc" />
-                <key name="locale" order="asc" />
-            </index>
-        </indexes>
-        -->
-
     </entity>
-
-
 
 </doctrine-mapping>

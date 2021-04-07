@@ -47,7 +47,7 @@ class ReadInfoIndicatorResponseTest extends TestCase
         $this->indicator->method("getDecimals")->willReturn(3);
 
         $this->indicatorTranslation->method("getIndicator")->willReturn($this->indicator);
-        $this->indicatorTranslation->method("getLocale")->willReturn("it");
+        $this->indicatorTranslation->method("getLanguage")->willReturn("it");
         $this->indicatorTranslation->method("getName")->willReturn("Test name");
         $this->indicatorTranslation->method("getDescription")->willReturn("Test description");
         $this->indicatorTranslation->method("getUnits")->willReturn("Units test");

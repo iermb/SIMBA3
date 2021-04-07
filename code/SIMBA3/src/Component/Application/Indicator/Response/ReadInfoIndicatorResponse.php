@@ -35,7 +35,7 @@ class ReadInfoIndicatorResponse
 
         return [
             self::ID_FIELD => $indicator->getId(),
-            self::LOCALE_FIELD => $this->indicatorTranslation->getLocale(),
+            self::LOCALE_FIELD => $this->indicatorTranslation->getLanguage(),
             self::NAME_FIELD => $this->indicatorTranslation->getName(),
             self::DESCRIPTION_FIELD => $this->indicatorTranslation->getDescription(),
             self::UNITS_FIELD => $this->indicatorTranslation->getUnits(),

@@ -32,7 +32,7 @@ class MetadataIndicatorTest extends TestCase
         $this->indicator->method('getDecimals')->willReturn(2);
 
         $this->indicatorTranslation->method('getIndicator')->willReturn($this->indicator);
-        $this->indicatorTranslation->method('getLocale')->willReturn('ru');
+        $this->indicatorTranslation->method('getLanguage')->willReturn('ru');
         $this->indicatorTranslation->method('getName')->willReturn('name of Indicator');
         $this->indicatorTranslation->method('getDescription')->willReturn('description of Indicator');
         $this->indicatorTranslation->method('getUnits')->willReturn('units of Indicator');

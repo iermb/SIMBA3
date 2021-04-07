@@ -5,7 +5,7 @@
 
     <entity name="SIMBA3\Component\Domain\Indicator\Entity\IndicatorTranslation" table="indicator_translation">
         <id name="indicator" association-key="true" />
-        <id name="locale" type="string" length="2"/>
+        <id name="language" type="string" length="2"/>
 
         <field name="name" column="name" type="string" length="100" nullable="false" unique="true" />
         <field name="description" column="description" type="string" length="5000" nullable="true" />

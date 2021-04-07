@@ -7,7 +7,7 @@ namespace SIMBA3\Component\Domain\Indicator\Entity;
 class IndicatorTranslation
 {
     private Indicator $indicator;
-    private string $locale;
+    private string $language;
     private string $name;
     private ?string $description;
     private ?string $units;
@@ -17,7 +17,7 @@ class IndicatorTranslation
 
     public function __construct(
         Indicator $indicator,
-        string $locale,
+        string $language,
         string $name,
         string $description,
         string $units,
@@ -26,7 +26,7 @@ class IndicatorTranslation
         string $methodology
     ) {
         $this->indicator = $indicator;
-        $this->locale = $locale;
+        $this->language = $language;
         $this->name = $name;
         $this->description = $description;
         $this->units = $units;
@@ -40,9 +40,9 @@ class IndicatorTranslation
         return $this->indicator;
     }
 
-    public function getLocale(): string
+    public function getLanguage(): string
     {
-        return $this->locale;
+        return $this->language;
     }
 
     public function getName(): string
