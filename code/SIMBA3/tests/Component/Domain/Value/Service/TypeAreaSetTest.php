@@ -74,6 +74,7 @@ class TypeAreaSetTest extends TestCase
     private function createType1(): void
     {
         $this->typeArea1->method('getId')->willReturn(11);
+        $this->typeArea1->method('getCode')->willReturn(111);
         $this->typeArea1->method('getName')->willReturn('Type Area 1');
     }
 
@@ -103,7 +104,7 @@ class TypeAreaSetTest extends TestCase
     {
         $this->assertEquals(
             [
-                'typeAreaId' => 11,
+                'code' => 111,
                 'typeAreaName' => 'Type Area 1',
                 "areas" => [
                     [
@@ -119,7 +120,7 @@ class TypeAreaSetTest extends TestCase
     {
         $this->assertEquals(
             [
-                'typeAreaId' => 11,
+                'code' => 111,
                 'typeAreaName' => 'Type Area 1',
                 "areas" => [
                     [
@@ -139,7 +140,7 @@ class TypeAreaSetTest extends TestCase
     {
         $this->assertEquals(
             [
-                'typeAreaId' => 11,
+                'code' => 111,
                 'typeAreaName' => 'Type Area 1',
                 "areas" => [
                     [

@@ -9,7 +9,7 @@ use SIMBA3\Component\Domain\Variable\Entity\TypeArea;
 
 class TypeAreaSet
 {
-    private const TYPE_AREA_ID_FIELD = "typeAreaId";
+    private const CODE_FIELD = "code";
     private const AREA_ID_FIELD = "areaId";
     private const TYPE_AREA_NAME_FIELD = "typeAreaName";
     private const AREA_NAME_FIELD = "areaName";
@@ -34,7 +34,7 @@ class TypeAreaSet
         $areaGroup = array_map(array($this, "getAreaAsArray"), $this->areaCollection);
 
         return [
-            self::TYPE_AREA_ID_FIELD => $this->typeArea->getId(),
+            self::CODE_FIELD => $this->typeArea->getCode(),
             self::TYPE_AREA_NAME_FIELD => $this->typeArea->getName(),
             self::AREA_GROUP => $areaGroup,
         ];

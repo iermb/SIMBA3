@@ -18,15 +18,15 @@ class TypeAreaTest extends TestCase
     private function givenArea()
     {
         $this->typeArea = new TypeArea(
+            'en',
             200,
-            'City',
-            'en'
+            'City'
         );
     }
 
     private function thenReturnValidArea()
     {
-        $this->assertEquals(200, $this->typeArea->getTypeAreaId());
+        $this->assertEquals(200, $this->typeArea->getCode());
         $this->assertEquals('City', $this->typeArea->getName());
         $this->assertEquals('en', $this->typeArea->getLanguage());
     }

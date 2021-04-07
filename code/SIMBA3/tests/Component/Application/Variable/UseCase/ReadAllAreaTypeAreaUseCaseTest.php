@@ -56,7 +56,6 @@ class ReadAllAreaTypeAreaUseCaseTest extends TestCase
     private function whenTypeAreaNotExists(): void
     {
         $this->typeAreaRepository->method('getTypeArea')->willReturn(null);
-        $this->areaTypeAreaRequest->method('getTypeAreaId')->willReturn(1);
     }
 
     private function thenExpectsError(): void
@@ -73,6 +72,7 @@ class ReadAllAreaTypeAreaUseCaseTest extends TestCase
     {
         $this->typeAreaRepository->method('getTypeArea')->willReturn($this->typeArea);
         $this->typeArea->method('getId')->willReturn(1);
+        $this->areaRepository->method('getAllAreaByTypeArea')->willReturn([]);
     }
 
     private function thenExpectsReadAllAreaTypeAreaResponseWhenExecuteReadAllAreaTypeAreaUseCase(): void

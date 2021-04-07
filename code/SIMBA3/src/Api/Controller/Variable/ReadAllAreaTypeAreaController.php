@@ -18,10 +18,10 @@ class ReadAllAreaTypeAreaController
         $this->readAreaTypeAreaUseCase = $readAreaTypeAreaUseCase;
     }
 
-    public function execute(Request $request, int $typeAreaId): Response
+    public function execute(Request $request, int $code): Response
     {
         try {
-            $areaTypeAreaResponse = $this->readAreaTypeAreaUseCase->execute(new ReadAllAreaTypeAreaRequest($request->getLocale(), $typeAreaId));
+            $areaTypeAreaResponse = $this->readAreaTypeAreaUseCase->execute(new ReadAllAreaTypeAreaRequest($request->getLocale(), $code));
             return new JsonResponse($areaTypeAreaResponse->getAllArea(), Response::HTTP_OK);
 
         } catch (\InvalidArgumentException $exception) {

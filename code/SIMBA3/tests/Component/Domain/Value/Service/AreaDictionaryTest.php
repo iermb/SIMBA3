@@ -61,7 +61,8 @@ class AreaDictionaryTest extends TestCase
         $this->area1->method("getId")->willReturn(2);
         $this->area1->method("getName")->willReturn("Area Name");
         $this->area1->method("getType")->willReturn($this->typeArea1);
-        $this->typeArea1->method("getId")->willReturn(101);
+        $this->typeArea1->method("getCode")->willReturn(101);
+        $this->typeArea1->method("getId")->willReturn(11);
         $this->typeArea1->method("getName")->willReturn("Type Area Name");
     }
 
@@ -71,12 +72,14 @@ class AreaDictionaryTest extends TestCase
         $this->area1->method("getId")->willReturn(2);
         $this->area1->method("getName")->willReturn("Area Name");
         $this->area1->method("getType")->willReturn($this->typeArea1);
-        $this->typeArea1->method("getId")->willReturn(101);
+        $this->typeArea1->method("getCode")->willReturn(101);
+        $this->typeArea1->method("getId")->willReturn(11);
         $this->typeArea1->method("getName")->willReturn("Type Area Name");
         $this->area2->method("getId")->willReturn(5);
         $this->area2->method("getName")->willReturn("Area Name 2");
         $this->area2->method("getType")->willReturn($this->typeArea2);
-        $this->typeArea2->method("getId")->willReturn(102);
+        $this->typeArea2->method("getCode")->willReturn(102);
+        $this->typeArea2->method("getId")->willReturn(12);
         $this->typeArea2->method("getName")->willReturn("Type Area Name 2");
     }
 
@@ -84,7 +87,7 @@ class AreaDictionaryTest extends TestCase
     {
         $this->assertEquals([
             [
-                "typeAreaId" => 101,
+                "code" => 101,
                 "typeAreaName" => "Type Area Name",
                 "areas" => [
                     [
@@ -100,7 +103,7 @@ class AreaDictionaryTest extends TestCase
     {
         $this->assertEquals([
             [
-                "typeAreaId" => 101,
+                "code" => 101,
                 "typeAreaName" => "Type Area Name",
                 "areas" => [
                     [
@@ -110,7 +113,7 @@ class AreaDictionaryTest extends TestCase
                 ]
             ],
             [
-                "typeAreaId" => 102,
+                "code" => 102,
                 "typeAreaName" => "Type Area Name 2",
                 "areas" => [
                     [

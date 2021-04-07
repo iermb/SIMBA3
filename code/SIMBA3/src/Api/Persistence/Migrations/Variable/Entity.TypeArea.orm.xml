@@ -8,7 +8,7 @@
             <generator strategy="AUTO" />
         </id>
 
-        <field name="typeAreaId" column="type_area_id" type="integer" />
+        <field name="code" column="code" type="integer" />
         <field name="language" column="language" type="string" length="2" nullable="false" />
         <field name="name" column="name" type="string" length="100" nullable="false" />
 

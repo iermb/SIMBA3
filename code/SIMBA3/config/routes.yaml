@@ -25,11 +25,11 @@ api_read_all_type_area:
 
 
 api_read_area:
-  path: /{_locale}/type-area/{typeAreaId}/area/
+  path: /{_locale}/type-area/{code}/area/
   controller: SIMBA3\Api\Controller\Variable\ReadAllAreaTypeAreaController::execute
   methods: GET
   requirements:
-    typeAreaId: '\d+'
+    code: '\d+'
 
 api_read_all_type_independent_variable:
   path: /{_locale}/type-independent-variable/

@@ -120,13 +120,15 @@ class TypeAreaCollectionTest extends TestCase
 
     private function createType1(): void
     {
-        $this->typeArea1->method('getId')->willReturn(11);
+        $this->typeArea1->method('getCode')->willReturn(11);
+        $this->typeArea1->method('getId')->willReturn(111);
         $this->typeArea1->method('getName')->willReturn('Type Area 1');
     }
 
     private function createType2(): void
     {
-        $this->typeArea2->method('getId')->willReturn(22);
+        $this->typeArea2->method('getCode')->willReturn(22);
+        $this->typeArea2->method('getId')->willReturn(222);
         $this->typeArea2->method('getName')->willReturn('Type Area 2');
     }
 
@@ -163,7 +165,7 @@ class TypeAreaCollectionTest extends TestCase
         $this->assertEquals(
             [
                 [
-                    'typeAreaId' => 11,
+                    'code' => 11,
                     'typeAreaName' => 'Type Area 1',
                     "areas" => [
                         [
@@ -181,7 +183,7 @@ class TypeAreaCollectionTest extends TestCase
         $this->assertEquals(
             [
                 [
-                    'typeAreaId' => 11,
+                    'code' => 11,
                     'typeAreaName' => 'Type Area 1',
                     "areas" => [
                         [
@@ -203,7 +205,7 @@ class TypeAreaCollectionTest extends TestCase
         $this->assertEquals(
             [
                 [
-                    'typeAreaId' => 11,
+                    'code' => 11,
                     'typeAreaName' => 'Type Area 1',
                     "areas" => [
                         [
@@ -217,7 +219,7 @@ class TypeAreaCollectionTest extends TestCase
                     ]
                 ],
                 [
-                    'typeAreaId' => 22,
+                    'code' => 22,
                     'typeAreaName' => 'Type Area 2',
                     "areas" => [
                         [
@@ -236,7 +238,7 @@ class TypeAreaCollectionTest extends TestCase
         $this->assertEquals(
             [
                 [
-                    'typeAreaId' => 11,
+                    'code' => 11,
                     'typeAreaName' => 'Type Area 1',
                     "areas" => [
                         [
@@ -250,7 +252,7 @@ class TypeAreaCollectionTest extends TestCase
                     ]
                 ],
                 [
-                    'typeAreaId' => 22,
+                    'code' => 22,
                     'typeAreaName' => 'Type Area 2',
                     "areas" => [
                         [

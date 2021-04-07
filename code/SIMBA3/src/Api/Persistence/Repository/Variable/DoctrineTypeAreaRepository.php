@@ -10,13 +10,13 @@ use SIMBA3\Component\Domain\Variable\Repository\TypeAreaRepository;
 
 class DoctrineTypeAreaRepository extends EntityRepository implements TypeAreaRepository
 {
-    private const ID_FIELD = "typeAreaId";
+    private const CODE_FIELD = "code";
     private const LANGUAGE_ID_FIELD = "language";
 
-    public function getTypeArea(string $locale, int $typeAreaId): ?TypeArea
+    public function getTypeArea(string $locale, int $code): ?TypeArea
     {
         return $this->findOneBy([
-            self::ID_FIELD => $typeAreaId,
+            self::CODE_FIELD => $code,
             self::LANGUAGE_ID_FIELD => $locale
         ]);
     }

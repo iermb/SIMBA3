@@ -1,6 +1,6 @@
-INSERT INTO "type_area" ("id", "type_area_id", "language", "name") VALUES
-(1, 1,	'ca',	'Provincia'),
-(2, 1,	'ca',	'Ciutat');
+INSERT INTO "type_area" ("id", "code", "language", "name") VALUES
+(1, 34,	'ca',	'Provincia'),
+(2, 101,	'ca',	'Ciutat');
 
 INSERT INTO "area" ("id", "type_id", "name") VALUES
 (1,	1,	'Girona'),

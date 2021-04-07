@@ -22,7 +22,7 @@ class ReadAllAreaTypeAreaRequestTest extends TestCase
 
     private function thenReadAllAreaTypeAreaRequestReturnTypeAreaId()
     {
-        $this->assertEquals(55, $this->readAllAreaTypeAreaRequest->getTypeAreaId());
+        $this->assertEquals(55, $this->readAllAreaTypeAreaRequest->getCode());
         $this->assertEquals('es', $this->readAllAreaTypeAreaRequest->getLocale());
     }
 }
