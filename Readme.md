@@ -17,17 +17,17 @@
 Visit ``http://localhost:8081/?pgsql=db&username=iermbdb&db=simba3&ns=public&import=`` to import sql file **SIMBA3/infrastructure/database/example-inserts.sql**
 7. Check the API
 
-For example, visit ``http://localhost:8080/indicator/1/`` to verify the API.
+For example, visit ``http://localhost:8080/en/indicator/1/`` to verify the API.
 
 ## Endpoints
 Currently, there are the following endpoints:
-* /indicator/{indicatorId}/
-* /indicator/{indicatorId}/values/
+* /locale/indicator/{indicatorId}/
+* /locale/indicator/{indicatorId}/values/
   
 
-* /type-area/
-* /type-area/{typeAreaId}/area/
+* /locale/type-area/
+* /locale/type-area/{code}/area/
   
 
-* /type-independent-variable/
-* /type-independent-variable/{typeIndependentVariableId}/independent-variable/
+* /locale/type-independent-variable/
+* /locale/type-independent-variable/{typeIndependentVariableId}/independent-variable/
