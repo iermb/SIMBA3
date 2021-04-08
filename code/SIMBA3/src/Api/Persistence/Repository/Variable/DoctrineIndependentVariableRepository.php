@@ -34,9 +34,13 @@ class DoctrineIndependentVariableRepository extends EntityRepository implements 
     {
         $dql = 'SELECT i FROM SIMBA3\Component\Domain\Variable\Entity\IndependentVariable i ';
         $dql .= ' WHERE i.language = :language';
-        $dql .= ' AND ' . implode(' OR ', array_map(function($independentVariable) {
+
+        if(count($independentVariableUniqueIds)) {
+             $dql .= ' AND (' . implode(' OR ', array_map(function($independentVariable) {
                 return '(i.typeIndependentVariable = ' . $independentVariable['typeIndependentVariableId'] . " AND i.id = " . $independentVariable["independentVariableId"] . ")";
-            }, $independentVariableUniqueIds));
+             } , $independentVariableUniqueIds)). ')';
+        }
+
         $query = $this->getEntityManager()->createQuery($dql);
         $query->setParameter('language', $locale);
         return $query->getResult();
