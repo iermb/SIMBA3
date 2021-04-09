@@ -56,6 +56,7 @@ class IndependentVariableDictionaryTest extends TestCase
     private function createIndependentVariable():void
     {
         $this->typeIndependentVariable1->method('getCode')->willReturn(456);
+        $this->typeIndependentVariable1->method('getId')->willReturn(999);
         $this->typeIndependentVariable1->method('getName')->willReturn('Type Independent Variable Name');
 
         $this->independentVariable1->method('getType')->willReturn($this->typeIndependentVariable1);
@@ -75,9 +76,13 @@ class IndependentVariableDictionaryTest extends TestCase
             [
                 [
                     "typeIndependentVariableCode" => 456,
-                    "independentVariableCode" => 123,
                     "typeIndependentVariableName" => 'Type Independent Variable Name',
-                    "independentVariableName" => 'Independent Variable Name'
+                    "independentVariables" => [
+                        [
+                            "independentVariableCode" => 123,
+                            "independentVariableName" => 'Independent Variable Name',
+                        ],
+                    ],
                 ]
             ],
             $this->independentVariableDictionary->getDictionaryValuesAsArray());
@@ -95,6 +100,7 @@ class IndependentVariableDictionaryTest extends TestCase
     private function givenIndependentVariableDictionaryWithTwoIndependentVariables(): void
     {
         $this->typeIndependentVariable2->method('getCode')->willReturn(789);
+        $this->typeIndependentVariable2->method('getId')->willReturn(888);
         $this->typeIndependentVariable2->method('getName')->willReturn('Type Independent Variable Name 2');
 
         $this->independentVariable2->method('getType')->willReturn($this->typeIndependentVariable2);
@@ -111,15 +117,23 @@ class IndependentVariableDictionaryTest extends TestCase
             [
                 [
                     "typeIndependentVariableCode" => 456,
-                    "independentVariableCode" => 123,
                     "typeIndependentVariableName" => 'Type Independent Variable Name',
-                    "independentVariableName" => 'Independent Variable Name'
+                    "independentVariables" => [
+                        [
+                            "independentVariableCode" => 123,
+                            "independentVariableName" => 'Independent Variable Name',
+                        ],
+                    ],
                 ],
                 [
                     "typeIndependentVariableCode" => 789,
-                    "independentVariableCode" => 987,
                     "typeIndependentVariableName" => 'Type Independent Variable Name 2',
-                    "independentVariableName" => 'Independent Variable Name 2'
+                    "independentVariables" => [
+                        [
+                            "independentVariableCode" => 987,
+                            "independentVariableName" => 'Independent Variable Name 2',
+                        ],
+                    ],
                 ],
             ],
             $this->independentVariableDictionary->getDictionaryValuesAsArray());

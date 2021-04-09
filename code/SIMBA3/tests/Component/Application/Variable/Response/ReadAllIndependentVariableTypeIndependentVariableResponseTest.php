@@ -75,7 +75,7 @@ class ReadAllIndependentVariableTypeIndependentVariableResponseTest extends Test
         $this->assertEquals(
             [
                 [
-                     'id' => 1,
+                     'code' => 1,
                      'name' => 'Independent Variable 1',
                      'type_name' => 'Type Independent Variable 1',
                 ]
@@ -111,12 +111,12 @@ class ReadAllIndependentVariableTypeIndependentVariableResponseTest extends Test
         $this->assertEquals(
             [
                 [
-                    'id' => 1,
+                    'code' => 1,
                     'name' => 'Independent Variable 1',
                     'type_name' => 'Type Independent Variable 1',
                 ],
                 [
-                    'id' => 2,
+                    'code' => 2,
                     'name' => 'Independent Variable 2',
                     'type_name' => 'Type Independent Variable 2',
                 ],
