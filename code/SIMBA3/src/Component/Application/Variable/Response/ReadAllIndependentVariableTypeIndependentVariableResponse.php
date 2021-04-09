@@ -8,7 +8,7 @@ use SIMBA3\Component\Domain\Variable\Entity\IndependentVariable;
 
 class ReadAllIndependentVariableTypeIndependentVariableResponse
 {
-    private const CODE_FIELD = "id";
+    private const CODE_FIELD = "code";
     private const NAME_FIELD = "name";
     private const TYPE_NAME_FIELD = "type_name";
 
