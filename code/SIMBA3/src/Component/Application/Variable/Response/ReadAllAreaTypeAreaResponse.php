@@ -8,7 +8,7 @@ use SIMBA3\Component\Domain\Variable\Entity\TypeArea;
 
 class ReadAllAreaTypeAreaResponse
 {
-    private const ID_FIELD = "id";
+    private const CODE_FIELD = "code";
     private const NAME_FIELD = "name";
     private const TYPE_NAME_FIELD = "type_name";
 
@@ -26,7 +26,7 @@ class ReadAllAreaTypeAreaResponse
 
         foreach ($this->areaArray as $area) {
             $allAreaArray[] = [
-                self::ID_FIELD => $area->getId(),
+                self::CODE_FIELD => $area->getCode(),
                 self::NAME_FIELD => $area->getName(),
                 self::TYPE_NAME_FIELD => $area->getType()->getName()
             ];

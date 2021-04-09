@@ -55,12 +55,12 @@ class IndependentVariableDictionaryTest extends TestCase
 
     private function createIndependentVariable():void
     {
-        $this->typeIndependentVariable1->method('getId')->willReturn(456);
+        $this->typeIndependentVariable1->method('getCode')->willReturn(456);
         $this->typeIndependentVariable1->method('getName')->willReturn('Type Independent Variable Name');
 
         $this->independentVariable1->method('getType')->willReturn($this->typeIndependentVariable1);
         $this->independentVariable1->method('getName')->willReturn('Independent Variable Name');
-        $this->independentVariable1->method('getId')->willReturn(123);
+        $this->independentVariable1->method('getCode')->willReturn(123);
     }
 
     private function givenIndependentVariableDictionaryWithAnIndependentVariable(): void
@@ -74,8 +74,8 @@ class IndependentVariableDictionaryTest extends TestCase
         $this->assertEquals(
             [
                 [
-                    "typeIndependentVariableId" => 456,
-                    "independentVariableId" => 123,
+                    "typeIndependentVariableCode" => 456,
+                    "independentVariableCode" => 123,
                     "typeIndependentVariableName" => 'Type Independent Variable Name',
                     "independentVariableName" => 'Independent Variable Name'
                 ]
@@ -94,12 +94,12 @@ class IndependentVariableDictionaryTest extends TestCase
 
     private function givenIndependentVariableDictionaryWithTwoIndependentVariables(): void
     {
-        $this->typeIndependentVariable2->method('getId')->willReturn(789);
+        $this->typeIndependentVariable2->method('getCode')->willReturn(789);
         $this->typeIndependentVariable2->method('getName')->willReturn('Type Independent Variable Name 2');
 
         $this->independentVariable2->method('getType')->willReturn($this->typeIndependentVariable2);
         $this->independentVariable2->method('getName')->willReturn('Independent Variable Name 2');
-        $this->independentVariable2->method('getId')->willReturn(987);
+        $this->independentVariable2->method('getCode')->willReturn(987);
 
         $this->createIndependentVariable();
         $this->independentVariableDictionary = new IndependentVariableDictionary([$this->independentVariable1, $this->independentVariable2]);
@@ -110,14 +110,14 @@ class IndependentVariableDictionaryTest extends TestCase
         $this->assertEquals(
             [
                 [
-                    "typeIndependentVariableId" => 456,
-                    "independentVariableId" => 123,
+                    "typeIndependentVariableCode" => 456,
+                    "independentVariableCode" => 123,
                     "typeIndependentVariableName" => 'Type Independent Variable Name',
                     "independentVariableName" => 'Independent Variable Name'
                 ],
                 [
-                    "typeIndependentVariableId" => 789,
-                    "independentVariableId" => 987,
+                    "typeIndependentVariableCode" => 789,
+                    "independentVariableCode" => 987,
                     "typeIndependentVariableName" => 'Type Independent Variable Name 2',
                     "independentVariableName" => 'Independent Variable Name 2'
                 ],

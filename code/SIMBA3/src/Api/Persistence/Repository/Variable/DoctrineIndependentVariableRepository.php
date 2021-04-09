@@ -14,11 +14,10 @@ class DoctrineIndependentVariableRepository extends EntityRepository implements 
     private const CODE_FIELD = "code";
     private const TYPE_INDEPENDENT_VARIABLE_FIELD = "typeIndependentVariable";
 
-    public function getAllIndependentVariableByTypeIndependentVariable(int $independentVariableCode, int $typeIndependentVariableId): array
+    public function getAllIndependentVariableByTypeIndependentVariable(int $typeIndependentVariableId): array
     {
         return $this->findBy([
             self::TYPE_INDEPENDENT_VARIABLE_FIELD => $typeIndependentVariableId,
-            self::CODE_FIELD => $independentVariableCode,
         ]);
     }
 

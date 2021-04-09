@@ -45,10 +45,10 @@ class AreaIndependentVariable1YearTypeValueArrayTest extends TestCase
     private function createAreaIndependentVariable1YearValue(): void
     {
         $this->areaIndependentVariable1YearValue1->method('getIndicatorId')->willReturn(1);
-        $this->areaIndependentVariable1YearValue1->method('getTypeAreaId')->willReturn(2);
-        $this->areaIndependentVariable1YearValue1->method('getAreaId')->willReturn(3);
-        $this->areaIndependentVariable1YearValue1->method('getTypeIndependentVariableId')->willReturn(4);
-        $this->areaIndependentVariable1YearValue1->method('getIndependentVariableId')->willReturn(5);
+        $this->areaIndependentVariable1YearValue1->method('getTypeAreaCode')->willReturn(2);
+        $this->areaIndependentVariable1YearValue1->method('getAreaCode')->willReturn(3);
+        $this->areaIndependentVariable1YearValue1->method('getTypeIndependentVariableCode')->willReturn(4);
+        $this->areaIndependentVariable1YearValue1->method('getIndependentVariableCode')->willReturn(5);
         $this->areaIndependentVariable1YearValue1->method('getYear')->willReturn(6);
         $this->areaIndependentVariable1YearValue1->method('getValue')->willReturn(7.10);
     }
@@ -81,10 +81,10 @@ class AreaIndependentVariable1YearTypeValueArrayTest extends TestCase
     {
         $this->createAreaIndependentVariable1YearValue();
         $this->areaIndependentVariable1YearValue2->method('getIndicatorId')->willReturn(8);
-        $this->areaIndependentVariable1YearValue2->method('getTypeAreaId')->willReturn(9);
-        $this->areaIndependentVariable1YearValue2->method('getAreaId')->willReturn(10);
-        $this->areaIndependentVariable1YearValue2->method('getTypeIndependentVariableId')->willReturn(11);
-        $this->areaIndependentVariable1YearValue2->method('getIndependentVariableId')->willReturn(12);
+        $this->areaIndependentVariable1YearValue2->method('getTypeAreaCode')->willReturn(9);
+        $this->areaIndependentVariable1YearValue2->method('getAreaCode')->willReturn(10);
+        $this->areaIndependentVariable1YearValue2->method('getTypeIndependentVariableCode')->willReturn(11);
+        $this->areaIndependentVariable1YearValue2->method('getIndependentVariableCode')->willReturn(12);
         $this->areaIndependentVariable1YearValue2->method('getYear')->willReturn(13);
         $this->areaIndependentVariable1YearValue2->method('getValue')->willReturn(14.10);
 

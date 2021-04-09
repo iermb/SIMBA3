@@ -69,9 +69,9 @@ class CreateAreasFilterTest extends TestCase
         $this->assertInstanceOf(AreasFilter::class, $this->createAreasFilter->getFilter());
         $this->assertEquals([
             "areas" => [
-                ["typeAreaId" => 101, "areaId" => 8019],
-                ["typeAreaId" => 101, "areaId" => 8015],
-                ["typeAreaId" => 102, "areaId" => 9]
+                ["typeAreaCode" => 101, "areaCode" => 8019],
+                ["typeAreaCode" => 101, "areaCode" => 8015],
+                ["typeAreaCode" => 102, "areaCode" => 9]
             ]
         ], $this->createAreasFilter->getFilter()->getFilterAsArray());
     }

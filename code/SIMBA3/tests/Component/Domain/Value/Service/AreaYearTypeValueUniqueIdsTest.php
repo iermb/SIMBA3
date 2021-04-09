@@ -30,14 +30,14 @@ class AreaYearTypeValueUniqueIdsTest extends TestCase
             $this->areaYearValue2,
             $this->areaYearValue3
         ]);
-        $this->areaYearValue1->method("getTypeAreaId")->willReturn(101);
-        $this->areaYearValue1->method("getAreaId")->willReturn(2);
+        $this->areaYearValue1->method("getTypeAreaCode")->willReturn(101);
+        $this->areaYearValue1->method("getAreaCode")->willReturn(2);
         $this->areaYearValue1->method("getYear")->willReturn(2020);
-        $this->areaYearValue2->method("getTypeAreaId")->willReturn(101);
-        $this->areaYearValue2->method("getAreaId")->willReturn(2);
+        $this->areaYearValue2->method("getTypeAreaCode")->willReturn(101);
+        $this->areaYearValue2->method("getAreaCode")->willReturn(2);
         $this->areaYearValue2->method("getYear")->willReturn(2019);
-        $this->areaYearValue3->method("getTypeAreaId")->willReturn(102);
-        $this->areaYearValue3->method("getAreaId")->willReturn(2);
+        $this->areaYearValue3->method("getTypeAreaCode")->willReturn(102);
+        $this->areaYearValue3->method("getAreaCode")->willReturn(2);
         $this->areaYearValue3->method("getYear")->willReturn(2019);
     }
 
@@ -45,8 +45,8 @@ class AreaYearTypeValueUniqueIdsTest extends TestCase
     {
         $this->assertEquals(
             [
-                ["typeAreaId" => 101, "areaId" => 2],
-                ["typeAreaId" => 102, "areaId" => 2],
+                ["typeAreaCode" => 101, "areaCode" => 2],
+                ["typeAreaCode" => 102, "areaCode" => 2],
             ],
             $this->areaYearTypeValueUniqueIds->getAreaUniqueIds()
         );

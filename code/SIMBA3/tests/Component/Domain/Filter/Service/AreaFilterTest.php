@@ -23,7 +23,7 @@ class AreaFilterTest extends TestCase
 
     private function thenReturnFilterAsArray(): void
     {
-        $this->assertEquals(["typeAreaId" => 101, "areaId" => 8019], $this->areaFilter->getFilterAsArray());
+        $this->assertEquals(["typeAreaCode" => 101, "areaCode" => 8019], $this->areaFilter->getFilterAsArray());
     }
 
 }

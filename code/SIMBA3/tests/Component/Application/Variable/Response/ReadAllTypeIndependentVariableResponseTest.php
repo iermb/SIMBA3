@@ -57,7 +57,7 @@ class ReadAllTypeIndependentVariableResponseTest extends TestCase
 
     private function createTypeIndependentVariable(): void
     {
-        $this->typeIndependentVariable1->method('getId')->willReturn(1);
+        $this->typeIndependentVariable1->method('getCode')->willReturn(1);
         $this->typeIndependentVariable1->method('getName')->willReturn('Independent Variable 1');
     }
 
@@ -66,7 +66,7 @@ class ReadAllTypeIndependentVariableResponseTest extends TestCase
         $this->assertEquals(
              [
                  [
-                    'id' => 1,
+                    'code' => 1,
                     'name' =>  'Independent Variable 1',
                  ],
              ],
@@ -85,7 +85,7 @@ class ReadAllTypeIndependentVariableResponseTest extends TestCase
     {
         $this->createTypeIndependentVariable();
 
-        $this->typeIndependentVariable2->method('getId')->willReturn(2);
+        $this->typeIndependentVariable2->method('getCode')->willReturn(2);
         $this->typeIndependentVariable2->method('getName')->willReturn('Independent Variable 2');
 
         $this->readAllTypeIndependentVariableResponse = new ReadAllTypeIndependentVariableResponse([
@@ -99,11 +99,11 @@ class ReadAllTypeIndependentVariableResponseTest extends TestCase
         $this->assertEquals(
             [
                 [
-                    'id' => 1,
+                    'code' => 1,
                     'name' =>  'Independent Variable 1',
                 ],
                 [
-                    'id' => 2,
+                    'code' => 2,
                     'name' =>  'Independent Variable 2',
                 ],
             ],

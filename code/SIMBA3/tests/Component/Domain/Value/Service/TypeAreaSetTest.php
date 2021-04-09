@@ -82,21 +82,21 @@ class TypeAreaSetTest extends TestCase
     private function createArea1Type1(): void
     {
         $this->area1->method('getType')->willReturn($this->typeArea1);
-        $this->area1->method('getId')->willReturn(1);
+        $this->area1->method('getCode')->willReturn(1);
         $this->area1->method('getName')->willReturn('Area name 1');
     }
 
     private function createArea2Type1(): void
     {
         $this->area2->method('getType')->willReturn($this->typeArea1);
-        $this->area2->method('getId')->willReturn(2);
+        $this->area2->method('getCode')->willReturn(2);
         $this->area2->method('getName')->willReturn('Area name 2');
     }
 
     private function createArea3Type1(): void
     {
         $this->area3->method('getType')->willReturn($this->typeArea1);
-        $this->area3->method('getId')->willReturn(3);
+        $this->area3->method('getCode')->willReturn(3);
         $this->area3->method('getName')->willReturn('Area name 3');
     }
 
@@ -104,11 +104,11 @@ class TypeAreaSetTest extends TestCase
     {
         $this->assertEquals(
             [
-                'code' => 111,
+                'typeAreaCode' => 111,
                 'typeAreaName' => 'Type Area 1',
                 "areas" => [
                     [
-                        'areaId' => 1,
+                        'areaCode' => 1,
                         'areaName' => 'Area name 1',
                     ]
                 ]
@@ -120,15 +120,15 @@ class TypeAreaSetTest extends TestCase
     {
         $this->assertEquals(
             [
-                'code' => 111,
+                'typeAreaCode' => 111,
                 'typeAreaName' => 'Type Area 1',
                 "areas" => [
                     [
-                        'areaId' => 1,
+                        'areaCode' => 1,
                         'areaName' => 'Area name 1',
                     ],
                     [
-                        'areaId' => 2,
+                        'areaCode' => 2,
                         'areaName' => 'Area name 2',
                     ],
                 ]
@@ -140,19 +140,19 @@ class TypeAreaSetTest extends TestCase
     {
         $this->assertEquals(
             [
-                'code' => 111,
+                'typeAreaCode' => 111,
                 'typeAreaName' => 'Type Area 1',
                 "areas" => [
                     [
-                        'areaId' => 1,
+                        'areaCode' => 1,
                         'areaName' => 'Area name 1',
                     ],
                     [
-                        'areaId' => 2,
+                        'areaCode' => 2,
                         'areaName' => 'Area name 2',
                     ],
                     [
-                        'areaId' => 3,
+                        'areaCode' => 3,
                         'areaName' => 'Area name 3',
                     ],
                 ]

@@ -26,7 +26,7 @@ class ReadAllAreaTypeAreaResponseTest extends TestCase
         $this->typeArea1->method('getName')->willReturn('nom tipus');
                 
         $this->area1 = $this->createMock(Area::class);
-        $this->area1->method('getId')->willReturn(1);
+        $this->area1->method('getCode')->willReturn(1);
         $this->area1->method('getName')->willReturn('nom');
         $this->area1->method('getType')->willReturn($this->typeArea1);
 
@@ -34,7 +34,7 @@ class ReadAllAreaTypeAreaResponseTest extends TestCase
         $this->typeArea2->method('getName')->willReturn('nom tipus 2');
                 
         $this->area2 = $this->createMock(Area::class);
-        $this->area2->method('getId')->willReturn(2);
+        $this->area2->method('getCode')->willReturn(2);
         $this->area2->method('getName')->willReturn('nom 2');
         $this->area2->method('getType')->willReturn($this->typeArea2);
     }
@@ -93,7 +93,7 @@ class ReadAllAreaTypeAreaResponseTest extends TestCase
         $this->assertEquals(
             [
                 [
-                    "id" => 1,
+                    "code" => 1,
                     "name" => 'nom',
                     "type_name" => 'nom tipus'
                 ]
@@ -116,12 +116,12 @@ class ReadAllAreaTypeAreaResponseTest extends TestCase
         $this->assertEquals(
             [
                 [
-                    "id" => 1,
+                    "code" => 1,
                     "name" => 'nom',
                     "type_name" => 'nom tipus'
                 ],
                 [
-                    "id" => 2,
+                    "code" => 2,
                     "name" => 'nom 2',
                     "type_name" => 'nom tipus 2'
                 ],

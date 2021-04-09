@@ -35,7 +35,6 @@ class ReadAllIndependentVariableTypeIndependentVariableUseCase
         }
 
         $areas = $this->independentVariableRepository->getAllIndependentVariableByTypeIndependentVariable(
-            $independentVariableTypeIndependentVariableRequest->getLocale(),
             $typeIndependentVariable->getId()
         );
         return new ReadAllIndependentVariableTypeIndependentVariableResponse($areas);

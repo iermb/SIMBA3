@@ -58,7 +58,7 @@ class AreaDictionaryTest extends TestCase
     private function givenAnAreaDictionaryWithOneArea(): void
     {
         $this->areaDictionary = new AreaDictionary([$this->area1]);
-        $this->area1->method("getId")->willReturn(2);
+        $this->area1->method("getCode")->willReturn(2);
         $this->area1->method("getName")->willReturn("Area Name");
         $this->area1->method("getType")->willReturn($this->typeArea1);
         $this->typeArea1->method("getCode")->willReturn(101);
@@ -69,13 +69,13 @@ class AreaDictionaryTest extends TestCase
     private function givenAnAreaDictionaryWithTwoAreas(): void
     {
         $this->areaDictionary = new AreaDictionary([$this->area1, $this->area2]);
-        $this->area1->method("getId")->willReturn(2);
+        $this->area1->method("getCode")->willReturn(2);
         $this->area1->method("getName")->willReturn("Area Name");
         $this->area1->method("getType")->willReturn($this->typeArea1);
         $this->typeArea1->method("getCode")->willReturn(101);
         $this->typeArea1->method("getId")->willReturn(11);
         $this->typeArea1->method("getName")->willReturn("Type Area Name");
-        $this->area2->method("getId")->willReturn(5);
+        $this->area2->method("getCode")->willReturn(5);
         $this->area2->method("getName")->willReturn("Area Name 2");
         $this->area2->method("getType")->willReturn($this->typeArea2);
         $this->typeArea2->method("getCode")->willReturn(102);
@@ -87,11 +87,11 @@ class AreaDictionaryTest extends TestCase
     {
         $this->assertEquals([
             [
-                "code" => 101,
+                "typeAreaCode" => 101,
                 "typeAreaName" => "Type Area Name",
                 "areas" => [
                     [
-                        "areaId" => 2,
+                        "areaCode" => 2,
                         "areaName" => "Area Name"
                     ]
                 ]
@@ -103,21 +103,21 @@ class AreaDictionaryTest extends TestCase
     {
         $this->assertEquals([
             [
-                "code" => 101,
+                "typeAreaCode" => 101,
                 "typeAreaName" => "Type Area Name",
                 "areas" => [
                     [
-                        "areaId" => 2,
+                        "areaCode" => 2,
                         "areaName" => "Area Name"
                     ]
                 ]
             ],
             [
-                "code" => 102,
+                "typeAreaCode" => 102,
                 "typeAreaName" => "Type Area Name 2",
                 "areas" => [
                     [
-                        "areaId" => 5,
+                        "areaCode" => 5,
                         "areaName" => "Area Name 2"
                     ]
                 ]

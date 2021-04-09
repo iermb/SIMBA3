@@ -46,7 +46,7 @@ class ReadAllIndependentVariableTypeIndependentVariableUseCaseTest extends TestC
     private function whenTypeIndependentVariableNoExists(): void
     {
         $this->independentVariableTypeIndependentVariableRequest->method('getLocale')->willReturn('en');
-        $this->independentVariableTypeIndependentVariableRequest->method('getTypeIndependentVariableId')->willReturn(1);
+        $this->independentVariableTypeIndependentVariableRequest->method('getTypeIndependentVariableCode')->willReturn(1);
         $this->typeIndependentVariableRepository->method('getTypeIndependentVariable')->willReturn(null);
     }
 
@@ -70,7 +70,7 @@ class ReadAllIndependentVariableTypeIndependentVariableUseCaseTest extends TestC
     private function whenTypeIndependentVariableExists(): void
     {
         $this->independentVariableTypeIndependentVariableRequest->method('getLocale')->willReturn('en');
-        $this->independentVariableTypeIndependentVariableRequest->method('getTypeIndependentVariableId')->willReturn(2);
+        $this->independentVariableTypeIndependentVariableRequest->method('getTypeIndependentVariableCode')->willReturn(2);
         $this->typeIndependentVariable->method('getId')->willReturn(2);
         $this->typeIndependentVariableRepository->method('getTypeIndependentVariable')->willReturn($this->typeIndependentVariable);
         $this->independentVariableRepository->method('getAllIndependentVariableByTypeIndependentVariable')->willReturn([]);

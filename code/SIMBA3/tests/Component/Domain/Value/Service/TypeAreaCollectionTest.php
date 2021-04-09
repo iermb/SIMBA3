@@ -135,28 +135,28 @@ class TypeAreaCollectionTest extends TestCase
     private function createArea1Type1(): void
     {
         $this->area1->method('getType')->willReturn($this->typeArea1);
-        $this->area1->method('getId')->willReturn(1);
+        $this->area1->method('getCode')->willReturn(1);
         $this->area1->method('getName')->willReturn('Area name 1');
     }
 
     private function createArea2Type1(): void
     {
         $this->area2->method('getType')->willReturn($this->typeArea1);
-        $this->area2->method('getId')->willReturn(2);
+        $this->area2->method('getCode')->willReturn(2);
         $this->area2->method('getName')->willReturn('Area name 2');
     }
 
     private function createArea3Type2(): void
     {
         $this->area3->method('getType')->willReturn($this->typeArea2);
-        $this->area3->method('getId')->willReturn(3);
+        $this->area3->method('getCode')->willReturn(3);
         $this->area3->method('getName')->willReturn('Area name 3');
     }
 
     private function createArea4Type2(): void
     {
         $this->area4->method('getType')->willReturn($this->typeArea2);
-        $this->area4->method('getId')->willReturn(4);
+        $this->area4->method('getCode')->willReturn(4);
         $this->area4->method('getName')->willReturn('Area name 4');
     }
 
@@ -165,11 +165,11 @@ class TypeAreaCollectionTest extends TestCase
         $this->assertEquals(
             [
                 [
-                    'code' => 11,
+                    'typeAreaCode' => 11,
                     'typeAreaName' => 'Type Area 1',
                     "areas" => [
                         [
-                            'areaId' => 1,
+                            'areaCode' => 1,
                             'areaName' => 'Area name 1',
                         ]
                     ]
@@ -183,15 +183,15 @@ class TypeAreaCollectionTest extends TestCase
         $this->assertEquals(
             [
                 [
-                    'code' => 11,
+                    'typeAreaCode' => 11,
                     'typeAreaName' => 'Type Area 1',
                     "areas" => [
                         [
-                            'areaId' => 1,
+                            'areaCode' => 1,
                             'areaName' => 'Area name 1',
                         ],
                         [
-                            'areaId' => 2,
+                            'areaCode' => 2,
                             'areaName' => 'Area name 2',
                         ],
                     ]
@@ -205,25 +205,25 @@ class TypeAreaCollectionTest extends TestCase
         $this->assertEquals(
             [
                 [
-                    'code' => 11,
+                    'typeAreaCode' => 11,
                     'typeAreaName' => 'Type Area 1',
                     "areas" => [
                         [
-                            'areaId' => 1,
+                            'areaCode' => 1,
                             'areaName' => 'Area name 1',
                         ],
                         [
-                            'areaId' => 2,
+                            'areaCode' => 2,
                             'areaName' => 'Area name 2',
                         ],
                     ]
                 ],
                 [
-                    'code' => 22,
+                    'typeAreaCode' => 22,
                     'typeAreaName' => 'Type Area 2',
                     "areas" => [
                         [
-                            'areaId' => 3,
+                            'areaCode' => 3,
                             'areaName' => 'Area name 3',
                         ],
                     ]
@@ -238,29 +238,29 @@ class TypeAreaCollectionTest extends TestCase
         $this->assertEquals(
             [
                 [
-                    'code' => 11,
+                    'typeAreaCode' => 11,
                     'typeAreaName' => 'Type Area 1',
                     "areas" => [
                         [
-                            'areaId' => 1,
+                            'areaCode' => 1,
                             'areaName' => 'Area name 1',
                         ],
                         [
-                            'areaId' => 2,
+                            'areaCode' => 2,
                             'areaName' => 'Area name 2',
                         ],
                     ]
                 ],
                 [
-                    'code' => 22,
+                    'typeAreaCode' => 22,
                     'typeAreaName' => 'Type Area 2',
                     "areas" => [
                         [
-                            'areaId' => 3,
+                            'areaCode' => 3,
                             'areaName' => 'Area name 3',
                         ],
                         [
-                            'areaId' => 4,
+                            'areaCode' => 4,
                             'areaName' => 'Area name 4',
                         ],
                     ]

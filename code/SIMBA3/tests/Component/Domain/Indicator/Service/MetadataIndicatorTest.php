@@ -58,7 +58,7 @@ class MetadataIndicatorTest extends TestCase
         $this->assertEquals(
             [
                 'id' => 314,
-                'locale' => 'ru',
+                'language' => 'ru',
                 'name' => 'name of Indicator',
                 'description' => 'description of Indicator',
                 'methodology' => 'methodology of Indicator',

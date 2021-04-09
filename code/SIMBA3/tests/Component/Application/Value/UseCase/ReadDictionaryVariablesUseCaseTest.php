@@ -154,28 +154,28 @@ class ReadDictionaryVariablesUseCaseTest extends TestCase
             $this->areaIndependentVariable2YearValue3
         ]);
 
-        $this->areaIndependentVariable2YearValue1->method("getTypeAreaId")->willReturn(1);
-        $this->areaIndependentVariable2YearValue1->method("getAreaId")->willReturn(2);
-        $this->areaIndependentVariable2YearValue1->method("getTypeIndependentVariable1Id")->willReturn(3);
-        $this->areaIndependentVariable2YearValue1->method("getIndependentVariable1Id")->willReturn(4);
-        $this->areaIndependentVariable2YearValue1->method("getTypeIndependentVariable2Id")->willReturn(5);
-        $this->areaIndependentVariable2YearValue1->method("getIndependentVariable1Id")->willReturn(6);
+        $this->areaIndependentVariable2YearValue1->method("getTypeAreaCode")->willReturn(1);
+        $this->areaIndependentVariable2YearValue1->method("getAreaCode")->willReturn(2);
+        $this->areaIndependentVariable2YearValue1->method("getTypeIndependentVariable1Code")->willReturn(3);
+        $this->areaIndependentVariable2YearValue1->method("getIndependentVariable1Code")->willReturn(4);
+        $this->areaIndependentVariable2YearValue1->method("getTypeIndependentVariable2Code")->willReturn(5);
+        $this->areaIndependentVariable2YearValue1->method("getIndependentVariable1Code")->willReturn(6);
         $this->areaIndependentVariable2YearValue1->method("getYear")->willReturn(7);
 
-        $this->areaIndependentVariable2YearValue2->method("getTypeAreaId")->willReturn(8);
-        $this->areaIndependentVariable2YearValue2->method("getAreaId")->willReturn(9);
-        $this->areaIndependentVariable2YearValue2->method("getTypeIndependentVariable1Id")->willReturn(10);
-        $this->areaIndependentVariable2YearValue2->method("getIndependentVariable1Id")->willReturn(11);
-        $this->areaIndependentVariable2YearValue2->method("getTypeIndependentVariable2Id")->willReturn(12);
-        $this->areaIndependentVariable2YearValue2->method("getIndependentVariable2Id")->willReturn(13);
+        $this->areaIndependentVariable2YearValue2->method("getTypeAreaCode")->willReturn(8);
+        $this->areaIndependentVariable2YearValue2->method("getAreaCode")->willReturn(9);
+        $this->areaIndependentVariable2YearValue2->method("getTypeIndependentVariable1Code")->willReturn(10);
+        $this->areaIndependentVariable2YearValue2->method("getIndependentVariable1Code")->willReturn(11);
+        $this->areaIndependentVariable2YearValue2->method("getTypeIndependentVariable2Code")->willReturn(12);
+        $this->areaIndependentVariable2YearValue2->method("getIndependentVariable2Code")->willReturn(13);
         $this->areaIndependentVariable2YearValue2->method("getYear")->willReturn(14);
 
-        $this->areaIndependentVariable2YearValue3->method("getTypeAreaId")->willReturn(15);
-        $this->areaIndependentVariable2YearValue3->method("getAreaId")->willReturn(16);
-        $this->areaIndependentVariable2YearValue3->method("getTypeIndependentVariable1Id")->willReturn(17);
-        $this->areaIndependentVariable2YearValue3->method("getIndependentVariable1Id")->willReturn(18);
-        $this->areaIndependentVariable2YearValue3->method("getTypeIndependentVariable2Id")->willReturn(19);
-        $this->areaIndependentVariable2YearValue3->method("getIndependentVariable2Id")->willReturn(20);
+        $this->areaIndependentVariable2YearValue3->method("getTypeAreaCode")->willReturn(15);
+        $this->areaIndependentVariable2YearValue3->method("getAreaCode")->willReturn(16);
+        $this->areaIndependentVariable2YearValue3->method("getTypeIndependentVariable1Code")->willReturn(17);
+        $this->areaIndependentVariable2YearValue3->method("getIndependentVariable1Code")->willReturn(18);
+        $this->areaIndependentVariable2YearValue3->method("getTypeIndependentVariable2Code")->willReturn(19);
+        $this->areaIndependentVariable2YearValue3->method("getIndependentVariable2Code")->willReturn(20);
         $this->areaIndependentVariable2YearValue3->method("getYear")->willReturn(21);
     }
 
@@ -190,22 +190,22 @@ class ReadDictionaryVariablesUseCaseTest extends TestCase
             $this->areaIndependentVariable1YearValue3
         ]);
 
-        $this->areaIndependentVariable1YearValue1->method("getTypeAreaId")->willReturn(1);
-        $this->areaIndependentVariable1YearValue1->method("getAreaId")->willReturn(2);
-        $this->areaIndependentVariable1YearValue1->method("getTypeIndependentVariableId")->willReturn(3);
-        $this->areaIndependentVariable1YearValue1->method("getIndependentVariableId")->willReturn(4);
+        $this->areaIndependentVariable1YearValue1->method("getTypeAreaCode")->willReturn(1);
+        $this->areaIndependentVariable1YearValue1->method("getAreaCode")->willReturn(2);
+        $this->areaIndependentVariable1YearValue1->method("getTypeIndependentVariableCode")->willReturn(3);
+        $this->areaIndependentVariable1YearValue1->method("getIndependentVariableCode")->willReturn(4);
         $this->areaIndependentVariable1YearValue1->method("getYear")->willReturn(5);
 
-        $this->areaIndependentVariable1YearValue2->method("getTypeAreaId")->willReturn(6);
-        $this->areaIndependentVariable1YearValue2->method("getAreaId")->willReturn(7);
-        $this->areaIndependentVariable1YearValue2->method("getTypeIndependentVariableId")->willReturn(8);
-        $this->areaIndependentVariable1YearValue2->method("getIndependentVariableId")->willReturn(9);
+        $this->areaIndependentVariable1YearValue2->method("getTypeAreaCode")->willReturn(6);
+        $this->areaIndependentVariable1YearValue2->method("getAreaCode")->willReturn(7);
+        $this->areaIndependentVariable1YearValue2->method("getTypeIndependentVariableCode")->willReturn(8);
+        $this->areaIndependentVariable1YearValue2->method("getIndependentVariableCode")->willReturn(9);
         $this->areaIndependentVariable1YearValue2->method("getYear")->willReturn(10);
 
-        $this->areaIndependentVariable1YearValue3->method("getTypeAreaId")->willReturn(11);
-        $this->areaIndependentVariable1YearValue3->method("getAreaId")->willReturn(12);
-        $this->areaIndependentVariable1YearValue3->method("getTypeIndependentVariableId")->willReturn(13);
-        $this->areaIndependentVariable1YearValue3->method("getIndependentVariableId")->willReturn(14);
+        $this->areaIndependentVariable1YearValue3->method("getTypeAreaCode")->willReturn(11);
+        $this->areaIndependentVariable1YearValue3->method("getAreaCode")->willReturn(12);
+        $this->areaIndependentVariable1YearValue3->method("getTypeIndependentVariableCode")->willReturn(13);
+        $this->areaIndependentVariable1YearValue3->method("getIndependentVariableCode")->willReturn(14);
         $this->areaIndependentVariable1YearValue3->method("getYear")->willReturn(15);
     }
 
@@ -218,14 +218,14 @@ class ReadDictionaryVariablesUseCaseTest extends TestCase
             $this->areaYearValue2,
             $this->areaYearValue3
         ]);
-        $this->areaYearValue1->method("getTypeAreaId")->willReturn(102);
-        $this->areaYearValue1->method("getAreaId")->willReturn(1);
+        $this->areaYearValue1->method("getTypeAreaCode")->willReturn(102);
+        $this->areaYearValue1->method("getAreaCode")->willReturn(1);
         $this->areaYearValue1->method("getYear")->willReturn(2019);
-        $this->areaYearValue2->method("getTypeAreaId")->willReturn(102);
-        $this->areaYearValue2->method("getAreaId")->willReturn(2);
+        $this->areaYearValue2->method("getTypeAreaCode")->willReturn(102);
+        $this->areaYearValue2->method("getAreaCode")->willReturn(2);
         $this->areaYearValue2->method("getYear")->willReturn(2019);
-        $this->areaYearValue3->method("getTypeAreaId")->willReturn(102);
-        $this->areaYearValue3->method("getAreaId")->willReturn(1);
+        $this->areaYearValue3->method("getTypeAreaCode")->willReturn(102);
+        $this->areaYearValue3->method("getAreaCode")->willReturn(1);
         $this->areaYearValue3->method("getYear")->willReturn(2020);
     }
 
@@ -256,11 +256,11 @@ class ReadDictionaryVariablesUseCaseTest extends TestCase
         $this->typeArea->method("getName")->willReturn("Type area test");
 
         $this->area1->method("getType")->willReturn($this->typeArea);
-        $this->area1->method("getId")->willReturn(1);
+        $this->area1->method("getCode")->willReturn(1);
         $this->area1->method("getName")->willReturn("Area name 1");
 
         $this->area2->method("getType")->willReturn($this->typeArea);
-        $this->area2->method("getId")->willReturn(2);
+        $this->area2->method("getCode")->willReturn(2);
         $this->area2->method("getName")->willReturn("Area name 2");
 
         $this->areaRepository->method("getAreasByFilter")->willReturn([$this->area1, $this->area2]);
@@ -269,11 +269,11 @@ class ReadDictionaryVariablesUseCaseTest extends TestCase
         $this->typeIndependentVariable->method("getName")->willReturn("Type area test");
 
         $this->independentVariable1->method("getType")->willReturn($this->typeIndependentVariable);
-        $this->independentVariable1->method("getId")->willReturn(1);
+        $this->independentVariable1->method("getCode")->willReturn(1);
         $this->independentVariable1->method("getName")->willReturn("Area name 1");
 
         $this->independentVariable2->method("getType")->willReturn($this->typeIndependentVariable);
-        $this->independentVariable2->method("getId")->willReturn(1);
+        $this->independentVariable2->method("getCode")->willReturn(1);
         $this->independentVariable2->method("getName")->willReturn("Area name 1");
 
         $this->independentVariableRepository->method("getIndependentVariablesByFilter")->willReturn([$this->independentVariable1, $this->independentVariable2]);
@@ -285,11 +285,11 @@ class ReadDictionaryVariablesUseCaseTest extends TestCase
         $this->typeArea->method("getName")->willReturn("Type area test");
 
         $this->area1->method("getType")->willReturn($this->typeArea);
-        $this->area1->method("getId")->willReturn(1);
+        $this->area1->method("getCode")->willReturn(1);
         $this->area1->method("getName")->willReturn("Area name 1");
 
         $this->area2->method("getType")->willReturn($this->typeArea);
-        $this->area2->method("getId")->willReturn(2);
+        $this->area2->method("getCode")->willReturn(2);
         $this->area2->method("getName")->willReturn("Area name 2");
 
         $this->areaRepository->method("getAreasByFilter")->willReturn([$this->area1, $this->area2]);
@@ -298,11 +298,11 @@ class ReadDictionaryVariablesUseCaseTest extends TestCase
         $this->typeIndependentVariable->method("getName")->willReturn("Type area test");
 
         $this->independentVariable1->method("getType")->willReturn($this->typeIndependentVariable);
-        $this->independentVariable1->method("getId")->willReturn(1);
+        $this->independentVariable1->method("getCode")->willReturn(1);
         $this->independentVariable1->method("getName")->willReturn("Area name 1");
 
         $this->independentVariable2->method("getType")->willReturn($this->typeIndependentVariable);
-        $this->independentVariable2->method("getId")->willReturn(1);
+        $this->independentVariable2->method("getCode")->willReturn(1);
         $this->independentVariable2->method("getName")->willReturn("Area name 1");
 
         $this->independentVariableRepository->method("getIndependentVariablesByFilter")->willReturn([$this->independentVariable1, $this->independentVariable2]);
@@ -314,10 +314,10 @@ class ReadDictionaryVariablesUseCaseTest extends TestCase
         $this->typeArea->method("getId")->willReturn(102);
         $this->typeArea->method("getName")->willReturn("Type area test");
         $this->area1->method("getType")->willReturn($this->typeArea);
-        $this->area1->method("getId")->willReturn(1);
+        $this->area1->method("getCode")->willReturn(1);
         $this->area1->method("getName")->willReturn("Area name 1");
         $this->area2->method("getType")->willReturn($this->typeArea);
-        $this->area2->method("getId")->willReturn(2);
+        $this->area2->method("getCode")->willReturn(2);
         $this->area2->method("getName")->willReturn("Area name 2");
     }
 
