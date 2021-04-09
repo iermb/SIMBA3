@@ -30,7 +30,7 @@ class ReadAllIndependentVariableTypeIndependentVariableRequestTest extends TestC
         );
         $this->assertEquals(
             567,
-            $this->readAllIndependentVariableTypeIndependentVariableRequest->getTypeIndependentVariableId()
+            $this->readAllIndependentVariableTypeIndependentVariableRequest->getTypeIndependentVariableCode()
         );
     }
 }

@@ -21,39 +21,39 @@ class AreaIndependentVariable2YearTypeValueUniqueIds
         $this->typeValueArray = $typeValueArray;
     }
 
-    public function getAreaUniqueIds(): array
+    public function getAreaUniqueCodes(): array
     {
-        return ArrayTool::uniqueAssociativeArray(array_map(array($this, "getAreasId"), $this->typeValueArray->getValues()));
+        return ArrayTool::uniqueAssociativeArray(array_map(array($this, "getAreasCode"), $this->typeValueArray->getValues()));
     }
 
-    private function getAreasId(AreaIndependentVariable2YearValue $value): array
+    private function getAreasCode(AreaIndependentVariable2YearValue $value): array
     {
-        return [TypeArea::TYPE_AREA_ID_FIELD => $value->getTypeAreaId(), Area::AREA_ID_FIELD => $value->getAreaId()];
+        return [TypeArea::TYPE_AREA_CODE_FIELD => $value->getTypeAreaCode(), Area::AREA_CODE_FIELD => $value->getAreaCode()];
     }
 
-    public function getIndependentVariable1Ids(): array
+    public function getIndependentVariable1Codes(): array
     {
-        return ArrayTool::uniqueAssociativeArray(array_map(array($this, "getIndependentVariable1Id"), $this->typeValueArray->getValues()));
+        return ArrayTool::uniqueAssociativeArray(array_map(array($this, "getIndependentVariable1Code"), $this->typeValueArray->getValues()));
     }
 
-    public function getIndependentVariable2Ids(): array
+    public function getIndependentVariable2Codes(): array
     {
-        return ArrayTool::uniqueAssociativeArray(array_map(array($this, "getIndependentVariable2Id"), $this->typeValueArray->getValues()));
+        return ArrayTool::uniqueAssociativeArray(array_map(array($this, "getIndependentVariable2Code"), $this->typeValueArray->getValues()));
     }
 
-    private function getIndependentVariable1Id(AreaIndependentVariable2YearValue $value): array
+    private function getIndependentVariable1Code(AreaIndependentVariable2YearValue $value): array
     {
         return [
-            TypeIndependentVariable::TYPE_INDEPENDENT_VARIABLE_ID_FIELD => $value->getTypeIndependentVariable1Id(),
-            IndependentVariable::INDEPENDENT_VARIABLE_ID_FIELD => $value->getIndependentVariable1Id()
+            TypeIndependentVariable::TYPE_INDEPENDENT_VARIABLE_CODE_FIELD => $value->getTypeIndependentVariable1Code(),
+            IndependentVariable::INDEPENDENT_VARIABLE_CODE_FIELD => $value->getIndependentVariable1Code()
         ];
     }
 
-    private function getIndependentVariable2Id(AreaIndependentVariable2YearValue $value): array
+    private function getIndependentVariable2Code(AreaIndependentVariable2YearValue $value): array
     {
         return [
-            TypeIndependentVariable::TYPE_INDEPENDENT_VARIABLE_ID_FIELD => $value->getTypeIndependentVariable2Id(),
-            IndependentVariable::INDEPENDENT_VARIABLE_ID_FIELD => $value->getIndependentVariable2Id()
+            TypeIndependentVariable::TYPE_INDEPENDENT_VARIABLE_CODE_FIELD => $value->getTypeIndependentVariable2Code(),
+            IndependentVariable::INDEPENDENT_VARIABLE_CODE_FIELD => $value->getIndependentVariable2Code()
         ];
     }
 

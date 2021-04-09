@@ -7,7 +7,7 @@ use SIMBA3\Component\Domain\Indicator\Entity\IndicatorTranslation;
 class MetadataIndicator
 {
     private const ID_FIELD = 'id';
-    private const LOCALE_FIELD = 'locale';
+    private const LANGUAGE_FIELD = 'language';
     private const NAME_FIELD = 'name';
     private const DESCRIPTION_FIELD = 'description';
     private const METHODOLOGY_FIELD = 'methodology';
@@ -34,7 +34,7 @@ class MetadataIndicator
 
         return [
             self::ID_FIELD => $indicator->getId(),
-            self::LOCALE_FIELD => $this->indicatorTranslation->getLanguage(),
+            self::LANGUAGE_FIELD => $this->indicatorTranslation->getLanguage(),
             self::NAME_FIELD => $this->indicatorTranslation->getName(),
             self::DESCRIPTION_FIELD => $this->indicatorTranslation->getDescription(),
             self::METHODOLOGY_FIELD => $this->indicatorTranslation->getMethodology(),

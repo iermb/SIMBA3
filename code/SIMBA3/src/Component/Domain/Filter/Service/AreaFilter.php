@@ -4,25 +4,25 @@
 namespace SIMBA3\Component\Domain\Filter\Service;
 
 
+use SIMBA3\Component\Domain\Variable\Entity\Area;
+use SIMBA3\Component\Domain\Variable\Entity\TypeArea;
+
 class AreaFilter implements FilterValues
 {
-    private const TYPE_AREA_ID_FIELD = "typeAreaId";
-    private const AREA_ID_FIELD      = "areaId";
+    private int $typeAreaCode;
+    private int $areaCode;
 
-    private int $typeAreaId;
-    private int $areaId;
-
-    public function __construct(int $typeAreaId, int $areaId)
+    public function __construct(int $typeAreaCode, int $areaCode)
     {
-        $this->typeAreaId = $typeAreaId;
-        $this->areaId = $areaId;
+        $this->typeAreaCode = $typeAreaCode;
+        $this->areaCode = $areaCode;
     }
 
     public function getFilterAsArray(): array
     {
         return [
-            self::TYPE_AREA_ID_FIELD => $this->typeAreaId,
-            self::AREA_ID_FIELD => $this->areaId
+            TypeArea::TYPE_AREA_CODE_FIELD => $this->typeAreaCode,
+            Area::AREA_CODE_FIELD => $this->areaCode
         ];
     }
 }

@@ -6,12 +6,12 @@ namespace SIMBA3\Component\Domain\Value\Entity;
 class AreaIndependentVariable2YearValue
 {
     private int    $indicatorId;
-    private int    $typeAreaId;
-    private int    $areaId;
-    private int    $typeIndependentVariable1Id;
-    private int    $independentVariable1Id;
-    private int    $typeIndependentVariable2Id;
-    private int    $independentVariable2Id;
+    private int    $typeAreaCode;
+    private int    $areaCode;
+    private int    $typeIndependentVariable1Code;
+    private int    $independentVariable1Code;
+    private int    $typeIndependentVariable2Code;
+    private int    $independentVariable2Code;
     private int    $year;
     private float  $value;
     private bool   $isPublic;
@@ -22,34 +22,34 @@ class AreaIndependentVariable2YearValue
         return $this->indicatorId;
     }
 
-    public function getTypeAreaId(): int
+    public function getTypeAreaCode(): int
     {
-        return $this->typeAreaId;
+        return $this->typeAreaCode;
     }
 
-    public function getAreaId(): int
+    public function getAreaCode(): int
     {
-        return $this->areaId;
+        return $this->areaCode;
     }
 
-    public function getTypeIndependentVariable1Id(): int
+    public function getTypeIndependentVariable1Code(): int
     {
-        return $this->typeIndependentVariable1Id;
+        return $this->typeIndependentVariable1Code;
     }
 
-    public function getIndependentVariable1Id(): int
+    public function getIndependentVariable1Code(): int
     {
-       return $this->independentVariable1Id;
+       return $this->independentVariable1Code;
     }
 
-    public function getTypeIndependentVariable2Id(): int
+    public function getTypeIndependentVariable2Code(): int
     {
-        return $this->typeIndependentVariable2Id;
+        return $this->typeIndependentVariable2Code;
     }
 
-    public function getIndependentVariable2Id(): int
+    public function getIndependentVariable2Code(): int
     {
-        return $this->independentVariable2Id;
+        return $this->independentVariable2Code;
     }
 
     public function getYear(): int

@@ -21,12 +21,12 @@ class AreaYearTypeValueUniqueIds
 
     public function getAreaUniqueIds(): array
     {
-        return ArrayTool::uniqueAssociativeArray(array_map(array($this, "getAreasId"), $this->typeValueArray->getValues()));
+        return ArrayTool::uniqueAssociativeArray(array_map(array($this, "getAreasCode"), $this->typeValueArray->getValues()));
     }
 
-    private function getAreasId(AreaYearValue $value): array
+    private function getAreasCode(AreaYearValue $value): array
     {
-        return [TypeArea::TYPE_AREA_ID_FIELD => $value->getTypeAreaId(), Area::AREA_ID_FIELD => $value->getAreaId()];
+        return [TypeArea::TYPE_AREA_CODE_FIELD => $value->getTypeAreaCode(), Area::AREA_CODE_FIELD => $value->getAreaCode()];
     }
 
     public function getYearUniqueIds(): array

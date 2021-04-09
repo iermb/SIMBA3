@@ -4,16 +4,19 @@ namespace SIMBA3\Component\Domain\Variable\Entity;
 
 class TypeIndependentVariable
 {
-    public const TYPE_INDEPENDENT_VARIABLE_ID_FIELD = "typeIndependentVariableId";
+    public const TYPE_INDEPENDENT_VARIABLE_CODE_FIELD = "typeIndependentVariableCode";
 
     private int $id;
+    private int $code;
     private string $name;
     private string $language;
 
     public function __construct(
+        string $code,
         string $name,
         string $language
     ) {
+        $this->code = $code;
         $this->name = $name;
         $this->language = $language;
     }
@@ -21,6 +24,11 @@ class TypeIndependentVariable
     public function getId(): int
     {
         return $this->id;
+    }
+
+    public function getCode(): int
+    {
+        return $this->code;
     }
 
     public function getName(): string

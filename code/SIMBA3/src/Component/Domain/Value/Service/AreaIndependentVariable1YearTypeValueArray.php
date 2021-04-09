@@ -29,10 +29,10 @@ class AreaIndependentVariable1YearTypeValueArray implements TypeValueArray
     {
         return [
             $areaIndependentVariable1YearValue->getIndicatorId(),
-            $areaIndependentVariable1YearValue->getTypeAreaId(),
-            $areaIndependentVariable1YearValue->getAreaId(),
-            $areaIndependentVariable1YearValue->getTypeIndependentVariableId(),
-            $areaIndependentVariable1YearValue->getIndependentVariableId(),
+            $areaIndependentVariable1YearValue->getTypeAreaCode(),
+            $areaIndependentVariable1YearValue->getAreaCode(),
+            $areaIndependentVariable1YearValue->getTypeIndependentVariableCode(),
+            $areaIndependentVariable1YearValue->getIndependentVariableCode(),
             $areaIndependentVariable1YearValue->getYear(),
             $areaIndependentVariable1YearValue->getValue()
         ];

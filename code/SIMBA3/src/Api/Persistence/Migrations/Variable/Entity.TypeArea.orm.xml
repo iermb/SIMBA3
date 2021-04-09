@@ -8,6 +8,10 @@
             <generator strategy="AUTO" />
         </id>
 
+        <unique-constraints>
+            <unique-constraint columns="code,language" name="type_area_element" />
+        </unique-constraints>
+
         <field name="code" column="code" type="integer" />
         <field name="language" column="language" type="string" length="2" nullable="false" />
         <field name="name" column="name" type="string" length="100" nullable="false" />

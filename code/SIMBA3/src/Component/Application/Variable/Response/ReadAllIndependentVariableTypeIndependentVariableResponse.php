@@ -24,7 +24,7 @@ class ReadAllIndependentVariableTypeIndependentVariableResponse
         return array_map(
             function(IndependentVariable $independentVariable) {
                 return [
-                    self::ID_FIELD => $independentVariable->getId(),
+                    self::ID_FIELD => $independentVariable->getCode(),
                     self::NAME_FIELD => $independentVariable->getName(),
                     self::TYPE_NAME_FIELD => $independentVariable->getType()->getName(),
                 ];

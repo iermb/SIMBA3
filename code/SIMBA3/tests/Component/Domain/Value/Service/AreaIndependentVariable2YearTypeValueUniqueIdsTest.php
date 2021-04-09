@@ -62,7 +62,7 @@ class AreaIndependentVariable2YearTypeValueUniqueIdsTest extends TestCase
                 ['typeAreaId' => 101, 'areaId' => 2],
                 ['typeAreaId' => 102, 'areaId' => 2],
             ],
-            $this->areaIndependentVariable2YearTypeValueUniqueIds->getAreaUniqueIds()
+            $this->areaIndependentVariable2YearTypeValueUniqueIds->getAreaUniqueCodes()
         );
 
         $this->assertEquals(
@@ -70,7 +70,7 @@ class AreaIndependentVariable2YearTypeValueUniqueIdsTest extends TestCase
                 ['typeIndependentVariableId' => 205, 'independentVariableId' => 7],
                 ['typeIndependentVariableId' => 206, 'independentVariableId' => 7],
             ],
-            $this->areaIndependentVariable2YearTypeValueUniqueIds->getIndependentVariable1Ids()
+            $this->areaIndependentVariable2YearTypeValueUniqueIds->getIndependentVariable1Codes()
         );
 
         $this->assertEquals(
@@ -78,7 +78,7 @@ class AreaIndependentVariable2YearTypeValueUniqueIdsTest extends TestCase
                 ['typeIndependentVariableId' => 308, 'independentVariableId' => 8],
                 ['typeIndependentVariableId' => 309, 'independentVariableId' => 9],
             ],
-            $this->areaIndependentVariable2YearTypeValueUniqueIds->getIndependentVariable2Ids()
+            $this->areaIndependentVariable2YearTypeValueUniqueIds->getIndependentVariable2Codes()
         );
 
         $this->assertEquals(

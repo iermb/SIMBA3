@@ -5,12 +5,12 @@
 
     <entity name="SIMBA3\Component\Domain\Value\Entity\AreaIndependentVariable2YearValue" table="area_independent_variable_2_year_value">
         <id name="indicatorId" column="indicator_id" type="integer" nullable="false" />
-        <id name="typeAreaId" column="type_area_id" type="smallint" nullable="false" />
-        <id name="areaId" column="area_id" type="integer" nullable="false" />
-        <id name="typeIndependentVariable1Id" column="type_independent_variable_1_id" type="smallint" nullable="false" />
-        <id name="independentVariable1Id" column="independent_variable_1_id" type="integer" nullable="false" />
-        <id name="typeIndependentVariable2Id" column="type_independent_variable_2_id" type="smallint" nullable="false" />
-        <id name="independentVariable2Id" column="independent_variable_2_id" type="integer" nullable="false" />
+        <id name="typeAreaCode" column="type_area_code" type="smallint" nullable="false" />
+        <id name="areaCode" column="area_code" type="integer" nullable="false" />
+        <id name="typeIndependentVariable1Code" column="type_independent_variable_1_code" type="smallint" nullable="false" />
+        <id name="independentVariable1Code" column="independent_variable_1_code" type="integer" nullable="false" />
+        <id name="typeIndependentVariable2Code" column="type_independent_variable_2_code" type="smallint" nullable="false" />
+        <id name="independentVariable2Code" column="independent_variable_2_code" type="integer" nullable="false" />
 
         <id name="year" column="year" type="smallint" nullable="false" />
         <field name="value" column="value" type="decimal" scale="4" precision="12" nullable="true" />

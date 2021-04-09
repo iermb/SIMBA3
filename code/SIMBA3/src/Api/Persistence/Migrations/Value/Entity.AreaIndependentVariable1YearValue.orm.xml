@@ -5,10 +5,10 @@
 
     <entity name="SIMBA3\Component\Domain\Value\Entity\AreaIndependentVariable1YearValue" table="area_independent_variable_1_year_value">
         <id name="indicatorId" column="indicator_id" type="integer" nullable="false" />
-        <id name="typeAreaId" column="type_area_id" type="smallint" nullable="false" />
-        <id name="areaId" column="area_id" type="integer" nullable="false" />
-        <id name="typeIndependentVariableId" column="type_independent_variable_id" type="smallint" nullable="false" />
-        <id name="independentVariableId" column="independent_variable_id" type="integer" nullable="false" />
+        <id name="typeAreaCode" column="type_area_code" type="smallint" nullable="false" />
+        <id name="areaCode" column="area_code" type="integer" nullable="false" />
+        <id name="typeIndependentVariableCode" column="type_independent_variable_code" type="smallint" nullable="false" />
+        <id name="independentVariableCode" column="independent_variable_code" type="integer" nullable="false" />
         <id name="year" column="year" type="smallint" nullable="false" />
         <field name="value" column="value" type="decimal" scale="4" precision="10" nullable="true" />
         <field name="isPublic" column="is_public" type="boolean" />

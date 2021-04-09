@@ -3,8 +3,9 @@
 
 namespace SIMBA3\Api\Persistence\Repository\Variable;
 
-
 use Doctrine\ORM\EntityRepository;
+use SIMBA3\Component\Domain\Variable\Entity\Area;
+use SIMBA3\Component\Domain\Variable\Entity\TypeArea;
 use SIMBA3\Component\Domain\Variable\Repository\AreaRepository;
 
 class DoctrineAreaRepository extends EntityRepository implements AreaRepository
@@ -12,7 +13,7 @@ class DoctrineAreaRepository extends EntityRepository implements AreaRepository
     public function getAllAreaByTypeArea(string $locale, int $typeAreaId): array
     {
         $dql = "SELECT a FROM SIMBA3\Component\Domain\Variable\Entity\Area a JOIN a.typeArea t";
-        $dql .= " WHERE t.language = :language AND t.id = " . $typeAreaId;
+        $dql .= " WHERE t.language = :language AND t.code = " . $typeAreaId;
         $query = $this->getEntityManager()->createQuery($dql);
         $query->setParameter('language', $locale);
         return $query->getResult();
@@ -25,13 +26,12 @@ class DoctrineAreaRepository extends EntityRepository implements AreaRepository
 
         if(count($areaUniqueIds)) {
             $dql .= 'AND (' . implode(' OR ', array_map(function ($area) {
-                    return '(a.typeArea = ' . $area['typeAreaId'] . " AND a.id = " . $area["areaId"] . ")";
+                    return '(t.code = ' . $area[TypeArea::TYPE_AREA_CODE_FIELD] . " AND a.code = " . $area[Area::AREA_CODE_FIELD] . ")";
                 }, $areaUniqueIds)) . ')';
         }
 
         $query = $this->getEntityManager()->createQuery($dql);
         $query->setParameter('language', $locale);
-
         return $query->getResult();
     }
 }
