@@ -10,12 +10,16 @@ class TypeAreaCollection
 {
     private array $typeAreaCollection;
 
-    public function __construct()
+    public function __construct(array $areas)
     {
         $this->typeAreaCollection = [];
+
+        array_map(function (Area $area) {
+            $this->addArea($area);
+        },$areas);
     }
 
-    public function addArea(Area $area):void
+    private function addArea(Area $area):void
     {
         $typeAreaId = $area->getType()->getId();
 

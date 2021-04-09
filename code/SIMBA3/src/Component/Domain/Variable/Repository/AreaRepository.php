@@ -7,5 +7,5 @@ interface AreaRepository
 {
     public function getAllAreaByTypeArea(string $locale, int $typeAreaId): array;
 
-    public function getAreasByFilter(string $locale, array $areaUniqueIds): array;
+    public function getAreasByFilter(string $locale, array $filters): array;
 }

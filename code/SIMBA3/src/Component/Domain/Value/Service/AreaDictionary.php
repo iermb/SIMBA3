@@ -9,7 +9,6 @@ use SIMBA3\Component\Domain\Variable\Entity\Area;
 class AreaDictionary implements TypeDictionary
 {
     private array $areas;
-    private TypeAreaCollection $typeAreaCollection;
 
     public function __construct(array $areas)
     {
@@ -18,12 +17,8 @@ class AreaDictionary implements TypeDictionary
 
     public function getDictionaryValuesAsArray(): array
     {
-        $this->typeAreaCollection =  new TypeAreaCollection();
+        $typeAreaCollection =  new TypeAreaCollection($this->areas);
 
-        array_map(function (Area $area) {
-            $this->typeAreaCollection->addArea($area);
-        },$this->areas);
-
-        return  $this->typeAreaCollection->getAreaAsArray();
+        return $typeAreaCollection->getAreaAsArray();
     }
 }

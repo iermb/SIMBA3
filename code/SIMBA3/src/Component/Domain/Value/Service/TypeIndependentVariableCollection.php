@@ -8,12 +8,16 @@ class TypeIndependentVariableCollection
 {
     private array $typeIndependentVariableCollection;
 
-    public function __construct()
+    public function __construct(array $independentVariables)
     {
         $this->typeIndependentVariableCollection = [];
+
+        array_map(function (IndependentVariable $independentVariable) {
+            $this->addIndependentVariable($independentVariable);
+        },$independentVariables);
     }
 
-    public function addIndependentVariable(IndependentVariable $independentVariable):void
+    private function addIndependentVariable(IndependentVariable $independentVariable):void
     {
         $typeIndependentVariableId = $independentVariable->getType()->getId();
 

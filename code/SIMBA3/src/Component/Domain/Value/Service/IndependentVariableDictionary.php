@@ -2,12 +2,9 @@
 
 namespace SIMBA3\Component\Domain\Value\Service;
 
-use SIMBA3\Component\Domain\Variable\Entity\IndependentVariable;
-
 class IndependentVariableDictionary implements TypeDictionary
 {
     private array $independentVariables;
-    private TypeIndependentVariableCollection $typeIndependentVariableCollection;
 
     public function __construct(array $independentVariables)
     {
@@ -16,12 +13,8 @@ class IndependentVariableDictionary implements TypeDictionary
 
     public function getDictionaryValuesAsArray(): array
     {
-        $this->typeIndependentVariableCollection = new TypeIndependentVariableCollection();
+        $typeIndependentVariableCollection = new TypeIndependentVariableCollection($this->independentVariables);
 
-        array_map(function (IndependentVariable $independentVariable) {
-            $this->typeIndependentVariableCollection->addIndependentVariable($independentVariable);
-        },$this->independentVariables);
-
-        return $this->typeIndependentVariableCollection->getIndependentVariableAsArray();
+        return $typeIndependentVariableCollection->getIndependentVariableAsArray();
     }
 }

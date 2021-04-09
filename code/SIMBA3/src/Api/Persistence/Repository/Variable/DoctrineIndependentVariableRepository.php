@@ -21,16 +21,18 @@ class DoctrineIndependentVariableRepository extends EntityRepository implements 
         ]);
     }
 
-    public function getIndependentVariablesByFilter(string $locale, array $independentVariableUniqueCodes): array
+    public function getIndependentVariablesByFilter(string $locale, array $filters): array
     {
+        if(!count($filters)) {
+            return [];
+        }
+
         $dql = 'SELECT i FROM SIMBA3\Component\Domain\Variable\Entity\IndependentVariable i INNER JOIN i.typeIndependentVariable t';
         $dql .= ' WHERE t.language = :language';
 
-        if(count($independentVariableUniqueCodes)) {
-             $dql .= ' AND (' . implode(' OR ', array_map(function($independentVariable) {
-                return '(t.code = ' . $independentVariable[TypeIndependentVariable::TYPE_INDEPENDENT_VARIABLE_CODE_FIELD] . " AND i.code = " . $independentVariable[IndependentVariable::INDEPENDENT_VARIABLE_CODE_FIELD] . ")";
-             } , $independentVariableUniqueCodes)). ')';
-        }
+        $dql .= ' AND (' . implode(' OR ', array_map(function($independentVariable) {
+            return '(t.code = ' . $independentVariable[TypeIndependentVariable::TYPE_INDEPENDENT_VARIABLE_CODE_FIELD] . " AND i.code = " . $independentVariable[IndependentVariable::INDEPENDENT_VARIABLE_CODE_FIELD] . ")";
+        } , $filters)). ')';
 
         $query = $this->getEntityManager()->createQuery($dql);
         $query->setParameter('language', $locale);

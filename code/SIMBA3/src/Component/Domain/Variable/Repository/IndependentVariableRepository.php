@@ -10,5 +10,5 @@ interface IndependentVariableRepository
 {
     public function getAllIndependentVariableByTypeIndependentVariable(int $typeIndependentVariableId): array;
 
-    public function getIndependentVariablesByFilter(string $locale, array $independentVariableUniqueCodes): array;
+    public function getIndependentVariablesByFilter(string $locale, array $filters): array;
 }

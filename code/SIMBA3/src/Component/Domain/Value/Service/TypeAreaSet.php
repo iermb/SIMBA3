@@ -9,10 +9,10 @@ use SIMBA3\Component\Domain\Variable\Entity\TypeArea;
 
 class TypeAreaSet
 {
-    private const TYPE_AREA_CODE_FIELD = "typeAreaCode";
-    private const TYPE_AREA_NAME_FIELD = "typeAreaName";
-    private const AREA_CODE_FIELD = "areaCode";
-    private const AREA_NAME_FIELD = "areaName";
+    private const TYPE_AREA_CODE_FIELD = "code";
+    private const TYPE_AREA_NAME_FIELD = "name";
+    private const AREA_CODE_FIELD = "code";
+    private const AREA_NAME_FIELD = "name";
     private const AREA_GROUP = "areas";
 
     private TypeArea $typeArea;

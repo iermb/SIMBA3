@@ -19,16 +19,18 @@ class DoctrineAreaRepository extends EntityRepository implements AreaRepository
         return $query->getResult();
     }
 
-    public function getAreasByFilter(string $locale, array $areaUniqueIds): array
+    public function getAreasByFilter(string $locale, array $filters): array
     {
+        if(!count($filters)) {
+            return [];
+        }
+
         $dql = 'SELECT a FROM SIMBA3\Component\Domain\Variable\Entity\Area a JOIN a.typeArea t ';
         $dql .= 'WHERE t.language = :language ';
 
-        if(count($areaUniqueIds)) {
-            $dql .= 'AND (' . implode(' OR ', array_map(function ($area) {
-                    return '(t.code = ' . $area[TypeArea::TYPE_AREA_CODE_FIELD] . " AND a.code = " . $area[Area::AREA_CODE_FIELD] . ")";
-                }, $areaUniqueIds)) . ')';
-        }
+        $dql .= 'AND (' . implode(' OR ', array_map(function ($area) {
+            return '(t.code = ' . $area[TypeArea::TYPE_AREA_CODE_FIELD] . " AND a.code = " . $area[Area::AREA_CODE_FIELD] . ")";
+        }, $filters)) . ')';
 
         $query = $this->getEntityManager()->createQuery($dql);
         $query->setParameter('language', $locale);

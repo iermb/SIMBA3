@@ -8,10 +8,10 @@ use SIMBA3\Component\Domain\Variable\Entity\TypeIndependentVariable;
 
 class TypeIndependentVariableSet
 {
-    private const TYPE_INDEPENDENT_VARIABLE_CODE_FIELD = "typeIndependentVariableCode";
-    private const TYPE_INDEPENDENT_VARIABLE_NAME_FIELD = "typeIndependentVariableName";
-    private const INDEPENDENT_VARIABLE_CODE_FIELD = "independentVariableCode";
-    private const INDEPENDENT_VARIABLE_NAME_FIELD = "independentVariableName";
+    private const TYPE_INDEPENDENT_VARIABLE_CODE_FIELD = "code";
+    private const TYPE_INDEPENDENT_VARIABLE_NAME_FIELD = "name";
+    private const INDEPENDENT_VARIABLE_CODE_FIELD = "code";
+    private const INDEPENDENT_VARIABLE_NAME_FIELD = "name";
     private const INDEPENDENT_VARIABLE_GROUP = "independentVariables";
 
     private TypeIndependentVariable $typeIndependentVariable;
