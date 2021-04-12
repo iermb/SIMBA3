@@ -104,12 +104,12 @@ class TypeAreaSetTest extends TestCase
     {
         $this->assertEquals(
             [
-                'typeAreaCode' => 111,
-                'typeAreaName' => 'Type Area 1',
+                'code' => 111,
+                'name' => 'Type Area 1',
                 "areas" => [
                     [
-                        'areaCode' => 1,
-                        'areaName' => 'Area name 1',
+                        'code' => 1,
+                        'name' => 'Area name 1',
                     ]
                 ]
             ],
@@ -120,16 +120,16 @@ class TypeAreaSetTest extends TestCase
     {
         $this->assertEquals(
             [
-                'typeAreaCode' => 111,
-                'typeAreaName' => 'Type Area 1',
+                'code' => 111,
+                'name' => 'Type Area 1',
                 "areas" => [
                     [
-                        'areaCode' => 1,
-                        'areaName' => 'Area name 1',
+                        'code' => 1,
+                        'name' => 'Area name 1',
                     ],
                     [
-                        'areaCode' => 2,
-                        'areaName' => 'Area name 2',
+                        'code' => 2,
+                        'name' => 'Area name 2',
                     ],
                 ]
             ],
@@ -140,20 +140,20 @@ class TypeAreaSetTest extends TestCase
     {
         $this->assertEquals(
             [
-                'typeAreaCode' => 111,
-                'typeAreaName' => 'Type Area 1',
+                'code' => 111,
+                'name' => 'Type Area 1',
                 "areas" => [
                     [
-                        'areaCode' => 1,
-                        'areaName' => 'Area name 1',
+                        'code' => 1,
+                        'name' => 'Area name 1',
                     ],
                     [
-                        'areaCode' => 2,
-                        'areaName' => 'Area name 2',
+                        'code' => 2,
+                        'name' => 'Area name 2',
                     ],
                     [
-                        'areaCode' => 3,
-                        'areaName' => 'Area name 3',
+                        'code' => 3,
+                        'name' => 'Area name 3',
                     ],
                 ]
             ],

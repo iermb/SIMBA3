@@ -15,11 +15,13 @@ class MetadataIndicator
     private const UNITS_FIELD = 'units';
     private const DECIMALS_FIELD = 'decimals';
     private const NOTE_FIELD = 'note';
-    private const HAS_AREA_INDICATOR_FIELD = 'hasAreaIndicator';
-    private const HAS_MONTH_INDICATOR_FIELD = 'hasMonthIndicator';
-    private const HAS_YEAR_INDICATOR_FIELD = 'hasYearIndicator';
-    private const NUM_INDEPENDENT_VARIABLES_INDICATOR_FIELD = 'numIndependentVariablesIndicator';
-    private const NAME_TYPE_INDICATOR_FIELD = 'nameTypeIndicator';
+    private const AREA_INDICATOR_FIELD = 'Area';
+    private const MONTH_INDICATOR_FIELD = 'Month';
+    private const YEAR_INDICATOR_FIELD = 'Year';
+    private const INDEPENDENT_VARIABLES_INDICATOR_FIELD = 'Independent Variables';
+    private const VARIABLES_FIELD = 'variables';
+
+
     private IndicatorTranslation $indicatorTranslation;
 
     public function __construct(IndicatorTranslation $indicatorTranslation)
@@ -32,6 +34,24 @@ class MetadataIndicator
         $indicator = $this->indicatorTranslation->getIndicator();
         $indicatorType = $indicator->getTypeIndicator();
 
+        $variables = [];
+
+        if ($indicatorType->getHasArea()) {
+            $variables[] = self::AREA_INDICATOR_FIELD;
+        }
+
+        if ($indicatorType->getHasYear()) {
+            $variables[] = self::YEAR_INDICATOR_FIELD;
+        }
+
+        if ($indicatorType->getHasMonth()) {
+            $variables[] = self::MONTH_INDICATOR_FIELD;
+        }
+
+        if (0 < $indicatorType->getNumIndependentVars()) {
+            $variables[] = [self::INDEPENDENT_VARIABLES_INDICATOR_FIELD => $indicatorType->getNumIndependentVars()];
+        }
+
         return [
             self::ID_FIELD => $indicator->getId(),
             self::LANGUAGE_FIELD => $this->indicatorTranslation->getLanguage(),
@@ -42,12 +62,7 @@ class MetadataIndicator
             self::UNITS_FIELD => $this->indicatorTranslation->getUnits(),
             self::DECIMALS_FIELD => $indicator->getDecimals(),
             self::NOTE_FIELD => $this->indicatorTranslation->getNote(),
-            self::HAS_AREA_INDICATOR_FIELD => $indicatorType->getHasArea() ? 'true' : 'false',
-            self::HAS_MONTH_INDICATOR_FIELD => $indicatorType->getHasMonth() ? 'true' : 'false',
-            self::HAS_YEAR_INDICATOR_FIELD => $indicatorType->getHasYear() ? 'true' : 'false',
-            self::NUM_INDEPENDENT_VARIABLES_INDICATOR_FIELD => $indicatorType->getNumIndependentVars(),
-            self::NAME_TYPE_INDICATOR_FIELD => $indicatorType->getIdType(),
+            self::VARIABLES_FIELD => $variables,
         ];
     }
-
 }

@@ -5,8 +5,7 @@ namespace SIMBA3\Api\Persistence\Repository\Variable;
 
 
 use Doctrine\ORM\EntityRepository;
-use SIMBA3\Component\Domain\Variable\Entity\IndependentVariable;
-use SIMBA3\Component\Domain\Variable\Entity\TypeIndependentVariable;
+use SIMBA3\Component\Domain\Filter\Service\IndependentVariableFilter;
 use SIMBA3\Component\Domain\Variable\Repository\IndependentVariableRepository;
 
 class DoctrineIndependentVariableRepository extends EntityRepository implements IndependentVariableRepository
@@ -31,7 +30,7 @@ class DoctrineIndependentVariableRepository extends EntityRepository implements 
         $dql .= ' WHERE t.language = :language';
 
         $dql .= ' AND (' . implode(' OR ', array_map(function($independentVariable) {
-            return '(t.code = ' . $independentVariable[TypeIndependentVariable::TYPE_INDEPENDENT_VARIABLE_CODE_FIELD] . " AND i.code = " . $independentVariable[IndependentVariable::INDEPENDENT_VARIABLE_CODE_FIELD] . ")";
+            return '(t.code = ' . $independentVariable[IndependentVariableFilter::TYPE_INDEPENDENT_VARIABLE_CODE_FIELD] . " AND i.code = " . $independentVariable[IndependentVariableFilter::INDEPENDENT_VARIABLE_CODE_FIELD] . ")";
         } , $filters)). ')';
 
         $query = $this->getEntityManager()->createQuery($dql);

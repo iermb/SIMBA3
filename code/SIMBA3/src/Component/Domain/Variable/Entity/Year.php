@@ -6,8 +6,6 @@ namespace SIMBA3\Component\Domain\Variable\Entity;
 
 class Year
 {
-    public const YEAR_ID_FIELD = "yearId";
-
     private int $year;
 
     public function __construct(int $year) {

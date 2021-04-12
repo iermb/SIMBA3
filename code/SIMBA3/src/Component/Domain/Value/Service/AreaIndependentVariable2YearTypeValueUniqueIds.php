@@ -4,13 +4,10 @@
 namespace SIMBA3\Component\Domain\Value\Service;
 
 
-use SIMBA3\Component\Domain\Value\Service\ArrayTool;
+use SIMBA3\Component\Domain\Filter\Service\AreaFilter;
+use SIMBA3\Component\Domain\Filter\Service\IndependentVariableFilter;
+use SIMBA3\Component\Domain\Filter\Service\YearFilter;
 use SIMBA3\Component\Domain\Value\Entity\AreaIndependentVariable2YearValue;
-use SIMBA3\Component\Domain\Variable\Entity\Area;
-use SIMBA3\Component\Domain\Variable\Entity\TypeArea;
-use SIMBA3\Component\Domain\Variable\Entity\TypeIndependentVariable;
-use SIMBA3\Component\Domain\Variable\Entity\IndependentVariable;
-use SIMBA3\Component\Domain\Variable\Entity\Year;
 
 class AreaIndependentVariable2YearTypeValueUniqueIds
 {
@@ -28,7 +25,7 @@ class AreaIndependentVariable2YearTypeValueUniqueIds
 
     private function getAreasCode(AreaIndependentVariable2YearValue $value): array
     {
-        return [TypeArea::TYPE_AREA_CODE_FIELD => $value->getTypeAreaCode(), Area::AREA_CODE_FIELD => $value->getAreaCode()];
+        return [AreaFilter::TYPE_AREA_CODE_FIELD => $value->getTypeAreaCode(), AreaFilter::AREA_CODE_FIELD => $value->getAreaCode()];
     }
 
     public function getIndependentVariable1Codes(): array
@@ -44,16 +41,16 @@ class AreaIndependentVariable2YearTypeValueUniqueIds
     private function getIndependentVariable1Code(AreaIndependentVariable2YearValue $value): array
     {
         return [
-            TypeIndependentVariable::TYPE_INDEPENDENT_VARIABLE_CODE_FIELD => $value->getTypeIndependentVariable1Code(),
-            IndependentVariable::INDEPENDENT_VARIABLE_CODE_FIELD => $value->getIndependentVariable1Code()
+            IndependentVariableFilter::TYPE_INDEPENDENT_VARIABLE_CODE_FIELD => $value->getTypeIndependentVariable1Code(),
+            IndependentVariableFilter::INDEPENDENT_VARIABLE_CODE_FIELD => $value->getIndependentVariable1Code()
         ];
     }
 
     private function getIndependentVariable2Code(AreaIndependentVariable2YearValue $value): array
     {
         return [
-            TypeIndependentVariable::TYPE_INDEPENDENT_VARIABLE_CODE_FIELD => $value->getTypeIndependentVariable2Code(),
-            IndependentVariable::INDEPENDENT_VARIABLE_CODE_FIELD => $value->getIndependentVariable2Code()
+            IndependentVariableFilter::TYPE_INDEPENDENT_VARIABLE_CODE_FIELD => $value->getTypeIndependentVariable2Code(),
+            IndependentVariableFilter::INDEPENDENT_VARIABLE_CODE_FIELD => $value->getIndependentVariable2Code()
         ];
     }
 
@@ -64,6 +61,6 @@ class AreaIndependentVariable2YearTypeValueUniqueIds
 
     private function getYearId(AreaIndependentVariable2YearValue $value): array
     {
-        return [Year::YEAR_ID_FIELD => $value->getYear()];
+        return [YearFilter::YEAR_ID_FIELD => $value->getYear()];
     }
 }

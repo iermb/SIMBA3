@@ -69,12 +69,12 @@ class TypeIndependentVariableSetTest extends TestCase
     {
         $this->assertEquals(
             [
-                'typeIndependentVariableCode' => 100,
-                'typeIndependentVariableName' => 'Type independent Variable',
+                'code' => 100,
+                'name' => 'Type independent Variable',
                 'independentVariables' => [
                     [
-                        'independentVariableCode' => 1,
-                        'independentVariableName' => 'independent Variable 1',
+                        'code' => 1,
+                        'name' => 'independent Variable 1',
                     ],
                 ],
             ],
@@ -92,16 +92,16 @@ class TypeIndependentVariableSetTest extends TestCase
     {
         $this->assertEquals(
             [
-                'typeIndependentVariableCode' => 100,
-                'typeIndependentVariableName' => 'Type independent Variable',
+                'code' => 100,
+                'name' => 'Type independent Variable',
                 'independentVariables' => [
                     [
-                        'independentVariableCode' => 1,
-                        'independentVariableName' => 'independent Variable 1',
+                        'code' => 1,
+                        'name' => 'independent Variable 1',
                     ],
                     [
-                        'independentVariableCode' => 2,
-                        'independentVariableName' => 'independent Variable 2',
+                        'code' => 2,
+                        'name' => 'independent Variable 2',
                     ],
                 ],
             ],
@@ -120,20 +120,20 @@ class TypeIndependentVariableSetTest extends TestCase
     {
         $this->assertEquals(
             [
-                'typeIndependentVariableCode' => 100,
-                'typeIndependentVariableName' => 'Type independent Variable',
+                'code' => 100,
+                'name' => 'Type independent Variable',
                 'independentVariables' => [
                     [
-                        'independentVariableCode' => 1,
-                        'independentVariableName' => 'independent Variable 1',
+                        'code' => 1,
+                        'name' => 'independent Variable 1',
                     ],
                     [
-                        'independentVariableCode' => 2,
-                        'independentVariableName' => 'independent Variable 2',
+                        'code' => 2,
+                        'name' => 'independent Variable 2',
                     ],
                     [
-                        'independentVariableCode' => 3,
-                        'independentVariableName' => 'independent Variable 3',
+                        'code' => 3,
+                        'name' => 'independent Variable 3',
                     ],
                 ],
             ],

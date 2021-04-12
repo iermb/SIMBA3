@@ -5,9 +5,8 @@ namespace SIMBA3\Api\Persistence\Repository\Value;
 
 
 use Doctrine\ORM\EntityRepository;
+use SIMBA3\Component\Domain\Filter\Service\AreaFilter;
 use SIMBA3\Component\Domain\Value\Repository\AreaYearValueRepository;
-use SIMBA3\Component\Domain\Variable\Entity\Area;
-use SIMBA3\Component\Domain\Variable\Entity\TypeArea;
 
 class DoctrineAreaYearValueRepository extends EntityRepository implements AreaYearValueRepository
 {
@@ -22,7 +21,7 @@ class DoctrineAreaYearValueRepository extends EntityRepository implements AreaYe
         }
         if (isset($filter["areas"]) && count($filter["areas"]) > 0) {
             $dql .= " AND (" . implode(" OR ", array_map(function($area) {
-                    return "(v.typeAreaCode = " . $area[TypeArea::TYPE_AREA_CODE_FIELD] . " AND v.areaCode = " . $area[Area::AREA_CODE_FIELD] . ")";
+                    return "(v.typeAreaCode = " . $area[AreaFilter::TYPE_AREA_CODE_FIELD] . " AND v.areaCode = " . $area[AreaFilter::AREA_CODE_FIELD] . ")";
                 }, $filter["areas"])) . ")";
         }
         $query = $this->getEntityManager()->createQuery($dql)->setParameter('indicatorId', $filter["indicatorId"]);

@@ -3,11 +3,9 @@
 namespace SIMBA3\Api\Persistence\Repository\Value;
 
 use Doctrine\ORM\EntityRepository;
+use SIMBA3\Component\Domain\Filter\Service\AreaFilter;
+use SIMBA3\Component\Domain\Filter\Service\IndependentVariableFilter;
 use SIMBA3\Component\Domain\Value\Repository\AreaIndependentVariable2YearValueRepository;
-use SIMBA3\Component\Domain\Variable\Entity\Area;
-use SIMBA3\Component\Domain\Variable\Entity\IndependentVariable;
-use SIMBA3\Component\Domain\Variable\Entity\TypeArea;
-use SIMBA3\Component\Domain\Variable\Entity\TypeIndependentVariable;
 
 class DoctrineAreaIndependentVariable2YearValueRepository extends EntityRepository implements AreaIndependentVariable2YearValueRepository
 {
@@ -22,7 +20,7 @@ class DoctrineAreaIndependentVariable2YearValueRepository extends EntityReposito
         }
         if (isset($filter["areas"]) && count($filter["areas"]) > 0) {
             $dql .= " AND (" . implode(" OR ", array_map(function($area) {
-                    return "(v.typeAreaCode = " . $area[TypeArea::TYPE_AREA_CODE_FIELD] . " AND v.areaCode = " . $area[Area::AREA_CODE_FIELD] . ")";
+                    return "(v.typeAreaCode = " . $area[AreaFilter::TYPE_AREA_CODE_FIELD] . " AND v.areaCode = " . $area[AreaFilter::AREA_CODE_FIELD] . ")";
                 }, $filter["areas"])) . ")";
         }
         $dql .= self::getDQLIndependentVariable(1, $filter["independentVariable1s"]);
@@ -39,7 +37,7 @@ class DoctrineAreaIndependentVariable2YearValueRepository extends EntityReposito
         }
 
         return " AND (" . implode(" OR ", array_map(function($independentVariable) use ($independentVariableId) {
-            return "(v.typeIndependentVariable".$independentVariableId."Code = " . $independentVariable[TypeIndependentVariable::TYPE_INDEPENDENT_VARIABLE_CODE_FIELD] . " AND v.independentVariable".$independentVariableId."Code = " . $independentVariable[IndependentVariable::INDEPENDENT_VARIABLE_CODE_FIELD] . ")";
+            return "(v.typeIndependentVariable".$independentVariableId."Code = " . $independentVariable[IndependentVariableFilter::TYPE_INDEPENDENT_VARIABLE_CODE_FIELD] . " AND v.independentVariable".$independentVariableId."Code = " . $independentVariable[IndependentVariableFilter::INDEPENDENT_VARIABLE_CODE_FIELD] . ")";
         }, $independentVariables)) . ")";
     }
 }

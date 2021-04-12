@@ -60,7 +60,7 @@ class TypeIndependentVariableCollectionTest extends TestCase
 
     private function givenEmptyIndependentVariableCollection(): void
     {
-        $this->typeIndependentVariableCollection = new TypeIndependentVariableCollection();
+        $this->typeIndependentVariableCollection = new TypeIndependentVariableCollection([]);
     }
 
     private function thenReturnsEmptyArray(): void
@@ -77,20 +77,19 @@ class TypeIndependentVariableCollectionTest extends TestCase
 
     private function givenOneElementIndependentVariableCollection()
     {
-        $this->typeIndependentVariableCollection = new TypeIndependentVariableCollection();
-        $this->typeIndependentVariableCollection->addIndependentVariable($this->independentVariable1);
+        $this->typeIndependentVariableCollection = new TypeIndependentVariableCollection([$this->independentVariable1]);
     }
 
     private function thenReturnsOneElementArray()
     {
         $this->assertEquals([
             [
-                'typeIndependentVariableCode' => 11,
-                'typeIndependentVariableName' => 'Type Independent Variable 1',
+                'code' => 11,
+                'name' => 'Type Independent Variable 1',
                 'independentVariables' => [
                   [
-                      'independentVariableCode' => 111,
-                      'independentVariableName' => 'Independent Variable 1',
+                      'code' => 111,
+                      'name' => 'Independent Variable 1',
                   ],
                 ],
             ]
@@ -107,25 +106,26 @@ class TypeIndependentVariableCollectionTest extends TestCase
 
     private function givenTwoElementIndependentVariableCollection()
     {
-        $this->typeIndependentVariableCollection = new TypeIndependentVariableCollection();
-        $this->typeIndependentVariableCollection->addIndependentVariable($this->independentVariable1);
-        $this->typeIndependentVariableCollection->addIndependentVariable($this->independentVariable2);
+        $this->typeIndependentVariableCollection = new TypeIndependentVariableCollection([
+            $this->independentVariable1,
+            $this->independentVariable2,
+        ]);
     }
 
     private function thenReturnsTwoElementArray()
     {
         $this->assertEquals([
             [
-                'typeIndependentVariableCode' => 11,
-                'typeIndependentVariableName' => 'Type Independent Variable 1',
+                'code' => 11,
+                'name' => 'Type Independent Variable 1',
                 'independentVariables' => [
                     [
-                        'independentVariableCode' => 111,
-                        'independentVariableName' => 'Independent Variable 1',
+                        'code' => 111,
+                        'name' => 'Independent Variable 1',
                     ],
                     [
-                        'independentVariableCode' => 222,
-                        'independentVariableName' => 'Independent Variable 2',
+                        'code' => 222,
+                        'name' => 'Independent Variable 2',
                     ],
                 ],
             ]
@@ -142,36 +142,37 @@ class TypeIndependentVariableCollectionTest extends TestCase
 
     private function givenThreeElementIndependentVariableCollection()
     {
-        $this->typeIndependentVariableCollection = new TypeIndependentVariableCollection();
-        $this->typeIndependentVariableCollection->addIndependentVariable($this->independentVariable1);
-        $this->typeIndependentVariableCollection->addIndependentVariable($this->independentVariable2);
-        $this->typeIndependentVariableCollection->addIndependentVariable($this->independentVariable3);
+        $this->typeIndependentVariableCollection = new TypeIndependentVariableCollection([
+            $this->independentVariable1,
+            $this->independentVariable2,
+            $this->independentVariable3,
+        ]);
     }
 
     private function thenReturnsThreeElementArray()
     {
         $this->assertEquals([
             [
-                'typeIndependentVariableCode' => 11,
-                'typeIndependentVariableName' => 'Type Independent Variable 1',
+                'code' => 11,
+                'name' => 'Type Independent Variable 1',
                 'independentVariables' => [
                     [
-                        'independentVariableCode' => 111,
-                        'independentVariableName' => 'Independent Variable 1',
+                        'code' => 111,
+                        'name' => 'Independent Variable 1',
                     ],
                     [
-                        'independentVariableCode' => 222,
-                        'independentVariableName' => 'Independent Variable 2',
+                        'code' => 222,
+                        'name' => 'Independent Variable 2',
                     ],
                 ],
             ],
             [
-                'typeIndependentVariableCode' => 22,
-                'typeIndependentVariableName' => 'Type Independent Variable 2',
+                'code' => 22,
+                'name' => 'Type Independent Variable 2',
                 'independentVariables' => [
                     [
-                        'independentVariableCode' => 333,
-                        'independentVariableName' => 'Independent Variable 3',
+                        'code' => 333,
+                        'name' => 'Independent Variable 3',
                     ],
                 ],
             ]
@@ -188,41 +189,42 @@ class TypeIndependentVariableCollectionTest extends TestCase
 
     private function givenFourElementIndependentVariableCollection()
     {
-        $this->typeIndependentVariableCollection = new TypeIndependentVariableCollection();
-        $this->typeIndependentVariableCollection->addIndependentVariable($this->independentVariable1);
-        $this->typeIndependentVariableCollection->addIndependentVariable($this->independentVariable2);
-        $this->typeIndependentVariableCollection->addIndependentVariable($this->independentVariable3);
-        $this->typeIndependentVariableCollection->addIndependentVariable($this->independentVariable4);
+        $this->typeIndependentVariableCollection = new TypeIndependentVariableCollection([
+            $this->independentVariable1,
+            $this->independentVariable2,
+            $this->independentVariable3,
+            $this->independentVariable4,
+        ]);
     }
 
     private function thenReturnsFourElementArray()
     {
         $this->assertEquals([
             [
-                'typeIndependentVariableCode' => 11,
-                'typeIndependentVariableName' => 'Type Independent Variable 1',
+                'code' => 11,
+                'name' => 'Type Independent Variable 1',
                 'independentVariables' => [
                     [
-                        'independentVariableCode' => 111,
-                        'independentVariableName' => 'Independent Variable 1',
+                        'code' => 111,
+                        'name' => 'Independent Variable 1',
                     ],
                     [
-                        'independentVariableCode' => 222,
-                        'independentVariableName' => 'Independent Variable 2',
+                        'code' => 222,
+                        'name' => 'Independent Variable 2',
                     ],
                 ],
             ],
             [
-                'typeIndependentVariableCode' => 22,
-                'typeIndependentVariableName' => 'Type Independent Variable 2',
+                'code' => 22,
+                'name' => 'Type Independent Variable 2',
                 'independentVariables' => [
                     [
-                        'independentVariableCode' => 333,
-                        'independentVariableName' => 'Independent Variable 3',
+                        'code' => 333,
+                        'name' => 'Independent Variable 3',
                     ],
                     [
-                        'independentVariableCode' => 444,
-                        'independentVariableName' => 'Independent Variable 4',
+                        'code' => 444,
+                        'name' => 'Independent Variable 4',
                     ],
                 ],
             ]

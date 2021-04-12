@@ -3,12 +3,11 @@
 
 namespace SIMBA3\Component\Domain\Filter\Service;
 
-
-use SIMBA3\Component\Domain\Variable\Entity\Area;
-use SIMBA3\Component\Domain\Variable\Entity\TypeArea;
-
 class AreaFilter implements FilterValues
 {
+    public const AREA_CODE_FIELD = "areaCode";
+    public const TYPE_AREA_CODE_FIELD = "typeAreaCode";
+
     private int $typeAreaCode;
     private int $areaCode;
 
@@ -21,8 +20,8 @@ class AreaFilter implements FilterValues
     public function getFilterAsArray(): array
     {
         return [
-            TypeArea::TYPE_AREA_CODE_FIELD => $this->typeAreaCode,
-            Area::AREA_CODE_FIELD => $this->areaCode
+            self::TYPE_AREA_CODE_FIELD => $this->typeAreaCode,
+            self::AREA_CODE_FIELD => $this->areaCode
         ];
     }
 }

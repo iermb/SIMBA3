@@ -3,12 +3,11 @@
 
 namespace SIMBA3\Component\Domain\Filter\Service;
 
-
-use SIMBA3\Component\Domain\Variable\Entity\IndependentVariable;
-use SIMBA3\Component\Domain\Variable\Entity\TypeIndependentVariable;
-
 class IndependentVariableFilter implements FilterValues
 {
+    public const TYPE_INDEPENDENT_VARIABLE_CODE_FIELD = 'typeIndependentVariableCode';
+    public const INDEPENDENT_VARIABLE_CODE_FIELD = 'independentVariableCode';
+
     private int $typeIndependentVariableCode;
     private int $independentVariableCode;
 
@@ -21,8 +20,8 @@ class IndependentVariableFilter implements FilterValues
     public function getFilterAsArray(): array
     {
         return [
-            TypeIndependentVariable::TYPE_INDEPENDENT_VARIABLE_CODE_FIELD => $this->typeIndependentVariableCode,
-            IndependentVariable::INDEPENDENT_VARIABLE_CODE_FIELD => $this->independentVariableCode
+            self::TYPE_INDEPENDENT_VARIABLE_CODE_FIELD => $this->typeIndependentVariableCode,
+            self::INDEPENDENT_VARIABLE_CODE_FIELD => $this->independentVariableCode
         ];
     }
 }

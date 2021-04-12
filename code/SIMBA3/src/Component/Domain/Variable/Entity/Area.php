@@ -5,8 +5,6 @@ namespace SIMBA3\Component\Domain\Variable\Entity;
 
 class Area
 {
-    public const AREA_CODE_FIELD = "areaCode";
-
     private int $code;
     private TypeArea $typeArea;
     private string $name;

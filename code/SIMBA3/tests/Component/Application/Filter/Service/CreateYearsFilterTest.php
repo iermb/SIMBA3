@@ -43,7 +43,7 @@ class CreateYearsFilterTest extends TestCase
     private function thenReturnYearsFilterWithValues(): void
     {
         $this->assertInstanceOf(YearsFilter::class, $this->createYearsFilter->getFilter());
-        $this->assertEquals(["years" => [["year" => 2020], ["year" => 2019], ["year" => 2018]]],
+        $this->assertEquals(["years" => [["yearId" => 2020], ["yearId" => 2019], ["yearId" => 2018]]],
             $this->createYearsFilter->getFilter()->getFilterAsArray());
     }
 

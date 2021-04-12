@@ -23,7 +23,7 @@ class YearFilterTest extends TestCase
 
     private function thenReturnYearFilterAsArray(): void
     {
-        $this->assertEquals(["year" => 2020], $this->yearFilter->getFilterAsArray());
+        $this->assertEquals(["yearId" => 2020], $this->yearFilter->getFilterAsArray());
     }
 
 }

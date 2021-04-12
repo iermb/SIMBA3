@@ -4,13 +4,10 @@
 namespace SIMBA3\Component\Domain\Value\Service;
 
 
-use SIMBA3\Component\Domain\Value\Service\ArrayTool;
+use SIMBA3\Component\Domain\Filter\Service\AreaFilter;
+use SIMBA3\Component\Domain\Filter\Service\IndependentVariableFilter;
+use SIMBA3\Component\Domain\Filter\Service\YearFilter;
 use SIMBA3\Component\Domain\Value\Entity\AreaIndependentVariable1YearValue;
-use SIMBA3\Component\Domain\Variable\Entity\Area;
-use SIMBA3\Component\Domain\Variable\Entity\TypeArea;
-use SIMBA3\Component\Domain\Variable\Entity\TypeIndependentVariable;
-use SIMBA3\Component\Domain\Variable\Entity\IndependentVariable;
-use SIMBA3\Component\Domain\Variable\Entity\Year;
 
 class AreaIndependentVariable1YearTypeValueUniqueIds
 {
@@ -28,7 +25,7 @@ class AreaIndependentVariable1YearTypeValueUniqueIds
 
     private function getAreasCode(AreaIndependentVariable1YearValue $value): array
     {
-        return [TypeArea::TYPE_AREA_CODE_FIELD => $value->getTypeAreaCode(), Area::AREA_CODE_FIELD => $value->getAreaCode()];
+        return [AreaFilter::TYPE_AREA_CODE_FIELD => $value->getTypeAreaCode(), AreaFilter::AREA_CODE_FIELD => $value->getAreaCode()];
     }
 
     public function getIndependentVariable1Codes(): array
@@ -39,8 +36,8 @@ class AreaIndependentVariable1YearTypeValueUniqueIds
     private function getIndependentVariable1Code(AreaIndependentVariable1YearValue $value): array
     {
         return [
-            TypeIndependentVariable::TYPE_INDEPENDENT_VARIABLE_CODE_FIELD => $value->getTypeIndependentVariableCode(),
-            IndependentVariable::INDEPENDENT_VARIABLE_CODE_FIELD => $value->getIndependentVariableCode()
+            IndependentVariableFilter::TYPE_INDEPENDENT_VARIABLE_CODE_FIELD => $value->getTypeIndependentVariableCode(),
+            IndependentVariableFilter::INDEPENDENT_VARIABLE_CODE_FIELD => $value->getIndependentVariableCode()
         ];
     }
 
@@ -51,6 +48,6 @@ class AreaIndependentVariable1YearTypeValueUniqueIds
 
     private function getYearId(AreaIndependentVariable1YearValue $value): array
     {
-        return [Year::YEAR_ID_FIELD => $value->getYear()];
+        return [YearFilter::YEAR_ID_FIELD => $value->getYear()];
     }
 }

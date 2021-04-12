@@ -4,11 +4,9 @@
 namespace SIMBA3\Component\Domain\Value\Service;
 
 
-use SIMBA3\Component\Domain\Value\Service\ArrayTool;
+use SIMBA3\Component\Domain\Filter\Service\AreaFilter;
+use SIMBA3\Component\Domain\Filter\Service\YearFilter;
 use SIMBA3\Component\Domain\Value\Entity\AreaYearValue;
-use SIMBA3\Component\Domain\Variable\Entity\Area;
-use SIMBA3\Component\Domain\Variable\Entity\TypeArea;
-use SIMBA3\Component\Domain\Variable\Entity\Year;
 
 class AreaYearTypeValueUniqueIds
 {
@@ -26,7 +24,7 @@ class AreaYearTypeValueUniqueIds
 
     private function getAreasCode(AreaYearValue $value): array
     {
-        return [TypeArea::TYPE_AREA_CODE_FIELD => $value->getTypeAreaCode(), Area::AREA_CODE_FIELD => $value->getAreaCode()];
+        return [AreaFilter::TYPE_AREA_CODE_FIELD => $value->getTypeAreaCode(), AreaFilter::AREA_CODE_FIELD => $value->getAreaCode()];
     }
 
     public function getYearUniqueIds(): array
@@ -36,6 +34,6 @@ class AreaYearTypeValueUniqueIds
 
     private function getYearId(AreaYearValue $value): array
     {
-        return [Year::YEAR_ID_FIELD => $value->getYear()];
+        return [YearFilter::YEAR_ID_FIELD => $value->getYear()];
     }
 }

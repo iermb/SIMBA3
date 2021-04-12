@@ -75,12 +75,12 @@ class IndependentVariableDictionaryTest extends TestCase
         $this->assertEquals(
             [
                 [
-                    "typeIndependentVariableCode" => 456,
-                    "typeIndependentVariableName" => 'Type Independent Variable Name',
+                    "code" => 456,
+                    "name" => 'Type Independent Variable Name',
                     "independentVariables" => [
                         [
-                            "independentVariableCode" => 123,
-                            "independentVariableName" => 'Independent Variable Name',
+                            "code" => 123,
+                            "name" => 'Independent Variable Name',
                         ],
                     ],
                 ]
@@ -116,22 +116,22 @@ class IndependentVariableDictionaryTest extends TestCase
         $this->assertEquals(
             [
                 [
-                    "typeIndependentVariableCode" => 456,
-                    "typeIndependentVariableName" => 'Type Independent Variable Name',
+                    "code" => 456,
+                    "name" => 'Type Independent Variable Name',
                     "independentVariables" => [
                         [
-                            "independentVariableCode" => 123,
-                            "independentVariableName" => 'Independent Variable Name',
+                            "code" => 123,
+                            "name" => 'Independent Variable Name',
                         ],
                     ],
                 ],
                 [
-                    "typeIndependentVariableCode" => 789,
-                    "typeIndependentVariableName" => 'Type Independent Variable Name 2',
+                    "code" => 789,
+                    "name" => 'Type Independent Variable Name 2',
                     "independentVariables" => [
                         [
-                            "independentVariableCode" => 987,
-                            "independentVariableName" => 'Independent Variable Name 2',
+                            "code" => 987,
+                            "name" => 'Independent Variable Name 2',
                         ],
                     ],
                 ],

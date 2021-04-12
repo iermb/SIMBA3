@@ -4,8 +4,6 @@ namespace SIMBA3\Component\Domain\Variable\Entity;
 
 class IndependentVariable
 {
-    public const INDEPENDENT_VARIABLE_CODE_FIELD = "independentVariableCode";
-
     private int $code;
     private TypeIndependentVariable $typeIndependentVariable;
     private string $name;

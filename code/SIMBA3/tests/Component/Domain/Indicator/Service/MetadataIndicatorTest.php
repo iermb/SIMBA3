@@ -66,11 +66,10 @@ class MetadataIndicatorTest extends TestCase
                 'units' => 'units of Indicator',
                 'decimals' => 2,
                 'note' => 'note of Indicator',
-                'hasAreaIndicator' => 'false',
-                'hasMonthIndicator' => 'false',
-                'hasYearIndicator' => 'true',
-                'numIndependentVariablesIndicator' => 12,
-                'nameTypeIndicator' => 'FAKE_TYPE',
+                'variables' => [
+                    'Year',
+                    ['Independent Variables' => 12],
+                ],
             ],
             $this->metadataIndicator->getValuesAsArray()
         );

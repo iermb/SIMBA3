@@ -61,18 +61,18 @@ class ReadInfoIndicatorResponseTest extends TestCase
         $this->assertEquals(
             [
                 "id" => 1001,
-                "locale" => 'it',
+                "language" => 'it',
                 "name" => "Test name",
                 "description" => "Test description",
+                "methodology" => "Methodology test",
+                "font" => "Font test",
                 "units" => "Units test",
                 "decimals" => 3,
                 "note" => "Note test",
-                "font" => "Font test",
-                "methodology" => "Methodology test",
-                "hasArea" => true,
-                "hasYear" => false,
-                "hasMonth" => false,
-                "numIndependentVars" => 3
+                "variables" => [
+                    'Area',
+                    ['Independent Variables' => 3],
+                ],
             ],
             $this->readInfoIndicatorResponse->getIndicatorAsArray()
         );

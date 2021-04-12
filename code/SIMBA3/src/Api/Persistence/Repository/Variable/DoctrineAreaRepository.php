@@ -4,8 +4,7 @@
 namespace SIMBA3\Api\Persistence\Repository\Variable;
 
 use Doctrine\ORM\EntityRepository;
-use SIMBA3\Component\Domain\Variable\Entity\Area;
-use SIMBA3\Component\Domain\Variable\Entity\TypeArea;
+use SIMBA3\Component\Domain\Filter\Service\AreaFilter;
 use SIMBA3\Component\Domain\Variable\Repository\AreaRepository;
 
 class DoctrineAreaRepository extends EntityRepository implements AreaRepository
@@ -29,7 +28,7 @@ class DoctrineAreaRepository extends EntityRepository implements AreaRepository
         $dql .= 'WHERE t.language = :language ';
 
         $dql .= 'AND (' . implode(' OR ', array_map(function ($area) {
-            return '(t.code = ' . $area[TypeArea::TYPE_AREA_CODE_FIELD] . " AND a.code = " . $area[Area::AREA_CODE_FIELD] . ")";
+            return '(t.code = ' . $area[AreaFilter::TYPE_AREA_CODE_FIELD] . " AND a.code = " . $area[AreaFilter::AREA_CODE_FIELD] . ")";
         }, $filters)) . ')';
 
         $query = $this->getEntityManager()->createQuery($dql);
