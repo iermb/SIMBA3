@@ -9,7 +9,7 @@ use SIMBA3\Component\Application\Value\Request\ReadDictionaryVariablesRequest;
 use SIMBA3\Component\Application\Value\Request\ReadValuesIndicatorRequest;
 use SIMBA3\Component\Application\Value\Response\ReadValuesIndicatorResponse;
 use SIMBA3\Component\Domain\Indicator\Repository\IndicatorTranslationRepository;
-use SIMBA3\Component\Domain\Indicator\Service\MetadataIndicator;
+use SIMBA3\Component\Application\Indicator\Response\MetadataIndicatorResponse;
 use SIMBA3\Component\Domain\Value\Service\FactoryTypeValue;
 
 class ReadValuesIndicatorUseCase
@@ -35,7 +35,7 @@ class ReadValuesIndicatorUseCase
             throw new InvalidArgumentException("Indicator not exists");
         }
 
-        $metadataIndicator = new MetadataIndicator($indicatorTranslation);
+        $metadataIndicatorResponse = new MetadataIndicatorResponse($indicatorTranslation);
 
         $indicator = $indicatorTranslation->getIndicator();
         $typeIndicator = $indicator->getTypeIndicator();
@@ -54,6 +54,6 @@ class ReadValuesIndicatorUseCase
             $typeValueArray)
         );
 
-        return new ReadValuesIndicatorResponse($metadataIndicator, $dictionaries, $typeValueArray);
+        return new ReadValuesIndicatorResponse($metadataIndicatorResponse, $dictionaries, $typeValueArray);
     }
 }

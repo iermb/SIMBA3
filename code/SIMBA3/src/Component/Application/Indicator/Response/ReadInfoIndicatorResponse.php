@@ -3,19 +3,19 @@
 namespace SIMBA3\Component\Application\Indicator\Response;
 
 use SIMBA3\Component\Domain\Indicator\Entity\IndicatorTranslation;
-use SIMBA3\Component\Domain\Indicator\Service\MetadataIndicator;
+use SIMBA3\Component\Application\Indicator\Response\MetadataIndicatorResponse;
 
 class ReadInfoIndicatorResponse
 {
-    private MetadataIndicator $metadataIndicator;
+    private MetadataIndicatorResponse $metadataIndicatorResponse;
 
     public function __construct(IndicatorTranslation $indicatorTranslation)
     {
-        $this->metadataIndicator = new MetadataIndicator($indicatorTranslation);
+        $this->metadataIndicatorResponse = new MetadataIndicatorResponse($indicatorTranslation);
     }
 
     public function getIndicatorAsArray(): array
     {
-        return $this->metadataIndicator->getValuesAsArray();
+        return $this->metadataIndicatorResponse->getValuesAsArray();
     }
 }

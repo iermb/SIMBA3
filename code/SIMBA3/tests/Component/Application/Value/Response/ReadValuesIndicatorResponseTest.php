@@ -3,14 +3,14 @@
 namespace SIMBA3\Component\Application\Value\Response;
 
 use PHPUnit\Framework\TestCase;
-use SIMBA3\Component\Domain\Indicator\Service\MetadataIndicator;
+use SIMBA3\Component\Application\Indicator\Response\MetadataIndicatorResponse;
 use SIMBA3\Component\Domain\Value\Service\TypeDictionary;
 use SIMBA3\Component\Domain\Value\Service\TypeValueArray;
 
 class ReadValuesIndicatorResponseTest extends TestCase
 {
     private ReadValuesIndicatorResponse $readValuesIndicatorResponse;
-    private MetadataIndicator           $metadataIndicator;
+    private MetadataIndicatorResponse           $metadataIndicator;
     private TypeValueArray              $typeValueArray;
     private TypeDictionary              $typeDictionary1;
     private TypeDictionary              $typeDictionary2;
@@ -83,7 +83,7 @@ class ReadValuesIndicatorResponseTest extends TestCase
     {
         parent::setUp();
         $this->typeValueArray = $this->createMock(TypeValueArray::class);
-        $this->metadataIndicator = $this->createMock(MetadataIndicator::class);
+        $this->metadataIndicator = $this->createMock(MetadataIndicatorResponse::class);
         $this->typeDictionary1 = $this->createMock(TypeDictionary::class);
         $this->typeDictionary2 = $this->createMock(TypeDictionary::class);
     }

@@ -1,10 +1,10 @@
 <?php
 
-namespace SIMBA3\Component\Domain\Indicator\Service;
+namespace SIMBA3\Component\Application\Indicator\Response;
 
 use SIMBA3\Component\Domain\Indicator\Entity\IndicatorTranslation;
 
-class MetadataIndicator
+class MetadataIndicatorResponse
 {
     private const ID_FIELD = 'id';
     private const LANGUAGE_FIELD = 'language';

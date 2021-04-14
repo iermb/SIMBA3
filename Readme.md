@@ -35,3 +35,12 @@ Currently, there are the following endpoints:
 
 * /{locale}/type-independent-variable/
 * /{locale}/type-independent-variable/{typeIndependentVariableId}/independent-variable/
+
+
+## Environment variables
+Inside **/infrastructure/environments/** environment variables should be declared. These variables define DB information:
+- POSTGRES_DB=xxxx (Database name)
+- POSTGRES_USER=xxxx (Username of database)
+- POSTGRES_PASSWORD=xxxx (Password of previous username)
+
+By convention, the file name for development variables should be **development.dev**. Currently, the docker-compose.yml is configured for development environment. 

@@ -1,15 +1,15 @@
 <?php
 
-namespace SIMBA3\Component\Domain\Indicator\Service;
+namespace SIMBA3\Component\Application\Indicator\Response;
 
 use PHPUnit\Framework\TestCase;
 use SIMBA3\Component\Domain\Indicator\Entity\Indicator;
 use SIMBA3\Component\Domain\Indicator\Entity\IndicatorTranslation;
 use SIMBA3\Component\Domain\Indicator\Entity\TypeIndicator;
 
-class MetadataIndicatorTest extends TestCase
+class MetadataIndicatorResponseTest extends TestCase
 {
-    private MetadataIndicator $metadataIndicator;
+    private MetadataIndicatorResponse $metadataIndicator;
     private IndicatorTranslation $indicatorTranslation;
     private Indicator $indicator;
     private TypeIndicator $typeIndicator;
@@ -50,7 +50,7 @@ class MetadataIndicatorTest extends TestCase
 
     private function givenMetadataIndicatorWithIndicatorTranslation():void
     {
-        $this->metadataIndicator = new MetadataIndicator($this->indicatorTranslation);
+        $this->metadataIndicator = new MetadataIndicatorResponse($this->indicatorTranslation);
     }
 
     private function shouldReturnArrayWithValues(): void

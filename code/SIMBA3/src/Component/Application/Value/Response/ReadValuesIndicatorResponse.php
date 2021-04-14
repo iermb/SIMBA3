@@ -4,19 +4,19 @@
 namespace SIMBA3\Component\Application\Value\Response;
 
 
-use SIMBA3\Component\Domain\Indicator\Service\MetadataIndicator;
+use SIMBA3\Component\Application\Indicator\Response\MetadataIndicatorResponse;
 use SIMBA3\Component\Domain\Value\Service\TypeDictionary;
 use SIMBA3\Component\Domain\Value\Service\TypeValueArray;
 
 class ReadValuesIndicatorResponse
 {
-    private MetadataIndicator $metadataIndicator;
+    private MetadataIndicatorResponse $metadataIndicatorResponse;
     private TypeValueArray    $typeValue;
     private array             $dictionaries;
 
-    public function __construct(MetadataIndicator $metadataIndicator, array $dictionaries, TypeValueArray $typeValue)
+    public function __construct(MetadataIndicatorResponse $metadataIndicatorResponse, array $dictionaries, TypeValueArray $typeValue)
     {
-        $this->metadataIndicator = $metadataIndicator;
+        $this->metadataIndicatorResponse = $metadataIndicatorResponse;
         $this->dictionaries = $dictionaries;
         $this->typeValue = $typeValue;
     }
@@ -35,6 +35,6 @@ class ReadValuesIndicatorResponse
 
     public function getMetadataIndicatorAsArray(): array
     {
-        return $this->metadataIndicator->getValuesAsArray();
+        return $this->metadataIndicatorResponse->getValuesAsArray();
     }
 }
