@@ -16,10 +16,7 @@ use SIMBA3\Component\Domain\Value\Repository\YearValueRepository;
 
 class FactoryTypeValue
 {
-    public const AREA_YEAR_VALUE_TYPE = "AREA_YEAR_VALUE";
-    public const AREA_INDEPENDENT_VARIABLE_1_YEAR_VALUE_TYPE = "AREA_INDEPENDENT_VARIABLE_1_YEAR_VALUE";
-    public const AREA_INDEPENDENT_VARIABLE_2_YEAR_VALUE_TYPE = "AREA_INDEPENDENT_VARIABLE_2_YEAR_VALUE";
-    public const YEAR_VALUE_TYPE = "YEAR_VALUE";
+    private const CLASS_NAME_DICTIONARY = 'SIMBA3\\Component\\Domain\\Value\\Service\\';
 
     private const INDEPENDENT_VARIABLES_1_FILTER = 'independentVariable1s';
     private const INDEPENDENT_VARIABLES_2_FILTER = 'independentVariable2s';
@@ -50,8 +47,10 @@ class FactoryTypeValue
         $createIndicatorFilter = new CreateIndicatorFilter($indicatorId);
         $createYearsFilter = new CreateYearsFilter($filters);
 
-        switch ($objectType) {
-            case self::AREA_YEAR_VALUE_TYPE:
+        $objectTypeClassName = self::CLASS_NAME_DICTIONARY . $objectType;
+
+        switch ($objectTypeClassName) {
+            case AreaYearDictionaryTypeValue::class:
                 $createAreasFilter = new CreateAreasFilter($filters);
                 return new AreaYearTypeValue(
                     $this->areaYearValueRepository,
@@ -60,7 +59,7 @@ class FactoryTypeValue
                     $createYearsFilter->getFilter()
                 );
 
-            case self::AREA_INDEPENDENT_VARIABLE_1_YEAR_VALUE_TYPE:
+            case AreaIndependentVariable1YearDictionaryTypeValue::class:
                 $createAreasFilter = new CreateAreasFilter($filters);
                 $createIndependentVariable1sFilter = new CreateIndependentVariablesFilter($filters, self::INDEPENDENT_VARIABLES_1_FILTER);
                 return new AreaIndependentVariable1YearTypeValue(
@@ -71,7 +70,7 @@ class FactoryTypeValue
                     $createYearsFilter->getFilter()
                 );
 
-            case self::AREA_INDEPENDENT_VARIABLE_2_YEAR_VALUE_TYPE:
+            case AreaIndependentVariable2YearDictionaryTypeValue::class:
                 $createAreasFilter = new CreateAreasFilter($filters);
                 $createIndependentVariable1sFilter = new CreateIndependentVariablesFilter($filters, self::INDEPENDENT_VARIABLES_1_FILTER);
                 $createIndependentVariable2sFilter = new CreateIndependentVariablesFilter($filters, self::INDEPENDENT_VARIABLES_2_FILTER);
@@ -84,7 +83,7 @@ class FactoryTypeValue
                     $createYearsFilter->getFilter()
                 );
 
-            case self::YEAR_VALUE_TYPE:
+            case YearDictionaryTypeValue::class:
                 return new YearTypeValue(
                     $this->yearValueRepository,
                     $createIndicatorFilter->getFilter(),
@@ -92,7 +91,7 @@ class FactoryTypeValue
                 );
 
             default :
-                throw new InvalidArgumentException("Not exists the type value:" . $objectType);
+                throw new InvalidArgumentException("Not exists type value:" . $objectType);
         }
     }
 }
