@@ -36,8 +36,8 @@ class AreaIndependentVariable1YearTypeValueUniqueIds
     private function getIndependentVariable1Code(AreaIndependentVariable1YearValue $value): array
     {
         return [
-            IndependentVariableFilter::TYPE_INDEPENDENT_VARIABLE_CODE_FIELD => $value->getTypeIndependentVariableCode(),
-            IndependentVariableFilter::INDEPENDENT_VARIABLE_CODE_FIELD => $value->getIndependentVariableCode()
+            IndependentVariableFilter::TYPE_INDEPENDENT_VARIABLE_CODE_FIELD => $value->getTypeIndependentVariable1Code(),
+            IndependentVariableFilter::INDEPENDENT_VARIABLE_CODE_FIELD => $value->getIndependentVariable1Code()
         ];
     }
 

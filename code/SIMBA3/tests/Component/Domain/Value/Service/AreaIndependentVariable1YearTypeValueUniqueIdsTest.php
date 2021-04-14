@@ -32,20 +32,20 @@ class AreaIndependentVariable1YearTypeValueUniqueIdsTest extends TestCase
 
         $this->areaIndependentVariable1YearValue1->method("getTypeAreaCode")->willReturn(101);
         $this->areaIndependentVariable1YearValue1->method("getAreaCode")->willReturn(2);
-        $this->areaIndependentVariable1YearValue1->method("getTypeIndependentVariableCode")->willReturn(205);
-        $this->areaIndependentVariable1YearValue1->method("getIndependentVariableCode")->willReturn(7);
+        $this->areaIndependentVariable1YearValue1->method("getTypeIndependentVariable1Code")->willReturn(205);
+        $this->areaIndependentVariable1YearValue1->method("getIndependentVariable1Code")->willReturn(7);
         $this->areaIndependentVariable1YearValue1->method("getYear")->willReturn(2020);
 
         $this->areaIndependentVariable1YearValue2->method("getTypeAreaCode")->willReturn(101);
         $this->areaIndependentVariable1YearValue2->method("getAreaCode")->willReturn(2);
-        $this->areaIndependentVariable1YearValue2->method("getTypeIndependentVariableCode")->willReturn(206);
-        $this->areaIndependentVariable1YearValue2->method("getIndependentVariableCode")->willReturn(7);
+        $this->areaIndependentVariable1YearValue2->method("getTypeIndependentVariable1Code")->willReturn(206);
+        $this->areaIndependentVariable1YearValue2->method("getIndependentVariable1Code")->willReturn(7);
         $this->areaIndependentVariable1YearValue2->method("getYear")->willReturn(2019);
 
         $this->areaIndependentVariable1YearValue3->method("getTypeAreaCode")->willReturn(102);
         $this->areaIndependentVariable1YearValue3->method("getAreaCode")->willReturn(2);
-        $this->areaIndependentVariable1YearValue3->method("getTypeIndependentVariableCode")->willReturn(206);
-        $this->areaIndependentVariable1YearValue3->method("getIndependentVariableCode")->willReturn(7);
+        $this->areaIndependentVariable1YearValue3->method("getTypeIndependentVariable1Code")->willReturn(206);
+        $this->areaIndependentVariable1YearValue3->method("getIndependentVariable1Code")->willReturn(7);
         $this->areaIndependentVariable1YearValue3->method("getYear")->willReturn(2019);
     }
 

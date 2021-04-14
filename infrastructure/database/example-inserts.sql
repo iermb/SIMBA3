@@ -38,7 +38,7 @@ INSERT INTO "indicator_translation" ("language", "indicator_id", "name", "descri
 ('ca',	3,	'Població per sexe',	'Nombre d''habitants per sexe',	'persones',	'Dades extretes del SIMBA v2',	'Simba 2',	'-'),
 ('ca',	4,	'Immigració per sexe i edat',	'Nombre d''habitants en població d''origen estranger per sexe i edat ',	'persones',	'Dades extretes del SIMBA v2',	'Estadística de Variacions Residencials.',	'-');
 
-INSERT INTO "area_independent_variable_1_year_value" ("indicator_id", "type_area_code", "area_code", "type_independent_variable_code", "independent_variable_code", "year", "value", "is_public", "note_value") VALUES
+INSERT INTO "area_independent_variable_1_year_value" ("indicator_id", "type_area_code", "area_code", "type_independent_variable_1_code", "independent_variable_1_code", "year", "value", "is_public", "note_value") VALUES
 (3,	101,	5,	55,	1,	2016,	761487.0000,	'1',	NULL),
 (3,	101,	5,	55,	1,	2015,	759520.0000,	'1',	NULL),
 (3,	101,	6,	55,	1,	2015,	31500.0000,	'1',	NULL),

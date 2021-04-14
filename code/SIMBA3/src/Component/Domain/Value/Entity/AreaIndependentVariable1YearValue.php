@@ -8,8 +8,8 @@ class AreaIndependentVariable1YearValue
     private int    $indicatorId;
     private int    $typeAreaCode;
     private int    $areaCode;
-    private int    $typeIndependentVariableCode;
-    private int    $independentVariableCode;
+    private int    $typeIndependentVariable1Code;
+    private int    $independentVariable1Code;
     private int    $year;
     private float  $value;
     private bool   $isPublic;
@@ -30,14 +30,14 @@ class AreaIndependentVariable1YearValue
         return $this->areaCode;
     }
 
-    public function getTypeIndependentVariableCode(): int
+    public function getTypeIndependentVariable1Code(): int
     {
-        return $this->typeIndependentVariableCode;
+        return $this->typeIndependentVariable1Code;
     }
 
-    public function getIndependentVariableCode(): int
+    public function getIndependentVariable1Code(): int
     {
-        return $this->independentVariableCode;
+        return $this->independentVariable1Code;
     }
 
     public function getYear(): int

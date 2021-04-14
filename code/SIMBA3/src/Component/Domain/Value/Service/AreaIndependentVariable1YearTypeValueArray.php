@@ -31,8 +31,8 @@ class AreaIndependentVariable1YearTypeValueArray implements TypeValueArray
             $areaIndependentVariable1YearValue->getIndicatorId(),
             $areaIndependentVariable1YearValue->getTypeAreaCode(),
             $areaIndependentVariable1YearValue->getAreaCode(),
-            $areaIndependentVariable1YearValue->getTypeIndependentVariableCode(),
-            $areaIndependentVariable1YearValue->getIndependentVariableCode(),
+            $areaIndependentVariable1YearValue->getTypeIndependentVariable1Code(),
+            $areaIndependentVariable1YearValue->getIndependentVariable1Code(),
             $areaIndependentVariable1YearValue->getYear(),
             $areaIndependentVariable1YearValue->getValue()
         ];
