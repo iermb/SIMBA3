@@ -15,8 +15,8 @@ class ReadAllTypeIndependentVariableUseCase
         $this->typeIndependentVariableRepository = $typeIndependentVariableRepository;
     }
 
-    public function execute(ReadAllTypeIndependentVariableRequest $readAllTypeIndependentVariableRequest): ReadAllTypeIndependentVariableResponse
-    {
+    public function execute(ReadAllTypeIndependentVariableRequest $readAllTypeIndependentVariableRequest
+    ): ReadAllTypeIndependentVariableResponse {
         return new ReadAllTypeIndependentVariableResponse($this->typeIndependentVariableRepository->getAllTypeIndependentVariable($readAllTypeIndependentVariableRequest->getLocale()));
     }
 }

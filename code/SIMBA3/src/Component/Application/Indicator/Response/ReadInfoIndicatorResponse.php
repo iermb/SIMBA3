@@ -7,15 +7,15 @@ use SIMBA3\Component\Domain\Indicator\Service\MetadataIndicator;
 
 class ReadInfoIndicatorResponse
 {
-    private MetadataIndicator $metatadaIndicator;
+    private MetadataIndicator $metadataIndicator;
 
     public function __construct(IndicatorTranslation $indicatorTranslation)
     {
-        $this->metatadaIndicator = new MetadataIndicator($indicatorTranslation);
+        $this->metadataIndicator = new MetadataIndicator($indicatorTranslation);
     }
 
     public function getIndicatorAsArray(): array
     {
-        return $this->metatadaIndicator->getValuesAsArray();
+        return $this->metadataIndicator->getValuesAsArray();
     }
 }

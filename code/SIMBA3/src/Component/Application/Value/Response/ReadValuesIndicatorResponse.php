@@ -10,20 +10,20 @@ use SIMBA3\Component\Domain\Value\Service\TypeValueArray;
 
 class ReadValuesIndicatorResponse
 {
-    private MetadataIndicator      $metadataIndicator;
-    private TypeValueArray $responseTypeValue;
-    private array          $dictionaries;
+    private MetadataIndicator $metadataIndicator;
+    private TypeValueArray    $typeValue;
+    private array             $dictionaries;
 
-    public function __construct(MetadataIndicator $metadataIndicator, array $dictionaries, TypeValueArray $responseTypeValue)
+    public function __construct(MetadataIndicator $metadataIndicator, array $dictionaries, TypeValueArray $typeValue)
     {
         $this->metadataIndicator = $metadataIndicator;
         $this->dictionaries = $dictionaries;
-        $this->responseTypeValue = $responseTypeValue;
+        $this->typeValue = $typeValue;
     }
 
     public function getValuesAsArray(): array
     {
-        return $this->responseTypeValue->getValuesAsArray();
+        return $this->typeValue->getValuesAsArray();
     }
 
     public function getDictionariesAsArray(): array
