@@ -29,7 +29,7 @@ class ReadDictionaryVariablesUseCase
 
     public function execute(ReadDictionaryVariablesRequest $request): array
     {
-
+        /*
         $dictionaries = array();
 
         if ($request->getType()->getHasArea()) {
@@ -44,7 +44,7 @@ class ReadDictionaryVariablesUseCase
 
         }
 
-        return $dictionaries;
+        return $dictionaries;*/
 
         /*
         $classNameDictionary = self::CLASS_NAME_DICTIONARY . $request->getType();

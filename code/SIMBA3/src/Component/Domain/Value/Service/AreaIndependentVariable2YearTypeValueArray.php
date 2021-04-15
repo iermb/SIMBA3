@@ -5,10 +5,12 @@ namespace SIMBA3\Component\Domain\Value\Service;
 
 
 use SIMBA3\Component\Domain\Value\Entity\AreaIndependentVariable2YearValue;
+use SIMBA3\Component\Domain\Value\Entity\AreaYearValue;
 
 class AreaIndependentVariable2YearTypeValueArray implements TypeValueArray
 {
     private array $listAreaIndependentVariable2YearValue;
+    private CollectionVariables $collectionVariables;
 
     public function __construct(array $listAreaIndependentVariable2YearValue)
     {
@@ -38,5 +40,35 @@ class AreaIndependentVariable2YearTypeValueArray implements TypeValueArray
             $areaIndependentVariable2YearValue->getYear(),
             $areaIndependentVariable2YearValue->getValue()
         ];
+    }
+
+    public function getCollectionVariables(): CollectionVariables
+    {
+        $this->collectionVariables = new CollectionVariables();
+
+        array_map(function (AreaIndependentVariable2YearValue $areaIndependentVariable2YearValue) {
+
+            $this->collectionVariables->addArea(new FactArea(
+                $areaIndependentVariable2YearValue->getTypeAreaCode(),
+                $areaIndependentVariable2YearValue->getAreaCode(),
+            ));
+
+            $this->collectionVariables->addIndependentVariable(1, new FactIndependentVariable(
+                $areaIndependentVariable2YearValue->getTypeIndependentVariable1Code(),
+                $areaIndependentVariable2YearValue->getIndependentVariable1Code(),
+            ));
+
+            $this->collectionVariables->addIndependentVariable(2, new FactIndependentVariable(
+                $areaIndependentVariable2YearValue->getTypeIndependentVariable2Code(),
+                $areaIndependentVariable2YearValue->getIndependentVariable2Code(),
+            ));
+
+            $this->collectionVariables->addYear(new FactYear(
+                $areaIndependentVariable2YearValue->getYear(),
+            ));
+
+        }, $this->listAreaIndependentVariable2YearValue);
+
+        return $this->collectionVariables;
     }
 }

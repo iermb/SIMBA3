@@ -4,11 +4,13 @@
 namespace SIMBA3\Component\Domain\Value\Service;
 
 
+use SIMBA3\Component\Domain\Value\Entity\AreaIndependentVariable2YearValue;
 use SIMBA3\Component\Domain\Value\Entity\YearValue;
 
 class YearTypeValueArray implements TypeValueArray
 {
     private array $listYearValue;
+    private CollectionVariables $collectionVariables;
 
     public function __construct(array $listYearValue)
     {
@@ -32,5 +34,20 @@ class YearTypeValueArray implements TypeValueArray
             $yearValue->getYear(),
             $yearValue->getValue()
         ];
+    }
+
+    public function getCollectionVariables(): CollectionVariables
+    {
+        $this->collectionVariables = new CollectionVariables();
+
+        array_map(function (YearValue $yearValue) {
+
+            $this->collectionVariables->addYear(new FactYear(
+                $yearValue->getYear(),
+            ));
+
+        }, $this->listYearValue);
+
+        return $this->collectionVariables;
     }
 }

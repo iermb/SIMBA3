@@ -10,4 +10,6 @@ interface TypeValueArray
 
     public function getValues(): array;
 
+    public function getCollectionVariables(): CollectionVariables;
+
 }

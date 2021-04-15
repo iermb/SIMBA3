@@ -5,10 +5,12 @@ namespace SIMBA3\Component\Domain\Value\Service;
 
 
 use SIMBA3\Component\Domain\Value\Entity\AreaYearValue;
+use SIMBA3\Component\Domain\Variable\Entity\Area;
 
 class AreaYearTypeValueArray implements TypeValueArray
 {
     private array $listAreaYearValue;
+    private CollectionVariables $collectionVariables;
 
     public function __construct(array $listAreaYearValue)
     {
@@ -34,5 +36,25 @@ class AreaYearTypeValueArray implements TypeValueArray
             $areaYearValue->getYear(),
             $areaYearValue->getValue()
         ];
+    }
+
+    public function getCollectionVariables(): CollectionVariables
+    {
+        $this->collectionVariables = new CollectionVariables();
+
+        array_map(function (AreaYearValue $areaYearValue) {
+
+            $this->collectionVariables->addArea(new FactArea(
+                $areaYearValue->getTypeAreaCode(),
+                $areaYearValue->getAreaCode(),
+            ));
+
+            $this->collectionVariables->addYear(new FactYear(
+                $areaYearValue->getYear(),
+            ));
+
+        }, $this->listAreaYearValue);
+
+        return $this->collectionVariables;
     }
 }

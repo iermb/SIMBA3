@@ -18,15 +18,18 @@ class ReadValuesIndicatorUseCase
     private IndicatorTranslationRepository  $indicatorTranslationRepository;
     private FactoryTypeValue                $factoryTypeValue;
     private ReadDictionaryVariablesUseCase  $readDictionaryVariablesUseCase;
+    private CreateDictionariesByTypeIndicator $createDictionariesByTypeIndicator;
 
     public function __construct(
         IndicatorTranslationRepository $indicatorTranslationRepository,
         FactoryTypeValue $factoryTypeValue,
-        ReadDictionaryVariablesUseCase $readDictionaryVariablesUseCase
+        ReadDictionaryVariablesUseCase $readDictionaryVariablesUseCase,
+        CreateDictionariesByTypeIndicator $createDictionariesByTypeIndicator
     ) {
         $this->indicatorTranslationRepository = $indicatorTranslationRepository;
         $this->factoryTypeValue = $factoryTypeValue;
         $this->readDictionaryVariablesUseCase = $readDictionaryVariablesUseCase;
+        $this->createDictionariesByTypeIndicator = $createDictionariesByTypeIndicator;
     }
 
     public function execute(ReadValuesIndicatorRequest $request): ReadValuesIndicatorResponse
@@ -49,12 +52,10 @@ class ReadValuesIndicatorUseCase
 
         $typeValueArray = $typeValue->getTypeValueArray();
 
-        new CreateDictionariesByTypeIndicator();
-
-        $dictionaries = $this->readDictionaryVariablesUseCase->execute(new ReadDictionaryVariablesRequest(
+        $dictionaries = $this->createDictionariesByTypeIndicator->getDictionaries(
             $request->getLocale(),
             $typeIndicator,
-            $typeValueArray)
+            $typeValueArray->getCollectionVariables()
         );
 
         return new ReadValuesIndicatorResponse($metadataIndicatorResponse, $dictionaries, $typeValueArray);
