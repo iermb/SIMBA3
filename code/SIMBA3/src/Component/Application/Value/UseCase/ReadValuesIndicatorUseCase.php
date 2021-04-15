@@ -11,6 +11,7 @@ use SIMBA3\Component\Application\Value\Response\ReadValuesIndicatorResponse;
 use SIMBA3\Component\Domain\Indicator\Repository\IndicatorTranslationRepository;
 use SIMBA3\Component\Application\Indicator\Response\MetadataIndicatorResponse;
 use SIMBA3\Component\Domain\Value\Service\FactoryTypeValue;
+use SIMBA3\Component\Domain\Variable\Service\CreateDictionariesByTypeIndicator;
 
 class ReadValuesIndicatorUseCase
 {
@@ -48,9 +49,11 @@ class ReadValuesIndicatorUseCase
 
         $typeValueArray = $typeValue->getTypeValueArray();
 
+        new CreateDictionariesByTypeIndicator();
+
         $dictionaries = $this->readDictionaryVariablesUseCase->execute(new ReadDictionaryVariablesRequest(
             $request->getLocale(),
-            $typeIndicator->getIdType(),
+            $typeIndicator,
             $typeValueArray)
         );
 

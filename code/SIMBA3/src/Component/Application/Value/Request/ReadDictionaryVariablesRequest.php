@@ -3,15 +3,16 @@
 
 namespace SIMBA3\Component\Application\Value\Request;
 
+use SIMBA3\Component\Domain\Indicator\Entity\TypeIndicator;
 use SIMBA3\Component\Domain\Value\Service\TypeValueArray;
 
 class ReadDictionaryVariablesRequest
 {
     private string         $locale;
-    private string         $type;
+    private TypeIndicator         $type;
     private TypeValueArray $typeValueArray;
 
-    public function __construct(string $locale, string $type, TypeValueArray $typeValueArray)
+    public function __construct(string $locale, TypeIndicator $type, TypeValueArray $typeValueArray)
     {
         $this->locale = $locale;
         $this->type = $type;
@@ -23,7 +24,7 @@ class ReadDictionaryVariablesRequest
         return $this->locale;
     }
 
-    public function getType(): string
+    public function getType(): TypeIndicator
     {
         return $this->type;
     }

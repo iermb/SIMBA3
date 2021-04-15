@@ -5,14 +5,6 @@ namespace SIMBA3\Component\Application\Value\UseCase;
 use InvalidArgumentException;
 use SIMBA3\Component\Application\Value\Request\ReadDictionaryVariablesRequest;
 use SIMBA3\Component\Domain\Value\Service\AreaDictionary;
-use SIMBA3\Component\Domain\Value\Service\AreaYearDictionaryTypeValue;
-use SIMBA3\Component\Domain\Value\Service\IndependentVariableDictionary;
-use SIMBA3\Component\Domain\Value\Service\AreaIndependentVariable1YearTypeValueUniqueIds;
-use SIMBA3\Component\Domain\Value\Service\AreaIndependentVariable2YearTypeValueUniqueIds;
-use SIMBA3\Component\Domain\Value\Service\AreaYearTypeValueUniqueIds;
-use SIMBA3\Component\Domain\Value\Service\FactoryTypeValue;
-use SIMBA3\Component\Domain\Value\Service\YearDictionary;
-use SIMBA3\Component\Domain\Value\Service\YearTypeValueUniqueIds;
 use SIMBA3\Component\Domain\Variable\Repository\AreaRepository;
 use SIMBA3\Component\Domain\Variable\Repository\IndependentVariableRepository;
 use SIMBA3\Component\Domain\Variable\Repository\YearRepository;
@@ -37,6 +29,24 @@ class ReadDictionaryVariablesUseCase
 
     public function execute(ReadDictionaryVariablesRequest $request): array
     {
+
+        $dictionaries = array();
+
+        if ($request->getType()->getHasArea()) {
+            $areasUniquesIds = new AreasUniquesIds($request->getTypeValueArray());
+            $dictionaries[] = new AreaDictionary($this->areaRepository->getAreasByFilter($request->getLocale(), $areasUniquesIds->getAreas()))
+        }
+        if ($request->getType()->getHasYear()) {
+
+        }
+
+        for ($i = 0; $i < $request->getType()->getNumIndependentVars(); $i++) {
+
+        }
+
+        return $dictionaries;
+
+        /*
         $classNameDictionary = self::CLASS_NAME_DICTIONARY . $request->getType();
 
         if (!class_exists($classNameDictionary)) {
@@ -48,7 +58,7 @@ class ReadDictionaryVariablesUseCase
             $this->independentVariableRepository,
             $this->yearRepository
         );
-        return $dictionary->getDictionaries($request);
+        return $dictionary->getDictionaries($request);*/
     }
 
 }
