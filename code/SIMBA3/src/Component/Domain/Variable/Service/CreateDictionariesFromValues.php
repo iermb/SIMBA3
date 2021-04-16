@@ -34,17 +34,17 @@ class CreateDictionariesFromValues
     {
         $dictionaries = array();
 
-        if ($typeIndicator->getHasArea()) {
+        if ($typeIndicator->hasArea()) {
             $dictionaries[] = new AreaDictionary($this->areaRepository->getAreasByFilter($locale,
                 $typeValueArray->getAreas()));
         }
 
-        for ($i = 0; $i < $typeIndicator->getNumIndependentVars(); $i++) {
+        for ($i = 1; $i <= $typeIndicator->getNumIndependentVars(); $i++) {
             $dictionaries[] = new IndependentVariableDictionary($this->independentVariableRepository->getIndependentVariablesByFilter($locale,
                 $typeValueArray->getIndependentVariable($i)));
         }
 
-        if ($typeIndicator->getHasYear()) {
+        if ($typeIndicator->hasYear()) {
             $dictionaries[] = new YearDictionary($this->yearRepository->getYearsByFilter($typeValueArray->getYears()));
         }
 

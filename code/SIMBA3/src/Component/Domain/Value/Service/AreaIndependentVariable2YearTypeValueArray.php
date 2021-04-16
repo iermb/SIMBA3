@@ -28,7 +28,7 @@ class AreaIndependentVariable2YearTypeValueArray extends TypeValueArray
 
     public function getAreas(): array
     {
-        return $this->uniqueAreasArray(array_map(function (
+        return $this->uniqueArray(array_map(function (
             AreaIndependentVariable2YearValue $areaIndependentVariable2YearValue
         ) {
             return [
@@ -40,8 +40,8 @@ class AreaIndependentVariable2YearTypeValueArray extends TypeValueArray
 
     public function getIndependentVariable(int $number): array
     {
-        if ($number == 0) {
-            return $this->uniqueAreasArray(array_map(function (
+        if ($number == 1) {
+            return $this->uniqueArray(array_map(function (
                 AreaIndependentVariable2YearValue $areaIndependentVariable2YearValue
             ) {
                 return [
@@ -49,24 +49,24 @@ class AreaIndependentVariable2YearTypeValueArray extends TypeValueArray
                     self::INDEPENDENT_VARIABLE_CODE_FIELD => $areaIndependentVariable2YearValue->getIndependentVariable1Code()
                 ];
             }, $this->listAreaIndependentVariable2YearValue));
-        } else {
-            if ($number == 1) {
-                return $this->uniqueAreasArray(array_map(function (
-                    AreaIndependentVariable2YearValue $areaIndependentVariable2YearValue
-                ) {
-                    return [
-                        self::TYPE_INDEPENDENT_VARIABLE_CODE_FIELD => $areaIndependentVariable2YearValue->getTypeIndependentVariable2Code(),
-                        self::INDEPENDENT_VARIABLE_CODE_FIELD => $areaIndependentVariable2YearValue->getIndependentVariable2Code()
-                    ];
-                }, $this->listAreaIndependentVariable2YearValue));
-            }
         }
+        if ($number == 2) {
+            return $this->uniqueArray(array_map(function (
+                AreaIndependentVariable2YearValue $areaIndependentVariable2YearValue
+            ) {
+                return [
+                    self::TYPE_INDEPENDENT_VARIABLE_CODE_FIELD => $areaIndependentVariable2YearValue->getTypeIndependentVariable2Code(),
+                    self::INDEPENDENT_VARIABLE_CODE_FIELD => $areaIndependentVariable2YearValue->getIndependentVariable2Code()
+                ];
+            }, $this->listAreaIndependentVariable2YearValue));
+        }
+
         return parent::getIndependentVariable($number);
     }
 
     public function getYears(): array
     {
-        return $this->uniqueAreasArray(array_map(function (
+        return $this->uniqueArray(array_map(function (
             AreaIndependentVariable2YearValue $areaIndependentVariable2YearValue
         ) {
             return [self::CODE_YEAR => $areaIndependentVariable2YearValue->getYear()];

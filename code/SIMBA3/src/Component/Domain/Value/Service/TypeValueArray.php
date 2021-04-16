@@ -35,8 +35,8 @@ abstract class TypeValueArray
         return [];
     }
 
-    protected function uniqueAreasArray(array $areas): array
+    protected function uniqueArray(array $values): array
     {
-        return ArrayTool::uniqueAssociativeArray($areas);
+        return ArrayTool::uniqueAssociativeArray($values);
     }
 }

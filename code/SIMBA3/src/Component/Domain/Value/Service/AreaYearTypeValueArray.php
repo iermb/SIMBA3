@@ -27,7 +27,7 @@ class AreaYearTypeValueArray extends TypeValueArray
 
     public function getAreas(): array
     {
-        return $this->uniqueAreasArray(array_map(function (
+        return $this->uniqueArray(array_map(function (
             AreaYearValue $areaYearValue
         ) {
             return [
@@ -39,7 +39,7 @@ class AreaYearTypeValueArray extends TypeValueArray
 
     public function getYears(): array
     {
-        return $this->uniqueAreasArray(array_map(function (
+        return $this->uniqueArray(array_map(function (
             AreaYearValue $areaYearValue
         ) {
             return [self::CODE_YEAR => $areaYearValue->getYear()];

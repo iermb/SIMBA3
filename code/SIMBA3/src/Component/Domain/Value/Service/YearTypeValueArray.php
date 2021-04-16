@@ -27,7 +27,7 @@ class YearTypeValueArray extends TypeValueArray
 
     public function getYears(): array
     {
-        return $this->uniqueAreasArray(array_map(function (
+        return $this->uniqueArray(array_map(function (
             YearValue $yearValue
         ) {
             return [self::CODE_YEAR => $yearValue->getYear()];

@@ -36,15 +36,15 @@ class MetadataIndicatorResponse
 
         $variables = [];
 
-        if ($indicatorType->getHasArea()) {
+        if ($indicatorType->hasArea()) {
             $variables[] = self::AREA_INDICATOR_FIELD;
         }
 
-        if ($indicatorType->getHasYear()) {
+        if ($indicatorType->hasYear()) {
             $variables[] = self::YEAR_INDICATOR_FIELD;
         }
 
-        if ($indicatorType->getHasMonth()) {
+        if ($indicatorType->hasMonth()) {
             $variables[] = self::MONTH_INDICATOR_FIELD;
         }
 

@@ -28,7 +28,7 @@ class AreaIndependentVariable1YearTypeValueArray extends TypeValueArray
 
     public function getAreas(): array
     {
-        return $this->uniqueAreasArray(array_map(function (
+        return $this->uniqueArray(array_map(function (
             AreaIndependentVariable1YearValue $areaIndependentVariable1YearValue
         ) {
             return [
@@ -40,7 +40,7 @@ class AreaIndependentVariable1YearTypeValueArray extends TypeValueArray
 
     public function getYears(): array
     {
-        return $this->uniqueAreasArray(array_map(function (
+        return $this->uniqueArray(array_map(function (
             AreaIndependentVariable1YearValue $areaIndependentVariable1YearValue
         ) {
             return [self::CODE_YEAR => $areaIndependentVariable1YearValue->getYear()];
@@ -49,8 +49,8 @@ class AreaIndependentVariable1YearTypeValueArray extends TypeValueArray
 
     public function getIndependentVariable(int $number): array
     {
-        if ($number == 0) {
-            return $this->uniqueAreasArray(array_map(function (
+        if ($number == 1) {
+            return $this->uniqueArray(array_map(function (
                 AreaIndependentVariable1YearValue $areaIndependentVariable1YearValue
             ) {
                 return [
