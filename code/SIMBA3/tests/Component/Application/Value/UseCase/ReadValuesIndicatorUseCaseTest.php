@@ -12,9 +12,9 @@ use SIMBA3\Component\Domain\Indicator\Entity\Indicator;
 use SIMBA3\Component\Domain\Indicator\Entity\IndicatorTranslation;
 use SIMBA3\Component\Domain\Indicator\Entity\TypeIndicator;
 use SIMBA3\Component\Domain\Indicator\Repository\IndicatorTranslationRepository;
-use SIMBA3\Component\Domain\Value\Service\FactoryTypeValue;
-use SIMBA3\Component\Domain\Value\Service\TypeValue;
-use SIMBA3\Component\Domain\Value\Service\TypeValueArray;
+use SIMBA3\Component\Domain\Variable\Service\FactoryTypeValue;
+use SIMBA3\Component\Domain\Variable\Service\TypeValue;
+use SIMBA3\Component\Domain\Variable\Service\TypeValueArray;
 
 class ReadValuesIndicatorUseCaseTest extends TestCase
 {

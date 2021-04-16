@@ -5,10 +5,10 @@ namespace SIMBA3\Component\Domain\Variable\Service;
 
 
 use SIMBA3\Component\Domain\Indicator\Entity\TypeIndicator;
-use SIMBA3\Component\Domain\Value\Service\AreaDictionary;
-use SIMBA3\Component\Domain\Value\Service\IndependentVariableDictionary;
-use SIMBA3\Component\Domain\Value\Service\TypeValueArray;
-use SIMBA3\Component\Domain\Value\Service\YearDictionary;
+use SIMBA3\Component\Domain\Variable\Service\AreaDictionary;
+use SIMBA3\Component\Domain\Variable\Service\IndependentVariableDictionary;
+use SIMBA3\Component\Domain\Variable\Service\TypeValueArray;
+use SIMBA3\Component\Domain\Variable\Service\YearDictionary;
 use SIMBA3\Component\Domain\Variable\Repository\AreaRepository;
 use SIMBA3\Component\Domain\Variable\Repository\IndependentVariableRepository;
 use SIMBA3\Component\Domain\Variable\Repository\YearRepository;

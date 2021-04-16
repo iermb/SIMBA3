@@ -1,7 +1,7 @@
 <?php
 
 
-namespace SIMBA3\Component\Domain\Value\Service;
+namespace SIMBA3\Component\Domain\Variable\Service;
 
 class AreaDictionary implements TypeDictionary
 {

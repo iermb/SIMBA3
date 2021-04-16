@@ -4,7 +4,7 @@ namespace Component\Application\Value\Request;
 
 use SIMBA3\Component\Application\Value\Request\ReadDictionaryVariablesRequest;
 use PHPUnit\Framework\TestCase;
-use SIMBA3\Component\Domain\Value\Service\TypeValueArray;
+use SIMBA3\Component\Domain\Variable\Service\TypeValueArray;
 
 class ReadDictionaryVariablesRequestTest extends TestCase
 {

@@ -68,6 +68,7 @@ services:
             - "@simba3.repository.doctrine.indicatorTranslation"
             - "@simba3.factory.typeValue"
             - "@simba3.useCase.readDictionaryVariables"
+            - "@simba3.service.createDictionariesFromValues"
 
     simba3.useCase.readDictionaryVariables:
         class: SIMBA3\Component\Application\Value\UseCase\ReadDictionaryVariablesUseCase
@@ -105,6 +106,13 @@ services:
             - "@simba3.repository.doctrine.areaIndependentVariable1Value"
             - "@simba3.repository.doctrine.areaIndependentVariable2Value"
             - "@simba3.repository.doctrine.yearValue"
+
+    simba3.service.createDictionariesFromValues:
+        class: SIMBA3\Component\Domain\Variable\Service\CreateDictionariesFromValues
+        arguments:
+            - "@simba3.repository.doctrine.area"
+            - "@simba3.repository.doctrine.independentVariable"
+            - "@simba3.repository.simple.year"
 
     simba3.repository.doctrine.indicator:
         class: SIMBA3\Api\Persistence\Repository\Indicator\DoctrineIndicatorRepository
