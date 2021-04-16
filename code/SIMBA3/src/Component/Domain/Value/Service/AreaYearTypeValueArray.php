@@ -6,7 +6,7 @@ namespace SIMBA3\Component\Domain\Value\Service;
 
 use SIMBA3\Component\Domain\Value\Entity\AreaYearValue;
 
-class AreaYearTypeValueArray implements TypeValueArray
+class AreaYearTypeValueArray extends TypeValueArray
 {
     private array $listAreaYearValue;
 
@@ -23,6 +23,27 @@ class AreaYearTypeValueArray implements TypeValueArray
     public function getValuesAsArray(): array
     {
         return array_map(array($this, "getAreaYearTypeValueAsArray"), $this->listAreaYearValue);
+    }
+
+    public function getAreas(): array
+    {
+        return $this->uniqueAreasArray(array_map(function (
+            AreaYearValue $areaYearValue
+        ) {
+            return [
+                self::CODE_TYPE_AREA_FIELD => $areaYearValue->getTypeAreaCode(),
+                self::CODE_AREA_FIELD => $areaYearValue->getAreaCode()
+            ];
+        }, $this->listAreaYearValue));
+    }
+
+    public function getYears(): array
+    {
+        return $this->uniqueAreasArray(array_map(function (
+            AreaYearValue $areaYearValue
+        ) {
+            return [self::CODE_YEAR => $areaYearValue->getYear()];
+        }, $this->listAreaYearValue));
     }
 
     private function getAreaYearTypeValueAsArray(AreaYearValue $areaYearValue): array
