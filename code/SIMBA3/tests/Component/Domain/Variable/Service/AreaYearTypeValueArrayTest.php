@@ -31,7 +31,7 @@ class AreaYearTypeValueArrayTest extends TestCase
 
         $this->areaYearValue3 = $this->createMock(AreaYearValue::class);
         $this->areaYearValue3->method('getIndicatorId')->willReturn(3);
-        $this->areaYearValue3->method('getTypeAreaCode')->willReturn(200);
+        $this->areaYearValue3->method('getTypeAreaCode')->willReturn(20);
         $this->areaYearValue3->method('getAreaCode')->willReturn(200);
         $this->areaYearValue3->method('getYear')->willReturn(2019);
         $this->areaYearValue3->method('getValue')->willReturn(5.14);
@@ -90,7 +90,7 @@ class AreaYearTypeValueArrayTest extends TestCase
         $this->assertEquals([
             [
                 'typeAreaCode' => 10,
-                'AreaCode' => 100,
+                'areaCode' => 100,
             ]
         ],$this->areaYearTypeValueArray->getAreas());
 
@@ -143,10 +143,10 @@ class AreaYearTypeValueArrayTest extends TestCase
         $this->assertEquals([
             [
                 'typeAreaCode' => 10,
-                'AreaCode' => 100,
+                'areaCode' => 100,
             ],[
                 'typeAreaCode' => 20,
-                'AreaCode' => 200,
+                'areaCode' => 200,
             ],
         ],$this->areaYearTypeValueArray->getAreas());
 
@@ -210,10 +210,10 @@ class AreaYearTypeValueArrayTest extends TestCase
         $this->assertEquals([
             [
                 'typeAreaCode' => 10,
-                'AreaCode' => 100,
+                'areaCode' => 100,
             ],[
                 'typeAreaCode' => 20,
-                'AreaCode' => 200,
+                'areaCode' => 200,
             ],
         ],$this->areaYearTypeValueArray->getAreas());
 

@@ -37,7 +37,7 @@ class AreaIndependentVariable1YearTypeValueArrayTest extends TestCase
 
         $this->areaIndependentVariable1YearValue3 = $this->createMock(AreaIndependentVariable1YearValue::class);
         $this->areaIndependentVariable1YearValue3->method('getIndicatorId')->willReturn(3);
-        $this->areaIndependentVariable1YearValue3->method('getTypeAreaCode')->willReturn(200);
+        $this->areaIndependentVariable1YearValue3->method('getTypeAreaCode')->willReturn(20);
         $this->areaIndependentVariable1YearValue3->method('getAreaCode')->willReturn(200);
         $this->areaIndependentVariable1YearValue3->method('getTypeIndependentVariable1Code')->willReturn(2000);
         $this->areaIndependentVariable1YearValue3->method('getIndependentVariable1Code')->willReturn(20000);
@@ -101,7 +101,7 @@ class AreaIndependentVariable1YearTypeValueArrayTest extends TestCase
         $this->assertEquals([
             [
                 'typeAreaCode' => 10,
-                'AreaCode' => 100,
+                'areaCode' => 100,
             ]
         ],$this->areaIndependentVariable1YearTypeValueArray->getAreas());
 
@@ -165,10 +165,10 @@ class AreaIndependentVariable1YearTypeValueArrayTest extends TestCase
         $this->assertEquals([
             [
                 'typeAreaCode' => 10,
-                'AreaCode' => 100,
+                'areaCode' => 100,
             ],[
                 'typeAreaCode' => 20,
-                'AreaCode' => 200,
+                'areaCode' => 200,
             ],
         ],$this->areaIndependentVariable1YearTypeValueArray->getAreas());
 
@@ -245,10 +245,10 @@ class AreaIndependentVariable1YearTypeValueArrayTest extends TestCase
         $this->assertEquals([
             [
                 'typeAreaCode' => 10,
-                'AreaCode' => 100,
+                'areaCode' => 100,
             ],[
                 'typeAreaCode' => 20,
-                'AreaCode' => 200,
+                'areaCode' => 200,
             ],
         ],$this->areaIndependentVariable1YearTypeValueArray->getAreas());
 

@@ -41,7 +41,7 @@ class AreaIndependentVariable2YearTypeValueArrayTest extends TestCase
 
         $this->areaIndependentVariable2YearValue3 = $this->createMock(AreaIndependentVariable2YearValue::class);
         $this->areaIndependentVariable2YearValue3->method('getIndicatorId')->willReturn(3);
-        $this->areaIndependentVariable2YearValue3->method('getTypeAreaCode')->willReturn(200);
+        $this->areaIndependentVariable2YearValue3->method('getTypeAreaCode')->willReturn(20);
         $this->areaIndependentVariable2YearValue3->method('getAreaCode')->willReturn(200);
         $this->areaIndependentVariable2YearValue3->method('getTypeIndependentVariable1Code')->willReturn(6);
         $this->areaIndependentVariable2YearValue3->method('getIndependentVariable1Code')->willReturn(60);
@@ -97,9 +97,9 @@ class AreaIndependentVariable2YearTypeValueArrayTest extends TestCase
             [
                 1,
                 10,
+                100,
                 5,
                 50,
-                100,
                 1000,
                 10000,
                 2019,
@@ -110,7 +110,7 @@ class AreaIndependentVariable2YearTypeValueArrayTest extends TestCase
         $this->assertEquals([
             [
                 'typeAreaCode' => 10,
-                'AreaCode' => 100,
+                'areaCode' => 100,
             ]
         ],$this->areaIndependentVariable2YearTypeValueArray->getAreas());
 
@@ -163,10 +163,10 @@ class AreaIndependentVariable2YearTypeValueArrayTest extends TestCase
                 1,
                 10,
                 100,
-                1000,
-                10000,
                 5,
                 50,
+                1000,
+                10000,
                 2019,
                 3.14,
             ],
@@ -174,10 +174,10 @@ class AreaIndependentVariable2YearTypeValueArrayTest extends TestCase
                 2,
                 20,
                 200,
-                1000,
-                10000,
                 6,
                 60,
+                1000,
+                10000,
                 2020,
                 4.14,
             ],
@@ -186,10 +186,10 @@ class AreaIndependentVariable2YearTypeValueArrayTest extends TestCase
         $this->assertEquals([
             [
                 'typeAreaCode' => 10,
-                'AreaCode' => 100,
+                'areaCode' => 100,
             ],[
                 'typeAreaCode' => 20,
-                'AreaCode' => 200,
+                'areaCode' => 200,
             ],
         ],$this->areaIndependentVariable2YearTypeValueArray->getAreas());
 
@@ -249,10 +249,10 @@ class AreaIndependentVariable2YearTypeValueArrayTest extends TestCase
                 1,
                 10,
                 100,
-                1000,
-                10000,
                 5,
                 50,
+                1000,
+                10000,
                 2019,
                 3.14,
             ],
@@ -260,10 +260,10 @@ class AreaIndependentVariable2YearTypeValueArrayTest extends TestCase
                 2,
                 20,
                 200,
-                1000,
-                10000,
                 6,
                 60,
+                1000,
+                10000,
                 2020,
                 4.14,
             ],
@@ -271,10 +271,10 @@ class AreaIndependentVariable2YearTypeValueArrayTest extends TestCase
                 3,
                 20,
                 200,
-                2000,
-                20000,
                 6,
                 60,
+                2000,
+                20000,
                 2019,
                 5.14,
             ],
@@ -283,10 +283,10 @@ class AreaIndependentVariable2YearTypeValueArrayTest extends TestCase
         $this->assertEquals([
             [
                 'typeAreaCode' => 10,
-                'AreaCode' => 100,
+                'areaCode' => 100,
             ],[
                 'typeAreaCode' => 20,
-                'AreaCode' => 200,
+                'areaCode' => 200,
             ],
         ],$this->areaIndependentVariable2YearTypeValueArray->getAreas());
 

@@ -156,7 +156,7 @@ class CreateDictionariesFromValuesTest extends TestCase
     private function thenReturnYearArray()
     {
         $this->assertEquals(
-            [[new YearDictionary([$this->year])]],
+            [new YearDictionary([$this->year])],
             $this->createDictionariesFromValues->getDictionaries(
                 $this->typeIndicator,
                 $this->typeValueArray,
@@ -191,7 +191,7 @@ class CreateDictionariesFromValuesTest extends TestCase
     private function thenReturnOneIndependentVariableArray()
     {
         $this->assertEquals(
-            [[new IndependentVariableDictionary([$this->independentVariable])]],
+            [new IndependentVariableDictionary([$this->independentVariable])],
             $this->createDictionariesFromValues->getDictionaries(
                 $this->typeIndicator,
                 $this->typeValueArray,
@@ -213,9 +213,9 @@ class CreateDictionariesFromValuesTest extends TestCase
         $this->typeIndicator->method('getNumIndependentVars')->willReturn(1);
         $this->typeIndicator->method('hasYear')->willReturn(true);
 
-        $this->typeValueArray->method('getArea')->willReturn([]);
+        $this->typeValueArray->method('getAreas')->willReturn([]);
         $this->typeValueArray->method('getIndependentVariable')->willReturn([]);
-        $this->typeValueArray->method('getYear')->willReturn([]);
+        $this->typeValueArray->method('getYears')->willReturn([]);
 
         $this->areaRepository->method('getAreasByFilter')->willReturn([$this->area]);
         $this->independentVariableRepository->method('getIndependentVariablesByFilter')->willReturn([$this->independentVariable]);
