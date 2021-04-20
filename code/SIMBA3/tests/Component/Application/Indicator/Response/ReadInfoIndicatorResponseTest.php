@@ -37,9 +37,9 @@ class ReadInfoIndicatorResponseTest extends TestCase
 
     public function givenAnIndicator(): void
     {
-        $this->typeIndicator->method("getHasArea")->willReturn(true);
-        $this->typeIndicator->method("getHasYear")->willReturn(false);
-        $this->typeIndicator->method("getHasMonth")->willReturn(false);
+        $this->typeIndicator->method("hasArea")->willReturn(true);
+        $this->typeIndicator->method("hasYear")->willReturn(false);
+        $this->typeIndicator->method("hasMonth")->willReturn(false);
         $this->typeIndicator->method("getNumIndependentVars")->willReturn(3);
 
         $this->indicator->method("getId")->willReturn(1001);

@@ -6,15 +6,15 @@ use InvalidArgumentException;
 use PHPUnit\Framework\TestCase;
 use SIMBA3\Component\Application\Value\Request\ReadValuesIndicatorRequest;
 use SIMBA3\Component\Application\Value\Response\ReadValuesIndicatorResponse;
-use SIMBA3\Component\Application\Value\UseCase\ReadDictionaryVariablesUseCase;
 use SIMBA3\Component\Application\Value\UseCase\ReadValuesIndicatorUseCase;
 use SIMBA3\Component\Domain\Indicator\Entity\Indicator;
 use SIMBA3\Component\Domain\Indicator\Entity\IndicatorTranslation;
 use SIMBA3\Component\Domain\Indicator\Entity\TypeIndicator;
 use SIMBA3\Component\Domain\Indicator\Repository\IndicatorTranslationRepository;
-use SIMBA3\Component\Domain\Value\Service\FactoryTypeValue;
-use SIMBA3\Component\Domain\Value\Service\TypeValue;
-use SIMBA3\Component\Domain\Value\Service\TypeValueArray;
+use SIMBA3\Component\Domain\Variable\Service\CreateDictionariesFromValues;
+use SIMBA3\Component\Domain\Variable\Service\FactoryTypeValue;
+use SIMBA3\Component\Domain\Variable\Service\TypeValue;
+use SIMBA3\Component\Domain\Variable\Service\TypeValueArray;
 
 class ReadValuesIndicatorUseCaseTest extends TestCase
 {
@@ -27,7 +27,7 @@ class ReadValuesIndicatorUseCaseTest extends TestCase
     private TypeIndicator $typeIndicator;
     private TypeValue $typeValue;
     private TypeValueArray $typeValueArray;
-    private ReadDictionaryVariablesUseCase $readDictionaryVariablesUseCase;
+    private CreateDictionariesFromValues $createDictionariesFromValues;
 
     protected function setUp(): void
     {
@@ -40,7 +40,7 @@ class ReadValuesIndicatorUseCaseTest extends TestCase
         $this->typeIndicator = $this->createMock(TypeIndicator::class);
         $this->typeValue = $this->createMock(TypeValue::class);
         $this->typeValueArray = $this->createMock(TypeValueArray::class);
-        $this->readDictionaryVariablesUseCase = $this->createMock(ReadDictionaryVariablesUseCase::class);
+        $this->createDictionariesFromValues = $this->createMock(CreateDictionariesFromValues::class);
     }
 
     /** @test */
@@ -66,7 +66,7 @@ class ReadValuesIndicatorUseCaseTest extends TestCase
         $this->readValuesIndicatorUseCase = new ReadValuesIndicatorUseCase(
             $this->indicatorTranslationRepository,
             $this->factoryTypeValue,
-            $this->readDictionaryVariablesUseCase
+            $this->createDictionariesFromValues
         );
     }
 
@@ -81,6 +81,9 @@ class ReadValuesIndicatorUseCaseTest extends TestCase
         $this->indicatorTranslation->method("getIndicator")->willReturn($this->indicator);
         $this->indicator->method("getTypeIndicator")->willReturn($this->typeIndicator);
         $this->typeIndicator->method("getIdType")->willReturn("Test");
+
+        $this->createDictionariesFromValues->method('getDictionaries')->willReturn([1,2,3,4]);
+
     }
 
     private function whenFactoryTypeValueReturnATypeValue(): void

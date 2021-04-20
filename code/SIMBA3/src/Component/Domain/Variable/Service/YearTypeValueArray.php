@@ -1,12 +1,12 @@
 <?php
 
 
-namespace SIMBA3\Component\Domain\Value\Service;
+namespace SIMBA3\Component\Domain\Variable\Service;
 
 
 use SIMBA3\Component\Domain\Value\Entity\YearValue;
 
-class YearTypeValueArray implements TypeValueArray
+class YearTypeValueArray extends TypeValueArray
 {
     private array $listYearValue;
 
@@ -23,6 +23,15 @@ class YearTypeValueArray implements TypeValueArray
     public function getValuesAsArray(): array
     {
         return array_map(array($this, "getYearTypeValueAsArray"), $this->listYearValue);
+    }
+
+    public function getYears(): array
+    {
+        return $this->uniqueArray(array_map(function (
+            YearValue $yearValue
+        ) {
+            return [self::CODE_YEAR => $yearValue->getYear()];
+        }, $this->listYearValue));
     }
 
     private function getYearTypeValueAsArray(YearValue $yearValue): array

@@ -1,10 +1,7 @@
 <?php
 
 
-namespace SIMBA3\Component\Domain\Value\Service;
-
-
-use SIMBA3\Component\Domain\Variable\Entity\Area;
+namespace SIMBA3\Component\Domain\Variable\Service;
 
 class AreaDictionary implements TypeDictionary
 {
@@ -17,7 +14,7 @@ class AreaDictionary implements TypeDictionary
 
     public function getDictionaryValuesAsArray(): array
     {
-        $typeAreaCollection =  new TypeAreaCollection($this->areas);
+        $typeAreaCollection = new TypeAreaCollection($this->areas);
 
         return $typeAreaCollection->getAreaAsArray();
     }

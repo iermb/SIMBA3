@@ -3,7 +3,7 @@
 namespace Component\Domain\Value\Service;
 
 use PHPUnit\Framework\TestCase;
-use SIMBA3\Component\Domain\Value\Service\YearDictionary;
+use SIMBA3\Component\Domain\Variable\Service\YearDictionary;
 use SIMBA3\Component\Domain\Variable\Entity\Year;
 
 class YearDictionaryTest extends TestCase
