@@ -1,6 +1,6 @@
 <?php
 
-namespace Component\Domain\Value\Service;
+namespace Component\Domain\Variable\Service;
 
 use PHPUnit\Framework\TestCase;
 use SIMBA3\Component\Domain\Variable\Service\AreaDictionary;

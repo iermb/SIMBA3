@@ -1,15 +1,13 @@
 <?php
 
 
-namespace SIMBA3\Component\Domain\Variable\Service;
+namespace SIMBA3\Component\Domain\Value\Service;
 
 use SIMBA3\Component\Domain\Filter\Service\AreasFilter;
 use SIMBA3\Component\Domain\Filter\Service\IndependentVariablesFilter;
 use SIMBA3\Component\Domain\Filter\Service\IndicatorFilter;
 use SIMBA3\Component\Domain\Filter\Service\YearsFilter;
-use SIMBA3\Component\Domain\Value\Repository\AreaIndependentVariable1YearValueRepository;
 use SIMBA3\Component\Domain\Value\Repository\AreaIndependentVariable2YearValueRepository;
-use SIMBA3\Component\Domain\Variable\Entity\IndependentVariable;
 
 class AreaIndependentVariable2YearTypeValue implements TypeValue
 {

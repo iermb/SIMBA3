@@ -9,7 +9,7 @@ use SIMBA3\Component\Application\Indicator\Response\MetadataIndicatorResponse;
 use SIMBA3\Component\Application\Value\Request\ReadValuesIndicatorRequest;
 use SIMBA3\Component\Application\Value\Response\ReadValuesIndicatorResponse;
 use SIMBA3\Component\Domain\Indicator\Repository\IndicatorTranslationRepository;
-use SIMBA3\Component\Domain\Variable\Service\FactoryTypeValue;
+use SIMBA3\Component\Domain\Value\Service\FactoryTypeValue;
 use SIMBA3\Component\Domain\Variable\Service\CreateDictionariesFromValues;
 
 class ReadValuesIndicatorUseCase

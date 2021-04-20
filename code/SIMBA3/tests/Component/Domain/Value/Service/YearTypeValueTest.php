@@ -1,6 +1,6 @@
 <?php
 
-namespace SIMBA3\Component\Domain\Variable\Service;
+namespace SIMBA3\Component\Domain\Value\Service;
 
 use PHPUnit\Framework\TestCase;
 use SIMBA3\Component\Domain\Filter\Service\IndicatorFilter;

@@ -6,7 +6,7 @@ namespace SIMBA3\Component\Application\Value\Response;
 
 use SIMBA3\Component\Application\Indicator\Response\MetadataIndicatorResponse;
 use SIMBA3\Component\Domain\Variable\Service\TypeDictionary;
-use SIMBA3\Component\Domain\Variable\Service\TypeValueArray;
+use SIMBA3\Component\Domain\Value\Service\TypeValueArray;
 
 class ReadValuesIndicatorResponse
 {

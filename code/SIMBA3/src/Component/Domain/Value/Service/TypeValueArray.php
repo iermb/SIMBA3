@@ -1,7 +1,7 @@
 <?php
 
 
-namespace SIMBA3\Component\Domain\Variable\Service;
+namespace SIMBA3\Component\Domain\Value\Service;
 
 
 use SIMBA3\Component\Domain\Filter\Service\AreaFilter;
@@ -37,6 +37,6 @@ abstract class TypeValueArray
 
     protected function uniqueArray(array $values): array
     {
-        return ArrayTool::uniqueAssociativeArray($values);
+        return array_merge(array_map("unserialize", array_unique(array_map("serialize", $values))), []);
     }
 }

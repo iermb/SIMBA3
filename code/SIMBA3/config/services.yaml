@@ -92,7 +92,7 @@ services:
             - "@simba3.repository.doctrine.independentVariable"
 
     simba3.factory.typeValue:
-        class: SIMBA3\Component\Domain\Variable\Service\FactoryTypeValue
+        class: SIMBA3\Component\Domain\Value\Service\FactoryTypeValue
         arguments:
             - "@simba3.repository.doctrine.areaYearValue"
             - "@simba3.repository.doctrine.areaIndependentVariable1Value"

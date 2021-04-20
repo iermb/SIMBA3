@@ -6,6 +6,7 @@ namespace SIMBA3\Component\Domain\Variable\Service;
 
 use PHPUnit\Framework\TestCase;
 use SIMBA3\Component\Domain\Indicator\Entity\TypeIndicator;
+use SIMBA3\Component\Domain\Value\Service\TypeValueArray;
 use SIMBA3\Component\Domain\Variable\Entity\Area;
 use SIMBA3\Component\Domain\Variable\Entity\IndependentVariable;
 use SIMBA3\Component\Domain\Variable\Entity\TypeArea;
