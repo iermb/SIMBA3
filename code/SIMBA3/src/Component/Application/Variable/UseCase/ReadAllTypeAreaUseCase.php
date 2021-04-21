@@ -6,7 +6,6 @@ namespace SIMBA3\Component\Application\Variable\UseCase;
 
 use SIMBA3\Component\Application\Variable\Request\ReadAllTypeAreaRequest;
 use SIMBA3\Component\Application\Variable\Response\ReadAllTypeAreaResponse;
-use SIMBA3\Component\Domain\Locale\Entity\Locale;
 use SIMBA3\Component\Domain\Variable\Repository\TypeAreaRepository;
 
 class ReadAllTypeAreaUseCase

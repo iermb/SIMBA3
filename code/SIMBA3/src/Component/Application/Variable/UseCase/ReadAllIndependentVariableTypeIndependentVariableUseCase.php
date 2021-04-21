@@ -28,14 +28,13 @@ class ReadAllIndependentVariableTypeIndependentVariableUseCase
     {
         $typeIndependentVariable = $this->typeIndependentVariableRepository->getTypeIndependentVariable(
             $independentVariableTypeIndependentVariableRequest->getLocale(),
-            $independentVariableTypeIndependentVariableRequest->getTypeIndependentVariableId()
+            $independentVariableTypeIndependentVariableRequest->getTypeIndependentVariableCode()
         );
         if (!$typeIndependentVariable) {
             throw new \InvalidArgumentException("typeIndependentVariable not exists");
         }
 
         $areas = $this->independentVariableRepository->getAllIndependentVariableByTypeIndependentVariable(
-            $independentVariableTypeIndependentVariableRequest->getLocale(),
             $typeIndependentVariable->getId()
         );
         return new ReadAllIndependentVariableTypeIndependentVariableResponse($areas);

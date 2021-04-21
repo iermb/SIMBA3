@@ -39,10 +39,3 @@ doctrine:
                 prefix: 'SIMBA3\Component\Domain\Variable'
                 alias: Variable
 
-            Locale:
-                is_bundle: false
-                type: xml
-                dir: '%kernel.project_dir%/src/Api/Persistence/Migrations/Locale'
-                prefix: 'SIMBA3\Component\Domain\Locale'
-                alias: Locale
-

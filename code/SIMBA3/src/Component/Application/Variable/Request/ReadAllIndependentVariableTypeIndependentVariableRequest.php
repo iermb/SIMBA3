@@ -20,7 +20,7 @@ class ReadAllIndependentVariableTypeIndependentVariableRequest
         return $this->locale;
     }
 
-    public function getTypeIndependentVariableId(): int
+    public function getTypeIndependentVariableCode(): int
     {
         return $this->typeIndependentVariableId;
     }

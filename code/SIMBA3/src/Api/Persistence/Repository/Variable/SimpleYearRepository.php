@@ -2,6 +2,7 @@
 
 namespace SIMBA3\Api\Persistence\Repository\Variable;
 
+use SIMBA3\Component\Domain\Filter\Service\YearFilter;
 use SIMBA3\Component\Domain\Variable\Entity\Year;
 use SIMBA3\Component\Domain\Variable\Repository\YearRepository;
 
@@ -15,7 +16,7 @@ class SimpleYearRepository implements YearRepository
     public function getYearsByFilter(array $years): array
     {
         return array_map(function(array $year): Year {
-            return new Year($year[Year::YEAR_ID_FIELD]);
+            return new Year($year[YearFilter::YEAR_ID_FIELD]);
         }, $years);
     }
 }

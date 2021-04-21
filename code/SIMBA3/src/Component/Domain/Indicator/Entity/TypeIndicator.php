@@ -18,17 +18,17 @@ class TypeIndicator
         return $this->id;
     }
 
-    public function getHasArea(): bool
+    public function hasArea(): bool
     {
         return $this->hasArea;
     }
 
-    public function getHasYear(): bool
+    public function hasYear(): bool
     {
         return $this->hasYear;
     }
 
-    public function getHasMonth(): bool
+    public function hasMonth(): bool
     {
         return $this->hasMonth;
     }

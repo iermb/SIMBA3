@@ -6,7 +6,12 @@
     <entity name="SIMBA3\Component\Domain\Variable\Entity\TypeIndependentVariable" table="type_independent_variable">
         <id name="id" type="integer" column="id" />
 
-        <field name="name" column="name" type="string" length="100" nullable="false" unique="true" />
+        <unique-constraints>
+            <unique-constraint columns="code,language" name="type_independent_variable_element" />
+        </unique-constraints>
+
+        <field name="code" column="code" type="integer" nullable="false" />
+        <field name="name" column="name" type="string" length="100" nullable="false"/>
         <field name="language" column="language" type="string" length="2" nullable="false" />
     </entity>
 

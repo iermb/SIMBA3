@@ -14,14 +14,14 @@ use SIMBA3\Component\Domain\Variable\Repository\TypeIndependentVariableRepositor
 
 class DoctrineTypeIndependentVariableRepository extends EntityRepository implements TypeIndependentVariableRepository
 {
-    private const ID_FIELD = "id";
+    private const CODE_FIELD = "code";
     private const LANGUAGE_FIELD = "language";
 
-    public function getTypeIndependentVariable(string $locale, int $typeIndependentVariableId): ?TypeIndependentVariable
+    public function getTypeIndependentVariable(string $locale, int $typeIndependentVariableCode): ?TypeIndependentVariable
     {
         return $this->findOneBy([
             self::LANGUAGE_FIELD => $locale,
-            self::ID_FIELD => $typeIndependentVariableId,
+            self::CODE_FIELD => $typeIndependentVariableCode,
         ]);
     }
 

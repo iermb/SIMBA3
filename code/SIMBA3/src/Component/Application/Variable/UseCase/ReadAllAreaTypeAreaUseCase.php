@@ -25,12 +25,12 @@ class ReadAllAreaTypeAreaUseCase
 
     public function execute(ReadAllAreaTypeAreaRequest $areaTypeAreaRequest): ReadAllAreaTypeAreaResponse
     {
-        $typeArea = $this->typeAreaRepository->getTypeArea($areaTypeAreaRequest->getLocale(), $areaTypeAreaRequest->getTypeAreaId());
+        $typeArea = $this->typeAreaRepository->getTypeArea($areaTypeAreaRequest->getLocale(), $areaTypeAreaRequest->getCode());
         if (!$typeArea) {
             throw new InvalidArgumentException("typeArea not exists");
         }
 
-        $areas = $this->areaRepository->getAllAreaByTypeArea($areaTypeAreaRequest->getLocale(), $typeArea->getTypeAreaId());
+        $areas = $this->areaRepository->getAllAreaByTypeArea($areaTypeAreaRequest->getLocale(), $typeArea->getId());
         return new ReadAllAreaTypeAreaResponse($areas);
     }
 }

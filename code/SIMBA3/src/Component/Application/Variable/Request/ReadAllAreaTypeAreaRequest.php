@@ -7,17 +7,17 @@ namespace SIMBA3\Component\Application\Variable\Request;
 class ReadAllAreaTypeAreaRequest
 {
     private string $locale;
-    private int $typeAreaId;
+    private int $code;
 
-    public function __construct(string $locale, int $typeAreaId)
+    public function __construct(string $locale, int $code)
     {
         $this->locale = $locale;
-        $this->typeAreaId = $typeAreaId;
+        $this->code = $code;
     }
 
-    public function getTypeAreaId(): int
+    public function getCode(): int
     {
-        return $this->typeAreaId;
+        return $this->code;
     }
 
     public function getLocale(): string

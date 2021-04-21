@@ -6,7 +6,7 @@ namespace SIMBA3\Component\Domain\Filter\Service;
 
 class YearFilter implements FilterValues
 {
-    private const YEAR_FIELD = "year";
+    public const YEAR_ID_FIELD = "yearId";
 
     private int $year;
 
@@ -18,7 +18,7 @@ class YearFilter implements FilterValues
     public function getFilterAsArray(): array
     {
         return [
-            self::YEAR_FIELD => $this->year
+            self::YEAR_ID_FIELD => $this->year
         ];
     }
 }

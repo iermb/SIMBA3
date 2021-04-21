@@ -16,7 +16,7 @@ class IndependentVariableTest extends TestCase
     }
 
     /** @test */
-    public function ShouldIndependentVariableReturnAttributes(): void
+    public function shouldIndependentVariableReturnAttributes(): void
     {
             $this->givenIndependentVariable();
             $this->thenReturnValidIndependentVariable();
@@ -25,9 +25,9 @@ class IndependentVariableTest extends TestCase
     private function givenIndependentVariable(): void
     {
         $this->independentVariable = new IndependentVariable(
+            24,
             $this->typeIndependentVariable,
-            'nom',
-            'ca'
+            'nom'
         );
     }
 
@@ -35,6 +35,6 @@ class IndependentVariableTest extends TestCase
     {
         $this->assertEquals($this->typeIndependentVariable, $this->independentVariable->getType());
         $this->assertEquals('nom', $this->independentVariable->getName());
-        $this->assertEquals('ca', $this->independentVariable->getLanguage());
+        $this->assertEquals(24, $this->independentVariable->getCode());
     }
 }

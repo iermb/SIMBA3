@@ -65,7 +65,7 @@ class ReadAllIndependentVariableTypeIndependentVariableResponseTest extends Test
     {
         $this->typeIndependentVariable1->method('getName')->willReturn('Type Independent Variable 1');
 
-        $this->independentVariable1->method('getId')->willReturn(1);
+        $this->independentVariable1->method('getCode')->willReturn(1);
         $this->independentVariable1->method('getName')->willReturn('Independent Variable 1');
         $this->independentVariable1->method('getType')->willReturn($this->typeIndependentVariable1);
     }
@@ -75,7 +75,7 @@ class ReadAllIndependentVariableTypeIndependentVariableResponseTest extends Test
         $this->assertEquals(
             [
                 [
-                     'id' => 1,
+                     'code' => 1,
                      'name' => 'Independent Variable 1',
                      'type_name' => 'Type Independent Variable 1',
                 ]
@@ -96,7 +96,7 @@ class ReadAllIndependentVariableTypeIndependentVariableResponseTest extends Test
         $this->createIndependentVariable1();
 
         $this->typeIndependentVariable2->method('getName')->willReturn('Type Independent Variable 2');
-        $this->independentVariable2->method('getId')->willReturn(2);
+        $this->independentVariable2->method('getCode')->willReturn(2);
         $this->independentVariable2->method('getName')->willReturn('Independent Variable 2');
         $this->independentVariable2->method('getType')->willReturn($this->typeIndependentVariable2);
 
@@ -111,12 +111,12 @@ class ReadAllIndependentVariableTypeIndependentVariableResponseTest extends Test
         $this->assertEquals(
             [
                 [
-                    'id' => 1,
+                    'code' => 1,
                     'name' => 'Independent Variable 1',
                     'type_name' => 'Type Independent Variable 1',
                 ],
                 [
-                    'id' => 2,
+                    'code' => 2,
                     'name' => 'Independent Variable 2',
                     'type_name' => 'Type Independent Variable 2',
                 ],

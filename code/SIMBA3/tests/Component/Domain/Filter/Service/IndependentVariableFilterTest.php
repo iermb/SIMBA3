@@ -25,8 +25,8 @@ class IndependentVariableFilterTest extends TestCase
     {
         $this->assertEquals(
             [
-               "typeIndependentVariableId" => 100,
-                "independentVariableId" => 200,
+               "typeIndependentVariableCode" => 100,
+                "independentVariableCode" => 200,
             ],
             $this->independentVariableFilter->getFilterAsArray()
         );

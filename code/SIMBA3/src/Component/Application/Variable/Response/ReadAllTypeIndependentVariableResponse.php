@@ -9,7 +9,7 @@ use SIMBA3\Component\Domain\Variable\Entity\TypeIndependentVariable;
 
 class ReadAllTypeIndependentVariableResponse
 {
-    private const ID_FIELD = "id";
+    private const CODE_FIELD = "code";
     private const NAME_FIELD = "name";
 
     private array $typeIndependentVariableArray;
@@ -24,7 +24,7 @@ class ReadAllTypeIndependentVariableResponse
         return array_map(
             function(TypeIndependentVariable $typeIndependentVariable) {
                 return [
-                    self::ID_FIELD => $typeIndependentVariable->getId(),
+                    self::CODE_FIELD => $typeIndependentVariable->getCode(),
                     self::NAME_FIELD => $typeIndependentVariable->getName(),
                 ];
             },

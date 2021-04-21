@@ -1,14 +1,12 @@
 <?php
 
-
 namespace SIMBA3\Component\Application\Variable\Response;
-
 
 use SIMBA3\Component\Domain\Variable\Entity\TypeArea;
 
 class ReadAllTypeAreaResponse
 {
-    private const ID_FIELD = "id";
+    private const CODE_FIELD = "code";
     private const NAME_FIELD = "name";
 
     private array $typeAreaArray;
@@ -20,16 +18,11 @@ class ReadAllTypeAreaResponse
 
     public function getAllTypeArea(): array
     {
-
-        $allTypeAreaArray = [];
-
-        foreach ($this->typeAreaArray as $typeArea) {
-            $allTypeAreaArray[] = [
-                self::ID_FIELD => $typeArea->getId(),
+        return array_map(function(TypeArea $typeArea){
+            return [
+                self::CODE_FIELD => $typeArea->getCode(),
                 self::NAME_FIELD => $typeArea->getName(),
             ];
-        }
-
-        return $allTypeAreaArray;
+        }, $this->typeAreaArray);
     }
 }

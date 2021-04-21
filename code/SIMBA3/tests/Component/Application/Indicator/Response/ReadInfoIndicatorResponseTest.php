@@ -37,9 +37,9 @@ class ReadInfoIndicatorResponseTest extends TestCase
 
     public function givenAnIndicator(): void
     {
-        $this->typeIndicator->method("getHasArea")->willReturn(true);
-        $this->typeIndicator->method("getHasYear")->willReturn(false);
-        $this->typeIndicator->method("getHasMonth")->willReturn(false);
+        $this->typeIndicator->method("hasArea")->willReturn(true);
+        $this->typeIndicator->method("hasYear")->willReturn(false);
+        $this->typeIndicator->method("hasMonth")->willReturn(false);
         $this->typeIndicator->method("getNumIndependentVars")->willReturn(3);
 
         $this->indicator->method("getId")->willReturn(1001);
@@ -47,7 +47,7 @@ class ReadInfoIndicatorResponseTest extends TestCase
         $this->indicator->method("getDecimals")->willReturn(3);
 
         $this->indicatorTranslation->method("getIndicator")->willReturn($this->indicator);
-        $this->indicatorTranslation->method("getLocale")->willReturn("it");
+        $this->indicatorTranslation->method("getLanguage")->willReturn("it");
         $this->indicatorTranslation->method("getName")->willReturn("Test name");
         $this->indicatorTranslation->method("getDescription")->willReturn("Test description");
         $this->indicatorTranslation->method("getUnits")->willReturn("Units test");
@@ -61,18 +61,18 @@ class ReadInfoIndicatorResponseTest extends TestCase
         $this->assertEquals(
             [
                 "id" => 1001,
-                "locale" => 'it',
+                "language" => 'it',
                 "name" => "Test name",
                 "description" => "Test description",
+                "methodology" => "Methodology test",
+                "font" => "Font test",
                 "units" => "Units test",
                 "decimals" => 3,
                 "note" => "Note test",
-                "font" => "Font test",
-                "methodology" => "Methodology test",
-                "hasArea" => true,
-                "hasYear" => false,
-                "hasMonth" => false,
-                "numIndependentVars" => 3
+                "variables" => [
+                    'Area',
+                    ['Independent Variables' => 3],
+                ],
             ],
             $this->readInfoIndicatorResponse->getIndicatorAsArray()
         );

@@ -6,10 +6,10 @@ namespace SIMBA3\Component\Domain\Value\Entity;
 class AreaIndependentVariable1YearValue
 {
     private int    $indicatorId;
-    private int    $typeAreaId;
-    private int    $areaId;
-    private int    $typeIndependentVariableId;
-    private int    $independentVariableId;
+    private int    $typeAreaCode;
+    private int    $areaCode;
+    private int    $typeIndependentVariable1Code;
+    private int    $independentVariable1Code;
     private int    $year;
     private float  $value;
     private bool   $isPublic;
@@ -20,24 +20,24 @@ class AreaIndependentVariable1YearValue
         return $this->indicatorId;
     }
 
-    public function getTypeAreaId(): int
+    public function getTypeAreaCode(): int
     {
-        return $this->typeAreaId;
+        return $this->typeAreaCode;
     }
 
-    public function getAreaId(): int
+    public function getAreaCode(): int
     {
-        return $this->areaId;
+        return $this->areaCode;
     }
 
-    public function getTypeIndependentVariableId(): int
+    public function getTypeIndependentVariable1Code(): int
     {
-        return $this->typeIndependentVariableId;
+        return $this->typeIndependentVariable1Code;
     }
 
-    public function getIndependentVariableId(): int
+    public function getIndependentVariable1Code(): int
     {
-        return $this->independentVariableId;
+        return $this->independentVariable1Code;
     }
 
     public function getYear(): int
