@@ -37,6 +37,6 @@ abstract class TypeValueArray
 
     protected function uniqueArray(array $values): array
     {
-        return array_merge(array_map("unserialize", array_unique(array_map("serialize", $values))), []);
+        return array_values(array_map("unserialize", array_unique(array_map("serialize", $values))));
     }
 }

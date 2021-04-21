@@ -37,7 +37,7 @@ class TypeAreaCollection
             function(TypeAreaSet $typeAreaSet){
                 return $typeAreaSet->getArray();
             },
-            array_merge($this->typeAreaCollection, [])
+            array_values($this->typeAreaCollection)
         );
     }
 }

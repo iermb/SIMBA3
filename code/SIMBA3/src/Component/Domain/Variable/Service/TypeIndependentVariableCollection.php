@@ -35,7 +35,7 @@ class TypeIndependentVariableCollection
             function(TypeIndependentVariableSet $typeIndependentVariableSet){
                 return $typeIndependentVariableSet->getArray();
             },
-            array_merge($this->typeIndependentVariableCollection, [])
+            array_values($this->typeIndependentVariableCollection)
         );
     }
 }
