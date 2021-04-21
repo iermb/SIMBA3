@@ -95,6 +95,7 @@ services:
         class: SIMBA3\Component\Domain\Value\Service\FactoryTypeValue
         arguments:
             - "@simba3.repository.doctrine.areaYearValue"
+            - "@simba3.repository.doctrine.areaMonthYearValue"
             - "@simba3.repository.doctrine.areaIndependentVariable1Value"
             - "@simba3.repository.doctrine.areaIndependentVariable2Value"
             - "@simba3.repository.doctrine.yearValue"
@@ -105,6 +106,7 @@ services:
             - "@simba3.repository.doctrine.area"
             - "@simba3.repository.doctrine.independentVariable"
             - "@simba3.repository.simple.year"
+            - "@simba3.repository.simple.month"
 
     simba3.repository.doctrine.indicator:
         class: SIMBA3\Api\Persistence\Repository\Indicator\DoctrineIndicatorRepository
@@ -123,6 +125,12 @@ services:
         arguments:
             - "@doctrine.orm.entity_manager"
             - "@simba3.repository.metadata.areaYearValue"
+
+    simba3.repository.doctrine.areaMonthYearValue:
+        class: SIMBA3\Api\Persistence\Repository\Value\DoctrineAreaMonthYearValueRepository
+        arguments:
+            - "@doctrine.orm.entity_manager"
+            - "@simba3.repository.metadata.areaMonthYearValue"
 
     simba3.repository.doctrine.areaIndependentVariable1Value:
         class: SIMBA3\Api\Persistence\Repository\Value\DoctrineAreaIndependentVariable1YearValueRepository
@@ -169,6 +177,9 @@ services:
     simba3.repository.simple.year:
         class: SIMBA3\Api\Persistence\Repository\Variable\SimpleYearRepository
 
+    simba3.repository.simple.month:
+        class: SIMBA3\Api\Persistence\Repository\Variable\SimpleMonthRepository
+
     simba3.repository.metadata.indicator:
         class: Doctrine\ORM\Mapping\ClassMetadata
         arguments:
@@ -183,6 +194,11 @@ services:
         class: Doctrine\ORM\Mapping\ClassMetadata
         arguments:
             - SIMBA3\Component\Domain\Value\Entity\AreaYearValue
+
+    simba3.repository.metadata.areaMonthYearValue:
+        class: Doctrine\ORM\Mapping\ClassMetadata
+        arguments:
+            - SIMBA3\Component\Domain\Value\Entity\AreaMonthYearValue
 
     simba3.repository.metadata.areaIndependentVariable1YearValue:
         class: Doctrine\ORM\Mapping\ClassMetadata

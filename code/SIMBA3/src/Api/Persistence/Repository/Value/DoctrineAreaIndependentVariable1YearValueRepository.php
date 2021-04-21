@@ -5,8 +5,6 @@ namespace SIMBA3\Api\Persistence\Repository\Value;
 
 
 use Doctrine\ORM\EntityRepository;
-use SIMBA3\Component\Domain\Filter\Service\AreaFilter;
-use SIMBA3\Component\Domain\Filter\Service\IndependentVariableFilter;
 use SIMBA3\Component\Domain\Value\Repository\AreaIndependentVariable1YearValueRepository;
 
 class DoctrineAreaIndependentVariable1YearValueRepository extends EntityRepository implements AreaIndependentVariable1YearValueRepository
