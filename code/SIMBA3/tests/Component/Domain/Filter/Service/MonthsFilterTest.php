@@ -60,12 +60,12 @@ class MonthsFilterTest extends TestCase
     private function givenTwoMonthFilters(): void
     {
         $this->givenAnMonthFilter();
-        $this->monthFilter2->method("getFilterAsArray")->willReturn(["month" => 10]);
+        $this->monthFilter2->method("getFilterAsArray")->willReturn(["monthId" => 10]);
     }
 
     private function givenAnMonthFilter(): void
     {
-        $this->monthFilter1->method("getFilterAsArray")->willReturn(["month" => 9]);
+        $this->monthFilter1->method("getFilterAsArray")->willReturn(["monthId" => 9]);
     }
 
     private function thenMonthsFilterReturnEmptyArray(): void
