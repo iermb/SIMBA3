@@ -23,6 +23,10 @@ class CreateMonthsFilter implements CreateFilterValues
             return new MonthsFilter([]);
         }
 
+        if (!is_array($this->rawFilter[self::MONTH_FILTER])) {
+            return new MonthsFilter([]);
+        }
+
         $this->rawFilter[self::MONTH_FILTER] = array_filter($this->rawFilter[self::MONTH_FILTER], function($element){
             if (!is_int($element)) {
                 return false;

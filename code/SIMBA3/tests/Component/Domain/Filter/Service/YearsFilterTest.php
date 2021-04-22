@@ -75,12 +75,12 @@ class YearsFilterTest extends TestCase
 
     private function thenYearsFilterReturnArrayWithOneElement(): void
     {
-        $this->assertEquals(["years" => [["year" => 2020]]], $this->yearsFilter->getFilterAsArray());
+        $this->assertEquals(["years" => [["yearId" => 2020]]], $this->yearsFilter->getFilterAsArray());
     }
 
     private function thenYearsFilterReturnArrayWithTwoElements(): void
     {
-        $this->assertEquals(["years" => [["year" => 2020], ["year" => 2019]]], $this->yearsFilter->getFilterAsArray());
+        $this->assertEquals(["years" => [["yearId" => 2020], ["yearId" => 2019]]], $this->yearsFilter->getFilterAsArray());
     }
 
 }

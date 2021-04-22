@@ -9,7 +9,7 @@ class TypeAreaTest extends TestCase
     private TypeArea $typeArea;
 
     /** @test */
-    public function shouldAreaReturnAtributes()
+    public function shouldAreaReturnAttributes()
     {
             $this->givenArea();
             $this->thenReturnValidArea();

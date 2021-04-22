@@ -9,7 +9,7 @@ class YerTest extends TestCase
     private Year $year;
 
     /** @test */
-    public function shouldYearReturnAtributes()
+    public function shouldYearReturnAttributes()
     {
             $this->givenYear();
             $this->thenReturnValidYear();
