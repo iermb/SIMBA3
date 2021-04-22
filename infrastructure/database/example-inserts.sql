@@ -60,29 +60,34 @@ INSERT INTO "type_indicator" ("id", "has_area", "has_year", "has_month", "num_in
 (1,	'0',	'1',	'0',	0,	'YEAR_VALUE'),
 (2,	'1',	'1',	'0',	0,	'AREA_YEAR_VALUE'),
 (3,	'1',	'1',	'0',	1,	'AREA_INDEPENDENT_VARIABLE_1_YEAR_VALUE'),
-(4,	'1',	'1',	'0',	2,	'AREA_INDEPENDENT_VARIABLE_2_YEAR_VALUE');
+(4,	'1',	'1',	'0',	2,	'AREA_INDEPENDENT_VARIABLE_2_YEAR_VALUE'),
+(5,	'1',	'1',	'1',	0,	'AREA_MONTH_YEAR_VALUE');
 
 INSERT INTO "indicator" ("id", "type_id", "decimals") VALUES
 (1,	1,	0),
 (2,	2,	0),
 (3,	3,	0),
 (4,	4,	0);
+(5,	5,	0);
 
 INSERT INTO "indicator_translation" ("language", "indicator_id", "name", "description", "units", "note", "font", "methodology") VALUES
 ('ca',	1,	'Població de la Terra',	'Indicador de població mundial per any',	'mil·lions de persones',	'Nombre d''humans',	'worldometers.info',	'-'),
 ('ca',	2,	'Població provincies de Catalunya',	'Nombre d''habitants a les diferents provincies de Catalunya',	'habitants',	'-',	'idescat',	'Registre'),
 ('ca',	3,	'Població per sexe',	'Nombre d''habitants per sexe',	'persones',	'Dades extretes del SIMBA v2',	'Simba 2',	'-'),
 ('ca',	4,	'Immigració per sexe i edat',	'Nombre d''habitants en població d''origen estranger per sexe i edat ',	'persones',	'Dades extretes del SIMBA v2',	'Estadística de Variacions Residencials.',	'-'),
+('ca',	5,	'Demanda del servei Bicing',	'Nombre de viatges efectuats amb el servei Bicing (bicicletes mecàniques o elèctriques).',	'viatges',	'-',	'simba v2',	'Dades extretes del Bicing'),
 
 ('es',	1,	'Población de la Tierra',	'Indicador de población mundial por año',	'millones de personas',	'Número de humanos',	'worldometers.info',	'-'),
 ('es',	2,	'Población provincias de Cataluña',	'Número de habitantes en las diferentes provincias de Cataluña',	'habitantes',	'-',	'idescat',	'Registro'),
 ('es',	3,	'Población per sexo',	'Número de habitantes por sexo',	'persones',	'Dades extretes del SIMBA v2',	'Simba 2',	'-'),
 ('es',	4,	'Immigración per sexo y edad',	'Número de habitantes en población de origen extranjero por sexo y edad ',	'personas',	'Datos extraídos de SIMBA v2',	'Estadística de Variaciones Residenciales.',	'-'),
+('es',	5,	'Demanda del servicio Bicing',	'Número de viajes efectuados con el servicio Bicing (bicicletas mecánicas o eléctricas). ',	'viajes',	'-',	'simba v2',	'Datos extraídos de Bicing'),
 
 ('en',	1,	'Earth Population',	'Indicator of Earth Population by year',	'milions of people',	'Number of humans',	'worldometers.info',	'-'),
 ('en',	2,	'Population of the provinces of Catalonia ',	'Number of inhabitants in the different provinces of Catalonia',	'inhabitants',	'-',	'idescat',	'Register'),
 ('en',	3,	'Population by sex',	'Number of inhabitants by sex',	'persones',	'Dades extretes del SIMBA v2',	'Simba 2',	'-'),
-('en',	4,	'Immigration by sex and age ',	'Number of inhabitants in population of foreign origin by sex and age ',	'people',	'Data extracted from SIMBA v2',	'Residential Variation Statistics',	'-');
+('en',	4,	'Immigration by sex and age ',	'Number of inhabitants in population of foreign origin by sex and age ',	'people',	'Data extracted from SIMBA v2',	'Residential Variation Statistics',	'-'),
+('en',	5,	'Demand for the Bicing service ',	'Number of trips made with the Bicing service (mechanical or electric bicycles). ',	'trips',	'-',	'simba v2',	'Data extracted from Bicing');
 
 INSERT INTO "area_independent_variable_1_year_value" ("indicator_id", "type_area_code", "area_code", "type_independent_variable_1_code", "independent_variable_1_code", "year", "value", "is_public", "note_value") VALUES
 (3,	101,	5,	55,	1,	2016,	761487.0000,	'1',	NULL),
@@ -111,6 +116,20 @@ INSERT INTO "area_independent_variable_2_year_value" ("indicator_id", "type_area
 (4,	101,	5,	55,	2,	66,	4,	2018,	47784.0000,	'1',	NULL),
 (4,	101,	6,	55,	2,	66,	4,	2017,	1936.0000,	'1',	NULL),
 (4,	101,	6,	55,	2,	66,	4,	2018,	2016.0000,	'1',	NULL);
+
+INSERT INTO "area_month_year_value" ("indicator_id", "type_area_code", "area_code", "month", "year", "value", "is_public", "note_value") VALUES
+(5,	101,	5,	1,	2019,	842455.0000,	'1',	NULL),
+(5,	101,	5,	2,	2019,	843131.0000,	'1',	NULL),
+(5,	101,	5,	3,	2019,	1011079.0000,	'1',	NULL),
+(5,	101,	5,	4,	2019,	1034141.0000,	'1',	NULL),
+(5,	101,	5,	5,	2019,	1219669.0000,	'1',	NULL),
+(5,	101,	5,	6,	2019,	1205838.0000,	'1',	NULL),
+(5,	101,	5,	7,	2019,	1273804.0000,	'1',	NULL),
+(5,	101,	5,	8,	2019,	1050111.0000,	'1',	NULL),
+(5,	101,	5,	9,	2019,	1207306.0000,	'1',	NULL),
+(5,	101,	5,	10,	2019,	1384891.0000,	'1',	NULL),
+(5,	101,	5,	11,	2019,	1159738.0000,	'1',	NULL),
+(5,	101,	5,	12,	2019,	977521.0000,	'1',	NULL);
 
 INSERT INTO "area_year_value" ("indicator_id", "type_area_code", "area_code", "year", "value", "is_public", "note_value") VALUES
 (2,	34,	1,	2020,	765554.0000,	'1',	NULL),
