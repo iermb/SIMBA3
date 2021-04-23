@@ -23,6 +23,10 @@ class CreateYearsFilter implements CreateFilterValues
             return new YearsFilter([]);
         }
 
+        if (!is_array($this->rawFilter[self::YEAR_FILTER])) {
+            return new YearsFilter([]);
+        }
+
         $this->rawFilter[self::YEAR_FILTER] = array_filter($this->rawFilter[self::YEAR_FILTER], function($element){
             if (!is_int($element)) {
                 return false;

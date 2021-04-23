@@ -28,6 +28,25 @@ class CreateYearsFilterTest extends TestCase
         $this->assertEquals(["years" => []], $this->createYearsFilter->getFilter()->getFilterAsArray());
     }
 
+    /**
+     * @dataProvider providerMonthsFilterProvider
+     * @test
+     */
+    public function shouldCreateMonthsFilterWhenRawFilterFormatIsNotCorrectReturnAnEmptyMonthsFilterTest(CreateYearsFilter $createMonthsFilter): void
+    {
+        $this->assertEquals(["years" => []], $createMonthsFilter->getFilter()->getFilterAsArray());
+    }
+
+    public function providerMonthsFilterProvider(): array
+    {
+        return [
+            [new CreateYearsFilter(["years"])],
+            [new CreateYearsFilter(["years" => 'something written'])],
+            [new CreateYearsFilter(["years" => 12])],
+            [new CreateYearsFilter(["years" => [[12]]])],
+        ];
+    }
+
     /** @test */
     public function shouldCreateYearsFilterWithRawFilterReturnYearsFilterWithValues(): void
     {
@@ -46,6 +65,4 @@ class CreateYearsFilterTest extends TestCase
         $this->assertEquals(["years" => [["yearId" => 2020], ["yearId" => 2019], ["yearId" => 2018]]],
             $this->createYearsFilter->getFilter()->getFilterAsArray());
     }
-
-
 }

@@ -6,6 +6,7 @@ namespace SIMBA3\Component\Domain\Value\Service;
 
 use SIMBA3\Component\Domain\Filter\Service\AreaFilter;
 use SIMBA3\Component\Domain\Filter\Service\IndependentVariableFilter;
+use SIMBA3\Component\Domain\Filter\Service\MonthFilter;
 use SIMBA3\Component\Domain\Filter\Service\YearFilter;
 
 abstract class TypeValueArray
@@ -13,6 +14,7 @@ abstract class TypeValueArray
     protected const CODE_TYPE_AREA_FIELD = AreaFilter::TYPE_AREA_CODE_FIELD;
     protected const CODE_AREA_FIELD = AreaFilter::AREA_CODE_FIELD;
     protected const CODE_YEAR = YearFilter::YEAR_ID_FIELD;
+    protected const CODE_MONTH = MonthFilter::MONTH_ID_FIELD;
     protected const TYPE_INDEPENDENT_VARIABLE_CODE_FIELD = IndependentVariableFilter::TYPE_INDEPENDENT_VARIABLE_CODE_FIELD;
     protected const INDEPENDENT_VARIABLE_CODE_FIELD = IndependentVariableFilter::INDEPENDENT_VARIABLE_CODE_FIELD;
 
@@ -26,6 +28,11 @@ abstract class TypeValueArray
     }
 
     public function getIndependentVariable(int $number): array
+    {
+        return [];
+    }
+
+    public function getMonths(): array
     {
         return [];
     }

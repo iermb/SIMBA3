@@ -49,8 +49,11 @@ class ReadValuesIndicatorUseCase
 
         $typeValueArray = $typeValue->getTypeValueArray();
 
-        $dictionaries = $this->createDictionariesFromValues->getDictionaries($typeIndicator, $typeValueArray,
-            $request->getLocale());
+        $dictionaries = $this->createDictionariesFromValues->getDictionaries(
+            $typeIndicator,
+            $typeValueArray,
+            $request->getLocale()
+        );
 
         return new ReadValuesIndicatorResponse($metadataIndicatorResponse, $dictionaries, $typeValueArray);
     }

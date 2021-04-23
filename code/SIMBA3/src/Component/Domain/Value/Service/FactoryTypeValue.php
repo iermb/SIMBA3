@@ -8,15 +8,19 @@ use InvalidArgumentException;
 use SIMBA3\Component\Application\Filter\Service\CreateAreasFilter;
 use SIMBA3\Component\Application\Filter\Service\CreateIndependentVariablesFilter;
 use SIMBA3\Component\Application\Filter\Service\CreateIndicatorFilter;
+use SIMBA3\Component\Application\Filter\Service\CreateMonthsFilter;
 use SIMBA3\Component\Application\Filter\Service\CreateYearsFilter;
+use SIMBA3\Component\Domain\Value\Entity\AreaMonthYearValue;
 use SIMBA3\Component\Domain\Value\Repository\AreaIndependentVariable1YearValueRepository;
 use SIMBA3\Component\Domain\Value\Repository\AreaIndependentVariable2YearValueRepository;
+use SIMBA3\Component\Domain\Value\Repository\AreaMonthYearValueRepository;
 use SIMBA3\Component\Domain\Value\Repository\AreaYearValueRepository;
 use SIMBA3\Component\Domain\Value\Repository\YearValueRepository;
 
 class FactoryTypeValue
 {
     public const AREA_YEAR_VALUE_TYPE = "AREA_YEAR_VALUE";
+    public const AREA_MONTH_YEAR_VALUE_TYPE = "AREA_MONTH_YEAR_VALUE";
     public const AREA_INDEPENDENT_VARIABLE_1_YEAR_VALUE_TYPE = "AREA_INDEPENDENT_VARIABLE_1_YEAR_VALUE";
     public const AREA_INDEPENDENT_VARIABLE_2_YEAR_VALUE_TYPE = "AREA_INDEPENDENT_VARIABLE_2_YEAR_VALUE";
     public const YEAR_VALUE_TYPE = "YEAR_VALUE";
@@ -25,17 +29,20 @@ class FactoryTypeValue
     private const INDEPENDENT_VARIABLES_2_FILTER = 'independentVariable2s';
 
     private AreaYearValueRepository $areaYearValueRepository;
+    private AreaMonthYearValueRepository $areaMonthYearValueRepository;
     private AreaIndependentVariable1YearValueRepository $areaIndependentVariable1YearValueRepository;
     private AreaIndependentVariable2YearValueRepository $areaIndependentVariable2YearValueRepository;
     private YearValueRepository     $yearValueRepository;
 
     public function __construct(
         AreaYearValueRepository $areaYearValueRepository,
+        AreaMonthYearValueRepository $areaMonthYearValueRepository,
         AreaIndependentVariable1YearValueRepository $areaIndependentVariable1YearValueRepository,
         AreaIndependentVariable2YearValueRepository $areaIndependentVariable2YearValueRepository,
         YearValueRepository $yearValueRepository
     ) {
         $this->areaYearValueRepository = $areaYearValueRepository;
+        $this->areaMonthYearValueRepository = $areaMonthYearValueRepository;
         $this->areaIndependentVariable1YearValueRepository = $areaIndependentVariable1YearValueRepository;
         $this->areaIndependentVariable2YearValueRepository = $areaIndependentVariable2YearValueRepository;
         $this->yearValueRepository = $yearValueRepository;
@@ -51,12 +58,30 @@ class FactoryTypeValue
         $createYearsFilter = new CreateYearsFilter($filters);
 
         switch ($objectType) {
+            case self::YEAR_VALUE_TYPE:
+                return new YearTypeValue(
+                    $this->yearValueRepository,
+                    $createIndicatorFilter->getFilter(),
+                    $createYearsFilter->getFilter()
+                );
+
             case self::AREA_YEAR_VALUE_TYPE:
                 $createAreasFilter = new CreateAreasFilter($filters);
                 return new AreaYearTypeValue(
                     $this->areaYearValueRepository,
                     $createIndicatorFilter->getFilter(),
                     $createAreasFilter->getFilter(),
+                    $createYearsFilter->getFilter()
+                );
+
+            case self::AREA_MONTH_YEAR_VALUE_TYPE:
+                $createAreasFilter = new CreateAreasFilter($filters);
+                $createMonthsFilter = new CreateMonthsFilter($filters);
+                return new AreaMonthYearTypeValue(
+                    $this->areaMonthYearValueRepository,
+                    $createIndicatorFilter->getFilter(),
+                    $createAreasFilter->getFilter(),
+                    $createMonthsFilter->getFilter(),
                     $createYearsFilter->getFilter()
                 );
 
@@ -81,13 +106,6 @@ class FactoryTypeValue
                     $createAreasFilter->getFilter(),
                     $createIndependentVariable1sFilter->getFilter(),
                     $createIndependentVariable2sFilter->getFilter(),
-                    $createYearsFilter->getFilter()
-                );
-
-            case self::YEAR_VALUE_TYPE:
-                return new YearTypeValue(
-                    $this->yearValueRepository,
-                    $createIndicatorFilter->getFilter(),
                     $createYearsFilter->getFilter()
                 );
 

@@ -42,12 +42,13 @@ class CreateIndependentVariablesFilterTest extends TestCase
     public function providerIndependentVariableFilterProvider(): array
     {
         return [
-            [new CreateIndependentVariablesFilter(["areas" => 23], 'independentVariables1')],
-            [new CreateIndependentVariablesFilter(["areas" => [23]],'independentVariables1')],
-            [new CreateIndependentVariablesFilter(["areas" => ['a' => 23]],'independentVariables1')],
-            [new CreateIndependentVariablesFilter(["areas" => [23,24,25]],'independentVariables1')],
-            [new CreateIndependentVariablesFilter(["areas" => ['23','24']],'independentVariables1')],
-            [new CreateIndependentVariablesFilter(["areas" => [[[23]]]],'independentVariables1')],
+            [new CreateIndependentVariablesFilter(["independentVariables1"], 'independentVariables1')],
+            [new CreateIndependentVariablesFilter(["independentVariables1" => 23], 'independentVariables1')],
+            [new CreateIndependentVariablesFilter(["independentVariables1" => [23]],'independentVariables1')],
+            [new CreateIndependentVariablesFilter(["independentVariables1" => ['a' => 23]],'independentVariables1')],
+            [new CreateIndependentVariablesFilter(["independentVariables1" => [23,24,25]],'independentVariables1')],
+            [new CreateIndependentVariablesFilter(["independentVariables1" => ['23','24']],'independentVariables1')],
+            [new CreateIndependentVariablesFilter(["independentVariables1" => [[[23]]]],'independentVariables1')],
         ];
     }
 

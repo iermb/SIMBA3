@@ -40,6 +40,7 @@ class CreateAreasFilterTest extends TestCase
     public function providerAreasFilterProvider(): array
     {
         return [
+            [new CreateAreasFilter(["areas"])],
             [new CreateAreasFilter(["areas" => 23])],
             [new CreateAreasFilter(["areas" => [23]])],
             [new CreateAreasFilter(["areas" => ['a' => 23]])],

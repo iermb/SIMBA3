@@ -1,27 +1,30 @@
 <?php
 
-
 namespace SIMBA3\Component\Domain\Variable\Service;
-
 
 use PHPUnit\Framework\TestCase;
 use SIMBA3\Component\Domain\Indicator\Entity\TypeIndicator;
 use SIMBA3\Component\Domain\Value\Service\TypeValueArray;
 use SIMBA3\Component\Domain\Variable\Entity\Area;
 use SIMBA3\Component\Domain\Variable\Entity\IndependentVariable;
+use SIMBA3\Component\Domain\Variable\Entity\Month;
 use SIMBA3\Component\Domain\Variable\Entity\TypeArea;
 use SIMBA3\Component\Domain\Variable\Entity\TypeIndependentVariable;
 use SIMBA3\Component\Domain\Variable\Entity\Year;
 use SIMBA3\Component\Domain\Variable\Repository\AreaRepository;
 use SIMBA3\Component\Domain\Variable\Repository\IndependentVariableRepository;
 use SIMBA3\Component\Domain\Variable\Repository\YearRepository;
+use SIMBA3\Component\Domain\Variable\Repository\MonthRepository;
 
 class CreateDictionariesFromValuesTest extends TestCase
 {
     private CreateDictionariesFromValues    $createDictionariesFromValues;
+
     private AreaRepository                  $areaRepository;
     private IndependentVariableRepository   $independentVariableRepository;
     private YearRepository                  $yearRepository;
+    private MonthRepository                 $monthRepository;
+
     private TypeIndicator                   $typeIndicator;
     private TypeValueArray                  $typeValueArray;
     private string                          $locale;
@@ -33,6 +36,7 @@ class CreateDictionariesFromValuesTest extends TestCase
     private TypeIndependentVariable         $typeIndependentVariable;
 
     private Year                            $year;
+    private Month                           $month;
 
     protected function setUp(): void
     {
@@ -40,6 +44,8 @@ class CreateDictionariesFromValuesTest extends TestCase
         $this->areaRepository = $this->createMock(AreaRepository::class);
         $this->independentVariableRepository = $this->createMock(IndependentVariableRepository::class);
         $this->yearRepository = $this->createMock(YearRepository::class);
+        $this->monthRepository = $this->createMock(MonthRepository::class);
+
         $this->typeIndicator = $this->createMock(TypeIndicator::class);
         $this->typeValueArray = $this->createMock(TypeValueArray::class);
 
@@ -62,6 +68,10 @@ class CreateDictionariesFromValuesTest extends TestCase
         $this->year = $this->createMock(Year::class);
         $this->year->method('getId')->willReturn(3);
         $this->year->method('getYear')->willReturn(2020);
+
+        $this->month = $this->createMock(Month::class);
+        $this->month->method('getId')->willReturn(7);
+        $this->month->method('getMonth')->willReturn('Juliol');
     }
 
     /** @test */
@@ -76,11 +86,13 @@ class CreateDictionariesFromValuesTest extends TestCase
         $this->typeIndicator->method('hasArea')->willReturn(false);
         $this->typeIndicator->method('getNumIndependentVars')->willReturn(0);
         $this->typeIndicator->method('hasYear')->willReturn(false);
+        $this->typeIndicator->method('hasMonth')->willReturn(false);
 
         $this->createDictionariesFromValues = new CreateDictionariesFromValues(
             $this->areaRepository,
             $this->independentVariableRepository,
-            $this->yearRepository
+            $this->yearRepository,
+            $this->monthRepository
         );
     }
 
@@ -108,6 +120,7 @@ class CreateDictionariesFromValuesTest extends TestCase
         $this->typeIndicator->method('hasArea')->willReturn(true);
         $this->typeIndicator->method('getNumIndependentVars')->willReturn(0);
         $this->typeIndicator->method('hasYear')->willReturn(false);
+        $this->typeIndicator->method('hasMonth')->willReturn(false);
 
         $this->typeValueArray->method('getAreas')->willReturn([]);
         $this->areaRepository->method('getAreasByFilter')->willReturn([$this->area]);
@@ -115,7 +128,8 @@ class CreateDictionariesFromValuesTest extends TestCase
         $this->createDictionariesFromValues = new CreateDictionariesFromValues(
             $this->areaRepository,
             $this->independentVariableRepository,
-            $this->yearRepository
+            $this->yearRepository,
+            $this->monthRepository
         );
     }
 
@@ -143,6 +157,7 @@ class CreateDictionariesFromValuesTest extends TestCase
         $this->typeIndicator->method('hasArea')->willReturn(false);
         $this->typeIndicator->method('getNumIndependentVars')->willReturn(0);
         $this->typeIndicator->method('hasYear')->willReturn(true);
+        $this->typeIndicator->method('hasMonth')->willReturn(false);
 
         $this->typeValueArray->method('getYears')->willReturn([]);
         $this->yearRepository->method('getYearsByFilter')->willReturn([$this->year]);
@@ -150,7 +165,8 @@ class CreateDictionariesFromValuesTest extends TestCase
         $this->createDictionariesFromValues = new CreateDictionariesFromValues(
             $this->areaRepository,
             $this->independentVariableRepository,
-            $this->yearRepository
+            $this->yearRepository,
+            $this->monthRepository
         );
     }
 
@@ -158,6 +174,43 @@ class CreateDictionariesFromValuesTest extends TestCase
     {
         $this->assertEquals(
             [new YearDictionary([$this->year])],
+            $this->createDictionariesFromValues->getDictionaries(
+                $this->typeIndicator,
+                $this->typeValueArray,
+                $this->locale
+            )
+        );
+    }
+
+    /** @test */
+    public function shouldHasMonthTypeIndicatorInCreateDictionariesFromValuesReturnMonthArray()
+    {
+        $this->givenHasMonthTypeIndicatorInCreateDictionaries();
+        $this->thenReturnMonthArray();
+    }
+
+    private function givenHasMonthTypeIndicatorInCreateDictionaries()
+    {
+        $this->typeIndicator->method('hasArea')->willReturn(false);
+        $this->typeIndicator->method('getNumIndependentVars')->willReturn(0);
+        $this->typeIndicator->method('hasYear')->willReturn(false);
+        $this->typeIndicator->method('hasMonth')->willReturn(true);
+
+        $this->typeValueArray->method('getMonths')->willReturn([]);
+        $this->monthRepository->method('getMonthsByFilter')->willReturn([$this->month]);
+
+        $this->createDictionariesFromValues = new CreateDictionariesFromValues(
+            $this->areaRepository,
+            $this->independentVariableRepository,
+            $this->yearRepository,
+            $this->monthRepository
+        );
+    }
+
+    private function thenReturnMonthArray()
+    {
+        $this->assertEquals(
+            [new MonthDictionary([$this->month])],
             $this->createDictionariesFromValues->getDictionaries(
                 $this->typeIndicator,
                 $this->typeValueArray,
@@ -178,6 +231,7 @@ class CreateDictionariesFromValuesTest extends TestCase
         $this->typeIndicator->method('hasArea')->willReturn(false);
         $this->typeIndicator->method('getNumIndependentVars')->willReturn(1);
         $this->typeIndicator->method('hasYear')->willReturn(false);
+        $this->typeIndicator->method('hasMonth')->willReturn(false);
 
         $this->typeValueArray->method('getIndependentVariable')->willReturn([]);
         $this->independentVariableRepository->method('getIndependentVariablesByFilter')->willReturn([$this->independentVariable]);
@@ -185,7 +239,8 @@ class CreateDictionariesFromValuesTest extends TestCase
         $this->createDictionariesFromValues = new CreateDictionariesFromValues(
             $this->areaRepository,
             $this->independentVariableRepository,
-            $this->yearRepository
+            $this->yearRepository,
+            $this->monthRepository
         );
     }
 
@@ -213,19 +268,23 @@ class CreateDictionariesFromValuesTest extends TestCase
         $this->typeIndicator->method('hasArea')->willReturn(true);
         $this->typeIndicator->method('getNumIndependentVars')->willReturn(1);
         $this->typeIndicator->method('hasYear')->willReturn(true);
+        $this->typeIndicator->method('hasMonth')->willReturn(true);
 
         $this->typeValueArray->method('getAreas')->willReturn([]);
         $this->typeValueArray->method('getIndependentVariable')->willReturn([]);
         $this->typeValueArray->method('getYears')->willReturn([]);
+        $this->typeValueArray->method('getMonths')->willReturn([]);
 
         $this->areaRepository->method('getAreasByFilter')->willReturn([$this->area]);
         $this->independentVariableRepository->method('getIndependentVariablesByFilter')->willReturn([$this->independentVariable]);
         $this->yearRepository->method('getYearsByFilter')->willReturn([$this->year]);
+        $this->monthRepository->method('getMonthsByFilter')->willReturn([$this->month]);
 
         $this->createDictionariesFromValues = new CreateDictionariesFromValues(
             $this->areaRepository,
             $this->independentVariableRepository,
-            $this->yearRepository
+            $this->yearRepository,
+            $this->monthRepository
         );
     }
 
@@ -236,6 +295,7 @@ class CreateDictionariesFromValuesTest extends TestCase
                 new AreaDictionary([$this->area]),
                 new IndependentVariableDictionary([$this->independentVariable]),
                 new YearDictionary([$this->year]),
+                new MonthDictionary([$this->month]),
             ],
             $this->createDictionariesFromValues->getDictionaries(
                 $this->typeIndicator,
@@ -244,5 +304,4 @@ class CreateDictionariesFromValuesTest extends TestCase
             )
         );
     }
-
 }
