@@ -10,6 +10,7 @@ class TypeIndicator
     private bool $hasArea;
     private bool $hasYear;
     private bool $hasMonth;
+    private bool $hasTerm;
     private int $numIndependentVars;
     private string $valueType;
 
@@ -31,6 +32,11 @@ class TypeIndicator
     public function hasMonth(): bool
     {
         return $this->hasMonth;
+    }
+
+    public function hasTerm(): bool
+    {
+        return $this->hasTerm;
     }
 
     public function getNumIndependentVars(): int
