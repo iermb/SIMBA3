@@ -8,7 +8,6 @@ use SIMBA3\Component\Domain\Indicator\Entity\TypeIndicator;
 use SIMBA3\Component\Domain\Value\Service\TypeValueArray;
 use SIMBA3\Component\Domain\Variable\Repository\AreaRepository;
 use SIMBA3\Component\Domain\Variable\Repository\IndependentVariableRepository;
-use SIMBA3\Component\Domain\Variable\Repository\TermRepository;
 use SIMBA3\Component\Domain\Variable\Repository\YearRepository;
 use SIMBA3\Component\Domain\Variable\Repository\MonthRepository;
 
@@ -18,14 +17,14 @@ class CreateDictionariesFromValues
     private IndependentVariableRepository $independentVariableRepository;
     private YearRepository                $yearRepository;
     private MonthRepository               $monthRepository;
-    private TermRepository                $termRepository;
+    private MonthRepository               $termRepository;
 
     public function __construct(
         AreaRepository $areaRepository,
         IndependentVariableRepository $independentVariableRepository,
         YearRepository $yearRepository,
         MonthRepository $monthRepository,
-        TermRepository $termRepository
+        MonthRepository $termRepository
     ) {
         $this->areaRepository = $areaRepository;
         $this->independentVariableRepository = $independentVariableRepository;
@@ -62,7 +61,7 @@ class CreateDictionariesFromValues
         }
 
         if ($typeIndicator->hasTerm()) {
-            $dictionaries[] = new TermDictionary($this->termRepository->getTermsByFilter($locale, $typeValueArray->getMonths()));
+            $dictionaries[] = new TermDictionary($this->termRepository->getMonthsByFilter($locale, $typeValueArray->getMonths()));
         }
 
         return $dictionaries;

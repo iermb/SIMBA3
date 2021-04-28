@@ -17,6 +17,7 @@ class MetadataIndicatorResponse
     private const NOTE_FIELD = 'note';
     private const AREA_INDICATOR_FIELD = 'Area';
     private const MONTH_INDICATOR_FIELD = 'Month';
+    private const TERM_INDICATOR_FIELD = 'Term';
     private const YEAR_INDICATOR_FIELD = 'Year';
     private const INDEPENDENT_VARIABLES_INDICATOR_FIELD = 'Independent Variables';
     private const VARIABLES_FIELD = 'variables';
@@ -46,6 +47,10 @@ class MetadataIndicatorResponse
 
         if ($indicatorType->hasMonth()) {
             $variables[] = self::MONTH_INDICATOR_FIELD;
+        }
+
+        if ($indicatorType->hasTerm()) {
+            $variables[] = self::TERM_INDICATOR_FIELD;
         }
 
         if (0 < $indicatorType->getNumIndependentVars()) {

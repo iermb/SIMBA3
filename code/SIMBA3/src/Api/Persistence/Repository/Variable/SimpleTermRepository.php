@@ -3,7 +3,6 @@
 namespace SIMBA3\Api\Persistence\Repository\Variable;
 
 use SIMBA3\Component\Domain\Filter\Service\MonthFilter;
-use SIMBA3\Component\Domain\Filter\Service\TermFilter;
 use SIMBA3\Component\Domain\Variable\Entity\Month;
 use SIMBA3\Component\Domain\Variable\Repository\MonthRepository;
 
@@ -45,7 +44,7 @@ class SimpleTermRepository implements MonthRepository
     public function getMonthsByFilter(string $locale, array $months): array
     {
         return array_map(function(array $month) use ($locale): Month {
-            return $this->getMonth($locale, $month[TermFilter::TERM_ID_FIELD]);
+            return $this->getMonth($locale, $month[MonthFilter::MONTH_ID_FIELD]);
         }, $months);
     }
 }
