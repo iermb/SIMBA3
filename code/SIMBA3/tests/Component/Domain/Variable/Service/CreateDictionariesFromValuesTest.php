@@ -74,11 +74,11 @@ class CreateDictionariesFromValuesTest extends TestCase
 
         $this->month = $this->createMock(Month::class);
         $this->month->method('getId')->willReturn(7);
-        $this->month->method('getMonth')->willReturn('Juliol');
+        $this->month->method('getName')->willReturn('Juliol');
 
         $this->term = $this->createMock(Month::class);
         $this->term->method('getId')->willReturn(1);
-        $this->term->method('getMonth')->willReturn('1r trimestre');
+        $this->term->method('getName')->willReturn('1r trimestre');
     }
 
     /** @test */

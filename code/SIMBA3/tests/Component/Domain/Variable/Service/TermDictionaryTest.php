@@ -71,9 +71,9 @@ class TermDictionaryTest extends TestCase
         $this->month1 = $this->createMock(Month::class);
         $this->month2 = $this->createMock(Month::class);
         $this->month1->method('getId')->willReturn(1);
-        $this->month1->method('getMonth')->willReturn('name1');
+        $this->month1->method('getName')->willReturn('name1');
         $this->month2->method('getId')->willReturn(2);
-        $this->month2->method('getMonth')->willReturn('name2');
+        $this->month2->method('getName')->willReturn('name2');
     }
 
 }

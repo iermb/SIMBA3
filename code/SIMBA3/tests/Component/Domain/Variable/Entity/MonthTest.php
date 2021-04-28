@@ -31,7 +31,7 @@ class MonthTest extends TestCase
 
         $this->assertEquals(
             'Month name',
-            $this->month->getMonth()
+            $this->month->getName()
         );
     }
 }

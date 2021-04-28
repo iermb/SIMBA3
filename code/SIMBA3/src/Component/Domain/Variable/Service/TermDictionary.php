@@ -26,7 +26,7 @@ class TermDictionary implements TypeDictionary
     {
         return [
             self::TERM_ID_FIELD => $month->getId(),
-            self::TERM_NAME_FIELD => $month->getMonth()
+            self::TERM_NAME_FIELD => $month->getName()
         ];
     }
 }
