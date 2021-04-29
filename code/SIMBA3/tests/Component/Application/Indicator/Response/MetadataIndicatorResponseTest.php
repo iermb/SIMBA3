@@ -21,9 +21,10 @@ class MetadataIndicatorResponseTest extends TestCase
         $this->typeIndicator = $this->createMock(TypeIndicator::class);
         $this->indicatorTranslation = $this->createMock(IndicatorTranslation::class);
 
-        $this->typeIndicator->method('hasArea')->willReturn(false);
+        $this->typeIndicator->method('hasArea')->willReturn(true);
         $this->typeIndicator->method('hasYear')->willReturn(true);
-        $this->typeIndicator->method('hasMonth')->willReturn(false);
+        $this->typeIndicator->method('hasMonth')->willReturn(true);
+        $this->typeIndicator->method('hasTerm')->willReturn(true);
         $this->typeIndicator->method('getNumIndependentVars')->willReturn(12);
         $this->typeIndicator->method('getIdType')->willReturn('FAKE_TYPE');
 
@@ -67,7 +68,10 @@ class MetadataIndicatorResponseTest extends TestCase
                 'decimals' => 2,
                 'note' => 'note of Indicator',
                 'variables' => [
+                    'Area',
                     'Year',
+                    'Month',
+                    'Term',
                     ['Independent Variables' => 12],
                 ],
             ],

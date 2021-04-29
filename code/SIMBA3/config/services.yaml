@@ -107,6 +107,7 @@ services:
             - "@simba3.repository.doctrine.independentVariable"
             - "@simba3.repository.simple.year"
             - "@simba3.repository.simple.month"
+            - "@simba3.repository.simple.term"
 
     simba3.repository.doctrine.indicator:
         class: SIMBA3\Api\Persistence\Repository\Indicator\DoctrineIndicatorRepository
@@ -179,6 +180,9 @@ services:
 
     simba3.repository.simple.month:
         class: SIMBA3\Api\Persistence\Repository\Variable\SimpleMonthRepository
+
+    simba3.repository.simple.term:
+        class: SIMBA3\Api\Persistence\Repository\Variable\SimpleTermRepository
 
     simba3.repository.metadata.indicator:
         class: Doctrine\ORM\Mapping\ClassMetadata

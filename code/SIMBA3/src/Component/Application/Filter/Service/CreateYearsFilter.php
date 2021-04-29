@@ -32,6 +32,10 @@ class CreateYearsFilter implements CreateFilterValues
                 return false;
             }
 
+            if($element < 0) {
+                return false;
+            }
+
             return true;
         });
 

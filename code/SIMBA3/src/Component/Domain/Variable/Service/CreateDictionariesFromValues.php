@@ -17,17 +17,20 @@ class CreateDictionariesFromValues
     private IndependentVariableRepository $independentVariableRepository;
     private YearRepository                $yearRepository;
     private MonthRepository               $monthRepository;
+    private MonthRepository               $termRepository;
 
     public function __construct(
         AreaRepository $areaRepository,
         IndependentVariableRepository $independentVariableRepository,
         YearRepository $yearRepository,
-        MonthRepository $monthRepository
+        MonthRepository $monthRepository,
+        MonthRepository $termRepository
     ) {
         $this->areaRepository = $areaRepository;
         $this->independentVariableRepository = $independentVariableRepository;
         $this->yearRepository = $yearRepository;
         $this->monthRepository = $monthRepository;
+        $this->termRepository = $termRepository;
     }
 
 
@@ -55,6 +58,10 @@ class CreateDictionariesFromValues
 
         if ($typeIndicator->hasMonth()) {
             $dictionaries[] = new MonthDictionary($this->monthRepository->getMonthsByFilter($locale, $typeValueArray->getMonths()));
+        }
+
+        if ($typeIndicator->hasTerm()) {
+            $dictionaries[] = new TermDictionary($this->termRepository->getMonthsByFilter($locale, $typeValueArray->getMonths()));
         }
 
         return $dictionaries;

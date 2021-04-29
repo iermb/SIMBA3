@@ -78,7 +78,14 @@ class FactoryTypeValueTest extends TestCase
     public function shouldFactoryTypeValueReturnAreaMonthYearTypeValue(): void
     {
         $this->givenAFactoryTypeValue();
-        $this->whenGetObjectTypeValueIsAreaMonthYearValueThenReturnAreaYearTypeValue();
+        $this->whenGetObjectTypeValueIsAreaMonthYearValueThenReturnAreaMonthYearTypeValue();
+    }
+
+    /** @test */
+    public function shouldFactoryTypeValueReturnAreaTermYearTypeValue(): void
+    {
+        $this->givenAFactoryTypeValue();
+        $this->whenGetObjectTypeValueIsAreaTermYearValueThenReturnAreaTermYearTypeValue();
     }
 
     /** @test */
@@ -132,11 +139,19 @@ class FactoryTypeValueTest extends TestCase
         );
     }
 
-    private function whenGetObjectTypeValueIsAreaMonthYearValueThenReturnAreaYearTypeValue(): void
+    private function whenGetObjectTypeValueIsAreaMonthYearValueThenReturnAreaMonthYearTypeValue(): void
     {
         $this->assertInstanceOf(
             AreaMonthYearTypeValue::class,
             $this->factoryTypeValue->getObjectTypeValue("AREA_MONTH_YEAR_VALUE", 1001, $this->filters)
+        );
+    }
+
+    private function whenGetObjectTypeValueIsAreaTermYearValueThenReturnAreaTermYearTypeValue(): void
+    {
+        $this->assertInstanceOf(
+            AreaMonthYearTypeValue::class,
+            $this->factoryTypeValue->getObjectTypeValue("AREA_TERM_YEAR_VALUE", 1001, $this->filters)
         );
     }
 

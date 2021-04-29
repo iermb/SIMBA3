@@ -3,14 +3,13 @@
 
 namespace SIMBA3\Component\Domain\Value\Service;
 
-
 use InvalidArgumentException;
 use SIMBA3\Component\Application\Filter\Service\CreateAreasFilter;
 use SIMBA3\Component\Application\Filter\Service\CreateIndependentVariablesFilter;
 use SIMBA3\Component\Application\Filter\Service\CreateIndicatorFilter;
 use SIMBA3\Component\Application\Filter\Service\CreateMonthsFilter;
+use SIMBA3\Component\Application\Filter\Service\CreateTermsFilter;
 use SIMBA3\Component\Application\Filter\Service\CreateYearsFilter;
-use SIMBA3\Component\Domain\Value\Entity\AreaMonthYearValue;
 use SIMBA3\Component\Domain\Value\Repository\AreaIndependentVariable1YearValueRepository;
 use SIMBA3\Component\Domain\Value\Repository\AreaIndependentVariable2YearValueRepository;
 use SIMBA3\Component\Domain\Value\Repository\AreaMonthYearValueRepository;
@@ -21,6 +20,7 @@ class FactoryTypeValue
 {
     public const AREA_YEAR_VALUE_TYPE = "AREA_YEAR_VALUE";
     public const AREA_MONTH_YEAR_VALUE_TYPE = "AREA_MONTH_YEAR_VALUE";
+    public const AREA_TERM_YEAR_VALUE_TYPE = "AREA_TERM_YEAR_VALUE";
     public const AREA_INDEPENDENT_VARIABLE_1_YEAR_VALUE_TYPE = "AREA_INDEPENDENT_VARIABLE_1_YEAR_VALUE";
     public const AREA_INDEPENDENT_VARIABLE_2_YEAR_VALUE_TYPE = "AREA_INDEPENDENT_VARIABLE_2_YEAR_VALUE";
     public const YEAR_VALUE_TYPE = "YEAR_VALUE";
@@ -82,6 +82,17 @@ class FactoryTypeValue
                     $createIndicatorFilter->getFilter(),
                     $createAreasFilter->getFilter(),
                     $createMonthsFilter->getFilter(),
+                    $createYearsFilter->getFilter()
+                );
+
+            case self::AREA_TERM_YEAR_VALUE_TYPE:
+                $createAreasFilter = new CreateAreasFilter($filters);
+                $createTermsFilter = new CreateTermsFilter($filters);
+                return new AreaMonthYearTypeValue(
+                    $this->areaMonthYearValueRepository,
+                    $createIndicatorFilter->getFilter(),
+                    $createAreasFilter->getFilter(),
+                    $createTermsFilter->getFilter(),
                     $createYearsFilter->getFilter()
                 );
 

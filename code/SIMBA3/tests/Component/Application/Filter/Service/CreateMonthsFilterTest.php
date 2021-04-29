@@ -44,6 +44,8 @@ class CreateMonthsFilterTest extends TestCase
             [new CreateMonthsFilter(["months" => 'april'])],
             [new CreateMonthsFilter(["months" => 12])],
             [new CreateMonthsFilter(["months" => [[12]]])],
+            [new CreateMonthsFilter(["months" => [0]])],
+            [new CreateMonthsFilter(["months" => [13]])],
         ];
     }
 

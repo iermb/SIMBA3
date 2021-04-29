@@ -26,7 +26,7 @@ class MonthDictionary implements TypeDictionary
     {
         return [
             self::MONTH_ID_FIELD => $month->getId(),
-            self::MONTH_NAME_FIELD => $month->getMonth()
+            self::MONTH_NAME_FIELD => $month->getName()
         ];
     }
 }
