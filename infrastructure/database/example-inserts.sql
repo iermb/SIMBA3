@@ -150,3 +150,9 @@ INSERT INTO "year_value" ("indicator_id", "year", "value", "is_public", "note_va
 (1,	2017,	7547.8580,	'1',	NULL),
 (1,	2018,	7631.0910,	'1',	NULL),
 (1,	2016,	7464.0220,	'1',	NULL);
+
+INSERT INTO "area_indicator" ("type_area_code", "area_code", "indicator_id") VALUES
+(34,	1,	2),
+(34,	2,	2),
+(34,	3,	2),
+(34,	4,	2);
