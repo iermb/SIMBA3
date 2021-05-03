@@ -39,3 +39,10 @@ doctrine:
                 prefix: 'SIMBA3\Component\Domain\Variable'
                 alias: Variable
 
+            VariableIndicator:
+                is_bundle: false
+                type: xml
+                dir: '%kernel.project_dir%/src/Api/Persistence/Migrations/VariableIndicator'
+                prefix: 'SIMBA3\Component\Domain\VariableIndicator'
+                alias: VariableIndicator
+

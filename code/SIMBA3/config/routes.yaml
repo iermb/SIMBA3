@@ -42,3 +42,10 @@ api_read_independent_variable:
   methods: GET
   requirements:
     typeIndependentVariableId: '\d+'
+
+api_read_areas_by_indicator:
+  path: /{_locale}/areas-indicator/{indicatorId}/
+  controller: SIMBA3\Api\Controller\VariableIndicator\ReadAreasIndicatorController::execute
+  methods: GET
+  requirements:
+    indicatorId: '\d+'
