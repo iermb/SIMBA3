@@ -20,15 +20,8 @@ class ReadAreasIndicatorUseCaseTest extends TestCase
     public function shouldReadAreasIndicatorUseCaseReturnReadAreasIndicatorResponse(): void
     {
         $this->givenAReadAreasIndicatorsUseCase();
+        $this->thenExpectsGetAreaRepositoryAndAreaIndicatorRepository();
         $this->thenReturnAReadAreasIndicatorResponse();
-    }
-
-    protected function setUp(): void
-    {
-        parent::setUp();
-        $this->areaIndicatorRepository = $this->createMock(AreaIndicatorRepository::class);
-        $this->areaRepository = $this->createMock(AreaRepository::class);
-        $this->readAreasIndicatorRequest = $this->createMock(ReadAreasIndicatorRequest::class);
     }
 
     private function givenAReadAreasIndicatorsUseCase(): void
@@ -37,10 +30,24 @@ class ReadAreasIndicatorUseCaseTest extends TestCase
             $this->areaRepository);
     }
 
+    private function thenExpectsGetAreaRepositoryAndAreaIndicatorRepository(): void
+    {
+        $this->areaRepository->expects($this->once())->method('getAreasByFilter');
+        $this->areaIndicatorRepository->expects($this->once())->method('getAreasIndicatorByIndicator');
+    }
+
     private function thenReturnAReadAreasIndicatorResponse(): void
     {
         $this->assertInstanceOf(ReadAreasIndicatorResponse::class,
             $this->readAreasIndicatorUseCase->execute($this->readAreasIndicatorRequest));
+    }
+
+    protected function setUp(): void
+    {
+        parent::setUp();
+        $this->areaIndicatorRepository = $this->createMock(AreaIndicatorRepository::class);
+        $this->areaRepository = $this->createMock(AreaRepository::class);
+        $this->readAreasIndicatorRequest = $this->createMock(ReadAreasIndicatorRequest::class);
     }
 
 }

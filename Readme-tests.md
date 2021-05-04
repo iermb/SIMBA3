@@ -95,3 +95,10 @@ This endpoint return areas that indicator (indicatorId) has
 Same endpoint but with other language 'es':
 ``http://localhost:8080/es/areas-indicator/2/`` will return
 > [{"TypeAreaId":3,"TypeAreaName":"Provincia","AreaId":1,"AreaName":"Gerona"},{"TypeAreaId":3,"TypeAreaName":"Provincia","AreaId":2,"AreaName":"Lerida"},{"TypeAreaId":3,"TypeAreaName":"Provincia","AreaId":3,"AreaName":"Tarragona"},{"TypeAreaId":3,"TypeAreaName":"Provincia","AreaId":4,"AreaName":"Barcelona"}]
+
+### /{_locale}/years-indicator/{indicatorId}/
+This endpoint return areas that indicator (indicatorId) has
+``http://localhost:8080/ca/years-indicator/2/`` will return
+> [{"yearId":2019,"yearName":2019},{"yearId":2020,"yearName":2020}]
+
+In this case no affect the locale.

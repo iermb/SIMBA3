@@ -22,6 +22,4 @@ class AreaIndicator
         return $this->areaCode;
     }
 
-
-
 }
