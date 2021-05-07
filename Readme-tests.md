@@ -85,3 +85,20 @@ This endpoint returns all independent variables from an identification (type of 
 
 ``http://localhost:8080/ca/type-independent-variable/2/independent-variable/`` will return:
 > [{"id":3,"name":"Menor d\u0027edat","type_name":"Edat"},{"id":4,"name":"Major d\u0027edat","type_name":"Edat"}]
+
+
+### /{_locale}/areas-indicator/{indicatorId}/
+This endpoint return areas that indicator (indicatorId) has
+``http://localhost:8080/ca/areas-indicator/2/`` will return
+> [{"TypeAreaId":1,"TypeAreaName":"Provincia","AreaId":1,"AreaName":"Girona"},{"TypeAreaId":1,"TypeAreaName":"Provincia","AreaId":2,"AreaName":"Lleida"},{"TypeAreaId":1,"TypeAreaName":"Provincia","AreaId":3,"AreaName":"Tarragona"},{"TypeAreaId":1,"TypeAreaName":"Provincia","AreaId":4,"AreaName":"Barcelona"}]
+
+Same endpoint but with other language 'es':
+``http://localhost:8080/es/areas-indicator/2/`` will return
+> [{"TypeAreaId":3,"TypeAreaName":"Provincia","AreaId":1,"AreaName":"Gerona"},{"TypeAreaId":3,"TypeAreaName":"Provincia","AreaId":2,"AreaName":"Lerida"},{"TypeAreaId":3,"TypeAreaName":"Provincia","AreaId":3,"AreaName":"Tarragona"},{"TypeAreaId":3,"TypeAreaName":"Provincia","AreaId":4,"AreaName":"Barcelona"}]
+
+### /{_locale}/years-indicator/{indicatorId}/
+This endpoint return areas that indicator (indicatorId) has
+``http://localhost:8080/ca/years-indicator/2/`` will return
+> [{"yearId":2019,"yearName":2019},{"yearId":2020,"yearName":2020}]
+
+In this case no affect the locale.
